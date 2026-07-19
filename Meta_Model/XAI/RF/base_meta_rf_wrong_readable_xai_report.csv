@@ -1,0 +1,514 @@
+row_index,prediction_result,review_text,true_sentiment,predicted_sentiment,prediction_confidence,strongest_individual_feature,strongest_feature_group,top_supporting_features,top_opposing_features,explanation
+2,wrong,"I ordered 3 sizes up because of the reviews , the material is thinner than I expected but not see through, has thumb holes didn't really notice until after I bought it , so gets baggy at the bottom , I really like how it has the flowy sides the shape nd style of the shirt is really nice on top of a pencil skirt (is the way I'm wearing it , I would say the bag doesn't have much shape but I would go darker to be more sliming, I like the hood and the comfy part of the sweater , it's tighter on my upper arms only cuz I have bigger upper arms the elbow down is bigger material , and it doesn't look like expensive quality but grateful was only 15.99 . I may purchase another color. I bought the pink one(""purple) it's not purple it's actually pink close to the picture looks to me like a rosy darker hot pink color. I am thinning of getting the green one next it'll be a grate live in sweater for the fall and casual for winter under the coat. Love the hood with extra space not too snug",pos,neu,0.4835,Base RoBERTa Neu,Naive Bayes,"Base RoBERTa Neu = 0.3557 (SHAP contribution: 0.0456);
+Base NB Pos = 0.1984 (SHAP contribution: 0.033);
+Base SVM Pos = 0.18 (SHAP contribution: 0.0252);
+Base VADER Compound = 0.9877 (SHAP contribution: 0.0236);
+Base RoBERTa Pos = 0.6239 (SHAP contribution: 0.0221)","Base RoBERTa Neg = 0.0204 (SHAP contribution: -0.0223);
+Base VADER Neg = 0.0 (SHAP contribution: -0.019);
+Base NB Neg = 0.2172 (SHAP contribution: -0.0031);
+Base SVM Neu = 0.3527 (SHAP contribution: -0.0021)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neu, while the strongest overall feature group was Naive Bayes. The top supporting features were Base RoBERTa Neu, Base NB Pos, Base SVM Pos, Base VADER Compound, Base RoBERTa Pos. The main opposing signal was Base RoBERTa Neg."
+3,wrong,I like the glasses but not the fit. I can't get the nose piece right. They sit on my cheeks.,neu,neg,0.68,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0159 (SHAP contribution: 0.1656);
+Base RoBERTa Neg = 0.7605 (SHAP contribution: 0.129);
+Base VADER Compound = -0.2299 (SHAP contribution: 0.0402);
+Base RoBERTa Neu = 0.2236 (SHAP contribution: 0.025);
+Base SVM Pos = 0.3118 (SHAP contribution: 0.0099)","Base NB Neu = 0.4254 (SHAP contribution: -0.0179);
+Base NB Neg = 0.3785 (SHAP contribution: -0.0096);
+Base VADER Neu = 0.784 (SHAP contribution: -0.0074);
+Base VADER Neg = 0.131 (SHAP contribution: -0.0055);
+Base VADER Pos = 0.086 (SHAP contribution: -0.0014)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base SVM Pos. The main opposing signal was Base NB Neu."
+4,wrong,Too dark to use them indoors.,pos,neg,0.7623,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.022 (SHAP contribution: 0.1337);
+Base RoBERTa Neg = 0.6455 (SHAP contribution: 0.1241);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0612);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0396);
+Base RoBERTa Neu = 0.3326 (SHAP contribution: 0.0315)","Base NB Neg = 0.3093 (SHAP contribution: -0.0169);
+Base NB Neu = 0.383 (SHAP contribution: -0.0094);
+Base NB Pos = 0.3078 (SHAP contribution: -0.0092)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neg."
+8,wrong,"Love these so much, but they do not come with the jump rings as advertised in the pitcure. Luckily I had extra in storage, but if you don't, be sure to buy some separately.",pos,neu,0.6152,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.1355 (SHAP contribution: 0.0756);
+Base RoBERTa Neu = 0.4534 (SHAP contribution: 0.0565);
+Base RoBERTa Pos = 0.4111 (SHAP contribution: 0.054);
+Base NB Pos = 0.1822 (SHAP contribution: 0.0239);
+Base VADER Compound = 0.6815 (SHAP contribution: 0.0238)","Base NB Neu = 0.2292 (SHAP contribution: -0.036);
+Base NB Neg = 0.5887 (SHAP contribution: -0.0032)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Neu, Base RoBERTa Pos, Base NB Pos, Base VADER Compound. The main opposing signal was Base NB Neu."
+12,wrong,I bought the book with just a little knowledge of the candle making industry. The problem with the book is its not updated for the new technology and materials that are used in candle making today. Yes it does a good job of breaking down the VERY BASICS but thats it. You need to know more about the industry than this book covers. I got more information from watching videos on youtube and the different candle supply companies websites than the couple of books I recently purchased. Watch videos and get up to date information on new waxes and materials. Save yourself the $15 or whatever you may spend and research the internet and the big candle supply companies out there. They know whats new and what works,neg,neu,0.4309,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.2464 (SHAP contribution: 0.0573);
+Base RoBERTa Pos = 0.1774 (SHAP contribution: 0.0437);
+Base VADER Compound = 0.7391 (SHAP contribution: 0.0293);
+Base RoBERTa Neu = 0.5762 (SHAP contribution: 0.0253);
+Base NB Pos = 0.2481 (SHAP contribution: 0.0174)","Base NB Neu = 0.2505 (SHAP contribution: -0.0405);
+Base SVM Neu = 0.2404 (SHAP contribution: -0.0361);
+Base VADER Neu = 0.923 (SHAP contribution: -0.0114);
+Base SVM Pos = 0.4426 (SHAP contribution: -0.0063);
+Base VADER Pos = 0.063 (SHAP contribution: -0.0062)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Pos. The main opposing signal was Base NB Neu."
+17,wrong,FIVE STA...er...Make that ONE star!,neg,pos,0.3848,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.043 (SHAP contribution: 0.1005);
+Base RoBERTa Pos = 0.3957 (SHAP contribution: 0.0359);
+Base SVM Neu = 0.3376 (SHAP contribution: 0.0161);
+Base VADER Neg = 0.0 (SHAP contribution: 0.0122);
+Base SVM Neg = 0.3325 (SHAP contribution: 0.0066)","Base VADER Compound = 0.0 (SHAP contribution: -0.0295);
+Base NB Pos = 0.262 (SHAP contribution: -0.0201);
+Base NB Neg = 0.3859 (SHAP contribution: -0.0177);
+Base VADER Pos = 0.0 (SHAP contribution: -0.0164);
+Base SVM Pos = 0.33 (SHAP contribution: -0.009)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Neu, Base VADER Neg, Base SVM Neg. The main opposing signal was Base VADER Compound."
+18,wrong,Believe,pos,neu,0.3862,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.6068 (SHAP contribution: 0.0373);
+Base RoBERTa Neu = 0.3608 (SHAP contribution: 0.0301);
+Base RoBERTa Neg = 0.0325 (SHAP contribution: 0.0247);
+Base NB Pos = 0.3042 (SHAP contribution: 0.0207);
+Base NB Neg = 0.406 (SHAP contribution: 0.0112)","Base SVM Neu = 0.3371 (SHAP contribution: -0.0237);
+Base VADER Compound = 0.0 (SHAP contribution: -0.0162);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0145);
+Base NB Neu = 0.2898 (SHAP contribution: -0.012);
+Base VADER Neu = 1.0 (SHAP contribution: -0.0099)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neu, Base RoBERTa Neg, Base NB Pos, Base NB Neg. The main opposing signal was Base SVM Neu."
+19,wrong,"Ladies with smaller sized chest would be fine with this product- Ladies with larger (D+), don't bother! The ears don't stick enough to keep the girls lifted and give you a weird shape when they do stick for a couple minutes.",neg,neu,0.4536,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.3542 (SHAP contribution: 0.0364);
+Base RoBERTa Pos = 0.0894 (SHAP contribution: 0.0323);
+Base RoBERTa Neu = 0.5564 (SHAP contribution: 0.023);
+Base VADER Compound = 0.3459 (SHAP contribution: 0.0184);
+Base NB Pos = 0.2297 (SHAP contribution: 0.0181)","Base NB Neu = 0.2423 (SHAP contribution: -0.0463);
+Base SVM Neu = 0.339 (SHAP contribution: -0.015);
+Base SVM Pos = 0.3312 (SHAP contribution: -0.0023)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Compound, Base NB Pos. The main opposing signal was Base NB Neu."
+20,wrong,It came stained! I'm so upset too because I planned to wear it to my sons graduation and now I don't have time to order something else.Edit: I raised my star rating from a 1 to a 4 because the company who manufactured the dress reached out and apologized for their mistake with the stains. Anytime a company goes out of there way and acknowledges their mistake I appreciate it.,pos,neg,0.5513,Base VADER Compound,Naive Bayes,"Base VADER Compound = -0.4693 (SHAP contribution: 0.0582);
+Base NB Neg = 0.6036 (SHAP contribution: 0.0456);
+Base RoBERTa Neg = 0.4144 (SHAP contribution: 0.0418);
+Base NB Pos = 0.1648 (SHAP contribution: 0.0361);
+Base NB Neu = 0.2315 (SHAP contribution: 0.03)","Base RoBERTa Neu = 0.4666 (SHAP contribution: -0.0345);
+Base VADER Neu = 0.787 (SHAP contribution: -0.0027);
+Base RoBERTa Pos = 0.119 (SHAP contribution: -0.0009)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was Naive Bayes. The top supporting features were Base VADER Compound, Base NB Neg, Base RoBERTa Neg, Base NB Pos, Base NB Neu. The main opposing signal was Base RoBERTa Neu."
+29,wrong,Built great.,neu,pos,0.7836,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.7852 (SHAP contribution: 0.1447);
+Base RoBERTa Neg = 0.033 (SHAP contribution: 0.1032);
+Base NB Pos = 0.4568 (SHAP contribution: 0.044);
+Base RoBERTa Neu = 0.1818 (SHAP contribution: 0.0399);
+Base VADER Compound = 0.6249 (SHAP contribution: 0.0311)",Base NB Neu = 0.3209 (SHAP contribution: -0.0014),"The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base RoBERTa Neu, Base VADER Compound. The main opposing signal was Base NB Neu."
+30,wrong,These are okay. They are pretty but they are also kinda cheap. But hey look at the price. They do look very nice and are comfortable to wear.,neu,pos,0.7774,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0123 (SHAP contribution: 0.1798);
+Base RoBERTa Pos = 0.8423 (SHAP contribution: 0.1735);
+Base RoBERTa Neu = 0.1454 (SHAP contribution: 0.0496);
+Base NB Pos = 0.4459 (SHAP contribution: 0.0485);
+Base VADER Compound = 0.903 (SHAP contribution: 0.027)","Base SVM Pos = 0.2502 (SHAP contribution: -0.0355);
+Base SVM Neu = 0.3673 (SHAP contribution: -0.0224);
+Base NB Neu = 0.3471 (SHAP contribution: -0.0081);
+Base SVM Neg = 0.3825 (SHAP contribution: -0.0045)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Pos, Base VADER Compound. The main opposing signal was Base SVM Pos."
+33,wrong,"This is the book that was used for MATH 0150 at Kean University, Union, NJ, USA.",neu,pos,0.4025,Base RoBERTa Neg,Naive Bayes,"Base RoBERTa Neg = 0.0321 (SHAP contribution: 0.1072);
+Base NB Pos = 0.5121 (SHAP contribution: 0.0361);
+Base VADER Neg = 0.0 (SHAP contribution: 0.017);
+Base SVM Pos = 0.3476 (SHAP contribution: 0.0151);
+Base SVM Neu = 0.3208 (SHAP contribution: 0.0144)","Base RoBERTa Pos = 0.0806 (SHAP contribution: -0.0712);
+Base VADER Compound = 0.0 (SHAP contribution: -0.0342);
+Base VADER Pos = 0.0 (SHAP contribution: -0.0229);
+Base VADER Neu = 1.0 (SHAP contribution: -0.0013)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was Naive Bayes. The top supporting features were Base RoBERTa Neg, Base NB Pos, Base VADER Neg, Base SVM Pos, Base SVM Neu. The main opposing signal was Base RoBERTa Pos."
+34,wrong,Just what the travel doctor ordered!,pos,neu,0.3849,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.2074 (SHAP contribution: 0.0478);
+Base RoBERTa Pos = 0.2303 (SHAP contribution: 0.0445);
+Base RoBERTa Neu = 0.5623 (SHAP contribution: 0.0231);
+Base SVM Neg = 0.3229 (SHAP contribution: 0.0165);
+Base NB Neg = 0.3523 (SHAP contribution: 0.016)","Base VADER Compound = 0.0 (SHAP contribution: -0.0339);
+Base SVM Neu = 0.3333 (SHAP contribution: -0.0308);
+Base VADER Pos = 0.0 (SHAP contribution: -0.0208);
+Base VADER Neu = 1.0 (SHAP contribution: -0.0155);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0106)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base SVM Neg, Base NB Neg. The main opposing signal was Base VADER Compound."
+36,wrong,"The Road to Gandolfo is a spoof, or satire, or meant to be generally amusing, or some combination of those three.A guy that is kicked out of the army for becoming a political embarrassment, decides to do something even more politically embarrassing. He kidnaps the Pope.The Pope doesn't mind that much, he gets to kick back, shoot the breeze, sink a few cold ones, have a few barbies, and generally be not stressed.The problem will be getting all the Catholics to pay the ransom that they want for him, as he is taxing them all.",pos,neg,0.5472,Base VADER Compound,RoBERTa,"Base VADER Compound = -0.53 (SHAP contribution: 0.0706);
+Base RoBERTa Pos = 0.0351 (SHAP contribution: 0.0598);
+Base RoBERTa Neg = 0.5504 (SHAP contribution: 0.0576);
+Base SVM Neu = 0.3154 (SHAP contribution: 0.025);
+Base NB Neg = 0.4534 (SHAP contribution: 0.0156)","Base RoBERTa Neu = 0.4145 (SHAP contribution: -0.0232);
+Base VADER Neu = 0.842 (SHAP contribution: -0.0149);
+Base NB Neu = 0.3603 (SHAP contribution: -0.0091);
+Base NB Pos = 0.1863 (SHAP contribution: -0.0077);
+Base VADER Neg = 0.096 (SHAP contribution: -0.0055)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Neu, Base NB Neg. The main opposing signal was Base RoBERTa Neu."
+37,wrong,"They are great, the only reason why I didnt keep them is that I looked bad in these. My body isnt for it, but otherwise if you know you look good in these type of pants- that would be a good buy. Quality is pretty nice.I wished I looked better, but well, life ;)",pos,neu,0.6292,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.1413 (SHAP contribution: 0.0698);
+Base RoBERTa Pos = 0.4451 (SHAP contribution: 0.0565);
+Base RoBERTa Neu = 0.4136 (SHAP contribution: 0.0534);
+Base SVM Neu = 0.46 (SHAP contribution: 0.0523);
+Base NB Neg = 0.3799 (SHAP contribution: 0.0293)","Base NB Neu = 0.261 (SHAP contribution: -0.0285);
+Base VADER Neu = 0.621 (SHAP contribution: -0.0031)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base SVM Neu, Base NB Neg. The main opposing signal was Base NB Neu."
+38,wrong,Awesome... for 2 weeks junk!,neg,neu,0.4119,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0796 (SHAP contribution: 0.0552);
+Base RoBERTa Pos = 0.6802 (SHAP contribution: 0.0487);
+Base NB Pos = 0.2245 (SHAP contribution: 0.0169);
+Base RoBERTa Neu = 0.2401 (SHAP contribution: 0.0164);
+Base NB Neg = 0.4628 (SHAP contribution: 0.0053)","Base VADER Compound = 0.0 (SHAP contribution: -0.0279);
+Base SVM Neu = 0.3326 (SHAP contribution: -0.0233);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0126);
+Base VADER Neu = 1.0 (SHAP contribution: -0.0104);
+Base VADER Pos = 0.0 (SHAP contribution: -0.009)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base RoBERTa Neu, Base NB Neg. The main opposing signal was Base VADER Compound."
+42,wrong,"the channel memory is funky if its turned up to loud it cuts out the remote is too small and hard to read, understand and hold",neu,neg,0.7422,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.8721 (SHAP contribution: 0.1564);
+Base RoBERTa Pos = 0.007 (SHAP contribution: 0.153);
+Base RoBERTa Neu = 0.1209 (SHAP contribution: 0.0488);
+Base VADER Compound = -0.4588 (SHAP contribution: 0.0321);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0234)","Base NB Neu = 0.4595 (SHAP contribution: -0.0172);
+Base NB Neg = 0.3397 (SHAP contribution: -0.0128);
+Base VADER Neu = 0.821 (SHAP contribution: -0.0027)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Compound, Base VADER Pos. The main opposing signal was Base NB Neu."
+43,wrong,"Wedding planner Carnegie Kincaid is going through a rough patch professionally and personally. Her Seattle based businesses ""Made in Heaven Wedding Design"" is not making much money and her relationship with her commitment phobic significant other Aaron Gold is strained. She decides to attend the wedding of her college friend Tracy West because of the business contacts she will make there as Tracy is a big Hollywood star and her parents know all the movers and shakes.When Carnegie learns her cousin died, she decides that the wedding is the perfect place to get some answers regarding his death. Although Carnegie wasn't close to her cousin Brian Theale, she wants to know if his death was an accident or murder. A professional who examined the body thinks he was murdered but the sheriff and the task force classified it an accident. Brian's fellow smoke jumpers who were with him shortly after he died will be at the wedding so Carnegie will have an easy time questioning the suspects. To her delight, Aaron comes up for the wedding and since he is a journalist with skills that are needed to question suspects, they team up to find out the truth behind Brian's death.The heroine becomes the de facto wedding planner for the West wedding which gives her easy access to the suspects and her determination to find out if the cousin she didn't like was murdered is laudable. Doing her job while trying to scope out a murderer leads to some very funny situations and the comic relief is needed because the tension throughout the storyline is as tight as a high wire. Deborah Donnelly is a very creative writer whose mystery series is refreshingly innovative and totally exciting.Harriet Klausner",pos,neu,0.4402,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.1677 (SHAP contribution: 0.0539);
+Base RoBERTa Neu = 0.67 (SHAP contribution: 0.0384);
+Base SVM Neu = 0.5434 (SHAP contribution: 0.0371);
+Base RoBERTa Pos = 0.1623 (SHAP contribution: 0.0291);
+Base SVM Neg = 0.1672 (SHAP contribution: 0.0121)","Base NB Pos = 0.5342 (SHAP contribution: -0.0286);
+Base VADER Compound = -0.5165 (SHAP contribution: -0.0252);
+Base NB Neg = 0.1841 (SHAP contribution: -0.0131);
+Base VADER Neu = 0.698 (SHAP contribution: -0.0094);
+Base NB Neu = 0.2816 (SHAP contribution: -0.0084)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Neu, Base SVM Neu, Base RoBERTa Pos, Base SVM Neg. The main opposing signal was Base NB Pos."
+44,wrong,I am still having trouble getting it setup for wifi internet. If I can fix that problem it is a good buy.,neu,neg,0.4827,Base VADER Compound,VADER,"Base VADER Compound = -0.3612 (SHAP contribution: 0.0508);
+Base RoBERTa Neg = 0.3779 (SHAP contribution: 0.0496);
+Base VADER Neg = 0.222 (SHAP contribution: 0.0458);
+Base RoBERTa Pos = 0.1266 (SHAP contribution: 0.0236);
+Base SVM Neu = 0.3125 (SHAP contribution: 0.0187)","Base RoBERTa Neu = 0.4955 (SHAP contribution: -0.0204);
+Base SVM Pos = 0.3627 (SHAP contribution: -0.0199);
+Base SVM Neg = 0.3248 (SHAP contribution: -0.0121);
+Base NB Neg = 0.204 (SHAP contribution: -0.0082);
+Base VADER Pos = 0.119 (SHAP contribution: -0.0028)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Base VADER Compound, Base RoBERTa Neg, Base VADER Neg, Base RoBERTa Pos, Base SVM Neu. The main opposing signal was Base RoBERTa Neu."
+47,wrong,"It's great. I'm near the max distance from Green Bay, WI. Time Warner took our NBC any MyTV off because of price disputes. Now TWC can do whatever with local tv. With next day shipping it was only around $42.00.",pos,neu,0.5417,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.6449 (SHAP contribution: 0.0361);
+Base RoBERTa Neu = 0.3037 (SHAP contribution: 0.0332);
+Base VADER Neg = 0.048 (SHAP contribution: 0.0272);
+Base VADER Pos = 0.093 (SHAP contribution: 0.0222);
+Base NB Pos = 0.261 (SHAP contribution: 0.0219)",Base SVM Neu = 0.3428 (SHAP contribution: -0.0151),"The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Neg, Base VADER Pos, Base NB Pos. The main opposing signal was Base SVM Neu."
+55,wrong,"Incarcerated in a labor camp in Siberia, Ivan Denisovich struggles to find food, warmth and a bit of dignity over the course of his day as a forced laborer in the Gulag.....One Day in the Life of Ivan DenisovichRich B",pos,neg,0.665,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0156 (SHAP contribution: 0.1545);
+Base RoBERTa Neg = 0.6778 (SHAP contribution: 0.126);
+Base VADER Compound = 0.0516 (SHAP contribution: 0.0462);
+Base RoBERTa Neu = 0.3066 (SHAP contribution: 0.0239);
+Base NB Neu = 0.2961 (SHAP contribution: 0.0111)","Base SVM Pos = 0.4104 (SHAP contribution: -0.0193);
+Base VADER Pos = 0.132 (SHAP contribution: -0.0164);
+Base NB Neg = 0.245 (SHAP contribution: -0.0098);
+Base NB Pos = 0.459 (SHAP contribution: -0.0062);
+Base SVM Neg = 0.2989 (SHAP contribution: -0.0052)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base NB Neu. The main opposing signal was Base SVM Pos."
+56,wrong,"I read this book many years ago when I was 13 or 14 so my memory is a little fuzzy on the details, but I remember it made a huge impression on me at the time. I saw the movie and that is what originally inspired me to read the book, but there is a lot more to the book than just the love story that was portrayed in the movie. There is a lot of political and social history presented in the novel, but not so much that it overwhelms the reader. The story and the history are balanced very well. The main character strives to do well and survive against the odds, which was inspirational despite the fact that so many unfortunate incidents happened to him.",neu,pos,0.827,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0074 (SHAP contribution: 0.1862);
+Base RoBERTa Pos = 0.7969 (SHAP contribution: 0.1641);
+Base NB Pos = 0.4301 (SHAP contribution: 0.0431);
+Base SVM Pos = 0.3595 (SHAP contribution: 0.0294);
+Base RoBERTa Neu = 0.1957 (SHAP contribution: 0.028)","Base NB Neu = 0.3706 (SHAP contribution: -0.0149);
+Base VADER Neg = 0.045 (SHAP contribution: -0.0074)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base SVM Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neu."
+61,wrong,"I purchased this in 2013. It was easy to set up and has worked great since then. Only issue is when the display is out of it's dock it will sometimes lock up and require a restart to get the functions to work again. Also, none of the administrative functions work while it is in the dock, have to remove from dock to do anything. Now, here we are in the latter part of 2017 and I can no longer access the system on my iPhone because Uniden had not issued any upgrades that will allow their system to work with IOS 11. Trying to contact Uniden but like so many companies these days they hide their contact information so that you either spend way too much time to find it, or you never find it, which means they don't have to help many people, just sell a product and write it off.",pos,neg,0.696,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.6583 (SHAP contribution: 0.1214);
+Base RoBERTa Pos = 0.0334 (SHAP contribution: 0.0756);
+Base NB Neg = 0.6135 (SHAP contribution: 0.0458);
+Base NB Pos = 0.1608 (SHAP contribution: 0.0407);
+Base NB Neu = 0.2258 (SHAP contribution: 0.0234)","Base VADER Compound = 0.3946 (SHAP contribution: -0.0246);
+Base VADER Neu = 0.9 (SHAP contribution: -0.0063);
+Base VADER Neg = 0.041 (SHAP contribution: -0.002)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neg, Base NB Pos, Base NB Neu. The main opposing signal was Base VADER Compound."
+63,wrong,"I have two of these that I'll be returning. The menu functions require about an hour of training. Between the three buttons and power button, it's a puzzle trying to figure out which buttons do what, and how long you have to hold down which button for 1, 2 or 5 seconds to make something happen. Aside from that, I wouldn't have been rating this a bad product if it wasn't for what followed. I hooked one up for a day, and noticed that the time stamp seemed to fall back about 2 minutes every hour. GPS function is a non-existent joke. It simply doesn't work. It did manage to locate where I parked my car, and after that reported everywhere I went at the same location. The time stamp started to jam after 4 hours of use, and after another hour, the camera stopped recording all together losing the last hour of my drive. I'm not sure why it has any sort of built in power source, as it gets about 2 minutes on a full charge before shutting off. Again, I can deal with the power deficiency issue, and complicated menu, the lack of a working GPS, and even the time stamp, but when it just decided to stop recording I'm not seeing the point in having it. I also noticed after taking the time to read the reviews this is a cheap dysfunctional copy of a real product. 09/04/2014 Just an update. I mentioned I purchased two. For kicks and grins I tried the other one today and everything seems to work fine. It is still a little cheap, and difficult to move around the menus, but I admit the other one had to be really screwed up. The GPS on the new one works as well. I'd update the review to three stars from one. I'd give it four stars for overall value if the first one had worked.",neu,neg,0.9346,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.8751 (SHAP contribution: 0.1702);
+Base RoBERTa Pos = 0.0085 (SHAP contribution: 0.1646);
+Base RoBERTa Neu = 0.1163 (SHAP contribution: 0.0569);
+Base NB Pos = 0.166 (SHAP contribution: 0.0558);
+Base VADER Compound = -0.6413 (SHAP contribution: 0.0541)","Base VADER Neu = 0.895 (SHAP contribution: -0.0053);
+Base SVM Neu = 0.4001 (SHAP contribution: -0.0026)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Pos, Base VADER Compound. The main opposing signal was Base VADER Neu."
+65,wrong,Too small for my child's head,neu,neg,0.863,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0118 (SHAP contribution: 0.1707);
+Base RoBERTa Neg = 0.8289 (SHAP contribution: 0.1628);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0554);
+Base RoBERTa Neu = 0.1593 (SHAP contribution: 0.0531);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0363)","Base NB Neg = 0.2592 (SHAP contribution: -0.015);
+Base NB Neu = 0.5342 (SHAP contribution: -0.0112)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base VADER Pos. The main opposing signal was Base NB Neg."
+70,wrong,"I took a trip to Thailand and was appalled at what I saw, from the filth and smut to the rampant corruption, prostitution, and hideous architecture. And through it all was the ever-present face of THE KING, hundreds of feet tall on skyscrapers, in subways, on office buildings, billboards...everywhere. Say anything critical of him and you're in big trouble.So my question going into this book was: How much is the King responsible for the Thailand that I experienced? For the innumerable narratives of abuse and extortion at the hands of government officials and one of the world's most deplorable legal systems?My answer after reading much of this book is that the King, even if not directly responsible for all that is foul in Thailand, is a huge power player in the utterly fragmented, rudderless, and byzantine world of this Southeast Asian power. His throne and the hold in which it has over his people, would seem anything but democratic -- as the king himself, in his own words, does not truly believe in the concept. I think we are seeing that play out to this day. Like all monarchs, the takeaway is that he is interested in retaining the power of the throne at all costs, and then implementing public works as a ""gift"" to his people. It's like entering the middle ages.Most fascinating and dizzying of all is that this is all perpetrated in the name of Buddhism, of creating a community of well being and dharma for an entire society. This is one of the most indicting statements I have ever heard against Buddhist precepts, and shows how that religion just like any other can be manipulated for the retention of power by a monarchy. It's actually quite a straightforward story that's played itself over time and again in human history, but the Buddhist and particularly the Hindu notions of royalty give this chapter in human domination a mephitic whiff all of its own. My hat's off to Handley for describing much of this insanely complex power brokering from its origins, but in its play-by=play analysis the book cannot help but be a dense, tiresome slog.But the question remains -- without the King, would Thailand look something more like Burma or Cambodia? A scary thought to be sure.",neu,neg,0.6454,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.9015 (SHAP contribution: 0.1791);
+Base RoBERTa Pos = 0.0051 (SHAP contribution: 0.1758);
+Base RoBERTa Neu = 0.0934 (SHAP contribution: 0.0601);
+Base VADER Pos = 0.105 (SHAP contribution: 0.0047);
+Base VADER Neg = 0.052 (SHAP contribution: 0.0044)","Base VADER Compound = 0.9663 (SHAP contribution: -0.0346);
+Base SVM Pos = 0.4538 (SHAP contribution: -0.0324);
+Base NB Neu = 0.5449 (SHAP contribution: -0.0144);
+Base SVM Neg = 0.1066 (SHAP contribution: -0.0132);
+Base NB Neg = 0.2273 (SHAP contribution: -0.0109)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Pos, Base VADER Neg. The main opposing signal was Base VADER Compound."
+72,wrong,"Wanted to update my 4 year old Sony TX630 with SSD. I read here, read there, finally ordered this MTRON drive and then the next evening found an obscure link with a better photo and it clearly showed that ZIF wasn't compatible with the microATA50 Toshiba Drives used in Sonys. I didn't open the OEM box when it came. I wrote Jonny at Rocket Disk and he said they'll restock it for a modest fee so its on its way back. I am writing this as a precaution to buyers who are unsure - the error will cost ya. My Bad. BUT, today, I found conics.net has an SSD that WILL work, similar price range. Too bad they're not on AMAZON.",pos,neg,0.6277,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0211 (SHAP contribution: 0.1286);
+Base RoBERTa Neg = 0.6711 (SHAP contribution: 0.1124);
+Base VADER Compound = -0.8458 (SHAP contribution: 0.0716);
+Base VADER Pos = 0.031 (SHAP contribution: 0.035);
+Base RoBERTa Neu = 0.3078 (SHAP contribution: 0.014)","Base NB Pos = 0.3846 (SHAP contribution: -0.0204);
+Base NB Neg = 0.3087 (SHAP contribution: -0.0192);
+Base SVM Neu = 0.4979 (SHAP contribution: -0.0142);
+Base VADER Neu = 0.861 (SHAP contribution: -0.0132);
+Base SVM Neg = 0.2418 (SHAP contribution: -0.0131)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Pos, Base RoBERTa Neu. The main opposing signal was Base NB Pos."
+73,wrong,The chest area of the dress was quite large. I decided to size up like I usually do with online purchases and it fit perfectly at my waist but the chest area was much to large even with the adjustable straps. I am a 34 DD and had this problem. It also has a very low back which is hard to wear a bra with!!!,pos,neg,0.617,Base VADER Compound,VADER,"Base VADER Compound = -0.6861 (SHAP contribution: 0.0778);
+Base RoBERTa Pos = 0.0452 (SHAP contribution: 0.0528);
+Base RoBERTa Neg = 0.5264 (SHAP contribution: 0.0516);
+Base NB Pos = 0.1737 (SHAP contribution: 0.0319);
+Base SVM Neu = 0.319 (SHAP contribution: 0.0226)",Base RoBERTa Neu = 0.4284 (SHAP contribution: -0.0277),"The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Base VADER Compound, Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Neu. The main opposing signal was Base RoBERTa Neu."
+75,wrong,"SPOILER ALERT, SPOILER ALERT!Annakin Skywalker becomes Darth Vadar! oh yeah, everyone already knew that.my only disappointment with this book; no scenes on the wookie homeworld. it's my understanding it is shown and featured in the movie, yet nothing in these pages other than ""yep, Yoda went there and escaped thanks to Bail Organa.""still, this is a fine read.",pos,neg,0.4353,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0761 (SHAP contribution: 0.067);
+Base RoBERTa Neg = 0.4944 (SHAP contribution: 0.0633);
+Base NB Neu = 0.2457 (SHAP contribution: 0.0314);
+Base NB Pos = 0.5532 (SHAP contribution: 0.0215);
+Base SVM Neu = 0.2812 (SHAP contribution: 0.0112)","Base VADER Compound = 0.6016 (SHAP contribution: -0.0301);
+Base SVM Pos = 0.3745 (SHAP contribution: -0.0234);
+Base RoBERTa Neu = 0.4295 (SHAP contribution: -0.0136);
+Base VADER Neg = 0.082 (SHAP contribution: -0.0106);
+Base VADER Pos = 0.156 (SHAP contribution: -0.0087)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Neu, Base NB Pos, Base SVM Neu. The main opposing signal was Base VADER Compound."
+76,wrong,"He says something as if it is in ""quotation marks,"" in EVERY sentence. Who talks like that? Gets to be distracting.Also, he references ""study after study"" frequently, but I would love to hear him cite a study.My main gripe with him is his speaking habit of quoting one-third to one-half of each sentence. You'll know what I mean when you listen to him speak about ANYTHING. No other speaker does this.",neg,neu,0.4814,Base SVM Neu,VADER,"Base SVM Neu = 0.441 (SHAP contribution: 0.0295);
+Base VADER Compound = 0.7469 (SHAP contribution: 0.0218);
+Base RoBERTa Pos = 0.037 (SHAP contribution: 0.0173);
+Base VADER Pos = 0.134 (SHAP contribution: 0.0158);
+Base NB Pos = 0.2051 (SHAP contribution: 0.0158)","Base RoBERTa Neg = 0.6421 (SHAP contribution: -0.0154);
+Base NB Neg = 0.2171 (SHAP contribution: -0.0059)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base SVM Neu, while the strongest overall feature group was VADER. The top supporting features were Base SVM Neu, Base VADER Compound, Base RoBERTa Pos, Base VADER Pos, Base NB Pos. The main opposing signal was Base RoBERTa Neg."
+85,wrong,It's comfy but the shirt keeps coming up,pos,neg,0.4278,Base VADER Compound,VADER,"Base VADER Compound = 0.0 (SHAP contribution: 0.0607);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0408);
+Base VADER Neu = 1.0 (SHAP contribution: 0.0163);
+Base SVM Neg = 0.3628 (SHAP contribution: 0.0156);
+Base SVM Pos = 0.2964 (SHAP contribution: 0.0098)","Base RoBERTa Neu = 0.6098 (SHAP contribution: -0.0414);
+Base NB Neg = 0.3563 (SHAP contribution: -0.0118);
+Base RoBERTa Pos = 0.1411 (SHAP contribution: -0.009);
+Base NB Neu = 0.4235 (SHAP contribution: -0.0087);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Base VADER Compound, Base VADER Pos, Base VADER Neu, Base SVM Neg, Base SVM Pos. The main opposing signal was Base RoBERTa Neu."
+86,wrong,Cute but not look good on me and little small,neu,neg,0.5076,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.677 (SHAP contribution: 0.1002);
+Base RoBERTa Pos = 0.0299 (SHAP contribution: 0.0652);
+Base VADER Compound = -0.2753 (SHAP contribution: 0.035);
+Base VADER Neg = 0.237 (SHAP contribution: 0.0276);
+Base VADER Neu = 0.61 (SHAP contribution: 0.0109)","Base NB Neu = 0.5467 (SHAP contribution: -0.0245);
+Base NB Neg = 0.2253 (SHAP contribution: -0.0187);
+Base VADER Pos = 0.153 (SHAP contribution: -0.0176);
+Base SVM Neu = 0.4261 (SHAP contribution: -0.0175);
+Base SVM Neg = 0.315 (SHAP contribution: -0.0086)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base VADER Neg, Base VADER Neu. The main opposing signal was Base NB Neu."
+100,wrong,The pattern is not the same as the model! But the bathing suit is still cute. Fits pretty well and has padding that can be removed. I got a small and I weigh 125 pounds I'm 57 and I'm at 32A,neg,pos,0.446,Base NB Pos,Naive Bayes,"Base NB Pos = 0.5817 (SHAP contribution: 0.0568);
+Base RoBERTa Neg = 0.0645 (SHAP contribution: 0.0444);
+Base NB Neg = 0.1773 (SHAP contribution: 0.0256);
+Base NB Neu = 0.241 (SHAP contribution: 0.0213);
+Base VADER Pos = 0.243 (SHAP contribution: 0.0182)","Base RoBERTa Neu = 0.4532 (SHAP contribution: -0.0379);
+Base SVM Neu = 0.4021 (SHAP contribution: -0.033);
+Base SVM Pos = 0.3041 (SHAP contribution: -0.0136)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base NB Pos, while the strongest overall feature group was Naive Bayes. The top supporting features were Base NB Pos, Base RoBERTa Neg, Base NB Neg, Base NB Neu, Base VADER Pos. The main opposing signal was Base RoBERTa Neu."
+101,wrong,Fahrenheit 451 was a disappointing book for a reader who is not an avid science fiction lover. This book is very difficult to read. The correctors a sometimes very confusing to understand. The setting is also very hard to have a visual picture. Although the plot is very good the way that it is described is hard to understand. I think if you are a science fiction lover that you would like this book. But if you sometimes like to read science fiction you will not like this because you have to be a huge science fiction lover to like this. I also think you need to be above the 6th grade or a very advanced reader.,neg,neu,0.5328,Base RoBERTa Neu,RoBERTa,"Base RoBERTa Neu = 0.3663 (SHAP contribution: 0.0494);
+Base VADER Compound = 0.9711 (SHAP contribution: 0.0468);
+Base RoBERTa Pos = 0.0384 (SHAP contribution: 0.0341);
+Base RoBERTa Neg = 0.5953 (SHAP contribution: 0.028);
+Base SVM Neu = 0.362 (SHAP contribution: 0.0177)","Base NB Neu = 0.2779 (SHAP contribution: -0.0085);
+Base SVM Neg = 0.4001 (SHAP contribution: -0.0071);
+Base VADER Neu = 0.701 (SHAP contribution: -0.0043);
+Base SVM Pos = 0.2379 (SHAP contribution: -0.0009);
+Base NB Neg = 0.5468 (SHAP contribution: -0.0001)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Compound, Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Neu. The main opposing signal was Base NB Neu."
+104,wrong,This is a must read for any followers of Machiavellian prince apples. Prawns and other Wannabees may discover knew uses for ancient manipulative Phycodian garble de spooks. Dat auld white majick sin four skin. Hal Zwingi,neg,neu,0.4372,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0861 (SHAP contribution: 0.0534);
+Base RoBERTa Pos = 0.3917 (SHAP contribution: 0.0379);
+Base VADER Neg = 0.096 (SHAP contribution: 0.0223);
+Base RoBERTa Neu = 0.5222 (SHAP contribution: 0.0209);
+Base SVM Neg = 0.3188 (SHAP contribution: 0.0123)","Base NB Pos = 0.5973 (SHAP contribution: -0.0227);
+Base NB Neu = 0.2268 (SHAP contribution: -0.0193);
+Base SVM Neu = 0.3423 (SHAP contribution: -0.0129);
+Base VADER Compound = -0.5574 (SHAP contribution: -0.0121)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Neg, Base RoBERTa Neu, Base SVM Neg. The main opposing signal was Base NB Pos."
+105,wrong,It was suppose to be Prime but it took 3 weeks to get here!! I did not like it one bit! The size ran small!!,neu,neg,0.856,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.9312 (SHAP contribution: 0.1651);
+Base RoBERTa Pos = 0.0071 (SHAP contribution: 0.1629);
+Base RoBERTa Neu = 0.0617 (SHAP contribution: 0.0533);
+Base VADER Compound = -0.5904 (SHAP contribution: 0.0497);
+Base NB Pos = 0.1746 (SHAP contribution: 0.0433)","Base VADER Neu = 0.852 (SHAP contribution: -0.005);
+Base SVM Neu = 0.3799 (SHAP contribution: -0.0018);
+Base SVM Neg = 0.3401 (SHAP contribution: -0.001)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Compound, Base NB Pos. The main opposing signal was Base VADER Neu."
+107,wrong,L was way too small and XL way too big?,neu,neg,0.7543,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0181 (SHAP contribution: 0.1702);
+Base RoBERTa Neg = 0.6594 (SHAP contribution: 0.1186);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0574);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0391);
+Base RoBERTa Neu = 0.3225 (SHAP contribution: 0.0262)","Base NB Neu = 0.4608 (SHAP contribution: -0.0205);
+Base NB Neg = 0.3261 (SHAP contribution: -0.0106);
+Base SVM Neg = 0.3455 (SHAP contribution: -0.0043);
+Base SVM Neu = 0.3497 (SHAP contribution: -0.0033)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neu."
+116,wrong,Unable to install with Windows 7,neu,neg,0.812,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0128 (SHAP contribution: 0.1739);
+Base RoBERTa Neg = 0.78 (SHAP contribution: 0.1497);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0613);
+Base RoBERTa Neu = 0.2071 (SHAP contribution: 0.0448);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0392)","Base NB Pos = 0.3436 (SHAP contribution: -0.0188);
+Base NB Neg = 0.3198 (SHAP contribution: -0.0138);
+Base SVM Neg = 0.3495 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base VADER Pos. The main opposing signal was Base NB Pos."
+118,wrong,"We used this book in x-ray technology school and in preparation for the CT exam. The images are alright, although some of them are not the best quality. Also, by the time you get to the point of learning cross sectional anatomy you should have a deep knowledge of human anatomy, so I really don't see why the writer wasted so much useful space by writing about structure and physiology. I also didn't like the labeling, because instead of using numbers like most books do, they used abbreviations... kind of a give-away if you try to practice.",neu,neg,0.6717,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0113 (SHAP contribution: 0.1604);
+Base RoBERTa Neg = 0.769 (SHAP contribution: 0.1321);
+Base VADER Compound = -0.6818 (SHAP contribution: 0.0657);
+Base VADER Pos = 0.05 (SHAP contribution: 0.0338);
+Base RoBERTa Neu = 0.2197 (SHAP contribution: 0.0303)","Base SVM Pos = 0.357 (SHAP contribution: -0.0285);
+Base NB Neu = 0.5269 (SHAP contribution: -0.0195);
+Base NB Neg = 0.2722 (SHAP contribution: -0.0194);
+Base VADER Neu = 0.845 (SHAP contribution: -0.0091);
+Base VADER Neg = 0.105 (SHAP contribution: -0.0081)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Pos, Base RoBERTa Neu. The main opposing signal was Base SVM Pos."
+119,wrong,This product looks very nice and I liked it until I put it on. I also notice some embedded images in the dress as well. I would show a picture but I could not put my arm in it.,neg,pos,0.5388,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0591 (SHAP contribution: 0.0823);
+Base RoBERTa Pos = 0.5985 (SHAP contribution: 0.0772);
+Base SVM Pos = 0.3918 (SHAP contribution: 0.0408);
+Base VADER Compound = 0.5615 (SHAP contribution: 0.0274);
+Base VADER Neg = 0.0 (SHAP contribution: 0.0167)","Base RoBERTa Neu = 0.3424 (SHAP contribution: -0.0423);
+Base NB Neg = 0.3752 (SHAP contribution: -0.0208);
+Base VADER Neu = 0.842 (SHAP contribution: -0.0104)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base VADER Compound, Base VADER Neg. The main opposing signal was Base RoBERTa Neu."
+122,wrong,"These are very comfortable, but after a couple of washes, it's a bit looser.",pos,neu,0.5726,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.2097 (SHAP contribution: 0.0561);
+Base RoBERTa Neg = 0.1191 (SHAP contribution: 0.0548);
+Base RoBERTa Neu = 0.6712 (SHAP contribution: 0.0369);
+Base NB Pos = 0.2492 (SHAP contribution: 0.025);
+Base NB Neu = 0.4957 (SHAP contribution: 0.0237)","Base VADER Neg = 0.0 (SHAP contribution: -0.0055);
+Base VADER Compound = 0.3174 (SHAP contribution: -0.004);
+Base NB Neg = 0.2551 (SHAP contribution: -0.002);
+Base SVM Neg = 0.2943 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base RoBERTa Neu, Base NB Pos, Base NB Neu. The main opposing signal was Base VADER Neg."
+127,wrong,Nice head sett,pos,neu,0.5205,Base RoBERTa Neu,RoBERTa,"Base RoBERTa Neu = 0.3902 (SHAP contribution: 0.0517);
+Base RoBERTa Pos = 0.5398 (SHAP contribution: 0.039);
+Base RoBERTa Neg = 0.0701 (SHAP contribution: 0.0317);
+Base NB Neg = 0.3311 (SHAP contribution: 0.0281);
+Base NB Pos = 0.2937 (SHAP contribution: 0.0264)","Base SVM Neu = 0.338 (SHAP contribution: -0.0167);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0091);
+Base VADER Neu = 0.417 (SHAP contribution: -0.0058);
+Base SVM Neg = 0.3612 (SHAP contribution: -0.004)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neu, Base RoBERTa Pos, Base RoBERTa Neg, Base NB Neg, Base NB Pos. The main opposing signal was Base SVM Neu."
+128,wrong,"Do not buy if you have a Mac with the latest MacOS, as it has issue with its current driver. I am still waiting for an update.",neu,neg,0.8253,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0125 (SHAP contribution: 0.1606);
+Base RoBERTa Neg = 0.7858 (SHAP contribution: 0.1467);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0498);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0289);
+Base RoBERTa Neu = 0.2017 (SHAP contribution: 0.0281)",Base NB Pos = 0.1795 (SHAP contribution: -0.0034),"The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Pos, Base RoBERTa Neu. The main opposing signal was Base NB Pos."
+129,wrong,"1 star for the language learning, could have 4 or 5 for the communicational purpose. This might be a very good guide for a person wanting to go to Japan, it teaches lot's of communicational situations, but of he language itself it teaches almost nothing, almost no (!) grammar and only a part of the script. At this rithym you'll need until volume 20.",neg,neu,0.4,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.1771 (SHAP contribution: 0.0461);
+Base RoBERTa Pos = 0.2437 (SHAP contribution: 0.0421);
+Base RoBERTa Neu = 0.5792 (SHAP contribution: 0.0259);
+Base NB Neu = 0.3493 (SHAP contribution: 0.012);
+Base SVM Neg = 0.3515 (SHAP contribution: 0.0042)","Base SVM Neu = 0.2538 (SHAP contribution: -0.0292);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0161);
+Base SVM Pos = 0.3947 (SHAP contribution: -0.0138);
+Base VADER Neu = 0.933 (SHAP contribution: -0.0092);
+Base NB Neg = 0.2401 (SHAP contribution: -0.0055)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Neu, Base SVM Neg. The main opposing signal was Base SVM Neu."
+136,wrong,You need to find a really good station in order for it to work properly,neu,pos,0.5353,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0467 (SHAP contribution: 0.109);
+Base RoBERTa Pos = 0.4153 (SHAP contribution: 0.0305);
+Base VADER Compound = 0.4927 (SHAP contribution: 0.0216);
+Base SVM Neu = 0.3037 (SHAP contribution: 0.0216);
+Base SVM Pos = 0.365 (SHAP contribution: 0.0193)","Base NB Neg = 0.3918 (SHAP contribution: -0.0264);
+Base RoBERTa Neu = 0.5379 (SHAP contribution: -0.0144)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Neu, Base SVM Pos. The main opposing signal was Base NB Neg."
+137,wrong,I bought this rig for my wife and a big reason I chose this one is it said it has wireless display and I wanted my wife to be able to get netflix on the TV. Well this is simply not true. IF you buy an HD cable you can have a cabled display but there is simply no way I've found to hook up wireless to the TV.,neu,neg,0.5808,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.6942 (SHAP contribution: 0.0971);
+Base RoBERTa Pos = 0.031 (SHAP contribution: 0.062);
+Base VADER Compound = -0.4881 (SHAP contribution: 0.0527);
+Base VADER Pos = 0.023 (SHAP contribution: 0.0332);
+Base SVM Neu = 0.2985 (SHAP contribution: 0.017)","Base NB Neg = 0.3106 (SHAP contribution: -0.0208);
+Base VADER Neu = 0.892 (SHAP contribution: -0.0116);
+Base NB Pos = 0.2491 (SHAP contribution: -0.0105);
+Base NB Neu = 0.4403 (SHAP contribution: -0.008);
+Base VADER Neg = 0.085 (SHAP contribution: -0.0043)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base VADER Pos, Base SVM Neu. The main opposing signal was Base NB Neg."
+140,wrong,"I think that this book is really good, and I would recommend everyone to read it. I am really annoyed about the ending though, and I don't think he should have tried to avoid the happy ending by making up all of that stuff about can't live in different worlds and stupid stuff. Otherwise, I think it was a brilliant book to end a brilliant series.",pos,neu,0.4345,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.343 (SHAP contribution: 0.0485);
+Base RoBERTa Pos = 0.1957 (SHAP contribution: 0.0415);
+Base RoBERTa Neu = 0.4614 (SHAP contribution: 0.0402);
+Base VADER Compound = 0.8591 (SHAP contribution: 0.0263);
+Base VADER Pos = 0.222 (SHAP contribution: 0.0156)","Base NB Pos = 0.5607 (SHAP contribution: -0.0437);
+Base NB Neu = 0.2444 (SHAP contribution: -0.0304);
+Base NB Neg = 0.1949 (SHAP contribution: -0.0124);
+Base SVM Neu = 0.279 (SHAP contribution: -0.0091);
+Base SVM Pos = 0.4227 (SHAP contribution: -0.0028)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Compound, Base VADER Pos. The main opposing signal was Base NB Pos."
+142,wrong,"Now Face to Face and it's predecessor Through a Glass Darkly have joined my collection of favorite historical fiction. Contrary to the other opinion that the political intrigue of the novel was hard to follow, I felt that, for the first time, I was truly able to understand this period of English upheaval. I was reading these novels for the ""fiction"" and not for the ""romance"" so I didn't notice if there was romance missing. I didn't feel there was anything missing, actually. The only thing missing is a third book! Ms. Koen, is it on it's way?",pos,neu,0.4716,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.3017 (SHAP contribution: 0.044);
+Base VADER Compound = 0.7263 (SHAP contribution: 0.0404);
+Base RoBERTa Neu = 0.5928 (SHAP contribution: 0.0353);
+Base RoBERTa Pos = 0.1055 (SHAP contribution: 0.0303);
+Base VADER Neg = 0.078 (SHAP contribution: 0.0234)","Base NB Pos = 0.4375 (SHAP contribution: -0.0352);
+Base SVM Neu = 0.3195 (SHAP contribution: -0.032);
+Base NB Neu = 0.2884 (SHAP contribution: -0.0072);
+Base SVM Neg = 0.5078 (SHAP contribution: -0.0018)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base RoBERTa Pos, Base VADER Neg. The main opposing signal was Base NB Pos."
+146,wrong,This book appeared to be pieced together from all his other books. No innovation. I love Dirk Pitt novels and have read them all. This might be my last.,neu,pos,0.6491,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0294 (SHAP contribution: 0.1071);
+Base RoBERTa Pos = 0.7565 (SHAP contribution: 0.0992);
+Base NB Pos = 0.5636 (SHAP contribution: 0.0469);
+Base SVM Pos = 0.4039 (SHAP contribution: 0.0435);
+Base VADER Compound = 0.6808 (SHAP contribution: 0.0272)","Base VADER Neg = 0.065 (SHAP contribution: -0.032);
+Base RoBERTa Neu = 0.2141 (SHAP contribution: -0.0287)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base SVM Pos, Base VADER Compound. The main opposing signal was Base VADER Neg."
+149,wrong,"In this collection, editors Joseph Corre and Serena Rees attempt to put together a brief history of erotica, particularly subversive erotica. The diversity and quality of the illustrations make this book a nice find. The idea of the text is quite interesting--a historical and social survey of erotica--but still leaves something to be desired. The text is a little too light and doesn't seem particularly well researched.",pos,neu,0.5043,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.2299 (SHAP contribution: 0.0434);
+Base RoBERTa Neu = 0.6024 (SHAP contribution: 0.0342);
+Base RoBERTa Pos = 0.1677 (SHAP contribution: 0.033);
+Base SVM Neu = 0.3942 (SHAP contribution: 0.0279);
+Base VADER Neg = 0.061 (SHAP contribution: 0.0188)","Base NB Pos = 0.4613 (SHAP contribution: -0.0373);
+Base NB Neg = 0.2004 (SHAP contribution: -0.0132);
+Base VADER Compound = 0.172 (SHAP contribution: -0.001)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Neu, Base RoBERTa Pos, Base SVM Neu, Base VADER Neg. The main opposing signal was Base NB Pos."
+150,wrong,This was a gift. Quality seems ok. Not great but ok. The stencil seems faded.,pos,neu,0.618,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.1175 (SHAP contribution: 0.0446);
+Base RoBERTa Neg = 0.3369 (SHAP contribution: 0.0429);
+Base NB Neg = 0.3971 (SHAP contribution: 0.0388);
+Base SVM Neu = 0.4187 (SHAP contribution: 0.0348);
+Base RoBERTa Neu = 0.5457 (SHAP contribution: 0.0262)",Base VADER Neu = 0.541 (SHAP contribution: -0.0086),"The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Neg, Base SVM Neu, Base RoBERTa Neu. The main opposing signal was Base VADER Neu."
+152,wrong,Nice unit for the price. Tripod adapter was NOT included in the package.,neu,neg,0.4528,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.409 (SHAP contribution: 0.0542);
+Base RoBERTa Pos = 0.109 (SHAP contribution: 0.0342);
+Base NB Neu = 0.2277 (SHAP contribution: 0.0319);
+Base SVM Neu = 0.271 (SHAP contribution: 0.0175);
+Base SVM Neg = 0.4137 (SHAP contribution: 0.0168)","Base VADER Pos = 0.189 (SHAP contribution: -0.0205);
+Base RoBERTa Neu = 0.4819 (SHAP contribution: -0.0183);
+Base VADER Compound = 0.4215 (SHAP contribution: -0.0174);
+Base VADER Neu = 0.811 (SHAP contribution: -0.0031);
+Base NB Neg = 0.182 (SHAP contribution: -0.0026)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neu, Base SVM Neu, Base SVM Neg. The main opposing signal was Base VADER Pos."
+153,wrong,"I've known about this book for a while now, but I've never bothered paying attention to it given it's somewhat ridiculous price tag. Necessity forced me to forgo my earlier conclusions however, and I'm now angry at myself for not picking it up sooner. However much you think you know about Quartz, there's always more to learn, and this book is a whole lot easier to pick new tricks up from than Apple's scant free documentation. It's a bit dated when it comes to the XCode specific info, but unless you're a total newcomer you should be able to fill in the proverbial gaps there without much trouble.This is the second book on OS X programming that I have felt is truly worth owning; the first being Amit Singh's ""Mac OS X Internals."" This one's not as thick, nor is it hardbound, but there are lots of color plates. Good stuff.",pos,neu,0.54,Base VADER Compound,RoBERTa,"Base VADER Compound = 0.824 (SHAP contribution: 0.0411);
+Base RoBERTa Neu = 0.4046 (SHAP contribution: 0.0399);
+Base RoBERTa Neg = 0.5268 (SHAP contribution: 0.0379);
+Base RoBERTa Pos = 0.0686 (SHAP contribution: 0.0246);
+Base VADER Pos = 0.123 (SHAP contribution: 0.0218)","Base NB Neg = 0.2194 (SHAP contribution: -0.0128);
+Base SVM Neu = 0.3319 (SHAP contribution: -0.0122);
+Base SVM Neg = 0.3878 (SHAP contribution: -0.0059)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Pos. The main opposing signal was Base NB Neg."
+156,wrong,"Reviewer: Chuck Spicer from Champaign, IL USA Brian distorts the Dune serious making unbelievable leaps and writing things that any Dune fan know just couldn't be or clash with Frank's vision. The characters are one dimensional and the story line is preposterous. It's as badly written as star trek books. This book might be entertaining to those looking for a fun read but anybody who holds Dune true and dear to their hearts will dislike this. This was obviously a tool to fatten his pockets. He should have listened to his father when he wrote ""YOu don't write for success."" Let Brian have his fun with the prequels but let us all hope he doesn't truely desicrate Dune by attempting Dune 7.",neu,neg,0.7101,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0182 (SHAP contribution: 0.1841);
+Base RoBERTa Neg = 0.7409 (SHAP contribution: 0.1676);
+Base RoBERTa Neu = 0.2409 (SHAP contribution: 0.0322);
+Base NB Pos = 0.1699 (SHAP contribution: 0.0281);
+Base NB Neg = 0.5453 (SHAP contribution: 0.0165)","Base VADER Compound = 0.9418 (SHAP contribution: -0.0498);
+Base VADER Pos = 0.18 (SHAP contribution: -0.0171);
+Base VADER Neu = 0.76 (SHAP contribution: -0.0043);
+Base SVM Neg = 0.3316 (SHAP contribution: -0.0033);
+Base SVM Neu = 0.3916 (SHAP contribution: -0.0024)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base RoBERTa Neu, Base NB Pos, Base NB Neg. The main opposing signal was Base VADER Compound."
+159,wrong,"Very thin, some raffles",neu,neg,0.4663,Base VADER Compound,VADER,"Base VADER Compound = 0.0 (SHAP contribution: 0.0614);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0395);
+Base RoBERTa Pos = 0.0767 (SHAP contribution: 0.0375);
+Base SVM Neu = 0.3271 (SHAP contribution: 0.0177);
+Base VADER Neu = 1.0 (SHAP contribution: 0.0121)","Base RoBERTa Neu = 0.7051 (SHAP contribution: -0.0452);
+Base NB Neg = 0.3757 (SHAP contribution: -0.0048);
+Base NB Neu = 0.3545 (SHAP contribution: -0.0035);
+Base RoBERTa Neg = 0.2182 (SHAP contribution: -0.0022)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Base VADER Compound, Base VADER Pos, Base RoBERTa Pos, Base SVM Neu, Base VADER Neu. The main opposing signal was Base RoBERTa Neu."
+160,wrong,"Just don't know. ?? It worked at first. I read so many reviews and this appears to be the one I need for my ONE HDMI input Sony 26"" TV (2005) I wanted to run my Sony DVD player and Yamaha receiver to it and out to TV. I haven't tried it with the remote. I had family visiting and needed the set-up in BR. But it only worked initially. I'm going to read more of the reviews, when I have time. Some people are really good with solutions and advice. Thanks! I could give it ONE star....but withholding that for now.",neg,pos,0.4417,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0456 (SHAP contribution: 0.0861);
+Base RoBERTa Pos = 0.5928 (SHAP contribution: 0.065);
+Base SVM Pos = 0.3537 (SHAP contribution: 0.023);
+Base NB Neu = 0.2295 (SHAP contribution: 0.0214);
+Base VADER Compound = 0.905 (SHAP contribution: 0.0194)","Base RoBERTa Neu = 0.3615 (SHAP contribution: -0.0349);
+Base NB Pos = 0.1846 (SHAP contribution: -0.0315);
+Base NB Neg = 0.5859 (SHAP contribution: -0.0279);
+Base VADER Pos = 0.109 (SHAP contribution: -0.0153);
+Base VADER Neu = 0.891 (SHAP contribution: -0.0039)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base NB Neu, Base VADER Compound. The main opposing signal was Base RoBERTa Neu."
+164,wrong,Esy to use very long wire.,pos,neu,0.4073,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.2174 (SHAP contribution: 0.0374);
+Base RoBERTa Neu = 0.6956 (SHAP contribution: 0.0304);
+Base RoBERTa Pos = 0.087 (SHAP contribution: 0.0294);
+Base NB Neu = 0.3852 (SHAP contribution: 0.0153);
+Base SVM Neg = 0.3141 (SHAP contribution: 0.0153)","Base VADER Compound = 0.0 (SHAP contribution: -0.0334);
+Base VADER Pos = 0.0 (SHAP contribution: -0.021);
+Base VADER Neu = 1.0 (SHAP contribution: -0.0103);
+Base VADER Neg = 0.0 (SHAP contribution: -0.0083);
+Base SVM Pos = 0.3382 (SHAP contribution: -0.0026)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Neu, Base RoBERTa Pos, Base NB Neu, Base SVM Neg. The main opposing signal was Base VADER Compound."
+166,wrong,"Seems like the prophet of cybernetics outsourced the writing of this history to a commodore 64. As I read this, I kept wondering if, perhaps, it was intended for youngsters? It's not bad, but quite light, and not up to Asimov's customary standard. I was puzzled that he dismissed Philip's assassination with a couple of sentences, that the internal conspiracies against Alexander aren't analyzed...Description of tactics and battles are simplistic. I suppose that when an author is so prolific and so eclectic, at some point, that limitations are unavoidable.",neg,neu,0.4264,Base RoBERTa Neu,RoBERTa,"Base RoBERTa Neu = 0.6152 (SHAP contribution: 0.033);
+Base SVM Neu = 0.4937 (SHAP contribution: 0.0234);
+Base NB Pos = 0.1977 (SHAP contribution: 0.0177);
+Base RoBERTa Pos = 0.0649 (SHAP contribution: 0.0129);
+Base VADER Neg = 0.116 (SHAP contribution: 0.0121)","Base VADER Compound = -0.8327 (SHAP contribution: -0.0499);
+Base VADER Pos = 0.054 (SHAP contribution: -0.0062);
+Base NB Neg = 0.2395 (SHAP contribution: -0.0022);
+Base SVM Pos = 0.2223 (SHAP contribution: -0.0011)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neu, Base SVM Neu, Base NB Pos, Base RoBERTa Pos, Base VADER Neg. The main opposing signal was Base VADER Compound."
+167,wrong,This shirt is a nice color and the material is OK. But I bought as a set to go with the big/lil sis shirt/onesie from this company and this shirt is cut totally differently. It is not fitted like the other 2 girl cut shirts I received. It's boxy and boyish and runs wide and short. I'm disappointed my middle daughter won't look coordinated with the other shirts advertised as the same from this company,neu,neg,0.7503,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0113 (SHAP contribution: 0.1581);
+Base RoBERTa Neg = 0.8114 (SHAP contribution: 0.149);
+Base VADER Compound = -0.85 (SHAP contribution: 0.0538);
+Base RoBERTa Neu = 0.1773 (SHAP contribution: 0.0535);
+Base VADER Pos = 0.048 (SHAP contribution: 0.0311)","Base NB Neg = 0.2293 (SHAP contribution: -0.0205);
+Base NB Neu = 0.5729 (SHAP contribution: -0.0188);
+Base VADER Neg = 0.151 (SHAP contribution: -0.0036);
+Base VADER Neu = 0.8 (SHAP contribution: -0.0035);
+Base SVM Neu = 0.3575 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base VADER Pos. The main opposing signal was Base NB Neg."
+173,wrong,"If you find this review to be helpful, please click ""helpful"" on the bottom.It's not a bad dress. But for the price, there are better dresses out there.What I didn't like about this dress is that the material is very scratchy. I'm 5'8, 150lbs 38DD and instead of being flattering, this dress will make you look somewhat pregnant.The print from far looks great, but close up, looks cheat and really bad.",neu,neg,0.5705,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.6891 (SHAP contribution: 0.1266);
+Base RoBERTa Pos = 0.0276 (SHAP contribution: 0.0888);
+Base NB Neu = 0.2507 (SHAP contribution: 0.0275);
+Base RoBERTa Neu = 0.2833 (SHAP contribution: 0.0202);
+Base SVM Pos = 0.2502 (SHAP contribution: 0.0174)","Base VADER Compound = 0.9329 (SHAP contribution: -0.0324);
+Base VADER Pos = 0.246 (SHAP contribution: -0.0161);
+Base NB Neg = 0.1801 (SHAP contribution: -0.01);
+Base NB Pos = 0.5692 (SHAP contribution: -0.004);
+Base SVM Neu = 0.3454 (SHAP contribution: -0.0032)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neu, Base RoBERTa Neu, Base SVM Pos. The main opposing signal was Base VADER Compound."
+176,wrong,Backing not on properly,neu,neg,0.6456,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.6902 (SHAP contribution: 0.1162);
+Base RoBERTa Pos = 0.038 (SHAP contribution: 0.0667);
+Base VADER Compound = 0.0258 (SHAP contribution: 0.057);
+Base RoBERTa Neu = 0.2718 (SHAP contribution: 0.0265);
+Base SVM Neu = 0.323 (SHAP contribution: 0.0211)","Base VADER Pos = 0.268 (SHAP contribution: -0.0221);
+Base NB Pos = 0.2528 (SHAP contribution: -0.0036);
+Base VADER Neg = 0.0 (SHAP contribution: -0.001)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base SVM Neu. The main opposing signal was Base VADER Pos."
+179,wrong,"As the straight as-yet-not-ex-wife of a transvestite man, I am trying to find readings to help me explain my situation to myself, as well as to friends or relatives. _Read My Lips_ is a serious book not written with the affectation that seems to afflict many male-to-female writers. While I still don't share the author's belief that all gender classification is oppressive, Riki does a good job explaining why some people do. I was particularly taken with her understanding that being female in this society is not all sweetness and makeup, and her willingness to point out the ways all the different kinds of gender outlaws she has encountered oppress one another. Not recommended as the first book to give your elderly mother or father; some familiarity with the rhetoric of feminism and liberation is helpful.",pos,neu,0.686,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.2249 (SHAP contribution: 0.0526);
+Base RoBERTa Neg = 0.101 (SHAP contribution: 0.0516);
+Base VADER Compound = 0.8172 (SHAP contribution: 0.0461);
+Base RoBERTa Neu = 0.674 (SHAP contribution: 0.0438);
+Base SVM Neu = 0.4148 (SHAP contribution: 0.0425)","Base SVM Pos = 0.2361 (SHAP contribution: -0.0032);
+Base SVM Neg = 0.3491 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Neu, Base SVM Neu. The main opposing signal was Base SVM Pos."
+180,wrong,Does not work with CFLs,neu,neg,0.8561,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.0206 (SHAP contribution: 0.1514);
+Base RoBERTa Neg = 0.7638 (SHAP contribution: 0.1431);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0608);
+Base NB Pos = 0.1738 (SHAP contribution: 0.035);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0346)",None,"The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base NB Pos, Base VADER Pos. The main opposing signal was no strong opposing signal."
+182,wrong,"Sure the technical merits of good graphics, etc are a plus but do not garner the poorly thought out product 5 stars. After using KVM's for years I have never had the problems like I have had with this. Other manufacturers manage to use Ctrl keys for their hotkey functions without the problems that this box plagues you with. While this box may have garnered rave reviews from the folks who want to play Linux, etc., I have to say to use this on a primary production machine will eventually drive you nuts. If you are always using constant Ctrl or Shift operations to mass select items you will constantly find that your key press was not registered. In addition, sometimes your mouse will just freeze until you click a button again. Oh well, the same goes for all Linksys products... they are a bit cheaper than what you would normally pay *but* you get what you pay for. Suitable for home or dorm but not for an all day production machine.",neg,neu,0.5115,Base RoBERTa Neu,RoBERTa,"Base RoBERTa Neu = 0.4404 (SHAP contribution: 0.0491);
+Base VADER Compound = 0.9303 (SHAP contribution: 0.0404);
+Base SVM Neu = 0.4327 (SHAP contribution: 0.0398);
+Base RoBERTa Neg = 0.4912 (SHAP contribution: 0.0398);
+Base RoBERTa Pos = 0.0684 (SHAP contribution: 0.0179)","Base NB Neu = 0.2263 (SHAP contribution: -0.0418);
+Base NB Neg = 0.6111 (SHAP contribution: -0.0174);
+Base NB Pos = 0.1626 (SHAP contribution: -0.0117)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Compound, Base SVM Neu, Base RoBERTa Neg, Base RoBERTa Pos. The main opposing signal was Base NB Neu."
+184,wrong,GARABAGE - DON'T BUY!,pos,neg,0.6633,Base RoBERTa Neg,VADER,"Base RoBERTa Neg = 0.5726 (SHAP contribution: 0.0784);
+Base VADER Compound = 0.0 (SHAP contribution: 0.0693);
+Base RoBERTa Pos = 0.0425 (SHAP contribution: 0.0451);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0395);
+Base SVM Neu = 0.3204 (SHAP contribution: 0.0284)","Base RoBERTa Neu = 0.3849 (SHAP contribution: -0.002);
+Base NB Pos = 0.2965 (SHAP contribution: -0.0001)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was VADER. The top supporting features were Base RoBERTa Neg, Base VADER Compound, Base RoBERTa Pos, Base VADER Pos, Base SVM Neu. The main opposing signal was Base RoBERTa Neu."
+185,wrong,It was a good choice. Yes I would recommend it for those who enjoy the civil war times of history,neu,pos,0.8862,Base RoBERTa Neg,RoBERTa,"Base RoBERTa Neg = 0.0078 (SHAP contribution: 0.1904);
+Base RoBERTa Pos = 0.8858 (SHAP contribution: 0.1879);
+Base RoBERTa Neu = 0.1063 (SHAP contribution: 0.0551);
+Base NB Pos = 0.5821 (SHAP contribution: 0.0484);
+Base VADER Compound = 0.7506 (SHAP contribution: 0.0313)",Base VADER Neg = 0.138 (SHAP contribution: -0.0341),"The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Base RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Pos, Base VADER Compound. The main opposing signal was Base VADER Neg."
+190,wrong,"This is an OK book for a beginner who knows little or nothing about networking. It does describe the various types of home networking available today, with a lot of information about wireless technologies. It could have been better organized by covering ethernet and wireless in separate sections. It is neither very clear for one getting started in home networking nor very helpful for one with basic knowledge who is looking to establish a more complex home network. It is an easy read and the ""tips"" inserts are helpful--really the best informative parts of the book. However, unless you are brand new to computers and networking, that is about all that is useful. Otherwise, save your money.",neg,neu,0.5645,Base RoBERTa Pos,RoBERTa,"Base RoBERTa Pos = 0.4862 (SHAP contribution: 0.0522);
+Base RoBERTa Neu = 0.4471 (SHAP contribution: 0.0508);
+Base RoBERTa Neg = 0.0667 (SHAP contribution: 0.0483);
+Base VADER Compound = 0.9335 (SHAP contribution: 0.033);
+Base NB Pos = 0.18 (SHAP contribution: 0.0309)","Base SVM Neu = 0.3069 (SHAP contribution: -0.0409);
+Base SVM Pos = 0.4986 (SHAP contribution: -0.0262)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Base RoBERTa Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neu, Base RoBERTa Neg, Base VADER Compound, Base NB Pos. The main opposing signal was Base SVM Neu."
+196,wrong,Working out,neu,neg,0.34,Base VADER Compound,VADER,"Base VADER Compound = 0.0 (SHAP contribution: 0.0515);
+Base VADER Pos = 0.0 (SHAP contribution: 0.0281);
+Base SVM Neg = 0.382 (SHAP contribution: 0.0271);
+Base SVM Neu = 0.3235 (SHAP contribution: 0.0207);
+Base VADER Neu = 1.0 (SHAP contribution: 0.0151)","Base RoBERTa Neg = 0.0739 (SHAP contribution: -0.1095);
+Base RoBERTa Neu = 0.6588 (SHAP contribution: -0.0352);
+Base RoBERTa Pos = 0.2672 (SHAP contribution: -0.0328)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Base VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Base VADER Compound, Base VADER Pos, Base SVM Neg, Base SVM Neu, Base VADER Neu. The main opposing signal was Base RoBERTa Neg."

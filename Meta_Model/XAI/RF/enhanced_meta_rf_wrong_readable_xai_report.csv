@@ -1,0 +1,718 @@
+row_index,prediction_result,review_text,true_sentiment,predicted_sentiment,prediction_confidence,strongest_individual_feature,strongest_feature_group,top_supporting_features,top_opposing_features,explanation
+2,wrong,"I ordered 3 sizes up because of the reviews , the material is thinner than I expected but not see through, has thumb holes didn't really notice until after I bought it , so gets baggy at the bottom , I really like how it has the flowy sides the shape nd style of the shirt is really nice on top of a pencil skirt (is the way I'm wearing it , I would say the bag doesn't have much shape but I would go darker to be more sliming, I like the hood and the comfy part of the sweater , it's tighter on my upper arms only cuz I have bigger upper arms the elbow down is bigger material , and it doesn't look like expensive quality but grateful was only 15.99 . I may purchase another color. I bought the pink one(""purple) it's not purple it's actually pink close to the picture looks to me like a rosy darker hot pink color. I am thinning of getting the green one next it'll be a grate live in sweater for the fall and casual for winter under the coat. Love the hood with extra space not too snug",pos,neu,0.5375,Enhanced RoBERTa Neu,RoBERTa,"Enhanced RoBERTa Neu = 0.3781 (SHAP contribution: 0.0509);
+Enhanced RoBERTa Neg = 0.0281 (SHAP contribution: 0.0334);
+Enhanced SVM Neu = 0.4521 (SHAP contribution: 0.0247);
+Enhanced NB Pos = 0.1803 (SHAP contribution: 0.0231);
+Meta Contrast Count = 3.0 (SHAP contribution: 0.0195)","Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0083);
+Enhanced SVM Pos = 0.3382 (SHAP contribution: -0.0057);
+Enhanced NB Neg = 0.3946 (SHAP contribution: -0.0029);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0004);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0003)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced SVM Neu, Enhanced NB Pos, Meta Contrast Count. The main opposing signal was Enhanced VADER Neg."
+3,wrong,I like the glasses but not the fit. I can't get the nose piece right. They sit on my cheeks.,neu,neg,0.762,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.7574 (SHAP contribution: 0.2552);
+Enhanced RoBERTa Pos = 0.0169 (SHAP contribution: 0.1192);
+Enhanced RoBERTa Neu = 0.2257 (SHAP contribution: 0.0404);
+Enhanced VADER Compound = -0.2299 (SHAP contribution: 0.008);
+Enhanced SVM Pos = 0.2067 (SHAP contribution: 0.0045)","Enhanced NB Neu = 0.3772 (SHAP contribution: -0.004);
+Enhanced SVM Neu = 0.4411 (SHAP contribution: -0.0028);
+Enhanced VADER Neg = 0.131 (SHAP contribution: -0.002);
+Enhanced VADER Neu = 0.784 (SHAP contribution: -0.001);
+Enhanced NB Pos = 0.1818 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu."
+4,wrong,Too dark to use them indoors.,pos,neg,0.7846,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6354 (SHAP contribution: 0.2514);
+Enhanced RoBERTa Pos = 0.0237 (SHAP contribution: 0.1106);
+Enhanced RoBERTa Neu = 0.3409 (SHAP contribution: 0.0391);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.0081);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0075)",Enhanced SVM Neu = 0.3666 (SHAP contribution: -0.0014),"The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu."
+8,wrong,"Love these so much, but they do not come with the jump rings as advertised in the pitcure. Luckily I had extra in storage, but if you don't, be sure to buy some separately.",pos,neu,0.5436,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.1496 (SHAP contribution: 0.1002);
+Enhanced RoBERTa Neu = 0.4691 (SHAP contribution: 0.0496);
+Enhanced RoBERTa Pos = 0.3813 (SHAP contribution: 0.0352);
+Meta Contrast Count = 2.0 (SHAP contribution: 0.0128);
+Enhanced VADER Compound = 0.6815 (SHAP contribution: 0.0083)","Enhanced SVM Neu = 0.2625 (SHAP contribution: -0.0189);
+Enhanced NB Neu = 0.2908 (SHAP contribution: -0.0055);
+Enhanced NB Neg = 0.4175 (SHAP contribution: -0.0037);
+Enhanced SVM Neg = 0.4171 (SHAP contribution: -0.0034);
+Enhanced SVM Pos = 0.3204 (SHAP contribution: -0.0017)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Meta Contrast Count, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neu."
+12,wrong,I bought the book with just a little knowledge of the candle making industry. The problem with the book is its not updated for the new technology and materials that are used in candle making today. Yes it does a good job of breaking down the VERY BASICS but thats it. You need to know more about the industry than this book covers. I got more information from watching videos on youtube and the different candle supply companies websites than the couple of books I recently purchased. Watch videos and get up to date information on new waxes and materials. Save yourself the $15 or whatever you may spend and research the internet and the big candle supply companies out there. They know whats new and what works,neg,neu,0.5104,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.263 (SHAP contribution: 0.0873);
+Enhanced RoBERTa Neu = 0.5729 (SHAP contribution: 0.0429);
+Enhanced RoBERTa Pos = 0.1641 (SHAP contribution: 0.0394);
+Enhanced VADER Compound = 0.7391 (SHAP contribution: 0.0118);
+Enhanced NB Neg = 0.2832 (SHAP contribution: 0.0053)","Enhanced SVM Neu = 0.3052 (SHAP contribution: -0.0168);
+Enhanced VADER Neu = 0.923 (SHAP contribution: -0.0079);
+Enhanced NB Pos = 0.3778 (SHAP contribution: -0.0072);
+Enhanced SVM Pos = 0.4066 (SHAP contribution: -0.0025);
+Enhanced VADER Neg = 0.014 (SHAP contribution: -0.0024)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+14,wrong,Much clearer than VHS-to-DVD-to-Digital,pos,neu,0.462,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0605 (SHAP contribution: 0.0799);
+Enhanced RoBERTa Neu = 0.5338 (SHAP contribution: 0.0429);
+Enhanced RoBERTa Pos = 0.4058 (SHAP contribution: 0.027);
+Enhanced SVM Pos = 0.1948 (SHAP contribution: 0.0147);
+Enhanced NB Neu = 0.3596 (SHAP contribution: 0.0037)","Enhanced NB Pos = 0.3218 (SHAP contribution: -0.0123);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0092);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0079);
+Enhanced SVM Neu = 0.362 (SHAP contribution: -0.0069);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0065)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced NB Neu. The main opposing signal was Enhanced NB Pos."
+17,wrong,FIVE STA...er...Make that ONE star!,neg,neu,0.4976,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0422 (SHAP contribution: 0.092);
+Enhanced RoBERTa Neu = 0.5609 (SHAP contribution: 0.0456);
+Enhanced RoBERTa Pos = 0.397 (SHAP contribution: 0.028);
+Enhanced NB Pos = 0.2387 (SHAP contribution: 0.0203);
+Enhanced SVM Pos = 0.1987 (SHAP contribution: 0.0142)","Enhanced SVM Neu = 0.3219 (SHAP contribution: -0.0144);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0096);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0076);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0076);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0062)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neu."
+18,wrong,Believe,pos,neu,0.4532,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0326 (SHAP contribution: 0.0805);
+Enhanced RoBERTa Neu = 0.3643 (SHAP contribution: 0.0481);
+Enhanced RoBERTa Pos = 0.6031 (SHAP contribution: 0.0172);
+Enhanced SVM Pos = 0.2945 (SHAP contribution: 0.0096);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0038)","Enhanced SVM Neu = 0.2798 (SHAP contribution: -0.0167);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0104);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0084);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0072);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0063)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu."
+19,wrong,"Ladies with smaller sized chest would be fine with this product- Ladies with larger (D+), don't bother! The ears don't stick enough to keep the girls lifted and give you a weird shape when they do stick for a couple minutes.",neg,neu,0.424,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3667 (SHAP contribution: 0.0665);
+Enhanced RoBERTa Neu = 0.5467 (SHAP contribution: 0.0352);
+Enhanced RoBERTa Pos = 0.0865 (SHAP contribution: 0.0197);
+Enhanced NB Pos = 0.1812 (SHAP contribution: 0.0102);
+Enhanced VADER Compound = 0.3459 (SHAP contribution: 0.0099)","Enhanced NB Neu = 0.2263 (SHAP contribution: -0.0337);
+Enhanced SVM Neu = 0.2179 (SHAP contribution: -0.0173);
+Enhanced NB Neg = 0.5924 (SHAP contribution: -0.008);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0048);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0038)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced NB Neu."
+20,wrong,It came stained! I'm so upset too because I planned to wear it to my sons graduation and now I don't have time to order something else.Edit: I raised my star rating from a 1 to a 4 because the company who manufactured the dress reached out and apologized for their mistake with the stains. Anytime a company goes out of there way and acknowledges their mistake I appreciate it.,pos,neg,0.4183,Enhanced RoBERTa Neg,Naive Bayes,"Enhanced RoBERTa Neg = 0.413 (SHAP contribution: 0.0651);
+Enhanced NB Neu = 0.2555 (SHAP contribution: 0.0242);
+Enhanced VADER Compound = -0.6793 (SHAP contribution: 0.0165);
+Enhanced SVM Neu = 0.2166 (SHAP contribution: 0.0095);
+Enhanced NB Neg = 0.5822 (SHAP contribution: 0.0077)","Enhanced RoBERTa Neu = 0.4691 (SHAP contribution: -0.0345);
+Enhanced RoBERTa Pos = 0.1179 (SHAP contribution: -0.0105);
+Enhanced VADER Neu = 0.756 (SHAP contribution: -0.0042);
+Enhanced SVM Pos = 0.3132 (SHAP contribution: -0.0021);
+Enhanced VADER Neg = 0.154 (SHAP contribution: -0.0011)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was Naive Bayes. The top supporting features were Enhanced RoBERTa Neg, Enhanced NB Neu, Enhanced VADER Compound, Enhanced SVM Neu, Enhanced NB Neg. The main opposing signal was Enhanced RoBERTa Neu."
+23,wrong,the cam too big,neg,neu,0.413,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3656 (SHAP contribution: 0.0681);
+Enhanced RoBERTa Neu = 0.5482 (SHAP contribution: 0.0359);
+Enhanced RoBERTa Pos = 0.0861 (SHAP contribution: 0.0246);
+Enhanced SVM Neg = 0.352 (SHAP contribution: 0.0012);
+Enhanced NB Neg = 0.332 (SHAP contribution: 0.0007)","Enhanced SVM Neu = 0.2742 (SHAP contribution: -0.016);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0137);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0098);
+Enhanced NB Pos = 0.3482 (SHAP contribution: -0.0062);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0056)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+28,wrong,"This batch that I bouth in 2010 no only won't burn in either my CD/DVD player but it ejects itself before I can press a button. Same with the other player on my machine which also burns blu rays. I took the DL Verbatims from 2007-2008 and saved them to one BluRay and all the info was transferred wihtout a hitch. The 4.7s work great, I even get what should be DL space items compressed without much quality loss to the 4.7s This is very bad. They did something in the factory that reduced the quality of the DL disk to where the machine dosent even want it to sit there. I kicks it out. Sometimes im lucky if i put it in and press burn right away it will register but more often then not burns coaster.",neg,neu,0.5826,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.1852 (SHAP contribution: 0.095);
+Enhanced RoBERTa Neu = 0.5057 (SHAP contribution: 0.0456);
+Enhanced RoBERTa Pos = 0.3091 (SHAP contribution: 0.0382);
+Enhanced NB Pos = 0.1778 (SHAP contribution: 0.016);
+Enhanced VADER Compound = 0.8444 (SHAP contribution: 0.0115)","Enhanced NB Neg = 0.5047 (SHAP contribution: -0.0051);
+Enhanced SVM Neg = 0.4253 (SHAP contribution: -0.004);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0005);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0004);
+Meta Intensifier Count = 1.0 (SHAP contribution: -0.0002)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced NB Neg."
+29,wrong,Built great.,neu,pos,0.6571,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.032 (SHAP contribution: 0.1382);
+Enhanced RoBERTa Pos = 0.7823 (SHAP contribution: 0.0891);
+Enhanced RoBERTa Neu = 0.1858 (SHAP contribution: 0.0544);
+Enhanced NB Pos = 0.5278 (SHAP contribution: 0.0107);
+Enhanced SVM Pos = 0.4916 (SHAP contribution: 0.0092)",Meta Has Negator = 0.0 (SHAP contribution: -0.0),"The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Pos, Enhanced SVM Pos. The main opposing signal was Meta Has Negator."
+30,wrong,These are okay. They are pretty but they are also kinda cheap. But hey look at the price. They do look very nice and are comfortable to wear.,neu,pos,0.7871,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0111 (SHAP contribution: 0.3358);
+Enhanced RoBERTa Pos = 0.8516 (SHAP contribution: 0.1046);
+Enhanced RoBERTa Neu = 0.1373 (SHAP contribution: 0.0654);
+Enhanced NB Pos = 0.3583 (SHAP contribution: 0.0059);
+Enhanced VADER Compound = 0.903 (SHAP contribution: 0.0038)","Enhanced SVM Neu = 0.5016 (SHAP contribution: -0.0282);
+Enhanced SVM Pos = 0.2312 (SHAP contribution: -0.0121);
+Meta Contrast Count = 2.0 (SHAP contribution: -0.0071);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0029);
+Enhanced NB Neu = 0.3609 (SHAP contribution: -0.0002)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neu."
+33,wrong,"This is the book that was used for MATH 0150 at Kean University, Union, NJ, USA.",neu,pos,0.4117,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0328 (SHAP contribution: 0.1073);
+Enhanced NB Pos = 0.3708 (SHAP contribution: 0.0134);
+Enhanced SVM Neu = 0.2911 (SHAP contribution: 0.0131);
+Enhanced SVM Pos = 0.4168 (SHAP contribution: 0.0115);
+Enhanced VADER Neg = 0.0 (SHAP contribution: 0.0057)","Enhanced RoBERTa Neu = 0.8853 (SHAP contribution: -0.0273);
+Enhanced RoBERTa Pos = 0.082 (SHAP contribution: -0.0253);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.009);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0061);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced SVM Neu, Enhanced SVM Pos, Enhanced VADER Neg. The main opposing signal was Enhanced RoBERTa Neu."
+34,wrong,Just what the travel doctor ordered!,pos,neu,0.4419,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2022 (SHAP contribution: 0.0838);
+Enhanced RoBERTa Neu = 0.5666 (SHAP contribution: 0.0376);
+Enhanced RoBERTa Pos = 0.2313 (SHAP contribution: 0.0349);
+Enhanced SVM Neg = 0.3051 (SHAP contribution: 0.0044);
+Enhanced NB Neg = 0.3131 (SHAP contribution: 0.0041)","Enhanced SVM Neu = 0.2896 (SHAP contribution: -0.0173);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.012);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0095);
+Enhanced NB Pos = 0.3839 (SHAP contribution: -0.008);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0063)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+36,wrong,"The Road to Gandolfo is a spoof, or satire, or meant to be generally amusing, or some combination of those three.A guy that is kicked out of the army for becoming a political embarrassment, decides to do something even more politically embarrassing. He kidnaps the Pope.The Pope doesn't mind that much, he gets to kick back, shoot the breeze, sink a few cold ones, have a few barbies, and generally be not stressed.The problem will be getting all the Catholics to pay the ransom that they want for him, as he is taxing them all.",pos,neg,0.4594,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.5611 (SHAP contribution: 0.0995);
+Enhanced RoBERTa Pos = 0.0343 (SHAP contribution: 0.0376);
+Enhanced VADER Compound = -0.53 (SHAP contribution: 0.0145);
+Enhanced SVM Neg = 0.4789 (SHAP contribution: 0.008);
+Enhanced NB Neg = 0.4198 (SHAP contribution: 0.0055)","Enhanced RoBERTa Neu = 0.4046 (SHAP contribution: -0.0407);
+Enhanced SVM Neu = 0.378 (SHAP contribution: -0.0071);
+Enhanced NB Neu = 0.3707 (SHAP contribution: -0.0048);
+Enhanced VADER Neu = 0.842 (SHAP contribution: -0.0041);
+Enhanced VADER Neg = 0.096 (SHAP contribution: -0.0008)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Neg, Enhanced NB Neg. The main opposing signal was Enhanced RoBERTa Neu."
+37,wrong,"They are great, the only reason why I didnt keep them is that I looked bad in these. My body isnt for it, but otherwise if you know you look good in these type of pants- that would be a good buy. Quality is pretty nice.I wished I looked better, but well, life ;)",pos,neu,0.6391,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.1413 (SHAP contribution: 0.1083);
+Enhanced RoBERTa Neu = 0.4144 (SHAP contribution: 0.0513);
+Enhanced RoBERTa Pos = 0.4444 (SHAP contribution: 0.0357);
+Enhanced SVM Neu = 0.4789 (SHAP contribution: 0.0272);
+Enhanced NB Pos = 0.2206 (SHAP contribution: 0.0202)","Enhanced NB Neg = 0.4288 (SHAP contribution: -0.0036);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0005);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0003);
+Meta Has Intensifier = 0.0 (SHAP contribution: -0.0001);
+Meta Intensifier Count = 0.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced NB Pos. The main opposing signal was Enhanced NB Neg."
+38,wrong,Awesome... for 2 weeks junk!,neg,neu,0.479,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0732 (SHAP contribution: 0.1004);
+Enhanced RoBERTa Pos = 0.6896 (SHAP contribution: 0.0239);
+Enhanced RoBERTa Neu = 0.2372 (SHAP contribution: 0.0227);
+Enhanced SVM Pos = 0.1897 (SHAP contribution: 0.0183);
+Enhanced NB Pos = 0.2883 (SHAP contribution: 0.0078)","Meta Contrast Count = 0.0 (SHAP contribution: -0.0103);
+Enhanced SVM Neu = 0.3415 (SHAP contribution: -0.0102);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0067);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0063);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0056)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced SVM Pos, Enhanced NB Pos. The main opposing signal was Meta Contrast Count."
+42,wrong,"the channel memory is funky if its turned up to loud it cuts out the remote is too small and hard to read, understand and hold",neu,neg,0.7886,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.8691 (SHAP contribution: 0.2649);
+Enhanced RoBERTa Pos = 0.0076 (SHAP contribution: 0.1213);
+Enhanced RoBERTa Neu = 0.1233 (SHAP contribution: 0.0422);
+Enhanced VADER Compound = -0.4588 (SHAP contribution: 0.008);
+Enhanced SVM Neg = 0.4465 (SHAP contribution: 0.0075)","Enhanced NB Neu = 0.4278 (SHAP contribution: -0.0072);
+Enhanced SVM Neu = 0.4508 (SHAP contribution: -0.0032);
+Enhanced VADER Neu = 0.821 (SHAP contribution: -0.0006);
+Enhanced NB Pos = 0.1915 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Neg. The main opposing signal was Enhanced NB Neu."
+43,wrong,"Wedding planner Carnegie Kincaid is going through a rough patch professionally and personally. Her Seattle based businesses ""Made in Heaven Wedding Design"" is not making much money and her relationship with her commitment phobic significant other Aaron Gold is strained. She decides to attend the wedding of her college friend Tracy West because of the business contacts she will make there as Tracy is a big Hollywood star and her parents know all the movers and shakes.When Carnegie learns her cousin died, she decides that the wedding is the perfect place to get some answers regarding his death. Although Carnegie wasn't close to her cousin Brian Theale, she wants to know if his death was an accident or murder. A professional who examined the body thinks he was murdered but the sheriff and the task force classified it an accident. Brian's fellow smoke jumpers who were with him shortly after he died will be at the wedding so Carnegie will have an easy time questioning the suspects. To her delight, Aaron comes up for the wedding and since he is a journalist with skills that are needed to question suspects, they team up to find out the truth behind Brian's death.The heroine becomes the de facto wedding planner for the West wedding which gives her easy access to the suspects and her determination to find out if the cousin she didn't like was murdered is laudable. Doing her job while trying to scope out a murderer leads to some very funny situations and the comic relief is needed because the tension throughout the storyline is as tight as a high wire. Deborah Donnelly is a very creative writer whose mystery series is refreshingly innovative and totally exciting.Harriet Klausner",pos,neu,0.556,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.1772 (SHAP contribution: 0.0938);
+Enhanced RoBERTa Neu = 0.6682 (SHAP contribution: 0.0415);
+Enhanced RoBERTa Pos = 0.1546 (SHAP contribution: 0.0331);
+Enhanced SVM Neu = 0.4452 (SHAP contribution: 0.0233);
+Meta Contrast Count = 2.0 (SHAP contribution: 0.0103)","Enhanced VADER Compound = -0.9583 (SHAP contribution: -0.0135);
+Enhanced NB Pos = 0.481 (SHAP contribution: -0.0111);
+Enhanced SVM Pos = 0.3447 (SHAP contribution: -0.0027);
+Enhanced NB Neu = 0.3196 (SHAP contribution: -0.0008);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Meta Contrast Count. The main opposing signal was Enhanced VADER Compound."
+47,wrong,"It's great. I'm near the max distance from Green Bay, WI. Time Warner took our NBC any MyTV off because of price disputes. Now TWC can do whatever with local tv. With next day shipping it was only around $42.00.",pos,neu,0.4511,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0533 (SHAP contribution: 0.0841);
+Enhanced RoBERTa Neu = 0.3247 (SHAP contribution: 0.0291);
+Enhanced RoBERTa Pos = 0.622 (SHAP contribution: 0.0226);
+Enhanced SVM Pos = 0.2794 (SHAP contribution: 0.0102);
+Enhanced VADER Neg = 0.048 (SHAP contribution: 0.0071)","Enhanced NB Neu = 0.2375 (SHAP contribution: -0.0232);
+Enhanced NB Pos = 0.329 (SHAP contribution: -0.0137);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0111);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.007);
+Enhanced SVM Neu = 0.3628 (SHAP contribution: -0.0069)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced VADER Neg. The main opposing signal was Enhanced NB Neu."
+55,wrong,"Incarcerated in a labor camp in Siberia, Ivan Denisovich struggles to find food, warmth and a bit of dignity over the course of his day as a forced laborer in the Gulag.....One Day in the Life of Ivan DenisovichRich B",pos,neg,0.7168,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6672 (SHAP contribution: 0.2441);
+Enhanced RoBERTa Pos = 0.0166 (SHAP contribution: 0.1151);
+Enhanced RoBERTa Neu = 0.3162 (SHAP contribution: 0.0381);
+Enhanced VADER Compound = 0.0516 (SHAP contribution: 0.0071);
+Enhanced SVM Neu = 0.3317 (SHAP contribution: 0.0023)","Enhanced NB Neu = 0.4319 (SHAP contribution: -0.0098);
+Enhanced SVM Neg = 0.2269 (SHAP contribution: -0.0083);
+Enhanced SVM Pos = 0.4415 (SHAP contribution: -0.0072);
+Enhanced VADER Pos = 0.132 (SHAP contribution: -0.0047);
+Enhanced NB Neg = 0.2338 (SHAP contribution: -0.0022)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Neu. The main opposing signal was Enhanced NB Neu."
+56,wrong,"I read this book many years ago when I was 13 or 14 so my memory is a little fuzzy on the details, but I remember it made a huge impression on me at the time. I saw the movie and that is what originally inspired me to read the book, but there is a lot more to the book than just the love story that was portrayed in the movie. There is a lot of political and social history presented in the novel, but not so much that it overwhelms the reader. The story and the history are balanced very well. The main character strives to do well and survive against the odds, which was inspirational despite the fact that so many unfortunate incidents happened to him.",neu,pos,0.7844,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0069 (SHAP contribution: 0.3358);
+Enhanced RoBERTa Pos = 0.8038 (SHAP contribution: 0.0956);
+Enhanced RoBERTa Neu = 0.1893 (SHAP contribution: 0.0595);
+Enhanced NB Pos = 0.4504 (SHAP contribution: 0.0069);
+Enhanced VADER Compound = 0.9731 (SHAP contribution: 0.0036)","Enhanced SVM Neu = 0.3697 (SHAP contribution: -0.0102);
+Meta Contrast Count = 3.0 (SHAP contribution: -0.0099);
+Enhanced SVM Pos = 0.3062 (SHAP contribution: -0.0057);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0041);
+Enhanced NB Neu = 0.3558 (SHAP contribution: -0.0008)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neu."
+61,wrong,"I purchased this in 2013. It was easy to set up and has worked great since then. Only issue is when the display is out of it's dock it will sometimes lock up and require a restart to get the functions to work again. Also, none of the administrative functions work while it is in the dock, have to remove from dock to do anything. Now, here we are in the latter part of 2017 and I can no longer access the system on my iPhone because Uniden had not issued any upgrades that will allow their system to work with IOS 11. Trying to contact Uniden but like so many companies these days they hide their contact information so that you either spend way too much time to find it, or you never find it, which means they don't have to help many people, just sell a product and write it off.",pos,neg,0.7016,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6496 (SHAP contribution: 0.2367);
+Enhanced RoBERTa Pos = 0.0354 (SHAP contribution: 0.0525);
+Enhanced RoBERTa Neu = 0.315 (SHAP contribution: 0.0332);
+Enhanced NB Neu = 0.2082 (SHAP contribution: 0.0208);
+Enhanced SVM Neg = 0.4801 (SHAP contribution: 0.0085)","Enhanced VADER Compound = 0.3946 (SHAP contribution: -0.0097);
+Meta Negator Count = 4.0 (SHAP contribution: -0.0009);
+Enhanced NB Pos = 0.1713 (SHAP contribution: -0.0007);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0005);
+Meta Contrast Count = 1.0 (SHAP contribution: -0.0002)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced SVM Neg. The main opposing signal was Enhanced VADER Compound."
+63,wrong,"I have two of these that I'll be returning. The menu functions require about an hour of training. Between the three buttons and power button, it's a puzzle trying to figure out which buttons do what, and how long you have to hold down which button for 1, 2 or 5 seconds to make something happen. Aside from that, I wouldn't have been rating this a bad product if it wasn't for what followed. I hooked one up for a day, and noticed that the time stamp seemed to fall back about 2 minutes every hour. GPS function is a non-existent joke. It simply doesn't work. It did manage to locate where I parked my car, and after that reported everywhere I went at the same location. The time stamp started to jam after 4 hours of use, and after another hour, the camera stopped recording all together losing the last hour of my drive. I'm not sure why it has any sort of built in power source, as it gets about 2 minutes on a full charge before shutting off. Again, I can deal with the power deficiency issue, and complicated menu, the lack of a working GPS, and even the time stamp, but when it just decided to stop recording I'm not seeing the point in having it. I also noticed after taking the time to read the reviews this is a cheap dysfunctional copy of a real product. 09/04/2014 Just an update. I mentioned I purchased two. For kicks and grins I tried the other one today and everything seems to work fine. It is still a little cheap, and difficult to move around the menus, but I admit the other one had to be really screwed up. The GPS on the new one works as well. I'd update the review to three stars from one. I'd give it four stars for overall value if the first one had worked.",neu,neg,0.7831,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6744 (SHAP contribution: 0.2556);
+Enhanced RoBERTa Pos = 0.0218 (SHAP contribution: 0.1165);
+Enhanced RoBERTa Neu = 0.3038 (SHAP contribution: 0.0399);
+Enhanced VADER Compound = -0.7806 (SHAP contribution: 0.0151);
+Enhanced SVM Pos = 0.183 (SHAP contribution: 0.0081)","Enhanced SVM Neu = 0.3781 (SHAP contribution: -0.0025);
+Meta Contrast Count = 2.0 (SHAP contribution: -0.002);
+Meta Negator Count = 5.0 (SHAP contribution: -0.0017);
+Enhanced NB Neg = 0.485 (SHAP contribution: -0.0015);
+Enhanced VADER Neu = 0.887 (SHAP contribution: -0.001)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neu."
+64,wrong,"Great for DVD's, but bad for Wi-Fi",neg,neu,0.4968,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.4934 (SHAP contribution: 0.058);
+Enhanced RoBERTa Neu = 0.4311 (SHAP contribution: 0.0459);
+Enhanced RoBERTa Pos = 0.0755 (SHAP contribution: 0.03);
+Enhanced NB Neu = 0.444 (SHAP contribution: 0.0184);
+Enhanced NB Neg = 0.2142 (SHAP contribution: 0.0096)","Enhanced SVM Neu = 0.3139 (SHAP contribution: -0.0155);
+Enhanced VADER Compound = -0.4939 (SHAP contribution: -0.0112);
+Enhanced SVM Pos = 0.4906 (SHAP contribution: -0.0045);
+Enhanced NB Pos = 0.3419 (SHAP contribution: -0.0043);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0009)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neu, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+65,wrong,Too small for my child's head,neu,neg,0.787,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.8162 (SHAP contribution: 0.2612);
+Enhanced RoBERTa Pos = 0.013 (SHAP contribution: 0.1221);
+Enhanced RoBERTa Neu = 0.1708 (SHAP contribution: 0.0407);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0081);
+Enhanced SVM Neg = 0.4347 (SHAP contribution: 0.0073)","Enhanced NB Neu = 0.4641 (SHAP contribution: -0.0111);
+Enhanced NB Neg = 0.2355 (SHAP contribution: -0.0021);
+Enhanced SVM Neu = 0.3656 (SHAP contribution: -0.0009);
+Enhanced NB Pos = 0.3003 (SHAP contribution: -0.0002)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Pos, Enhanced SVM Neg. The main opposing signal was Enhanced NB Neu."
+69,wrong,This is a very good book with useful tips. I tried baking my pie on the floor of the oven like she suggests. The first time it turned out amazing. Every time since it has burned. Anyone have ideas why this happened? I have tried reducing the temperature and the crust comes out nice and golden but seems a little tougher to me.,pos,neu,0.4635,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0554 (SHAP contribution: 0.0549);
+Enhanced RoBERTa Neu = 0.372 (SHAP contribution: 0.0431);
+Enhanced RoBERTa Pos = 0.5726 (SHAP contribution: 0.0169);
+Meta Has Contrast = 1.0 (SHAP contribution: 0.0075);
+Enhanced VADER Compound = 0.8275 (SHAP contribution: 0.0064)","Enhanced NB Pos = 0.459 (SHAP contribution: -0.0164);
+Enhanced SVM Pos = 0.4274 (SHAP contribution: -0.0094);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0087);
+Meta Negator Count = 0.0 (SHAP contribution: -0.0007);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Meta Has Contrast, Enhanced VADER Compound. The main opposing signal was Enhanced NB Pos."
+70,wrong,"I took a trip to Thailand and was appalled at what I saw, from the filth and smut to the rampant corruption, prostitution, and hideous architecture. And through it all was the ever-present face of THE KING, hundreds of feet tall on skyscrapers, in subways, on office buildings, billboards...everywhere. Say anything critical of him and you're in big trouble.So my question going into this book was: How much is the King responsible for the Thailand that I experienced? For the innumerable narratives of abuse and extortion at the hands of government officials and one of the world's most deplorable legal systems?My answer after reading much of this book is that the King, even if not directly responsible for all that is foul in Thailand, is a huge power player in the utterly fragmented, rudderless, and byzantine world of this Southeast Asian power. His throne and the hold in which it has over his people, would seem anything but democratic -- as the king himself, in his own words, does not truly believe in the concept. I think we are seeing that play out to this day. Like all monarchs, the takeaway is that he is interested in retaining the power of the throne at all costs, and then implementing public works as a ""gift"" to his people. It's like entering the middle ages.Most fascinating and dizzying of all is that this is all perpetrated in the name of Buddhism, of creating a community of well being and dharma for an entire society. This is one of the most indicting statements I have ever heard against Buddhist precepts, and shows how that religion just like any other can be manipulated for the retention of power by a monarchy. It's actually quite a straightforward story that's played itself over time and again in human history, but the Buddhist and particularly the Hindu notions of royalty give this chapter in human domination a mephitic whiff all of its own. My hat's off to Handley for describing much of this insanely complex power brokering from its origins, but in its play-by=play analysis the book cannot help but be a dense, tiresome slog.But the question remains -- without the King, would Thailand look something more like Burma or Cambodia? A scary thought to be sure.",neu,neg,0.6573,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.9035 (SHAP contribution: 0.248);
+Enhanced RoBERTa Pos = 0.0053 (SHAP contribution: 0.0929);
+Enhanced RoBERTa Neu = 0.0912 (SHAP contribution: 0.0378);
+Meta Has Diminisher = 0.0 (SHAP contribution: 0.0019);
+Meta Diminisher Count = 0.0 (SHAP contribution: 0.0015)","Enhanced VADER Compound = 0.9663 (SHAP contribution: -0.0115);
+Enhanced NB Neu = 0.4768 (SHAP contribution: -0.0107);
+Meta Contrast Count = 5.0 (SHAP contribution: -0.0105);
+Enhanced SVM Neg = 0.1881 (SHAP contribution: -0.0097);
+Enhanced SVM Pos = 0.422 (SHAP contribution: -0.008)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Meta Has Diminisher, Meta Diminisher Count. The main opposing signal was Enhanced VADER Compound."
+72,wrong,"Wanted to update my 4 year old Sony TX630 with SSD. I read here, read there, finally ordered this MTRON drive and then the next evening found an obscure link with a better photo and it clearly showed that ZIF wasn't compatible with the microATA50 Toshiba Drives used in Sonys. I didn't open the OEM box when it came. I wrote Jonny at Rocket Disk and he said they'll restock it for a modest fee so its on its way back. I am writing this as a precaution to buyers who are unsure - the error will cost ya. My Bad. BUT, today, I found conics.net has an SSD that WILL work, similar price range. Too bad they're not on AMAZON.",pos,neg,0.7686,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.679 (SHAP contribution: 0.2548);
+Enhanced RoBERTa Pos = 0.0207 (SHAP contribution: 0.1172);
+Enhanced RoBERTa Neu = 0.3003 (SHAP contribution: 0.0408);
+Enhanced VADER Compound = -0.862 (SHAP contribution: 0.015);
+Enhanced VADER Pos = 0.031 (SHAP contribution: 0.0067)","Enhanced SVM Neg = 0.3241 (SHAP contribution: -0.0067);
+Enhanced SVM Neu = 0.4443 (SHAP contribution: -0.0029);
+Enhanced VADER Neg = 0.119 (SHAP contribution: -0.0021);
+Enhanced VADER Neu = 0.85 (SHAP contribution: -0.0017);
+Enhanced NB Neu = 0.3481 (SHAP contribution: -0.0009)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neg."
+73,wrong,The chest area of the dress was quite large. I decided to size up like I usually do with online purchases and it fit perfectly at my waist but the chest area was much to large even with the adjustable straps. I am a 34 DD and had this problem. It also has a very low back which is hard to wear a bra with!!!,pos,neu,0.4782,Enhanced RoBERTa Neu,RoBERTa,"Enhanced RoBERTa Neu = 0.4412 (SHAP contribution: 0.0517);
+Enhanced RoBERTa Neg = 0.5089 (SHAP contribution: 0.0408);
+Enhanced NB Neu = 0.4828 (SHAP contribution: 0.0216);
+Enhanced RoBERTa Pos = 0.0499 (SHAP contribution: 0.0148);
+Enhanced NB Pos = 0.2324 (SHAP contribution: 0.0074)","Enhanced SVM Neu = 0.2957 (SHAP contribution: -0.0177);
+Enhanced VADER Compound = -0.4316 (SHAP contribution: -0.0107);
+Enhanced SVM Neg = 0.4397 (SHAP contribution: -0.0054);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.001);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced NB Neu, Enhanced RoBERTa Pos, Enhanced NB Pos. The main opposing signal was Enhanced SVM Neu."
+75,wrong,"SPOILER ALERT, SPOILER ALERT!Annakin Skywalker becomes Darth Vadar! oh yeah, everyone already knew that.my only disappointment with this book; no scenes on the wookie homeworld. it's my understanding it is shown and featured in the movie, yet nothing in these pages other than ""yep, Yoda went there and escaped thanks to Bail Organa.""still, this is a fine read.",pos,neu,0.4964,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.4993 (SHAP contribution: 0.063);
+Enhanced RoBERTa Neu = 0.4248 (SHAP contribution: 0.0501);
+Enhanced RoBERTa Pos = 0.0758 (SHAP contribution: 0.0307);
+Enhanced VADER Compound = 0.6016 (SHAP contribution: 0.0133);
+Enhanced VADER Pos = 0.156 (SHAP contribution: 0.0063)","Enhanced SVM Neu = 0.2186 (SHAP contribution: -0.0181);
+Enhanced NB Pos = 0.4083 (SHAP contribution: -0.0044);
+Enhanced SVM Neg = 0.3929 (SHAP contribution: -0.004);
+Enhanced NB Neu = 0.3177 (SHAP contribution: -0.0039);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0009)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu."
+83,wrong,Bottoms made small,neg,neu,0.429,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.302 (SHAP contribution: 0.0628);
+Enhanced RoBERTa Neu = 0.5999 (SHAP contribution: 0.0395);
+Enhanced RoBERTa Pos = 0.098 (SHAP contribution: 0.0221);
+Enhanced NB Pos = 0.2684 (SHAP contribution: 0.0063);
+Enhanced SVM Pos = 0.2264 (SHAP contribution: 0.0047)","Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0132);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0101);
+Enhanced NB Neg = 0.4189 (SHAP contribution: -0.0068);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.005);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0048)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced SVM Pos. The main opposing signal was Enhanced VADER Neu."
+85,wrong,It's comfy but the shirt keeps coming up,pos,neu,0.497,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2265 (SHAP contribution: 0.0637);
+Enhanced RoBERTa Neu = 0.6153 (SHAP contribution: 0.0438);
+Enhanced RoBERTa Pos = 0.1582 (SHAP contribution: 0.0354);
+Enhanced NB Neu = 0.63 (SHAP contribution: 0.0227);
+Enhanced NB Pos = 0.1707 (SHAP contribution: 0.0118)","Enhanced SVM Neu = 0.3305 (SHAP contribution: -0.013);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0125);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0101);
+Enhanced SVM Neg = 0.4108 (SHAP contribution: -0.0045);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0043)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neu, Enhanced NB Pos. The main opposing signal was Enhanced SVM Neu."
+86,wrong,Cute but not look good on me and little small,neu,neg,0.6549,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6748 (SHAP contribution: 0.2292);
+Enhanced RoBERTa Pos = 0.0312 (SHAP contribution: 0.0714);
+Enhanced RoBERTa Neu = 0.294 (SHAP contribution: 0.04);
+Enhanced VADER Compound = -0.2753 (SHAP contribution: 0.0092);
+Enhanced SVM Pos = 0.1516 (SHAP contribution: 0.0073)","Enhanced SVM Neg = 0.129 (SHAP contribution: -0.0102);
+Enhanced NB Neu = 0.7231 (SHAP contribution: -0.0097);
+Enhanced SVM Neu = 0.7194 (SHAP contribution: -0.0081);
+Enhanced NB Neg = 0.133 (SHAP contribution: -0.0079);
+Enhanced VADER Pos = 0.153 (SHAP contribution: -0.0064)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neg."
+87,wrong,"I think I expected too much from this book and was therefore disappointed with it. It was an interesting account of Griffin's follies, but it wasn't as eerie as I had thought it would be. If you're into sci-fi you should read it, otherwise...well, it's up to you.",neu,neg,0.4636,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.5949 (SHAP contribution: 0.1582);
+Enhanced RoBERTa Pos = 0.0323 (SHAP contribution: 0.0367);
+Enhanced SVM Neg = 0.3996 (SHAP contribution: 0.0055);
+Enhanced SVM Pos = 0.2008 (SHAP contribution: 0.0033);
+Enhanced NB Neg = 0.3897 (SHAP contribution: 0.0022)","Enhanced RoBERTa Neu = 0.3728 (SHAP contribution: -0.0416);
+Enhanced NB Neu = 0.4403 (SHAP contribution: -0.0168);
+Enhanced VADER Compound = 0.3538 (SHAP contribution: -0.0121);
+Enhanced SVM Neu = 0.3996 (SHAP contribution: -0.0079);
+Enhanced VADER Neu = 0.865 (SHAP contribution: -0.0026)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced SVM Pos, Enhanced NB Neg. The main opposing signal was Enhanced RoBERTa Neu."
+88,wrong,Work for our PS4 but are fragile.,neg,neu,0.4754,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3666 (SHAP contribution: 0.0675);
+Enhanced RoBERTa Neu = 0.5562 (SHAP contribution: 0.041);
+Enhanced RoBERTa Pos = 0.0771 (SHAP contribution: 0.0226);
+Enhanced NB Neg = 0.2266 (SHAP contribution: 0.0093);
+Enhanced VADER Neg = 0.381 (SHAP contribution: 0.0064)","Enhanced VADER Compound = -0.5719 (SHAP contribution: -0.0111);
+Enhanced SVM Neu = 0.3409 (SHAP contribution: -0.0067);
+Enhanced NB Pos = 0.4516 (SHAP contribution: -0.0057);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0057);
+Enhanced NB Neu = 0.3219 (SHAP contribution: -0.0013)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neg, Enhanced VADER Neg. The main opposing signal was Enhanced VADER Compound."
+94,wrong,"Decent quality for tracking, they work",neu,pos,0.5858,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.013 (SHAP contribution: 0.297);
+Enhanced RoBERTa Pos = 0.7627 (SHAP contribution: 0.0632);
+Enhanced NB Neu = 0.2741 (SHAP contribution: 0.0103);
+Meta Contrast Count = 0.0 (SHAP contribution: 0.005);
+Meta Has Contrast = 0.0 (SHAP contribution: 0.0039)","Enhanced RoBERTa Neu = 0.2244 (SHAP contribution: -0.049);
+Enhanced SVM Pos = 0.2571 (SHAP contribution: -0.0163);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0161);
+Enhanced NB Pos = 0.2535 (SHAP contribution: -0.0132);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0097)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Neu, Meta Contrast Count, Meta Has Contrast. The main opposing signal was Enhanced RoBERTa Neu."
+97,wrong,"chain isn't the best ""fake"" quality but the charm is cute and unique. I just put it on another one of my chains.",pos,neu,0.5752,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0408 (SHAP contribution: 0.0804);
+Enhanced RoBERTa Neu = 0.4468 (SHAP contribution: 0.0559);
+Enhanced RoBERTa Pos = 0.5124 (SHAP contribution: 0.0314);
+Enhanced VADER Neg = 0.076 (SHAP contribution: 0.0141);
+Enhanced NB Neu = 0.4509 (SHAP contribution: 0.0122)","Enhanced SVM Neu = 0.3703 (SHAP contribution: -0.004);
+Enhanced VADER Pos = 0.263 (SHAP contribution: -0.0017);
+Meta Negator Count = 1.0 (SHAP contribution: -0.0006);
+Enhanced SVM Neg = 0.358 (SHAP contribution: -0.0005);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Neg, Enhanced NB Neu. The main opposing signal was Enhanced SVM Neu."
+98,wrong,"Jean Jules Jusserand (1855 - 1932) was a diplomat, and an author. He was the French ambassador to the United States from 1902 to 1925, and during that time he wrote and published ""With Americans of Past and Present Days"" (1916) which was the winner of the first Pulitzer Prize in History in 1917. The work was a look at the relations between the United States and France up to that point in time. Just a couple years later, in the midst of World War I, Jusserand published a new edition of his work re-titled ""Brothers In Arms"", with a new preface, and he replaced his address about Horace Howard Furness with a piece entitled ""On Lafayette's Birthday and the Anniversary of the Marne"".""With Americans of Past and Present Days"" was an unusual work in several ways. Instead of providing a standard complete history of the relationship between the two countries, it is a collection of four essays followed by a piece about speeches given when commemorating the two hundredth anniversary of the Birth of Franklin, and then two addresses, and ""Brothers In Arms"" replaces one speech with another, and in both cases the majority of the text deals with the period around the birth of the United States.The first, and longest, essay is titled ""Rochambeau and the French in America"", and covers the relationship between Rochambeau and Washington, as well as the attitudes of the French towards the Americans, and the English, and their motives for helping the United States achieve its independence. It also covers to some extent the biography of Rochambeau after the revolution was over.The second essay is titled ""Major L'Enfant and the Federal City"" and it covers the creation of Washington D.C. and the significant contribution of Major Pierre Charles L'Enfant. Interestingly enough, though not all of the Major's ideas were implemented initially and the Major was dismissed before the work was completed, he was vindicated when the Park Commission and the Senate committee issued reports on the city in 1902, they wrote ""The original plan of the city of Washington having stood the test of a century, has met universal approval. The departures from that plan are to be regretted, and wherever possible, remedied.""The third essay is titled ""Washington and the French"", and covers how Washington's perception of our French allies changed from some initial suspicion, to one of respect, and lasting friendships with the French officers who served under him. Washington never had a chance to visit France, but his record of correspondence is quite clear. One of the most interesting areas was where Washington wrote about the revolution in France:""The Revolution which has been effected in France is of so wonderful a nature that the mind can hardly realize the fact...but I fear, though it has gone triumphantly through the first paroxysm, it is not the last it has to encounter before matters are finally settled. In a word, the revolution is of too great a magnitude to be effected in so short a space, and with the loss of so little blood.""Washington was amazingly prescient in his statement, as indeed the initial relatively peaceful revolution would soon turn to a period of terror.The next essay is simply titled ""Abraham Lincoln"", and it covers the attitudes of the French towards the great man. Just as the French took the cause of liberty to heart during our revolution, they greatly admired Lincoln for his stance against slavery. Jusserand's discussion of the reaction of the French to Lincoln's death really puts into perspective how much they thought of him.Next is a short piece titled ""The Franklin Medal"" and it discusses the minting of a special commemorative medal on the second centennial of the birth of Benjamin Franklin as a gift to be given to France. The French, of course, were enamored with Franklin and Franklin likewise was a strong supporter of the French. With the earthquake destroying San Francisco at around the same time, the French in return minted a special medal depicting a city rising from the ruins which was given to the mayor in 1909.The first of the two addresses in the revised edition is about Lafayette's Birthday and the Anniversary of the Marne. This is my least favorite section of either the original or the updated edition of the book. Unlike the other sections of the book, this one is more negative, and is really more an attack on Germany than anything else. There is a great deal of talk about France's position as well, but the thoughts about the United States are few and far between. It is understandable that a speech given near the end of a long and bloody conflict could be full of bitterness and hatred of the enemy, but that is all the more reason to not include it here. The new edition was published after the war, but clearly Jusserand had not forgiven the Germans or he would not have included it here. Ultimately it doesn't really fit, though the speech it replaces was also the weakest section of the original edition.Given the period in which this book was written, it should come as no surprise that the final address is about war, or perhaps it would be more accurate to say that it is about peace. Though Jusserand touches on the great conflict of the day, the address is much more about what he sees as the world moving away from wars and towards peace. Obviously, one could point out many ways in which his perception was way off, but in fact the nature of war has indeed changed quite a bit.In the first essay in this book, Jusserand describes how the French forbid their navy to interfere with Captain Cook's exploration in the time of the Revolutionary War. Can one ever imagine an enemy in this day and age doing such a thing? Another point which is driven home in the essay on Rochambeau is how important it was to be perceived as treating one's prisoners well, and once again that no longer appears to be of primary importance. So while Jusserand may not have been correct in seeing war becoming less significant, his perception that its nature had changed would seem to have been proved out by the two World Wars, as well as the conflicts during the Cold War.Overall this is an interesting work of history. It lacks the objectivity that so many look for in a historical text, as Jusserand is very much promoting the strength of the relationship between the two countries. Significant events, such as the Louisiana Purchase are barely mentioned at all, and large gaps exist between what he covers. His choice of subjects for his essays and addresses vary quite a bit as well. The first three essays are very strong pieces, followed by the weaker essay on Lincoln and then the two weakest pieces of the book. I gave the original edition four stars, rounding up, but in this case I am going with three stars because I feel it was weakened by the decision to include the piece on Lafayette and the anniversary of the Marne.",neu,pos,0.4662,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0185 (SHAP contribution: 0.275);
+Enhanced VADER Compound = 0.9585 (SHAP contribution: 0.0023);
+Meta Neg Phrase Count = 0.0 (SHAP contribution: 0.0);
+Enhanced VADER Neu = 0.758 (SHAP contribution: 0.0);
+Meta Has Neg Phrase = 0.0 (SHAP contribution: 0.0)","Enhanced RoBERTa Neu = 0.7522 (SHAP contribution: -0.0416);
+Enhanced VADER Neg = 0.109 (SHAP contribution: -0.0189);
+Enhanced SVM Neu = 0.4087 (SHAP contribution: -0.0145);
+Enhanced RoBERTa Pos = 0.2293 (SHAP contribution: -0.012);
+Enhanced SVM Pos = 0.2884 (SHAP contribution: -0.0099)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Meta Neg Phrase Count, Enhanced VADER Neu, Meta Has Neg Phrase. The main opposing signal was Enhanced RoBERTa Neu."
+100,wrong,The pattern is not the same as the model! But the bathing suit is still cute. Fits pretty well and has padding that can be removed. I got a small and I weigh 125 pounds I'm 57 and I'm at 32A,neg,neu,0.5298,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0651 (SHAP contribution: 0.0824);
+Enhanced RoBERTa Neu = 0.4603 (SHAP contribution: 0.0529);
+Enhanced RoBERTa Pos = 0.4746 (SHAP contribution: 0.0294);
+Enhanced NB Pos = 0.2601 (SHAP contribution: 0.0166);
+Enhanced VADER Compound = 0.9051 (SHAP contribution: 0.008)","Enhanced SVM Neu = 0.307 (SHAP contribution: -0.017);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0058);
+Enhanced SVM Pos = 0.3676 (SHAP contribution: -0.0043);
+Enhanced NB Neg = 0.3544 (SHAP contribution: -0.0029);
+Meta Negator Count = 1.0 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neu."
+101,wrong,Fahrenheit 451 was a disappointing book for a reader who is not an avid science fiction lover. This book is very difficult to read. The correctors a sometimes very confusing to understand. The setting is also very hard to have a visual picture. Although the plot is very good the way that it is described is hard to understand. I think if you are a science fiction lover that you would like this book. But if you sometimes like to read science fiction you will not like this because you have to be a huge science fiction lover to like this. I also think you need to be above the 6th grade or a very advanced reader.,neg,neu,0.5258,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.5469 (SHAP contribution: 0.0606);
+Enhanced RoBERTa Neu = 0.4042 (SHAP contribution: 0.0473);
+Enhanced VADER Compound = 0.9711 (SHAP contribution: 0.0173);
+Enhanced RoBERTa Pos = 0.0489 (SHAP contribution: 0.0149);
+Enhanced VADER Pos = 0.225 (SHAP contribution: 0.0077)","Enhanced NB Pos = 0.3079 (SHAP contribution: -0.0013);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.001);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0007);
+Meta Neg Phrase Count = 0.0 (SHAP contribution: -0.0);
+Meta Has Neg Phrase = 0.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced VADER Pos. The main opposing signal was Enhanced NB Pos."
+104,wrong,This is a must read for any followers of Machiavellian prince apples. Prawns and other Wannabees may discover knew uses for ancient manipulative Phycodian garble de spooks. Dat auld white majick sin four skin. Hal Zwingi,neg,neu,0.4424,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0804 (SHAP contribution: 0.0775);
+Enhanced RoBERTa Neu = 0.5263 (SHAP contribution: 0.0396);
+Enhanced RoBERTa Pos = 0.3934 (SHAP contribution: 0.0282);
+Enhanced VADER Neg = 0.096 (SHAP contribution: 0.0078);
+Enhanced NB Neg = 0.2295 (SHAP contribution: 0.0054)","Enhanced SVM Neu = 0.326 (SHAP contribution: -0.014);
+Enhanced NB Pos = 0.4711 (SHAP contribution: -0.0136);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0093);
+Enhanced SVM Pos = 0.5484 (SHAP contribution: -0.0087);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0067)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Neg, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+105,wrong,It was suppose to be Prime but it took 3 weeks to get here!! I did not like it one bit! The size ran small!!,neu,neg,0.8058,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.9151 (SHAP contribution: 0.2693);
+Enhanced RoBERTa Pos = 0.0079 (SHAP contribution: 0.1197);
+Enhanced RoBERTa Neu = 0.077 (SHAP contribution: 0.0417);
+Enhanced VADER Compound = -0.8192 (SHAP contribution: 0.0141);
+Enhanced SVM Pos = 0.1712 (SHAP contribution: 0.0088)","Enhanced SVM Neu = 0.3978 (SHAP contribution: -0.0025);
+Enhanced NB Neu = 0.3578 (SHAP contribution: -0.0013);
+Enhanced NB Neg = 0.5205 (SHAP contribution: -0.001);
+Enhanced VADER Neu = 0.726 (SHAP contribution: -0.0004);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neu."
+106,wrong,These hats would have been much warmer with a inner liner of fleece. Otherwise these are good.,pos,neu,0.4363,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0651 (SHAP contribution: 0.0627);
+Enhanced RoBERTa Neu = 0.4312 (SHAP contribution: 0.045);
+Enhanced RoBERTa Pos = 0.5037 (SHAP contribution: 0.0282);
+Enhanced VADER Compound = 0.6249 (SHAP contribution: 0.0062);
+Enhanced NB Neg = 0.2662 (SHAP contribution: 0.0033)","Enhanced SVM Neu = 0.3035 (SHAP contribution: -0.0168);
+Enhanced NB Pos = 0.4219 (SHAP contribution: -0.0148);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0095);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0068);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0058)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Neg. The main opposing signal was Enhanced SVM Neu."
+107,wrong,L was way too small and XL way too big?,neu,neg,0.7792,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6451 (SHAP contribution: 0.2501);
+Enhanced RoBERTa Pos = 0.0198 (SHAP contribution: 0.1161);
+Enhanced RoBERTa Neu = 0.335 (SHAP contribution: 0.0392);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.0081);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0078)","Enhanced NB Neu = 0.4017 (SHAP contribution: -0.007);
+Enhanced SVM Neu = 0.3762 (SHAP contribution: -0.0014)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced NB Neu."
+109,wrong,"Have read a good third of the book so far. Story is usually fine and moves right along, is humorous at times even--which is o.k.; the thing that bugs this reader is the fact the author seems to slow things down now and then whenever he attempts to cram his political views down the reader's throat. I don't mind messages in small doses, but to stop your narrative and get on a soap box and start preaching is just plain stupid and bothersome and does not work. Rocky is a good word to describe this tale. On the other hand, I loved Cottonpickers. Your money, your choice.",neu,neg,0.7451,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.7534 (SHAP contribution: 0.2506);
+Enhanced RoBERTa Pos = 0.0198 (SHAP contribution: 0.1171);
+Enhanced RoBERTa Neu = 0.2268 (SHAP contribution: 0.0412);
+Enhanced SVM Neg = 0.4828 (SHAP contribution: 0.0077);
+Enhanced SVM Pos = 0.0878 (SHAP contribution: 0.0027)","Enhanced NB Neu = 0.4215 (SHAP contribution: -0.0077);
+Enhanced VADER Pos = 0.149 (SHAP contribution: -0.0054);
+Enhanced SVM Neu = 0.4294 (SHAP contribution: -0.0025);
+Enhanced VADER Neg = 0.129 (SHAP contribution: -0.002);
+Enhanced VADER Neu = 0.721 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced SVM Neg, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu."
+116,wrong,Unable to install with Windows 7,neu,neg,0.7492,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.7681 (SHAP contribution: 0.2483);
+Enhanced RoBERTa Pos = 0.0141 (SHAP contribution: 0.1135);
+Enhanced RoBERTa Neu = 0.2178 (SHAP contribution: 0.0348);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.0078);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0073)","Enhanced SVM Neg = 0.2764 (SHAP contribution: -0.0082);
+Enhanced SVM Pos = 0.483 (SHAP contribution: -0.0077);
+Enhanced NB Neu = 0.3546 (SHAP contribution: -0.0018);
+Enhanced NB Neg = 0.2995 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neg."
+118,wrong,"We used this book in x-ray technology school and in preparation for the CT exam. The images are alright, although some of them are not the best quality. Also, by the time you get to the point of learning cross sectional anatomy you should have a deep knowledge of human anatomy, so I really don't see why the writer wasted so much useful space by writing about structure and physiology. I also didn't like the labeling, because instead of using numbers like most books do, they used abbreviations... kind of a give-away if you try to practice.",neu,neg,0.7315,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.7823 (SHAP contribution: 0.2488);
+Enhanced RoBERTa Pos = 0.011 (SHAP contribution: 0.1106);
+Enhanced RoBERTa Neu = 0.2067 (SHAP contribution: 0.0321);
+Enhanced NB Neu = 0.2399 (SHAP contribution: 0.0097);
+Enhanced VADER Compound = -0.6183 (SHAP contribution: 0.0093)","Enhanced SVM Neg = 0.2429 (SHAP contribution: -0.0086);
+Enhanced SVM Pos = 0.3161 (SHAP contribution: -0.0055);
+Enhanced SVM Neu = 0.441 (SHAP contribution: -0.0028);
+Enhanced NB Neg = 0.603 (SHAP contribution: -0.0024);
+Enhanced VADER Neg = 0.113 (SHAP contribution: -0.002)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neg."
+119,wrong,This product looks very nice and I liked it until I put it on. I also notice some embedded images in the dress as well. I would show a picture but I could not put my arm in it.,neg,neu,0.4908,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0533 (SHAP contribution: 0.0806);
+Enhanced RoBERTa Neu = 0.3226 (SHAP contribution: 0.0325);
+Enhanced RoBERTa Pos = 0.6241 (SHAP contribution: 0.0202);
+Enhanced NB Pos = 0.2856 (SHAP contribution: 0.009);
+Enhanced NB Neu = 0.4148 (SHAP contribution: 0.0082)","Enhanced SVM Neu = 0.2725 (SHAP contribution: -0.016);
+Enhanced SVM Pos = 0.5406 (SHAP contribution: -0.0093);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0086);
+Meta Negator Count = 1.0 (SHAP contribution: -0.0006);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced NB Neu. The main opposing signal was Enhanced SVM Neu."
+120,wrong,It broke butterfly came off,neg,neu,0.4771,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.4161 (SHAP contribution: 0.0405);
+Enhanced RoBERTa Neu = 0.5407 (SHAP contribution: 0.0402);
+Enhanced SVM Neu = 0.541 (SHAP contribution: 0.022);
+Enhanced NB Neu = 0.3917 (SHAP contribution: 0.0144);
+Enhanced RoBERTa Pos = 0.0432 (SHAP contribution: 0.0119)","Enhanced VADER Compound = -0.4215 (SHAP contribution: -0.0108);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0057);
+Enhanced NB Neg = 0.409 (SHAP contribution: -0.0046);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.004);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0032)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Neu, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Compound."
+122,wrong,"These are very comfortable, but after a couple of washes, it's a bit looser.",pos,neu,0.5536,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0702 (SHAP contribution: 0.078);
+Enhanced RoBERTa Neu = 0.5466 (SHAP contribution: 0.0469);
+Enhanced RoBERTa Pos = 0.3832 (SHAP contribution: 0.0296);
+Enhanced SVM Neu = 0.412 (SHAP contribution: 0.0194);
+Enhanced NB Neu = 0.4978 (SHAP contribution: 0.0135)","Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0059);
+Enhanced SVM Pos = 0.3458 (SHAP contribution: -0.0044);
+Enhanced NB Pos = 0.3073 (SHAP contribution: -0.003);
+Meta Negator Count = 0.0 (SHAP contribution: -0.0006);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced NB Neu. The main opposing signal was Enhanced VADER Neg."
+127,wrong,Nice head sett,pos,neu,0.5108,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0725 (SHAP contribution: 0.0717);
+Enhanced RoBERTa Neu = 0.3955 (SHAP contribution: 0.0449);
+Enhanced RoBERTa Pos = 0.532 (SHAP contribution: 0.0243);
+Enhanced NB Pos = 0.2234 (SHAP contribution: 0.0214);
+Enhanced NB Neu = 0.4232 (SHAP contribution: 0.0095)","Meta Contrast Count = 0.0 (SHAP contribution: -0.0098);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0067);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0054);
+Enhanced NB Neg = 0.3534 (SHAP contribution: -0.003);
+Enhanced SVM Pos = 0.3177 (SHAP contribution: -0.0018)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced NB Neu. The main opposing signal was Meta Contrast Count."
+128,wrong,"Do not buy if you have a Mac with the latest MacOS, as it has issue with its current driver. I am still waiting for an update.",neu,neg,0.7794,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.785 (SHAP contribution: 0.2566);
+Enhanced RoBERTa Pos = 0.013 (SHAP contribution: 0.1149);
+Enhanced RoBERTa Neu = 0.202 (SHAP contribution: 0.0265);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.0081);
+Enhanced NB Neu = 0.2609 (SHAP contribution: 0.0079)","Enhanced SVM Pos = 0.3557 (SHAP contribution: -0.0071);
+Meta Has Negator = 1.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Pos, Enhanced NB Neu. The main opposing signal was Enhanced SVM Pos."
+129,wrong,"1 star for the language learning, could have 4 or 5 for the communicational purpose. This might be a very good guide for a person wanting to go to Japan, it teaches lot's of communicational situations, but of he language itself it teaches almost nothing, almost no (!) grammar and only a part of the script. At this rithym you'll need until volume 20.",neg,neu,0.4778,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0608 (SHAP contribution: 0.0689);
+Enhanced RoBERTa Neu = 0.4833 (SHAP contribution: 0.0438);
+Enhanced RoBERTa Pos = 0.4559 (SHAP contribution: 0.0252);
+Enhanced NB Neu = 0.3887 (SHAP contribution: 0.008);
+Meta Has Diminisher = 1.0 (SHAP contribution: 0.0073)","Enhanced SVM Neu = 0.261 (SHAP contribution: -0.018);
+Enhanced NB Pos = 0.3521 (SHAP contribution: -0.0145);
+Enhanced SVM Pos = 0.5091 (SHAP contribution: -0.0086);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0058);
+Enhanced VADER Neu = 0.933 (SHAP contribution: -0.0057)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neu, Meta Has Diminisher. The main opposing signal was Enhanced SVM Neu."
+131,wrong,"As debut novels go, this one was fairly good. The author introduces us to Conrad Voort, a police officer who comes from a long family line of law enforcement officers, and who also just happens to be the 'richest cop in New York'. Although Voort's personal relationship has just hit the skids, work must continue. He and his partner (who is also wealthy) must track down a killer who is leaving the initials BHC at each of the murder scenes. About half way through the book, the author throws in a wonderful twist as to the identity of the members of the Broken Hearts Club. The only real downside to this book is the author's continuing references regarding Voort's wealth in places where it isn't relevant to the storyline. When the author does this, it detracts from the storyline and the fact Voort is excellent cop with a sharp mind.",neu,pos,0.4708,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0219 (SHAP contribution: 0.2666);
+Enhanced RoBERTa Pos = 0.6262 (SHAP contribution: 0.0465);
+Meta Intensifier Count = 0.0 (SHAP contribution: 0.0001);
+Meta Neg Phrase Count = 0.0 (SHAP contribution: 0.0);
+Meta Has Intensifier = 0.0 (SHAP contribution: 0.0)","Enhanced RoBERTa Neu = 0.3519 (SHAP contribution: -0.0548);
+Enhanced SVM Neu = 0.4511 (SHAP contribution: -0.0252);
+Enhanced VADER Neg = 0.111 (SHAP contribution: -0.0203);
+Enhanced VADER Compound = -0.4111 (SHAP contribution: -0.0142);
+Enhanced SVM Pos = 0.2717 (SHAP contribution: -0.0111)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Meta Intensifier Count, Meta Neg Phrase Count, Meta Has Intensifier. The main opposing signal was Enhanced RoBERTa Neu."
+136,wrong,You need to find a really good station in order for it to work properly,neu,pos,0.7282,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0194 (SHAP contribution: 0.3227);
+Enhanced RoBERTa Pos = 0.6999 (SHAP contribution: 0.0657);
+Enhanced NB Pos = 0.4528 (SHAP contribution: 0.0126);
+Enhanced SVM Pos = 0.435 (SHAP contribution: 0.0124);
+Enhanced NB Neu = 0.2229 (SHAP contribution: 0.0123)","Enhanced RoBERTa Neu = 0.2806 (SHAP contribution: -0.0406);
+Enhanced VADER Neu = 0.803 (SHAP contribution: -0.0004);
+Enhanced SVM Neg = 0.2963 (SHAP contribution: -0.0001);
+Meta Has Intensifier = 1.0 (SHAP contribution: -0.0);
+Meta Has Negator = 0.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced SVM Pos, Enhanced NB Neu. The main opposing signal was Enhanced RoBERTa Neu."
+137,wrong,I bought this rig for my wife and a big reason I chose this one is it said it has wireless display and I wanted my wife to be able to get netflix on the TV. Well this is simply not true. IF you buy an HD cable you can have a cabled display but there is simply no way I've found to hook up wireless to the TV.,neu,neg,0.6876,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6834 (SHAP contribution: 0.2373);
+Enhanced RoBERTa Pos = 0.0331 (SHAP contribution: 0.0476);
+Enhanced RoBERTa Neu = 0.2835 (SHAP contribution: 0.0329);
+Enhanced NB Neu = 0.2107 (SHAP contribution: 0.0195);
+Enhanced VADER Compound = -0.4881 (SHAP contribution: 0.0106)","Enhanced SVM Neg = 0.3409 (SHAP contribution: -0.0055);
+Enhanced SVM Neu = 0.3603 (SHAP contribution: -0.0018);
+Enhanced VADER Neg = 0.085 (SHAP contribution: -0.0017);
+Enhanced VADER Neu = 0.892 (SHAP contribution: -0.0012);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neg."
+140,wrong,"I think that this book is really good, and I would recommend everyone to read it. I am really annoyed about the ending though, and I don't think he should have tried to avoid the happy ending by making up all of that stuff about can't live in different worlds and stupid stuff. Otherwise, I think it was a brilliant book to end a brilliant series.",pos,neu,0.5437,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2495 (SHAP contribution: 0.0803);
+Enhanced RoBERTa Neu = 0.4898 (SHAP contribution: 0.043);
+Enhanced RoBERTa Pos = 0.2606 (SHAP contribution: 0.0367);
+Enhanced VADER Compound = 0.8876 (SHAP contribution: 0.013);
+Enhanced NB Pos = 0.2403 (SHAP contribution: 0.011)","Enhanced SVM Neu = 0.334 (SHAP contribution: -0.0119);
+Enhanced NB Neg = 0.4298 (SHAP contribution: -0.0066);
+Enhanced SVM Pos = 0.3619 (SHAP contribution: -0.0016);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0006);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Pos. The main opposing signal was Enhanced SVM Neu."
+142,wrong,"Now Face to Face and it's predecessor Through a Glass Darkly have joined my collection of favorite historical fiction. Contrary to the other opinion that the political intrigue of the novel was hard to follow, I felt that, for the first time, I was truly able to understand this period of English upheaval. I was reading these novels for the ""fiction"" and not for the ""romance"" so I didn't notice if there was romance missing. I didn't feel there was anything missing, actually. The only thing missing is a third book! Ms. Koen, is it on it's way?",pos,neu,0.5164,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3146 (SHAP contribution: 0.0702);
+Enhanced RoBERTa Neu = 0.5742 (SHAP contribution: 0.0448);
+Enhanced RoBERTa Pos = 0.1111 (SHAP contribution: 0.0297);
+Enhanced VADER Compound = 0.5255 (SHAP contribution: 0.0097);
+Enhanced NB Pos = 0.2556 (SHAP contribution: 0.0083)","Meta Contrast Count = 0.0 (SHAP contribution: -0.0049);
+Enhanced NB Neg = 0.4017 (SHAP contribution: -0.0042);
+Enhanced SVM Neg = 0.4098 (SHAP contribution: -0.0042);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.004);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Pos. The main opposing signal was Meta Contrast Count."
+143,wrong,"I haven't had these i a long time but at one time I owned two pairs. The surround sound quality was good and the worked as they were designed especially for the price. They were comfortable for extended wear as at the time I gamed for hours on most nights. The problem is construction and durability. Both pairs broke at the same spots at the second bend in the head band where the fold up. You can super glue and tape to repair the damage but it won't last long. There is too much stress on the head band in the way the ear pads press against the ear. Expect them to break, just a matter of time. I babied each of my two pairs but that didn't matter.",neu,neg,0.4819,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.585 (SHAP contribution: 0.1382);
+Enhanced RoBERTa Pos = 0.0393 (SHAP contribution: 0.0395);
+Enhanced VADER Compound = -0.7932 (SHAP contribution: 0.0181);
+Enhanced NB Neu = 0.3201 (SHAP contribution: 0.0056);
+Enhanced VADER Pos = 0.076 (SHAP contribution: 0.0025)","Enhanced RoBERTa Neu = 0.3757 (SHAP contribution: -0.0352);
+Enhanced SVM Neu = 0.4639 (SHAP contribution: -0.0118);
+Enhanced SVM Neg = 0.2902 (SHAP contribution: -0.0081);
+Meta Contrast Count = 3.0 (SHAP contribution: -0.0058);
+Enhanced VADER Neu = 0.813 (SHAP contribution: -0.0032)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Neu, Enhanced VADER Pos. The main opposing signal was Enhanced RoBERTa Neu."
+145,wrong,great concept but such a pain to program and get songs onto the thing. I returned,neg,neu,0.462,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3858 (SHAP contribution: 0.0553);
+Enhanced RoBERTa Neu = 0.4842 (SHAP contribution: 0.04);
+Enhanced RoBERTa Pos = 0.13 (SHAP contribution: 0.0341);
+Enhanced SVM Pos = 0.1689 (SHAP contribution: 0.0065);
+Enhanced VADER Pos = 0.134 (SHAP contribution: 0.0058)","Enhanced SVM Neu = 0.3002 (SHAP contribution: -0.0169);
+Enhanced VADER Compound = -0.4404 (SHAP contribution: -0.0111);
+Enhanced SVM Neg = 0.5309 (SHAP contribution: -0.0048);
+Enhanced NB Pos = 0.3234 (SHAP contribution: -0.0036);
+Enhanced NB Neg = 0.3559 (SHAP contribution: -0.0028)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu."
+146,wrong,This book appeared to be pieced together from all his other books. No innovation. I love Dirk Pitt novels and have read them all. This might be my last.,neu,pos,0.6335,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0273 (SHAP contribution: 0.2178);
+Enhanced RoBERTa Pos = 0.7636 (SHAP contribution: 0.0737);
+Enhanced NB Pos = 0.4641 (SHAP contribution: 0.015);
+Enhanced SVM Neu = 0.2085 (SHAP contribution: 0.0138);
+Enhanced SVM Pos = 0.4253 (SHAP contribution: 0.013)","Enhanced RoBERTa Neu = 0.2091 (SHAP contribution: -0.0324);
+Enhanced VADER Neg = 0.065 (SHAP contribution: -0.0084);
+Enhanced NB Neg = 0.272 (SHAP contribution: -0.0003);
+Enhanced SVM Neg = 0.3661 (SHAP contribution: -0.0001)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced SVM Neu, Enhanced SVM Pos. The main opposing signal was Enhanced RoBERTa Neu."
+149,wrong,"In this collection, editors Joseph Corre and Serena Rees attempt to put together a brief history of erotica, particularly subversive erotica. The diversity and quality of the illustrations make this book a nice find. The idea of the text is quite interesting--a historical and social survey of erotica--but still leaves something to be desired. The text is a little too light and doesn't seem particularly well researched.",pos,neu,0.5435,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2419 (SHAP contribution: 0.0811);
+Enhanced RoBERTa Neu = 0.5959 (SHAP contribution: 0.0435);
+Enhanced RoBERTa Pos = 0.1621 (SHAP contribution: 0.0389);
+Enhanced NB Neu = 0.4997 (SHAP contribution: 0.0166);
+Enhanced NB Neg = 0.1747 (SHAP contribution: 0.0114)","Enhanced NB Pos = 0.3256 (SHAP contribution: -0.0072);
+Enhanced SVM Neu = 0.3465 (SHAP contribution: -0.0029);
+Enhanced SVM Pos = 0.3649 (SHAP contribution: -0.0016);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0006);
+Meta Negator Count = 1.0 (SHAP contribution: -0.0005)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neu, Enhanced NB Neg. The main opposing signal was Enhanced NB Pos."
+150,wrong,This was a gift. Quality seems ok. Not great but ok. The stencil seems faded.,pos,neg,0.5276,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6087 (SHAP contribution: 0.1961);
+Enhanced RoBERTa Pos = 0.0366 (SHAP contribution: 0.0403);
+Enhanced VADER Compound = -0.0892 (SHAP contribution: 0.0106);
+Enhanced SVM Pos = 0.2251 (SHAP contribution: 0.0029);
+Enhanced NB Neg = 0.396 (SHAP contribution: 0.0019)","Enhanced RoBERTa Neu = 0.3547 (SHAP contribution: -0.0182);
+Enhanced NB Neu = 0.407 (SHAP contribution: -0.0133);
+Enhanced VADER Pos = 0.302 (SHAP contribution: -0.0131);
+Enhanced SVM Neu = 0.5164 (SHAP contribution: -0.0107);
+Enhanced SVM Neg = 0.2585 (SHAP contribution: -0.0092)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced NB Neg. The main opposing signal was Enhanced RoBERTa Neu."
+153,wrong,"I've known about this book for a while now, but I've never bothered paying attention to it given it's somewhat ridiculous price tag. Necessity forced me to forgo my earlier conclusions however, and I'm now angry at myself for not picking it up sooner. However much you think you know about Quartz, there's always more to learn, and this book is a whole lot easier to pick new tricks up from than Apple's scant free documentation. It's a bit dated when it comes to the XCode specific info, but unless you're a total newcomer you should be able to fill in the proverbial gaps there without much trouble.This is the second book on OS X programming that I have felt is truly worth owning; the first being Amit Singh's ""Mac OS X Internals."" This one's not as thick, nor is it hardbound, but there are lots of color plates. Good stuff.",pos,neu,0.5036,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.5452 (SHAP contribution: 0.0492);
+Enhanced RoBERTa Neu = 0.3908 (SHAP contribution: 0.041);
+Meta Has Diminisher = 1.0 (SHAP contribution: 0.0169);
+Enhanced VADER Compound = 0.824 (SHAP contribution: 0.0142);
+Meta Diminisher Count = 1.0 (SHAP contribution: 0.0117)","Enhanced SVM Neu = 0.3315 (SHAP contribution: -0.0119);
+Enhanced SVM Neg = 0.3825 (SHAP contribution: -0.003);
+Enhanced NB Neg = 0.3561 (SHAP contribution: -0.0017);
+Enhanced NB Pos = 0.3064 (SHAP contribution: -0.0003);
+Meta Has Intensifier = 0.0 (SHAP contribution: -0.0001)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Meta Has Diminisher, Enhanced VADER Compound, Meta Diminisher Count. The main opposing signal was Enhanced SVM Neu."
+156,wrong,"Reviewer: Chuck Spicer from Champaign, IL USA Brian distorts the Dune serious making unbelievable leaps and writing things that any Dune fan know just couldn't be or clash with Frank's vision. The characters are one dimensional and the story line is preposterous. It's as badly written as star trek books. This book might be entertaining to those looking for a fun read but anybody who holds Dune true and dear to their hearts will dislike this. This was obviously a tool to fatten his pockets. He should have listened to his father when he wrote ""YOu don't write for success."" Let Brian have his fun with the prequels but let us all hope he doesn't truely desicrate Dune by attempting Dune 7.",neu,neg,0.759,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.8311 (SHAP contribution: 0.2658);
+Enhanced RoBERTa Pos = 0.0115 (SHAP contribution: 0.1248);
+Enhanced RoBERTa Neu = 0.1573 (SHAP contribution: 0.0455);
+Enhanced SVM Neg = 0.4003 (SHAP contribution: 0.0068);
+Enhanced SVM Pos = 0.2644 (SHAP contribution: 0.0037)","Enhanced VADER Compound = 0.9403 (SHAP contribution: -0.0128);
+Enhanced VADER Pos = 0.181 (SHAP contribution: -0.0098);
+Enhanced NB Neu = 0.4322 (SHAP contribution: -0.0087);
+Enhanced VADER Neu = 0.758 (SHAP contribution: -0.0009);
+Meta Contrast Count = 2.0 (SHAP contribution: -0.0008)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced SVM Neg, Enhanced SVM Pos. The main opposing signal was Enhanced VADER Compound."
+160,wrong,"Just don't know. ?? It worked at first. I read so many reviews and this appears to be the one I need for my ONE HDMI input Sony 26"" TV (2005) I wanted to run my Sony DVD player and Yamaha receiver to it and out to TV. I haven't tried it with the remote. I had family visiting and needed the set-up in BR. But it only worked initially. I'm going to read more of the reviews, when I have time. Some people are really good with solutions and advice. Thanks! I could give it ONE star....but withholding that for now.",neg,pos,0.5897,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0194 (SHAP contribution: 0.301);
+Enhanced RoBERTa Pos = 0.7555 (SHAP contribution: 0.0588);
+Enhanced SVM Neu = 0.2793 (SHAP contribution: 0.0134);
+Enhanced NB Neu = 0.2096 (SHAP contribution: 0.0112);
+Enhanced VADER Neg = 0.0 (SHAP contribution: 0.0039)","Enhanced RoBERTa Neu = 0.2251 (SHAP contribution: -0.0543);
+Enhanced NB Pos = 0.2273 (SHAP contribution: -0.0209);
+Enhanced SVM Pos = 0.2914 (SHAP contribution: -0.0117);
+Meta Contrast Count = 2.0 (SHAP contribution: -0.0109);
+Enhanced NB Neg = 0.5631 (SHAP contribution: -0.0076)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced NB Neu, Enhanced VADER Neg. The main opposing signal was Enhanced RoBERTa Neu."
+164,wrong,Esy to use very long wire.,pos,neu,0.4924,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2079 (SHAP contribution: 0.0764);
+Enhanced RoBERTa Neu = 0.699 (SHAP contribution: 0.0402);
+Enhanced RoBERTa Pos = 0.093 (SHAP contribution: 0.0259);
+Enhanced SVM Neu = 0.4884 (SHAP contribution: 0.023);
+Enhanced NB Neg = 0.1781 (SHAP contribution: 0.0113)","Enhanced VADER Neu = 1.0 (SHAP contribution: -0.012);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0099);
+Enhanced NB Pos = 0.4654 (SHAP contribution: -0.0063);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0053);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0045)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced NB Neg. The main opposing signal was Enhanced VADER Neu."
+165,wrong,"One edge of the band is pretty rough. Some of the stitching on the inside is not great and required a bit of trimming to make comfortable against my skin. My main complaint though is that the included pins were the wrong size. If you look at the photo I uploaded you can see one of the pins sitting on top of the band, they are the same size, that's not going to work! Luckily I could just use the pins that were already in my watch but I did buy this band specifically to have a back up set. On the positive side this band does include a pin removal tool which is quite well made and works great.",neu,neg,0.678,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6616 (SHAP contribution: 0.2405);
+Enhanced RoBERTa Pos = 0.0284 (SHAP contribution: 0.0888);
+Enhanced RoBERTa Neu = 0.3099 (SHAP contribution: 0.0382);
+Enhanced NB Neu = 0.3176 (SHAP contribution: 0.0056);
+Enhanced NB Neg = 0.3681 (SHAP contribution: 0.0022)","Enhanced VADER Compound = 0.9416 (SHAP contribution: -0.0159);
+Enhanced SVM Neg = 0.271 (SHAP contribution: -0.0084);
+Enhanced SVM Pos = 0.3931 (SHAP contribution: -0.0081);
+Enhanced VADER Pos = 0.161 (SHAP contribution: -0.0064);
+Meta Contrast Count = 2.0 (SHAP contribution: -0.0014)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced NB Neg. The main opposing signal was Enhanced VADER Compound."
+166,wrong,"Seems like the prophet of cybernetics outsourced the writing of this history to a commodore 64. As I read this, I kept wondering if, perhaps, it was intended for youngsters? It's not bad, but quite light, and not up to Asimov's customary standard. I was puzzled that he dismissed Philip's assassination with a couple of sentences, that the internal conspiracies against Alexander aren't analyzed...Description of tactics and battles are simplistic. I suppose that when an author is so prolific and so eclectic, at some point, that limitations are unavoidable.",neg,neu,0.5021,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.3053 (SHAP contribution: 0.0513);
+Enhanced RoBERTa Neu = 0.6151 (SHAP contribution: 0.0416);
+Enhanced RoBERTa Pos = 0.0797 (SHAP contribution: 0.0228);
+Enhanced SVM Neu = 0.4459 (SHAP contribution: 0.0192);
+Enhanced NB Neu = 0.474 (SHAP contribution: 0.016)","Enhanced VADER Compound = -0.8442 (SHAP contribution: -0.0163);
+Enhanced NB Neg = 0.3931 (SHAP contribution: -0.0051);
+Enhanced VADER Pos = 0.051 (SHAP contribution: -0.0049);
+Enhanced SVM Neg = 0.3942 (SHAP contribution: -0.004);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0006)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound."
+167,wrong,This shirt is a nice color and the material is OK. But I bought as a set to go with the big/lil sis shirt/onesie from this company and this shirt is cut totally differently. It is not fitted like the other 2 girl cut shirts I received. It's boxy and boyish and runs wide and short. I'm disappointed my middle daughter won't look coordinated with the other shirts advertised as the same from this company,neu,neg,0.7952,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.8262 (SHAP contribution: 0.2631);
+Enhanced RoBERTa Pos = 0.0104 (SHAP contribution: 0.1238);
+Enhanced RoBERTa Neu = 0.1634 (SHAP contribution: 0.0442);
+Enhanced VADER Compound = -0.8634 (SHAP contribution: 0.0141);
+Enhanced SVM Pos = 0.1416 (SHAP contribution: 0.0085)","Enhanced NB Neu = 0.5987 (SHAP contribution: -0.0059);
+Enhanced SVM Neu = 0.4351 (SHAP contribution: -0.0022);
+Enhanced NB Neg = 0.2875 (SHAP contribution: -0.0005);
+Meta Has Intensifier = 1.0 (SHAP contribution: -0.0005);
+Meta Has Contrast = 1.0 (SHAP contribution: -0.0004)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu."
+173,wrong,"If you find this review to be helpful, please click ""helpful"" on the bottom.It's not a bad dress. But for the price, there are better dresses out there.What I didn't like about this dress is that the material is very scratchy. I'm 5'8, 150lbs 38DD and instead of being flattering, this dress will make you look somewhat pregnant.The print from far looks great, but close up, looks cheat and really bad.",neu,neg,0.5869,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.7024 (SHAP contribution: 0.22);
+Enhanced RoBERTa Pos = 0.025 (SHAP contribution: 0.0908);
+Enhanced RoBERTa Neu = 0.2726 (SHAP contribution: 0.0287);
+Enhanced NB Neu = 0.2204 (SHAP contribution: 0.0132);
+Enhanced SVM Neu = 0.3382 (SHAP contribution: 0.0015)","Meta Has Diminisher = 1.0 (SHAP contribution: -0.0322);
+Meta Diminisher Count = 1.0 (SHAP contribution: -0.0262);
+Enhanced VADER Pos = 0.237 (SHAP contribution: -0.014);
+Enhanced VADER Compound = 0.8719 (SHAP contribution: -0.0137);
+Enhanced SVM Neg = 0.3261 (SHAP contribution: -0.0066)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced SVM Neu. The main opposing signal was Meta Has Diminisher."
+176,wrong,Backing not on properly,neu,neg,0.6476,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.6674 (SHAP contribution: 0.2241);
+Enhanced RoBERTa Pos = 0.0424 (SHAP contribution: 0.0465);
+Enhanced RoBERTa Neu = 0.2903 (SHAP contribution: 0.0328);
+Enhanced NB Neu = 0.2851 (SHAP contribution: 0.0097);
+Enhanced VADER Compound = 0.0258 (SHAP contribution: 0.0088)","Enhanced SVM Neg = 0.7375 (SHAP contribution: -0.0199);
+Enhanced VADER Pos = 0.268 (SHAP contribution: -0.0112);
+Enhanced VADER Neu = 0.732 (SHAP contribution: -0.0014);
+Meta Intensifier Count = 0.0 (SHAP contribution: -0.0);
+Meta Has Negator = 1.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neg."
+179,wrong,"As the straight as-yet-not-ex-wife of a transvestite man, I am trying to find readings to help me explain my situation to myself, as well as to friends or relatives. _Read My Lips_ is a serious book not written with the affectation that seems to afflict many male-to-female writers. While I still don't share the author's belief that all gender classification is oppressive, Riki does a good job explaining why some people do. I was particularly taken with her understanding that being female in this society is not all sweetness and makeup, and her willingness to point out the ways all the different kinds of gender outlaws she has encountered oppress one another. Not recommended as the first book to give your elderly mother or father; some familiarity with the rhetoric of feminism and liberation is helpful.",pos,neu,0.598,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.1295 (SHAP contribution: 0.1005);
+Enhanced RoBERTa Neu = 0.6896 (SHAP contribution: 0.0507);
+Enhanced RoBERTa Pos = 0.1809 (SHAP contribution: 0.0364);
+Enhanced NB Pos = 0.2438 (SHAP contribution: 0.0169);
+Enhanced NB Neu = 0.4061 (SHAP contribution: 0.0116)","Enhanced SVM Neg = 0.4228 (SHAP contribution: -0.0037);
+Enhanced NB Neg = 0.3502 (SHAP contribution: -0.0029);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0005);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0003);
+Meta Has Intensifier = 0.0 (SHAP contribution: -0.0001)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Pos, Enhanced NB Neu. The main opposing signal was Enhanced SVM Neg."
+180,wrong,Does not work with CFLs,neu,neg,0.7829,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.8684 (SHAP contribution: 0.264);
+Enhanced RoBERTa Pos = 0.0112 (SHAP contribution: 0.115);
+Enhanced RoBERTa Neu = 0.1204 (SHAP contribution: 0.037);
+Enhanced SVM Neg = 0.6187 (SHAP contribution: 0.0081);
+Enhanced VADER Compound = -0.6369 (SHAP contribution: 0.0076)","Enhanced NB Neu = 0.3911 (SHAP contribution: -0.0037);
+Enhanced VADER Neu = 0.323 (SHAP contribution: -0.0033);
+Enhanced NB Neg = 0.5111 (SHAP contribution: -0.0011);
+Meta Neg Phrase Count = 1.0 (SHAP contribution: -0.0002);
+Meta Has Neg Phrase = 1.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced SVM Neg, Enhanced VADER Compound. The main opposing signal was Enhanced NB Neu."
+182,wrong,"Sure the technical merits of good graphics, etc are a plus but do not garner the poorly thought out product 5 stars. After using KVM's for years I have never had the problems like I have had with this. Other manufacturers manage to use Ctrl keys for their hotkey functions without the problems that this box plagues you with. While this box may have garnered rave reviews from the folks who want to play Linux, etc., I have to say to use this on a primary production machine will eventually drive you nuts. If you are always using constant Ctrl or Shift operations to mass select items you will constantly find that your key press was not registered. In addition, sometimes your mouse will just freeze until you click a button again. Oh well, the same goes for all Linksys products... they are a bit cheaper than what you would normally pay *but* you get what you pay for. Suitable for home or dorm but not for an all day production machine.",neg,neu,0.5759,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.4868 (SHAP contribution: 0.0595);
+Enhanced RoBERTa Neu = 0.4429 (SHAP contribution: 0.0547);
+Enhanced RoBERTa Pos = 0.0703 (SHAP contribution: 0.0317);
+Enhanced SVM Neu = 0.4516 (SHAP contribution: 0.0195);
+Enhanced VADER Compound = 0.9303 (SHAP contribution: 0.0153)","Enhanced NB Neg = 0.3424 (SHAP contribution: -0.0023);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0009);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0005);
+Meta Has Intensifier = 0.0 (SHAP contribution: -0.0001);
+Meta Neg Phrase Count = 0.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced VADER Compound. The main opposing signal was Enhanced NB Neg."
+184,wrong,GARABAGE - DON'T BUY!,pos,neg,0.6113,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.5858 (SHAP contribution: 0.162);
+Enhanced RoBERTa Pos = 0.0414 (SHAP contribution: 0.0384);
+Enhanced NB Neu = 0.1555 (SHAP contribution: 0.0312);
+Enhanced VADER Neu = 1.0 (SHAP contribution: 0.0128);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.0125)","Enhanced RoBERTa Neu = 0.3728 (SHAP contribution: -0.0202);
+Enhanced SVM Neg = 0.6972 (SHAP contribution: -0.0022);
+Meta Intensifier Count = 0.0 (SHAP contribution: -0.0001);
+Meta Has Negator = 1.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Neu, Enhanced VADER Neu, Enhanced VADER Compound. The main opposing signal was Enhanced RoBERTa Neu."
+185,wrong,It was a good choice. Yes I would recommend it for those who enjoy the civil war times of history,neu,pos,0.8305,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0104 (SHAP contribution: 0.3457);
+Enhanced RoBERTa Pos = 0.8329 (SHAP contribution: 0.1045);
+Enhanced RoBERTa Neu = 0.1567 (SHAP contribution: 0.054);
+Enhanced SVM Neu = 0.307 (SHAP contribution: 0.0135);
+Enhanced SVM Pos = 0.5105 (SHAP contribution: 0.0082)","Enhanced VADER Neg = 0.14 (SHAP contribution: -0.0287);
+Enhanced NB Neu = 0.4028 (SHAP contribution: -0.0009);
+Meta Has Negator = 0.0 (SHAP contribution: -0.0)","The meta Random Forest predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced SVM Pos. The main opposing signal was Enhanced VADER Neg."
+190,wrong,"This is an OK book for a beginner who knows little or nothing about networking. It does describe the various types of home networking available today, with a lot of information about wireless technologies. It could have been better organized by covering ethernet and wireless in separate sections. It is neither very clear for one getting started in home networking nor very helpful for one with basic knowledge who is looking to establish a more complex home network. It is an easy read and the ""tips"" inserts are helpful--really the best informative parts of the book. However, unless you are brand new to computers and networking, that is about all that is useful. Otherwise, save your money.",neg,neu,0.5402,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.0819 (SHAP contribution: 0.0756);
+Enhanced RoBERTa Neu = 0.4768 (SHAP contribution: 0.0482);
+Enhanced RoBERTa Pos = 0.4413 (SHAP contribution: 0.0307);
+Enhanced SVM Neu = 0.4052 (SHAP contribution: 0.0146);
+Enhanced VADER Compound = 0.9508 (SHAP contribution: 0.0085)","Enhanced NB Pos = 0.4098 (SHAP contribution: -0.0153);
+Enhanced SVM Pos = 0.3801 (SHAP contribution: -0.0046);
+Meta Negator Count = 0.0 (SHAP contribution: -0.0006);
+Meta Has Diminisher = 0.0 (SHAP contribution: -0.0004);
+Meta Diminisher Count = 0.0 (SHAP contribution: -0.0003)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced VADER Compound. The main opposing signal was Enhanced NB Pos."
+199,wrong,Toe seam,neg,neu,0.4491,Enhanced RoBERTa Neg,RoBERTa,"Enhanced RoBERTa Neg = 0.2493 (SHAP contribution: 0.0755);
+Enhanced RoBERTa Neu = 0.5953 (SHAP contribution: 0.0409);
+Enhanced RoBERTa Pos = 0.1554 (SHAP contribution: 0.0378);
+Enhanced NB Neu = 0.3583 (SHAP contribution: 0.0051);
+Enhanced SVM Pos = 0.3132 (SHAP contribution: 0.0011)","Enhanced SVM Neu = 0.3242 (SHAP contribution: -0.0134);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0125);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0097);
+Meta Contrast Count = 0.0 (SHAP contribution: -0.0055);
+Meta Has Contrast = 0.0 (SHAP contribution: -0.0044)","The meta Random Forest predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced RoBERTa Pos, Enhanced NB Neu, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neu."

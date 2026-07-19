@@ -1,0 +1,2411 @@
+
+========== CORRECTED REVIEWS ==========
+Count: 8
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 181
+
+ORIGINAL REVIEW:
+"Does not work. Does not charge two mini usb ..."
+
+CHANGED REVIEW:
+"vaderphrasedoesnotwork. vaderphrasenotcharging two mini usb ..."
+
+RULES APPLIED:
+['electronics:does_not_work', 'electronics:not_charging']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=['Does not work'] | replacement=vaderphrasedoesnotwork
+- electronics:not_charging | replaced exact phrase | matched=['Does not charge'] | replacement=vaderphrasenotcharging
+
+SENTIMENT:
+True label: neg
+Raw prediction: neu | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.0 -> -0.8481 | Change: -0.8481
+Negative: 0.0 -> 0.672 | Change: 0.672
+Neutral: 1.0 -> 0.328 | Change: -0.672
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -1.0 -> Enhanced margin: 0.344 | Margin change: 1.344
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 75
+
+ORIGINAL REVIEW:
+"the differance and why it won't work"
+
+CHANGED REVIEW:
+"the differance and why it vaderphrasedoesnotwork"
+
+RULES APPLIED:
+['electronics:does_not_work']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=["won't work"] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: neu | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.0 -> -0.6369 | Change: -0.6369
+Negative: 0.0 -> 0.457 | Change: 0.457
+Neutral: 1.0 -> 0.543 | Change: -0.457
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -1.0 -> Enhanced margin: -0.086 | Margin change: 0.914
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 45
+
+ORIGINAL REVIEW:
+"Nice little unit and works well with 3.5 auto jack, But : will not work with toslink optical input ! Trying on two tvs with same results. Sending it back."
+
+CHANGED REVIEW:
+"Nice little unit and works well with 3.5 auto jack, But : vaderphrasedoesnotwork with toslink optical input ! Trying on two tvs with same results. Sending it back."
+
+RULES APPLIED:
+['electronics:does_not_work']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=['will not work'] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.4102 -> -0.685 | Change: -1.0952
+Negative: 0.0 -> 0.187 | Change: 0.187
+Neutral: 0.874 -> 0.707 | Change: -0.167
+Positive: 0.126 -> 0.106 | Change: -0.02
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.874 -> Enhanced margin: -0.52 | Margin change: 0.354
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 52
+
+ORIGINAL REVIEW:
+"no issues with the product for past 6 months of use"
+
+CHANGED REVIEW:
+"vaderphrasenoissues with the product for past 6 months of use"
+
+RULES APPLIED:
+['custom_negator:no', 'positive_phrase:no_issues']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- positive_phrase:no_issues | replaced exact phrase | matched=['no issues'] | replacement=vaderphrasenoissues
+
+SENTIMENT:
+True label: pos
+Raw prediction: neg | Correct: False
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.296 -> 0.4588 | Change: 0.7548
+Negative: 0.196 -> 0.0 | Change: -0.196
+Neutral: 0.804 -> 0.727 | Change: -0.077
+Positive: 0.0 -> 0.273 | Change: 0.273
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.804 -> Enhanced margin: -0.454 | Margin change: 0.35
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 46
+
+ORIGINAL REVIEW:
+"This product did not work for me at all. I tried using it and the medias would not switch at all. I do not recomend this product."
+
+CHANGED REVIEW:
+"This product vaderphrasedoesnotwork for me at all. I tried using it and the medias would not switch at all. I do not recomend this product."
+
+RULES APPLIED:
+['electronics:does_not_work']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=['did not work'] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: neu | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.0 -> -0.6369 | Change: -0.6369
+Negative: 0.0 -> 0.16 | Change: 0.16
+Neutral: 1.0 -> 0.84 | Change: -0.16
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -1.0 -> Enhanced margin: -0.68 | Margin change: 0.32
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 159
+
+ORIGINAL REVIEW:
+"Did not receive item. Very disappointed as this was purchased as a compliment to a Christmas gift for a family member."
+
+CHANGED REVIEW:
+"vaderphraseneverreceived item. Very disappointed as this was purchased as a compliment to a Christmas gift for a family member."
+
+RULES APPLIED:
+['delivery_issue:never_received']
+
+FULL OPERATIONS:
+- delivery_issue:never_received | replaced exact phrase | matched=['Did not receive'] | replacement=vaderphraseneverreceived
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.3832 -> -0.3384 | Change: -0.7216
+Negative: 0.139 -> 0.291 | Change: 0.152
+Neutral: 0.615 -> 0.473 | Change: -0.142
+Positive: 0.246 -> 0.236 | Change: -0.01
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.476 -> Enhanced margin: -0.182 | Margin change: 0.294
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 23
+
+ORIGINAL REVIEW:
+"Logos were off and lost. There are some additional plastics I don't understand for what. Mesh was installed inaccurate. Fan speed controller located on the very top don't work. USB sockets on the front won't read/accept external hard drives. This PC is not so fast as a shipper vertion "CybertronPC 5150 Unleashed GM1223G" that is 50% less cost For this price almost 1000US dollars, I expected a more acurate product."
+
+CHANGED REVIEW:
+"Logos were off and lost. There are some additional plastics I don't understand for what. Mesh was installed inaccurate. Fan speed controller located on the very top vaderphrasedoesnotwork. USB sockets on the front won't read/accept external hard drives. This PC is not so fast as a shipper vertion "CybertronPC 5150 Unleashed GM1223G" that is 50% less cost For this price almost 1000US dollars, I vaderphraseneutralexpectedmore acurate product."
+
+RULES APPLIED:
+['domain_lexicon:inaccurate', 'electronics:does_not_work', 'neutral_phrase:neutral_expected_more']
+
+FULL OPERATIONS:
+- domain_lexicon:inaccurate | used custom domain lexicon value
+- neutral_phrase:neutral_expected_more | replaced exact phrase | matched=['expected a more'] | replacement=vaderphraseneutralexpectedmore
+- electronics:does_not_work | replaced exact phrase | matched=["don't work"] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.3376 -> -0.7206 | Change: -1.0582
+Negative: 0.033 -> 0.146 | Change: 0.113
+Neutral: 0.886 -> 0.777 | Change: -0.109
+Positive: 0.081 -> 0.078 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.853 -> Enhanced margin: -0.631 | Margin change: 0.222
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 192
+
+ORIGINAL REVIEW:
+"Update (May, 2013) I've moved away from these because their performance is too inconsistent. I bought a couple of extras and had to return one because the transmitter was full of distortion. Then a couple of weeks ago the receiver on one of them began to cut in and out. Original: I've had two of these for the last year and use them for recording forum presentations. For that purpose (voice, no music) they work just fine. The mic is sensitive enough that it works quite well pinned to someone's lapel."
+
+CHANGED REVIEW:
+"Update (May, 2013) I've moved away from these because their performance is too inconsistent. I bought a couple of extras and vaderphrasehadreturn one because the transmitter was full of distortion. Then a couple of weeks ago the receiver on one of them began to cut in and out. Original: I've had two of these for the last year and use them for recording forum presentations. For that purpose (voice, no music) they work just fine. The mic is sensitive enough that it works quite well pinned to someone's lapel."
+
+RULES APPLIED:
+['custom_negator:no', 'return_issue:had_to_return']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- return_issue:had_to_return | replaced exact phrase | matched=['had to return'] | replacement=vaderphrasehadreturn
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.2944 -> -0.3197 | Change: -0.6141
+Negative: 0.046 -> 0.083 | Change: 0.037
+Neutral: 0.885 -> 0.848 | Change: -0.037
+Positive: 0.069 -> 0.069 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.839 -> Enhanced margin: -0.765 | Margin change: 0.074
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+========== HARMED REVIEWS ==========
+Count: 0
+
+========== WRONG TO WRONG REVIEWS ==========
+Count: 2
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 84
+
+ORIGINAL REVIEW:
+"Order 40 pcs and 9 of them didnt work. Rest was okay."
+
+CHANGED REVIEW:
+"Order 40 pcs and 9 of them vaderphrasedoesnotwork. Rest was okay."
+
+RULES APPLIED:
+['electronics:does_not_work']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=['didnt work'] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.2263 -> -0.5106 | Change: -0.7369
+Negative: 0.0 -> 0.298 | Change: 0.298
+Neutral: 0.84 -> 0.567 | Change: -0.273
+Positive: 0.16 -> 0.135 | Change: -0.025
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.68 -> Enhanced margin: 0.269 | Margin change: -0.411
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: True
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 115
+
+ORIGINAL REVIEW:
+"It is cute but material is not soft."
+
+CHANGED REVIEW:
+"It is cute but material is not soft."
+
+RULES APPLIED:
+['domain_lexicon:soft']
+
+FULL OPERATIONS:
+- domain_lexicon:soft | used custom domain lexicon value
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.25 -> -0.1692 | Change: -0.4192
+Negative: 0.0 -> 0.25 | Change: 0.25
+Neutral: 0.778 -> 0.563 | Change: -0.215
+Positive: 0.222 -> 0.188 | Change: -0.034
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.556 -> Enhanced margin: 0.313 | Margin change: -0.243
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: True
+
+========== STAYED CORRECT REVIEWS ==========
+Count: 27
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 163
+
+ORIGINAL REVIEW:
+"Overall, it is a reliable bag with good features"
+
+CHANGED REVIEW:
+"Overall, it is a reliable bag with good features"
+
+RULES APPLIED:
+['domain_lexicon:reliable']
+
+FULL OPERATIONS:
+- domain_lexicon:reliable | used custom domain lexicon value
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.4404 -> 0.7096 | Change: 0.2692
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.707 -> 0.504 | Change: -0.203
+Positive: 0.293 -> 0.496 | Change: 0.203
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.414 -> Enhanced margin: -0.008 | Margin change: 0.406
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 199
+
+ORIGINAL REVIEW:
+"I recommend this book both for Mormons and Evangelicals. It's well-written, balanced, and informative."
+
+CHANGED REVIEW:
+"I recommend this book both for Mormons and Evangelicals. It's well-written, balanced, and informative."
+
+RULES APPLIED:
+['domain_lexicon:informative']
+
+FULL OPERATIONS:
+- domain_lexicon:informative | used custom domain lexicon value
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.3612 -> 0.6486 | Change: 0.2874
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.828 -> 0.675 | Change: -0.153
+Positive: 0.172 -> 0.325 | Change: 0.153
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.656 -> Enhanced margin: -0.35 | Margin change: 0.306
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 195
+
+ORIGINAL REVIEW:
+"Second time I ordered. First time packaged arrived emply envelope not sealed. Shoes atr cute but run big and the buckle doesnt hold together well."
+
+CHANGED REVIEW:
+"Second time I ordered. First time packaged arrived emply envelope not sealed. Shoes atr cute but vaderphraserunslarge and the buckle doesnt hold together well."
+
+RULES APPLIED:
+['fashion:runs_large']
+
+FULL OPERATIONS:
+- fashion:runs_large | replaced exact phrase | matched=['run big'] | replacement=vaderphraserunslarge
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.057 -> -0.5605 | Change: -0.5035
+Negative: 0.085 -> 0.204 | Change: 0.119
+Neutral: 0.839 -> 0.724 | Change: -0.115
+Positive: 0.076 -> 0.072 | Change: -0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.754 -> Enhanced margin: -0.52 | Margin change: 0.234
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 183
+
+ORIGINAL REVIEW:
+"I bought this camera in December of 2003 by October of 2004 it wouldn't work any more. The display gave an error code #e45. I sent it back and they replaced the camara. A year later the new one wouldn't work and gave the same error code. It was no longer under warranty and they want to charge $110.00 to fix it. What a piece of junk!"
+
+CHANGED REVIEW:
+"I bought this camera in December of 2003 by October of 2004 it vaderphrasedoesnotwork any more. The display gave an error code #e45. I sent it back and they replaced the camara. A year later the new one vaderphrasedoesnotwork and gave the same error code. It was no longer under warranty and they want to charge $110.00 to fix it. What a piece of junk!"
+
+RULES APPLIED:
+['custom_negator:no', 'electronics:does_not_work']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- electronics:does_not_work | replaced exact phrase | matched=["wouldn't work", "wouldn't work"] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.7644 -> -0.9432 | Change: -0.1788
+Negative: 0.116 -> 0.224 | Change: 0.108
+Neutral: 0.865 -> 0.758 | Change: -0.107
+Positive: 0.019 -> 0.018 | Change: -0.001
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.749 -> Enhanced margin: -0.534 | Margin change: 0.215
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 123
+
+ORIGINAL REVIEW:
+"Extremely small. Unreturnable. Waste of money. I will not buy from this supplier again."
+
+CHANGED REVIEW:
+"Extremely small. Unreturnable. vaderphrasewasteofmoney. I will not buy from this supplier again."
+
+RULES APPLIED:
+['negative_phrase:waste_of_money']
+
+FULL OPERATIONS:
+- negative_phrase:waste_of_money | replaced exact phrase | matched=['Waste of money'] | replacement=vaderphrasewasteofmoney
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.4703 -> -0.6666 | Change: -0.1963
+Negative: 0.203 -> 0.309 | Change: 0.106
+Neutral: 0.797 -> 0.691 | Change: -0.106
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.594 -> Enhanced margin: -0.382 | Margin change: 0.212
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 178
+
+ORIGINAL REVIEW:
+"This product does not fit properly. Very cheaply made. Embroidery is not symmetrical on the dress. Sleeves are much more bulky and shorter than pictured. The back does not lace up as pictured. Very tacky looking on. And the odor of this and I order two different sizes, smells disgusting."
+
+CHANGED REVIEW:
+"This product vaderphrasenotfitting properly. Very vaderphrasecheaplymade. Embroidery is not symmetrical on the dress. Sleeves are much more bulky and shorter than pictured. The back does not lace up as pictured. Very tacky looking on. And the odor of this and I order two different sizes, smells disgusting."
+
+RULES APPLIED:
+['fashion:not_fitting', 'product_quality:cheaply_made']
+
+FULL OPERATIONS:
+- product_quality:cheaply_made | replaced exact phrase | matched=['cheaply made'] | replacement=vaderphrasecheaplymade
+- fashion:not_fitting | replaced exact phrase | matched=['does not fit'] | replacement=vaderphrasenotfitting
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.6715 -> -0.8955 | Change: -0.224
+Negative: 0.105 -> 0.201 | Change: 0.096
+Neutral: 0.895 -> 0.799 | Change: -0.096
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.79 -> Enhanced margin: -0.598 | Margin change: 0.192
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 125
+
+ORIGINAL REVIEW:
+"These work real well for star gazing. Big lense brings in lots of light when viewing the nigh sky. a very crisp and clear image. They have some weigh, as they are pretty big, but not as heavy as I thought they would be. Even when looking at a super moon, the image moves around alot as its hard to hold an image that far away steady in the lens. Fortunately it comes with a tripod mount to hold them steady."
+
+CHANGED REVIEW:
+"These work real well for star gazing. Big lense brings in lots of light when viewing the nigh sky. a very crisp and clear image. They have some weigh, as they are pretty big, but not as heavy as I thought they would be. Even when looking at a super moon, the image moves around alot as its hard to hold an image that far away steady in the lens. Fortunately it comes with a tripod mount to hold them steady."
+
+RULES APPLIED:
+['intensifier:super']
+
+FULL OPERATIONS:
+- intensifier:super | used custom intensifier
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8531 -> 0.4555 | Change: -0.3976
+Negative: 0.019 -> 0.02 | Change: 0.001
+Neutral: 0.852 -> 0.91 | Change: 0.058
+Positive: 0.129 -> 0.07 | Change: -0.059
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.723 -> Enhanced margin: -0.84 | Margin change: -0.117
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 57
+
+ORIGINAL REVIEW:
+"I had a bad result with this - after setting it up (no small task) the CD didn't work. We all tried it at work - no luck. I called Timex who told me to 'clean the sensor' - I told them it was new and they said to send it back. I found the nature sounds limited and unpleasant. The radio worked great. It in not intuitive to use, however. I do not recommend this."
+
+CHANGED REVIEW:
+"I had a bad result with this - after setting it up (no small task) the CD vaderphrasedoesnotwork. We all tried it at work - no luck. I called Timex who told me to 'clean the sensor' - I told them it was new and they said to send it back. I found the nature sounds limited and unpleasant. The radio worked great. It in not intuitive to use, however. I do not recommend this."
+
+RULES APPLIED:
+['custom_negator:no', 'electronics:does_not_work']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- electronics:does_not_work | replaced exact phrase | matched=["didn't work"] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.2523 -> -0.7359 | Change: -0.4836
+Negative: 0.157 -> 0.203 | Change: 0.046
+Neutral: 0.723 -> 0.68 | Change: -0.043
+Positive: 0.12 -> 0.117 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.566 -> Enhanced margin: -0.477 | Margin change: 0.089
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 85
+
+ORIGINAL REVIEW:
+"We purchased this item over the internet. Upon receipt of the first unit, we discovered it did NOT work. We had to send it off to the manufacturer, at our expense, via UPS. Did not think we should have had to pay that expense. Upon receipt of second unit we have used and thoroughly enjoy the quality of sound and the portability. Would highly recommend this unit to anyone."
+
+CHANGED REVIEW:
+"We purchased this item over the internet. Upon receipt of the first unit, we discovered it vaderphrasedoesnotwork. We had to send it off to the manufacturer, at our expense, via UPS. Did not think we should have had to pay that expense. Upon receipt of second unit we have used and thoroughly enjoy the quality of sound and the portability. Would vaderphrasehighlyrecommend this unit to anyone."
+
+RULES APPLIED:
+['electronics:does_not_work', 'positive_phrase:highly_recommend']
+
+FULL OPERATIONS:
+- electronics:does_not_work | replaced exact phrase | matched=['did NOT work'] | replacement=vaderphrasedoesnotwork
+- positive_phrase:highly_recommend | replaced exact phrase | matched=['highly recommend'] | replacement=vaderphrasehighlyrecommend
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.7083 -> 0.3804 | Change: -0.3279
+Negative: 0.019 -> 0.075 | Change: 0.056
+Neutral: 0.896 -> 0.829 | Change: -0.067
+Positive: 0.085 -> 0.096 | Change: 0.011
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.811 -> Enhanced margin: -0.733 | Margin change: 0.078
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 110
+
+ORIGINAL REVIEW:
+"I searched everywhere for a flattering dress for my sister-in-laws wedding, every dress was a disappointment. After spending a ton of money in department stores on a slew of dresses, I took a last shot and threw this dress into my Amazon cart. It was inexpensive and I figured it would never work, but I loved the look in the pics and the price was right! As soon as I put the dress on I knew it was the one!!!!! This dress is perfect! Super comfy and I felt like I looked like a million dollars! I love it so much I ordered one in every color!"
+
+CHANGED REVIEW:
+"I searched everywhere for a flattering dress for my sister-in-laws wedding, every dress was a disappointment. After spending a ton of money in department stores on a slew of dresses, I took a last shot and threw this dress into my Amazon cart. It was inexpensive and I figured it would never work, but I loved the look in the pics and the price was right! As soon as I put the dress on I knew it was the one!!!!! This dress is perfect! Super comfy and I felt like I looked like a million dollars! I love it so much I ordered one in every color!"
+
+RULES APPLIED:
+['intensifier:super']
+
+FULL OPERATIONS:
+- intensifier:super | used custom intensifier
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9702 -> 0.9446 | Change: -0.0256
+Negative: 0.055 -> 0.057 | Change: 0.002
+Neutral: 0.712 -> 0.749 | Change: 0.037
+Positive: 0.233 -> 0.194 | Change: -0.039
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.479 -> Enhanced margin: -0.555 | Margin change: -0.076
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 102
+
+ORIGINAL REVIEW:
+"Very humorous description of a life growing up in small town america and the search for the perfect town. Well written and entertaining."
+
+CHANGED REVIEW:
+"Very humorous description of a life growing up in small town america and the search for the perfect town. vaderphrasewellwritten and entertaining."
+
+RULES APPLIED:
+['positive_phrase:well_written']
+
+FULL OPERATIONS:
+- positive_phrase:well_written | replaced exact phrase | matched=['Well written'] | replacement=vaderphrasewellwritten
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9061 -> 0.9259 | Change: 0.0198
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.561 -> 0.525 | Change: -0.036
+Positive: 0.439 -> 0.475 | Change: 0.036
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.122 -> Enhanced margin: -0.05 | Margin change: 0.072
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 182
+
+ORIGINAL REVIEW:
+"The Time Warp Trio books are an excellent series for young readers. My 8-year old son has read every one and is now re-reading his collection! Each story deals with time travel - forward or back. 2095, like the others in the series, is a fast-paced, funny, and well written story. So far, these are my son's favorite books and I highly recommend them to any parent who wants their child to discover the joys of reading."
+
+CHANGED REVIEW:
+"The Time Warp Trio books are an excellent series for young readers. My 8-year old son has read every one and is now re-reading his collection! Each story deals with time travel - forward or back. 2095, like the others in the series, is a fast-paced, funny, and vaderphrasewellwritten story. So far, these are my son's favorite books and I vaderphrasehighlyrecommend them to any parent who wants their child to discover the joys of reading."
+
+RULES APPLIED:
+['positive_phrase:highly_recommend', 'positive_phrase:well_written']
+
+FULL OPERATIONS:
+- positive_phrase:highly_recommend | replaced exact phrase | matched=['highly recommend'] | replacement=vaderphrasehighlyrecommend
+- positive_phrase:well_written | replaced exact phrase | matched=['well written'] | replacement=vaderphrasewellwritten
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9611 -> 0.9705 | Change: 0.0094
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.766 -> 0.742 | Change: -0.024
+Positive: 0.234 -> 0.258 | Change: 0.024
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.532 -> Enhanced margin: -0.484 | Margin change: 0.048
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 42
+
+ORIGINAL REVIEW:
+"I bought three pairs, because I keep loosing them.... all three had static and the plug didn't fit well. They were inexpensive for a reason. I just threw them away."
+
+CHANGED REVIEW:
+"I bought three pairs, because I keep loosing them.... all three had static and the plug vaderphrasenotfitting well. They were inexpensive for a reason. I just threw them away."
+
+RULES APPLIED:
+['fashion:not_fitting']
+
+FULL OPERATIONS:
+- fashion:not_fitting | replaced exact phrase | matched=["didn't fit"] | replacement=vaderphrasenotfitting
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.4449 -> -0.3612 | Change: 0.0837
+Negative: 0.141 -> 0.125 | Change: -0.016
+Neutral: 0.859 -> 0.801 | Change: -0.058
+Positive: 0.0 -> 0.073 | Change: 0.073
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.718 -> Enhanced margin: -0.676 | Margin change: 0.042
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 77
+
+ORIGINAL REVIEW:
+"It is what it is. Nowadays Blu-Ray players are all pretty standard for the basics, which is what this guy is. No problems with wireless or Netflix. Audio & video quality are all digital, so this doesn't really touch them much. If you want a budget Blu-Ray player, this is recommended."
+
+CHANGED REVIEW:
+"It is what it is. Nowadays Blu-Ray players are all pretty standard for the basics, which is what this guy is. vaderphrasenoproblems with wireless or Netflix. Audio & video quality are all digital, so this doesn't really touch them much. If you want a budget Blu-Ray player, this is recommended."
+
+RULES APPLIED:
+['custom_negator:no', 'positive_phrase:no_problems']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- positive_phrase:no_problems | replaced exact phrase | matched=['No problems'] | replacement=vaderphrasenoproblems
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.1027 -> 0.802 | Change: 0.6993
+Negative: 0.089 -> 0.0 | Change: -0.089
+Neutral: 0.797 -> 0.827 | Change: 0.03
+Positive: 0.114 -> 0.173 | Change: 0.059
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.683 -> Enhanced margin: -0.654 | Margin change: 0.029
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 162
+
+ORIGINAL REVIEW:
+"It is remarkable that so many reviews are in strong favor of the third edition. Without any reservation, I put this book in a class that includes the worst works in all publishing, not just physics publishing. The undue prestige that surrounds this book is a terrible misrepresentation which is based on the competitive and corrosive academic environment it creates instead of a collaborative and fruitful one. I have personally witnessed students exiting the sciences because of this book. The primary causes for such a poor book is due to the complete lack of any serious editing and the financial greed of the publisher for allowing it to be published and used for teaching a generation of scientists and engineers.A fine textbook is based on clarity and thoroughness. From chapter to chapter, and from subject to subject, this book is chronically vague and incomplete. In many places it is even convoluted. Shame on the authors for their carelessness, shame on the publisher for their greed, and shame on the teachers who chose this book over the fine textbooks offered during that period of time."
+
+CHANGED REVIEW:
+"It is remarkable that so many reviews are in strong favor of the third edition. Without any reservation, I put this book in a class that includes the worst works in all publishing, not just physics publishing. The undue prestige that surrounds this book is a terrible misrepresentation which is based on the competitive and corrosive academic environment it creates instead of a collaborative and fruitful one. I have personally witnessed students exiting the sciences because of this book. The primary causes for such a poor book is due to the complete lack of any serious editing and the financial greed of the publisher for allowing it to be published and used for teaching a generation of scientists and engineers.A fine textbook is based on clarity and thoroughness. From chapter to chapter, and from subject to subject, this book is chronically vague and incomplete. In many places it is even convoluted. Shame on the authors for their carelessness, shame on the publisher for their greed, and shame on the teachers who chose this book over the fine textbooks offered during that period of time."
+
+RULES APPLIED:
+['domain_lexicon:incomplete']
+
+FULL OPERATIONS:
+- domain_lexicon:incomplete | used custom domain lexicon value
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.9403 -> -0.9552 | Change: -0.0149
+Negative: 0.168 -> 0.179 | Change: 0.011
+Neutral: 0.739 -> 0.728 | Change: -0.011
+Positive: 0.093 -> 0.093 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.571 -> Enhanced margin: -0.549 | Margin change: 0.022
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 87
+
+ORIGINAL REVIEW:
+"At first I thought this book was just another one of those books. But then I started to try the different things it says in the book and started seeing results with my colicky baby. I just wish I read this book right after my baby was born. I didn't read it until she was 2 months old. I would recommend this book to anyone who has a colicky baby. It really works. I feel like I can bond with my baby like I wanted to now that I know what to do for her crying."
+
+CHANGED REVIEW:
+"At first I thought this book was just another one of those books. But then I started to try the different things it says in the book and started seeing results with my colicky baby. I just wish I read this book right after my baby was born. I didn't read it until she was 2 months old. I vaderphrasewouldrecommend this book to anyone who has a colicky baby. It really works. I feel like I can bond with my baby like I wanted to now that I know what to do for her crying."
+
+RULES APPLIED:
+['positive_phrase:would_recommend']
+
+FULL OPERATIONS:
+- positive_phrase:would_recommend | replaced exact phrase | matched=['would recommend'] | replacement=vaderphrasewouldrecommend
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8733 -> 0.8999 | Change: 0.0266
+Negative: 0.043 -> 0.043 | Change: 0.0
+Neutral: 0.812 -> 0.802 | Change: -0.01
+Positive: 0.145 -> 0.156 | Change: 0.011
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.667 -> Enhanced margin: -0.646 | Margin change: 0.021
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 106
+
+ORIGINAL REVIEW:
+"What's to say: it works great, seems rugged enough, and is a great price for something that will let us watch recorded shows on our TV."
+
+CHANGED REVIEW:
+"What's to say: it vaderphraseworksgreat, seems rugged enough, and is a great price for something that will let us watch recorded shows on our TV."
+
+RULES APPLIED:
+['positive_phrase:works_great']
+
+FULL OPERATIONS:
+- positive_phrase:works_great | replaced exact phrase | matched=['works great'] | replacement=vaderphraseworksgreat
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8481 -> 0.8176 | Change: -0.0305
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.737 -> 0.746 | Change: 0.009
+Positive: 0.263 -> 0.254 | Change: -0.009
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.474 -> Enhanced margin: -0.492 | Margin change: -0.018
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 171
+
+ORIGINAL REVIEW:
+"I began using this book when I was fourteen and have used it on and off over the past three years. I really like the exercises and format, and working out is fun! The descriptions and pictures are easy to follow. I have had great success on this program. Even when I put down the weights for months at a time, I still saw those "firm, sexy muscles" she talks about. A great workout...even for the younger generation!"
+
+CHANGED REVIEW:
+"I began using this book when I was fourteen and have used it on and off over the past three years. I really like the exercises and format, and working out is fun! The descriptions and pictures are vaderphraseeasytofollow. I have had great success on this program. Even when I put down the weights for months at a time, I still saw those "firm, sexy muscles" she talks about. A great workout...even for the younger generation!"
+
+RULES APPLIED:
+['positive_phrase:easy_to_follow']
+
+FULL OPERATIONS:
+- positive_phrase:easy_to_follow | replaced exact phrase | matched=['easy to follow'] | replacement=vaderphraseeasytofollow
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9773 -> 0.9776 | Change: 0.0003
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.717 -> 0.709 | Change: -0.008
+Positive: 0.283 -> 0.291 | Change: 0.008
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.434 -> Enhanced margin: -0.418 | Margin change: 0.016
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 26
+
+ORIGINAL REVIEW:
+"Just a dozen or so pages into this book, I knew that it was one I wish I would have had access to when I was first seriously exposed to art. While in many respects, it is a conservative textbook (being first published in 1950), it is fundamentally meant for someone who has little to no previous formal contact with art history. Of course, if you have some, this can make you seriously engage some of your previously held assumptions about what you like and why you like it, but I got the distinct impression while reading that it was meant to initiate a teenager - a teenager who very much reminded of me of myself - into a whole new world.The inclusions and exclusions of certain artists are, of course, always arbitrary. However, Gombrich's choices do not deviate too much from a standard art history text. What particularly drew me to the book was what I perceived to be its inordinate focus on medieval and especially Renaissance art. Of the twenty-eight chapters included in the book, about five mostly focus on Western medieval images (6 and 8-11). Another six chapters (13-18) focus on the art of the Western Renaissance. Most surveys of art history to which I had been previously exposed paid scant attention to medieval art and they sometimes did not give the Renaissance the space that I felt it deserved. There is no doubt the medieval and Renaissance art Gombrich's pet periods here (and, admittedly, they're mine, too.)What makes it so special is that, instead of spending the first chapter in an abstract exercise of thinking about what "Art" is, he forces you over and over again to take the art on its own terms. While discussing the various visual perspectives painted by the artist of "The Garden of Nebamun," he says: "To us reliefs and wall-paintings provide an extraordinarily vivid picture of life as it was lived in Egypt thousands of years ago. And yet, looking at them for the first time, one may find them rather bewildering. The reason is that the Egyptian painters had a very different way from ours of representing real life. Perhaps this is connected with the different purpose their paintings had to serve. What mattered most was not prettiness but completeness. It was the artists' task to preserve everything as clearly and permanently as possible. So they did not set out to sketch nature as it appeared to them from any fortuitous angle" (p. 60). It is the occasional insight like this that makes the book most worthwhile for a neophyte. After all, how many of us have measured something we saw by the standards of our particular narrow time and place? He really drives home the point that thinking about art seriously means thinking about other perspectives (both literally and figuratively), other preoccupations, and other aesthetic modus operandi. This is a lesson that should be lost on none of us, about art, or about anything else."
+
+CHANGED REVIEW:
+"Just a dozen or so pages into this book, I knew that it was one I wish I would have had access to when I was first seriously exposed to art. While in many respects, it is a conservative textbook (being first published in 1950), it is fundamentally meant for someone who has little to no previous formal contact with art history. Of course, if you have some, this can make you seriously engage some of your previously held assumptions about what you like and why you like it, but I got the distinct impression while reading that it was meant to initiate a teenager - a teenager who very much reminded of me of myself - into a whole new world.The inclusions and exclusions of certain artists are, of course, always arbitrary. However, Gombrich's choices do not deviate too much from a standard art history text. What particularly drew me to the book was what I perceived to be its inordinate focus on medieval and especially Renaissance art. Of the twenty-eight chapters included in the book, about five mostly focus on Western medieval images (6 and 8-11). Another six chapters (13-18) focus on the art of the Western Renaissance. Most surveys of art history to which I had been previously exposed paid scant attention to medieval art and they sometimes did not give the Renaissance the space that I felt it deserved. There is no doubt the medieval and Renaissance art Gombrich's pet periods here (and, admittedly, they're mine, too.)What makes it so special is that, instead of spending the first chapter in an abstract exercise of thinking about what "Art" is, he forces you over and over again to take the art on its own terms. While discussing the various visual perspectives painted by the artist of "The Garden of Nebamun," he says: "To us reliefs and wall-paintings provide an extraordinarily vivid picture of life as it was lived in Egypt thousands of years ago. And yet, looking at them for the first time, one may find them rather bewildering. The reason is that the Egyptian painters had a very different way from ours of representing real life. Perhaps this is connected with the different purpose their paintings had to serve. What mattered most was not prettiness but completeness. It was the artists' task to preserve everything as clearly and permanently as possible. So they did not set out to sketch nature as it appeared to them from any fortuitous angle" (p. 60). It is the occasional insight like this that makes the book most worthwhile for a neophyte. After all, how many of us have measured something we saw by the standards of our particular narrow time and place? He really drives home the point that thinking about art seriously means thinking about other perspectives (both literally and figuratively), other preoccupations, and other aesthetic modus operandi. This is a lesson that should be lost on none of us, about art, or about anything else."
+
+RULES APPLIED:
+['custom_negator:no', 'intensifier:seriously']
+
+FULL OPERATIONS:
+- intensifier:seriously | used custom intensifier
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9463 -> 0.9589 | Change: 0.0126
+Negative: 0.034 -> 0.025 | Change: -0.009
+Neutral: 0.903 -> 0.912 | Change: 0.009
+Positive: 0.063 -> 0.063 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.84 -> Enhanced margin: -0.849 | Margin change: -0.009
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 185
+
+ORIGINAL REVIEW:
+"Well, I became the last person on my block to get an iPod. I had been thinking about getting one since the third generation ones came out, came very close on two or three occasions, and finally took the plunge. I toyed with getting one of the smaller iPods to start off, but because I have a very large music collection, I decided to go ahead and get the 60 GB. I'm glad that I did. After putting all of the music that I considered "basic" I had used up 47 of the 56 GBs of usable memory. I can pare that down by deleting extra cuts (for instance, I have both original albums and greatest hits collections, and I don't need Dylan cuts from both HIGHWY 61 REVISITED and BIOGRAPH). I haven't put a great deal of video. I have a bit and found that the quality is surprisingly good, but I personally would rather listen to a Schubert string quartet and read than watch a video. I have about a dozen audio books that I got from Audible (though for some reason my computer often crashes when I download after installing the Audible plug in for iTunes), four or five episodes of TV shows formatted for iPod, a couple of podcasts (Damon Lindelhof and Carlton Cuse on LOST and Ricky Gervais and Steve Merchant's bizarre conversations), a single movie (STEWIE GRIFFIN: THE UNTOLD STORY, which I keep mainly for demonstration purposes for friends), and several hundred albums in addition to a few hundred individual songs. All in all, I can carry quite a cultural library around with me. I chose to get a DLO leather portfolio to protect my iPod. I am not sure if it is sold over Amazon, but it is readily available at Best Buy. It is black so it goes well with the black iPod. I haven't gotten a cover for the video screen yet, but I can tell I will need to. I'm really hesitant to wipe the screen I'm so paranoid about scratching it. No one, of course, should even remotely consider not getting a case to protect it. So far I haven't come even remotely close to running out of the battery, even when I have watched a video. If I keep it playing on music without switching songs I find the battery barely goes down at all. As a complete newbie I was a bit worried that importing music was going to be a problem. I had already cleared 60 GB of empty space on my second hard drive. It was, however, remarkably easy to learn to do. I'm now working on fine tuning my selections. For instance, some CDs import with the name of slightly different than others. One album can list the artist as "The Rolling Stones" while another is "Rolling Stones," which can separate the album listings in the menu. So, there is a lot of fine tuning, but the main importing is straightforward. It is, however, SLOW WORK. I had stacks and stacks and stacks of CDs laying for days around my computer as I imported one CD after another. Even though I have had my iPod for only a short time, it has already become an indispensable part of my life. I absolutely love having hundreds of albums and thousands of songs at my beck and call. Gradually I may come to use the other media as much as the music, but even if I never use it for anything other than listening to music, this was a purchase I absolutely do not regret in the least. I will say that if you aren't a compulsive collector of music and don't have at least a thousand or so CDs, you will probably be happier with a smaller iPod, like the Mini or the Nano. But for fellow music junkies, I give this a big thumb up."
+
+CHANGED REVIEW:
+"Well, I became the last person on my block to get an iPod. I had been thinking about getting one since the third generation ones came out, came very close on two or three occasions, and finally took the plunge. I toyed with getting one of the smaller iPods to start off, but because I have a very large music collection, I decided to go ahead and get the 60 GB. I'm glad that I did. After putting all of the music that I considered "basic" I had used up 47 of the 56 GBs of usable memory. I can pare that down by deleting extra cuts (for instance, I have both original albums and greatest hits collections, and I don't need Dylan cuts from both HIGHWY 61 REVISITED and BIOGRAPH). I haven't put a great deal of video. I have a bit and found that the quality is surprisingly good, but I personally would rather listen to a Schubert string quartet and read than watch a video. I have about a dozen audio books that I got from Audible (though for some reason my computer often crashes when I download after installing the Audible plug in for iTunes), four or five episodes of TV shows formatted for iPod, a couple of podcasts (Damon Lindelhof and Carlton Cuse on LOST and Ricky Gervais and Steve Merchant's bizarre conversations), a single movie (STEWIE GRIFFIN: THE UNTOLD STORY, which I keep mainly for demonstration purposes for friends), and several hundred albums in addition to a few hundred individual songs. All in all, I can carry quite a cultural library around with me. I chose to get a DLO leather portfolio to protect my iPod. I am not sure if it is sold over Amazon, but it is readily available at Best Buy. It is black so it goes well with the black iPod. I haven't gotten a cover for the video screen yet, but I can tell I will need to. I'm really hesitant to wipe the screen I'm so paranoid about scratching it. No one, of course, should even remotely consider not getting a case to protect it. So far I haven't come even remotely close to running out of the battery, even when I have watched a video. If I keep it playing on music without switching songs I find the battery barely goes down at all. As a complete newbie I was a bit worried that importing music was going to be a problem. I had already cleared 60 GB of empty space on my second hard drive. It was, however, remarkably easy to learn to do. I'm now working on fine tuning my selections. For instance, some CDs import with the name of slightly different than others. One album can list the artist as "The Rolling Stones" while another is "Rolling Stones," which can separate the album listings in the menu. So, there is a lot of fine tuning, but the main importing is straightforward. It is, however, SLOW WORK. I had stacks and stacks and stacks of CDs laying for days around my computer as I imported one CD after another. Even though I have had my iPod for only a short time, it has already become an indispensable part of my life. I absolutely love having hundreds of albums and thousands of songs at my beck and call. Gradually I may come to use the other media as much as the music, but even if I never use it for anything other than listening to music, this was a purchase I absolutely do not regret in the least. I will say that if you aren't a compulsive collector of music and don't have at least a thousand or so CDs, you will probably be happier with a smaller iPod, like the Mini or the Nano. But for fellow music junkies, I give this a big thumb up."
+
+RULES APPLIED:
+['custom_negator:no', 'intensifier:surprisingly']
+
+FULL OPERATIONS:
+- intensifier:surprisingly | used custom intensifier
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9855 -> 0.9829 | Change: -0.0026
+Negative: 0.061 -> 0.062 | Change: 0.001
+Neutral: 0.833 -> 0.837 | Change: 0.004
+Positive: 0.106 -> 0.102 | Change: -0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.727 -> Enhanced margin: -0.735 | Margin change: -0.008
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 118
+
+ORIGINAL REVIEW:
+"I've read 4 Ripley books, in order.I have found the quality tails off as you read through the series, finally hitting rock bottom with the Boy who followed Ripley. To be fair the second and third are perfectly readable, just not as good as the first. The Talented Mr. Ripley deserves all the credit it gets, it is a well written and attention grabbing tale.The plot is reasonably straightforward, but I get the feeling that much of the substance remains in the authors head - there are many instances of unlikely events that Tom for some unfathomable reason imagines will happen, and lo and behold, they do. He instantly recognises who the boy is, with little evidence. He immediately comes to the conclusion for no apparent reason that certain things will happen to the boy (I won't spoil it), they all happen. These in our world are called coincidences, in Ripleys world we are expected to swallow them one after the other.I found myself skimming paragraphs, as I knew what would happen, because Tom had thought about it happening 10 minutes before.The character of the boy himself is woefully undeveloped. The premise of the boy 'worshipping' Tom Ripley is thought sufficient to explain why the boy meekly does everything Tom tells him to, whether or not it makes sense.Still, I'm not going to give it no Stars at all. I did manage to finish the book, and I certainly couldn't do any better!This is not her best work. I found myself turning to my wife and saying 'Boy, this book is boring'. A first for me."
+
+CHANGED REVIEW:
+"I've read 4 Ripley books, in order.I have found the quality tails off as you read through the series, finally hitting rock bottom with the Boy who followed Ripley. To be fair the second and third are perfectly readable, just not as good as the first. The Talented Mr. Ripley deserves all the credit it gets, it is a vaderphrasewellwritten and attention grabbing tale.The plot is reasonably straightforward, but I get the feeling that much of the substance remains in the authors head - there are many instances of unlikely events that Tom for some unfathomable reason imagines will happen, and lo and behold, they do. He instantly recognises who the boy is, with little evidence. He immediately comes to the conclusion for no apparent reason that certain things will happen to the boy (I won't spoil it), they all happen. These in our world are called coincidences, in Ripleys world we are expected to swallow them one after the other.I found myself skimming paragraphs, as I knew what would happen, because Tom had thought about it happening 10 minutes before.The character of the boy himself is woefully undeveloped. The premise of the boy 'worshipping' Tom Ripley is thought sufficient to explain why the boy meekly does everything Tom tells him to, whether or not it makes sense.Still, I'm not going to give it no Stars at all. I did manage to finish the book, and I certainly couldn't do any better!This is not her best work. I found myself turning to my wife and saying 'Boy, this book is boring'. A first for me."
+
+RULES APPLIED:
+['custom_negator:no', 'positive_phrase:well_written']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- positive_phrase:well_written | replaced exact phrase | matched=['well written'] | replacement=vaderphrasewellwritten
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.35 -> -0.2136 | Change: 0.1364
+Negative: 0.056 -> 0.056 | Change: 0.0
+Neutral: 0.881 -> 0.879 | Change: -0.002
+Positive: 0.063 -> 0.066 | Change: 0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.825 -> Enhanced margin: -0.823 | Margin change: 0.002
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 0
+
+ORIGINAL REVIEW:
+"As a Russian fairy tale, I should have loved this book. It's exactly the sort of book I actively seek out.I hated it.The story itself was okay. Nothing spectacular, had a little bit of a deus ex machina ending, but that by itself was not enough to inspire hatred. What I disliked was the conservative social commentary on feminism and marriage. Or rather, I disliked the lazy way in which Orsen Scott Card went about making his point.The anti-feminism conversation takes place early on between Ruth, Ivan's fiance, and Esther, Ivan's mother. Ivan is now in Russia. Ruth has, up to this point, spoken two lines and exhibited zero personality. The revelation that she wants a career and does not want kids is supposed to be shocking. Personally, I once wanted to have kids and be a housewife. I'm no longer sure. I wouldn't bash on any woman who did stay home, and I expect other people to respect my decision either way.Card clearly doesn't believe women have a right to a decision. Esther, the mother, thinks that choosing not to have children is as much of a curse (exact word) as being barren, and her viewpoint is presented without argument. She does not like Ruth, and she turns out to be right. However, because Card never bothered to build or even sketch out the relationship between Ivan and Ruth, we the reader don't know if Ruth had lied to Ivan (which really WOULD be a reason to hate her), or if they never had that conversation before he popped the question after all of six weeks of dating, and so if her feelings come as a surprise to him its his own fault. But no. According to the author, you don't need to have that conversation because not having babies is a curse. Ruth is the villian here, and its all because she's a baby-hating, career-chasing, air-headed feminist.The second thing that I found hateful about his book was its approach to sex. Ivan is characterized as a non-religious guy in his mid-twenties who is engaged to be married, yet he is still a virgin when he gets married to someone else. He kept telling Ruth, "There'll be time enough for that later." Um, yeah. An easy way to explain Ivan's virginity would have been that he'd been too busy with school to date, and that he and Ruth just hadn't gotten to that point yet (if they hadn't been engaged), but Card wanted to make a point - even if you are in your mid-twenties, even if you are engaged, wait until the wedding night, because what if your fiance is a crazy feminist and the person you are really supposed to get married to lives a thousand years in the past? Just . . . gah.It's also shoddy characterization on Card's part. If Card has a moral problem with writing characters who have sex, then they need to display more religious convictions than Ivan does. Ivan doesn't keep kosher, doesn't even go to synogogue or celebrate Jewish holidays. He's only religious when it comes to sex. It's clear that Card wasn't just trying to tell a fun story - he also wanted to send a message that marriage and sex are only for making babies.To summarize: Just say NO to Orson Scott Card."
+
+CHANGED REVIEW:
+"As a Russian fairy tale, I should have loved this book. It's exactly the sort of book I actively seek out.I hated it.The story itself was okay. Nothing spectacular, had a little bit of a deus ex machina ending, but that by itself was not enough to inspire hatred. What I disliked was the conservative social commentary on feminism and marriage. Or rather, I disliked the lazy way in which Orsen Scott Card went about making his point.The anti-feminism conversation takes place early on between Ruth, Ivan's fiance, and Esther, Ivan's mother. Ivan is now in Russia. Ruth has, up to this point, spoken two lines and exhibited zero personality. The revelation that she wants a career and does not want kids is supposed to be shocking. Personally, I once wanted to have kids and be a housewife. I'm no longer sure. I wouldn't bash on any woman who did stay home, and I expect other people to respect my decision either way.Card clearly doesn't believe women have a right to a decision. Esther, the mother, thinks that choosing not to have children is as much of a curse (exact word) as being barren, and her viewpoint is presented without argument. She does not like Ruth, and she turns out to be right. However, because Card never bothered to build or even sketch out the relationship between Ivan and Ruth, we the reader don't know if Ruth had lied to Ivan (which really WOULD be a reason to hate her), or if they never had that conversation before he popped the question after all of six weeks of dating, and so if her feelings come as a surprise to him its his own fault. But no. According to the author, you don't need to have that conversation because not having babies is a curse. Ruth is the villian here, and its all because she's a baby-hating, career-chasing, air-headed feminist.The second thing that I found hateful about his book was its approach to sex. Ivan is characterized as a non-religious guy in his mid-twenties who is engaged to be married, yet he is still a virgin when he gets married to someone else. He kept telling Ruth, "There'll be time enough for that later." Um, yeah. An easy way to explain Ivan's virginity would have been that he'd been too busy with school to date, and that he and Ruth just hadn't gotten to that point yet (if they hadn't been engaged), but Card wanted to make a point - even if you are in your mid-twenties, even if you are engaged, wait until the wedding night, because what if your fiance is a crazy feminist and the person you are really supposed to get married to lives a thousand years in the past? Just . . . gah.It's also shoddy characterization on Card's part. If Card has a moral problem with writing characters who have sex, then they need to display more religious convictions than Ivan does. Ivan doesn't keep kosher, doesn't even go to synogogue or celebrate Jewish holidays. He's only religious when it comes to sex. It's clear that Card wasn't just trying to tell a fun story - he also wanted to send a message that marriage and sex are only for making babies.To summarize: Just say NO to Orson Scott Card."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.9697 -> -0.9697 | Change: 0.0
+Negative: 0.118 -> 0.118 | Change: 0.0
+Neutral: 0.794 -> 0.794 | Change: 0.0
+Positive: 0.088 -> 0.088 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.676 -> Enhanced margin: -0.676 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 17
+
+ORIGINAL REVIEW:
+"Great price! If they break no big deal. Fit is good. Dark lens is needed here all year."
+
+CHANGED REVIEW:
+"Great price! If they break no big deal. Fit is good. Dark lens is needed here all year."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8221 -> 0.8221 | Change: 0.0
+Negative: 0.085 -> 0.085 | Change: 0.0
+Neutral: 0.539 -> 0.539 | Change: 0.0
+Positive: 0.377 -> 0.377 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.162 -> Enhanced margin: -0.162 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 79
+
+ORIGINAL REVIEW:
+"This purse is way smaller then described. More for a child.No pocket inside, made out of lighter fabric then other pursesof hers I'd bought. Doubt I'll buy another Laurel Burch bag!!!"
+
+CHANGED REVIEW:
+"This purse is way smaller then described. More for a child.No pocket inside, made out of lighter fabric then other pursesof hers I'd bought. Doubt I'll buy another Laurel Burch bag!!!"
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.5229 -> -0.5229 | Change: 0.0
+Negative: 0.104 -> 0.104 | Change: 0.0
+Neutral: 0.896 -> 0.896 | Change: 0.0
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.792 -> Enhanced margin: -0.792 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 91
+
+ORIGINAL REVIEW:
+"I have come to the conclusion that this book is an elaborate hoax, no doubt created by shadowy forces deep inside the US government in an attempt to upstage the Soviet Union in the self-published crackpot-conspiracy-screed-race that gripped the world for 45 years. As startling as it may sound, this book is not real, and neither was Bill Kaysing, for that manner. Don't believe me? I've created this list of 25 undebunkable facts that seal the prove once and for this book's nonexistence.1. If this book had actually been printed, the printing press would have generated so much heat it would have set fire to the floor beneath it.2. It is physically impossible to slice an entire tree into paper-thin sheets.3. Bill Kaysing wrote more than 20 books, but was so poor at the end of his life he was living in a trailer park.4. Mr. Kaysing wrote books on living off the land and surviving on 99 cents a day, but somehow still managed to die.5. If you opened this book exactly in the middle, it would break in half.6. The cover would have to be six feet thick to protect to prevent damaging sunlight from burning off the words contained inside.7. A UPS truck cannot hold enough fuel to deliver it from one side of the US to the other.8. This book was self-published, meaning Mr. Kaysing would have died from inhaling fumes from the glue used in the binding.9. No one had test-published a book with an actual human author about the moon landing hoax before. How could it worked the first time?10. If you bake this book in a radioactive oven, it turns into a book about how the moon landings were real.11. The computing power available in 1976 was insufficient to compensate for the book's changing center-of-gravity as it was read from cover to cover.12. There are no customer images of this book on this site.13. If you throw this book into the wind, it doesn't follow a perfect parabolic arc like it should.14. American books were catching on fire when the Russians were sending books into space every week.15. This book has no flexible joints in it. My hands became tired after 10 minutes of holding it. No one could hold this book and read it cover to cover without suffering permanent hand injuries.16. No one has denied the theory that this "book" is just 100 blank pages, and the actual contents are being beamed from space and into my brain, and being projected onto the pages through my eyes.17. No footage of this book's release exists.18. Paperback books often become smelly and tattered. They can become water-damaged and easily catch on fire. Why would anyone buy one?19. It doesn't cost much more than "Fifty Shades of Grey," but isn't selling anywhere near as many copies.20. If 400,000 people could lie about the moon landing, one man could lie about having written a book.21. You can see the strings holding the book together every 20 pages or so.22. There are no stars in the drawing of the Earth on the front cover.23. There was a 5 year gap between the release of "Barry Lyndon" and "The Shining." No doubt Stanley Kubrick was faking this book during that time period.24. You cannot read this book while the Sun is shining through the pages.25. Printing presses back in mid-70s suffered from serious longitudinal stability problems that could have shaken them apart. Therefore, this book could not have been printed.The truth will set you free."
+
+CHANGED REVIEW:
+"I have come to the conclusion that this book is an elaborate hoax, no doubt created by shadowy forces deep inside the US government in an attempt to upstage the Soviet Union in the self-published crackpot-conspiracy-screed-race that gripped the world for 45 years. As startling as it may sound, this book is not real, and neither was Bill Kaysing, for that manner. Don't believe me? I've created this list of 25 undebunkable facts that seal the prove once and for this book's nonexistence.1. If this book had actually been printed, the printing press would have generated so much heat it would have set fire to the floor beneath it.2. It is physically impossible to slice an entire tree into paper-thin sheets.3. Bill Kaysing wrote more than 20 books, but was so poor at the end of his life he was living in a trailer park.4. Mr. Kaysing wrote books on living off the land and surviving on 99 cents a day, but somehow still managed to die.5. If you opened this book exactly in the middle, it would break in half.6. The cover would have to be six feet thick to protect to prevent damaging sunlight from burning off the words contained inside.7. A UPS truck cannot hold enough fuel to deliver it from one side of the US to the other.8. This book was self-published, meaning Mr. Kaysing would have died from inhaling fumes from the glue used in the binding.9. No one had test-published a book with an actual human author about the moon landing hoax before. How could it worked the first time?10. If you bake this book in a radioactive oven, it turns into a book about how the moon landings were real.11. The computing power available in 1976 was insufficient to compensate for the book's changing center-of-gravity as it was read from cover to cover.12. There are no customer images of this book on this site.13. If you throw this book into the wind, it doesn't follow a perfect parabolic arc like it should.14. American books were catching on fire when the Russians were sending books into space every week.15. This book has no flexible joints in it. My hands became tired after 10 minutes of holding it. No one could hold this book and read it cover to cover without suffering permanent hand injuries.16. No one has denied the theory that this "book" is just 100 blank pages, and the actual contents are being beamed from space and into my brain, and being projected onto the pages through my eyes.17. No footage of this book's release exists.18. Paperback books often become smelly and tattered. They can become water-damaged and easily catch on fire. Why would anyone buy one?19. It doesn't cost much more than "Fifty Shades of Grey," but isn't selling anywhere near as many copies.20. If 400,000 people could lie about the moon landing, one man could lie about having written a book.21. You can see the strings holding the book together every 20 pages or so.22. There are no stars in the drawing of the Earth on the front cover.23. There was a 5 year gap between the release of "Barry Lyndon" and "The Shining." No doubt Stanley Kubrick was faking this book during that time period.24. You cannot read this book while the Sun is shining through the pages.25. Printing presses back in mid-70s suffered from serious longitudinal stability problems that could have shaken them apart. Therefore, this book could not have been printed.The truth will set you free."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.9952 -> -0.9952 | Change: 0.0
+Negative: 0.133 -> 0.133 | Change: 0.0
+Neutral: 0.819 -> 0.819 | Change: 0.0
+Positive: 0.047 -> 0.047 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.686 -> Enhanced margin: -0.686 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 113
+
+ORIGINAL REVIEW:
+"I purchased this camera for my wife because she wanted a light-weight digital camera that would fit in her pocket or purse. After eight months, we have taken about two thousand pictures with the camera. The good points about the camera are its small size and its speed. You can turn it on and start taking pictures almost instantaneously, which is a real advantage for catching unexpected moments. There is only one bad point, but it is a real kicker. About half of the pictures I take come out blurry. I always take multiple shots as a safeguard, but it is a bit of a pain to filter out all the blurry photos, and sometimes none of the pictures are sufficiently clear. You might just assume I am a bad photographer, but I have owned several other digital cameras as well as a number of film cameras, and I don't have this problem with any of them. One reason the pictures are often blurry is that the camera, by default, will set the shutter speed to 1/40 for flash pictures. As any photographer can tell you, this is really too slow for most people. The slow shutter speed, the fact that you have to hold the camera away from your body to see the LCD, and the light weight of the camera combine to make camera shake a real problem. Even if you manage to hold the camera still, the subjects in the photo may be moving, in which case they will be blurry anyway. Most cameras, including my other digital ones, default to 1/60 for flash pictures, which works much better. While it is possible to work around this problem by setting the camera to manual mode, I find that to be rather a pain, since you have to set both the shutter and the aperture. This camera has no shutter priority (Tv) mode, so manual mode is the best option. The second reason that the pictures come out blurry is the auto-focus. The default mode - multi-AF - is poorly documented and doesn't seem to work that well. In some cases, green boxes will appear - presumably the locations that were used for focus. In other cases (usually when the scene is darker), no boxes appear, even though the camera seems to focus correctly using its built in focus assist light and it makes the double beep sound that indicates successful auto-focus. In those cases, you can only guess what the camera is focusing on. Even setting the camera on center focus does not solve the problem for me, and there is the added annoyance of having to focus and then re-frame each shot. I think that the auto-focus in this camera is just not as good as in other cameras. A couple of minor annoyances highlight why Sony is at the back of the pack when it comes to user interfaces. 1) The self-timer setting resets after each photo is taken. This means that if you want to take a bunch of pictures using the self-timer, you have to remember to press the button before each shot. I've never seen any other camera that did this. 2) The mode wheel is right on the edge of the camera. Sometimes, when I pull the camera out of my pocket, the wheel changes settings, and I only discover that I've gone to manual mode (or whatever) after I've taken a shot or two."
+
+CHANGED REVIEW:
+"I purchased this camera for my wife because she wanted a light-weight digital camera that would fit in her pocket or purse. After eight months, we have taken about two thousand pictures with the camera. The good points about the camera are its small size and its speed. You can turn it on and start taking pictures almost instantaneously, which is a real advantage for catching unexpected moments. There is only one bad point, but it is a real kicker. About half of the pictures I take come out blurry. I always take multiple shots as a safeguard, but it is a bit of a pain to filter out all the blurry photos, and sometimes none of the pictures are sufficiently clear. You might just assume I am a bad photographer, but I have owned several other digital cameras as well as a number of film cameras, and I don't have this problem with any of them. One reason the pictures are often blurry is that the camera, by default, will set the shutter speed to 1/40 for flash pictures. As any photographer can tell you, this is really too slow for most people. The slow shutter speed, the fact that you have to hold the camera away from your body to see the LCD, and the light weight of the camera combine to make camera shake a real problem. Even if you manage to hold the camera still, the subjects in the photo may be moving, in which case they will be blurry anyway. Most cameras, including my other digital ones, default to 1/60 for flash pictures, which works much better. While it is possible to work around this problem by setting the camera to manual mode, I find that to be rather a pain, since you have to set both the shutter and the aperture. This camera has no shutter priority (Tv) mode, so manual mode is the best option. The second reason that the pictures come out blurry is the auto-focus. The default mode - multi-AF - is poorly documented and doesn't seem to work that well. In some cases, green boxes will appear - presumably the locations that were used for focus. In other cases (usually when the scene is darker), no boxes appear, even though the camera seems to focus correctly using its built in focus assist light and it makes the double beep sound that indicates successful auto-focus. In those cases, you can only guess what the camera is focusing on. Even setting the camera on center focus does not solve the problem for me, and there is the added annoyance of having to focus and then re-frame each shot. I think that the auto-focus in this camera is just not as good as in other cameras. A couple of minor annoyances highlight why Sony is at the back of the pack when it comes to user interfaces. 1) The self-timer setting resets after each photo is taken. This means that if you want to take a bunch of pictures using the self-timer, you have to remember to press the button before each shot. I've never seen any other camera that did this. 2) The mode wheel is right on the edge of the camera. Sometimes, when I pull the camera out of my pocket, the wheel changes settings, and I only discover that I've gone to manual mode (or whatever) after I've taken a shot or two."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: neg | Correct: True
+Enhanced prediction: neg | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.9305 -> -0.9305 | Change: 0.0
+Negative: 0.093 -> 0.093 | Change: 0.0
+Neutral: 0.839 -> 0.839 | Change: 0.0
+Positive: 0.068 -> 0.068 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.746 -> Enhanced margin: -0.746 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 128
+
+ORIGINAL REVIEW:
+"To say that Roy Neuberger's book entitled "From Central Park to Sinai" was a real page turner, is a definite understatement. This most engrossing and captivating book details the story of a personal transformation of a man searching for spiritual meaning and purpose in his life. The grandson of a great rabbi and founder of the "Mussar" movement in Judaism, Rabbi Yisroel Salanter, Roy Neuberger's life couldn't be further apart from that of his grandfather. Educated in the traditions of ethical culturalism, Mr. Neuberger felt an ever present spiritual vacuum in his life and as such he embarked on a personal quest for truth, via the study of Catholicism, Protestantism and a whole host of other religions and value systems. He even wrote a book detailing why these other religions and their credos were superior to that of Judaism and why Judaism held no meaning.Accompanying Mr. Neuberger on his trajectory towards spiritual fulfillment was that of his beloved wife, Linda, also a student of ethical culturalism. The fear and uncertainty that plagued Mr. Neuberger throughout his life could be simply termed as a man living through a perpetual anxiety attack with no relief in sight.It would seem that G-d heard the inner cry and pain of Mr. Neuberger, and as destiny would have it, he was guided in the direction of Rebbetzen Esther Jungreis. That night in Neuburgh, NY changed the course of an entire generation of Neubergers. Mr. Neuberger was deeply impressed with Rebbetzen Jungreis' Torah message and he began to attend her classes on a weekly basis, despite the hardship of traveling such a long distance during a fuel crisis. Rebbetzen Jungreis served as a conduit to bring the message of G-d's love and compassion to a man who hungered and thirsted for spiritual guidance and meaning. In essence, Mr. Neuberger began to fall in love with G-d, embracing His Torah and commandments.Since that time, Mr. Neuberger and his wife have raised a beautiful family steeped in Torah values and has spread his joy and understanding of spiritual truth with hundreds of people who he has invited to his home to enjoy the uplifting experience of Shabbos.Mr. Neuberger's story will not only inspire, but will captivate the heart and soul of the reader. It is a must read for anyone searching for guidance and truth and even for those who are not searching for anything in particular. It is a welcome addition to any library and will remain within the recesses of the soul for posterity."
+
+CHANGED REVIEW:
+"To say that Roy Neuberger's book entitled "From Central Park to Sinai" was a real page turner, is a definite understatement. This most engrossing and captivating book details the story of a personal transformation of a man searching for spiritual meaning and purpose in his life. The grandson of a great rabbi and founder of the "Mussar" movement in Judaism, Rabbi Yisroel Salanter, Roy Neuberger's life couldn't be further apart from that of his grandfather. Educated in the traditions of ethical culturalism, Mr. Neuberger felt an ever present spiritual vacuum in his life and as such he embarked on a personal quest for truth, via the study of Catholicism, Protestantism and a whole host of other religions and value systems. He even wrote a book detailing why these other religions and their credos were superior to that of Judaism and why Judaism held no meaning.Accompanying Mr. Neuberger on his trajectory towards spiritual fulfillment was that of his beloved wife, Linda, also a student of ethical culturalism. The fear and uncertainty that plagued Mr. Neuberger throughout his life could be simply termed as a man living through a perpetual anxiety attack with no relief in sight.It would seem that G-d heard the inner cry and pain of Mr. Neuberger, and as destiny would have it, he was guided in the direction of Rebbetzen Esther Jungreis. That night in Neuburgh, NY changed the course of an entire generation of Neubergers. Mr. Neuberger was deeply impressed with Rebbetzen Jungreis' Torah message and he began to attend her classes on a weekly basis, despite the hardship of traveling such a long distance during a fuel crisis. Rebbetzen Jungreis served as a conduit to bring the message of G-d's love and compassion to a man who hungered and thirsted for spiritual guidance and meaning. In essence, Mr. Neuberger began to fall in love with G-d, embracing His Torah and commandments.Since that time, Mr. Neuberger and his wife have raised a beautiful family steeped in Torah values and has spread his joy and understanding of spiritual truth with hundreds of people who he has invited to his home to enjoy the uplifting experience of Shabbos.Mr. Neuberger's story will not only inspire, but will captivate the heart and soul of the reader. It is a must read for anyone searching for guidance and truth and even for those who are not searching for anything in particular. It is a welcome addition to any library and will remain within the recesses of the soul for posterity."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: pos
+Raw prediction: pos | Correct: True
+Enhanced prediction: pos | Correct: True
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9747 -> 0.9747 | Change: 0.0
+Negative: 0.044 -> 0.044 | Change: 0.0
+Neutral: 0.845 -> 0.845 | Change: 0.0
+Positive: 0.111 -> 0.111 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.734 -> Enhanced margin: -0.734 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+========== STAYED WRONG REVIEWS ==========
+Count: 37
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 99
+
+ORIGINAL REVIEW:
+"I ordered a 1X/2xl....I am 5 foot 7and weigh 160 pounds The jeggings are cute but they ran too small 😕1 ended up giving them to my 12-year-old daughter!"
+
+CHANGED REVIEW:
+"I ordered a 1X/2xl....I am 5 foot 7and weigh 160 pounds The jeggings are cute but they vaderphraserunssmall 😕1 ended up giving them to my 12-year-old daughter!"
+
+RULES APPLIED:
+['fashion:runs_small']
+
+FULL OPERATIONS:
+- fashion:runs_small | replaced exact phrase | matched=['ran too small'] | replacement=vaderphraserunssmall
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.6588 -> 0.1759 | Change: -0.4829
+Negative: 0.0 -> 0.123 | Change: 0.123
+Neutral: 0.817 -> 0.698 | Change: -0.119
+Positive: 0.183 -> 0.179 | Change: -0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.817 -> Enhanced margin: -0.575 | Margin change: 0.242
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 184
+
+ORIGINAL REVIEW:
+"The tops fit but a little on the small side. The material was soft & they were well made. My granddaughter loved them."
+
+CHANGED REVIEW:
+"The tops fit but a little on the small side. The material was soft & they were well made. My granddaughter loved them."
+
+RULES APPLIED:
+['domain_lexicon:soft']
+
+FULL OPERATIONS:
+- domain_lexicon:soft | used custom domain lexicon value
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8979 -> 0.9343 | Change: 0.0364
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.588 -> 0.514 | Change: -0.074
+Positive: 0.412 -> 0.486 | Change: 0.074
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.176 -> Enhanced margin: 0.028 | Margin change: -0.148
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 148
+
+ORIGINAL REVIEW:
+"After reading the reviews, I did expect it to run a little big, but the neck hole was big enough that it could fit two people's heads through there at once. Because of that, the torso of the shirt did not fit properly and looked ill fitting. Ended up returning and not bringing to my Disneyland trip. Was slightly itchy when I tried it on too, so I wouldn't have been comfortable in it for a whole day.May work if you shrink it a bit and use fabric softener. Wasn't worth it for me."
+
+CHANGED REVIEW:
+"After reading the reviews, I did expect it to vaderphraserunslarge, but the neck hole was big enough that it could fit two people's heads through there at once. Because of that, the torso of the shirt vaderphrasenotfitting properly and looked ill fitting. Ended up returning and not bringing to my Disneyland trip. Was slightly itchy when I tried it on too, so I wouldn't have been comfortable in it for a whole day.May work if you shrink it a bit and use fabric softener. Wasn't worth it for me."
+
+RULES APPLIED:
+['fashion:not_fitting', 'fashion:runs_large']
+
+FULL OPERATIONS:
+- fashion:not_fitting | replaced exact phrase | matched=['did not fit'] | replacement=vaderphrasenotfitting
+- fashion:runs_large | replaced exact phrase | matched=['run a little big'] | replacement=vaderphraserunslarge
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.6076 -> -0.9314 | Change: -0.3238
+Negative: 0.115 -> 0.185 | Change: 0.07
+Neutral: 0.82 -> 0.782 | Change: -0.038
+Positive: 0.065 -> 0.033 | Change: -0.032
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.705 -> Enhanced margin: 0.597 | Margin change: -0.108
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 167
+
+ORIGINAL REVIEW:
+"It is a super cute accessory for my daughter's Rapunzel costume, but after only using it for a couple weeks the headband snapped in half. She still uses it because she loves it but it doesn't really work."
+
+CHANGED REVIEW:
+"It is a super cute accessory for my daughter's Rapunzel costume, but after only using it for a couple weeks the headband snapped in half. She still uses it because she loves it but it doesn't really work."
+
+RULES APPLIED:
+['intensifier:super']
+
+FULL OPERATIONS:
+- intensifier:super | used custom intensifier
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8591 -> 0.7935 | Change: -0.0656
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.776 -> 0.828 | Change: 0.052
+Positive: 0.224 -> 0.172 | Change: -0.052
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.552 -> Enhanced margin: 0.656 | Margin change: 0.104
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 120
+
+ORIGINAL REVIEW:
+"I have been wearing the same style Crocs for the last two summers. Liked them so much that I ordered a new pair and was deeply disappointed in the fit (much smaller foot bed). The entire sandal construction was flimsy compared to my original pair. Would not purchase this style in the future."
+
+CHANGED REVIEW:
+"I have been wearing the same style Crocs for the last two summers. Liked them so much that I ordered a new pair and was deeply disappointed in the fit (much smaller foot bed). The entire sandal construction was flimsy compared to my original pair. Would not purchase this style in the future."
+
+RULES APPLIED:
+['domain_lexicon:flimsy']
+
+FULL OPERATIONS:
+- domain_lexicon:flimsy | used custom domain lexicon value
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.4951 -> 0.0534 | Change: -0.4417
+Negative: 0.06 -> 0.108 | Change: 0.048
+Neutral: 0.807 -> 0.763 | Change: -0.044
+Positive: 0.133 -> 0.129 | Change: -0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.747 -> Enhanced margin: -0.655 | Margin change: 0.092
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 98
+
+ORIGINAL REVIEW:
+"I cannot recommend this book. I found Emotional Intelligence to be similarly dry and overly technical, but it was much more substantive. Social intelligence has a few interesting points, but overall it gets annoyingly repetitive.The main reason for my review however, is about the Audio CD. It is read to you in a hurry. With all the technical jargon thrown at you, you need time to follow. This pace is too fast for a regular book, let alone this. After repeatedly rewinding and replaying, I gave up and returned it."
+
+CHANGED REVIEW:
+"I cannot recommend this book. I found Emotional Intelligence to be similarly dry and overly technical, but it was much more substantive. Social intelligence has a few interesting points, but overall it gets annoyingly repetitive.The main reason for my review however, is about the Audio CD. It is read to you in a hurry. With all the technical jargon thrown at you, you need time to follow. This pace is too fast for a regular book, let alone this. After repeatedly rewinding and replaying, I gave up and vaderphrasehadreturn."
+
+RULES APPLIED:
+['return_issue:had_to_return']
+
+FULL OPERATIONS:
+- return_issue:had_to_return | replaced exact phrase | matched=['returned it'] | replacement=vaderphrasehadreturn
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8121 -> 0.39 | Change: -0.4221
+Negative: 0.043 -> 0.091 | Change: 0.048
+Neutral: 0.834 -> 0.79 | Change: -0.044
+Positive: 0.122 -> 0.119 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.791 -> Enhanced margin: -0.699 | Margin change: 0.092
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 73
+
+ORIGINAL REVIEW:
+"Seems to be a nice piece of hardware. Too bad they provide NO documentation! Be prepared to google until your fingers get numb to find any information. I found a relatively easy Ubuntu microsd install but other than that I haven't had much luck finding information. 3 stars because they do not provide any information with it, not even descriptions of the cryptic labels on the case. They have a website but it is not working. Raspberry Pi has a much better support community too bad it is so limited. Anyway,, if you want an out of the box device that does much without a lot of fooling about this ain't it. T ."
+
+CHANGED REVIEW:
+"Seems to be a nice piece of hardware. Too bad they provide NO documentation! Be prepared to google until your fingers get numb to find any information. I found a relatively easy Ubuntu microsd install but other than that I haven't had much luck finding information. 3 stars because they do not provide any information with it, not even descriptions of the cryptic labels on the case. They have a website but it vaderphrasedoesnotwork. Raspberry Pi has a much better support community too bad it is so limited. Anyway,, if you want an out of the box device that does much without a lot of fooling about this ain't it. T ."
+
+RULES APPLIED:
+['custom_negator:no', 'electronics:does_not_work']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- electronics:does_not_work | replaced exact phrase | matched=['is not working'] | replacement=vaderphrasedoesnotwork
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.3353 -> -0.8473 | Change: -0.512
+Negative: 0.139 -> 0.181 | Change: 0.042
+Neutral: 0.725 -> 0.686 | Change: -0.039
+Positive: 0.136 -> 0.133 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.586 -> Enhanced margin: 0.505 | Margin change: -0.081
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 20
+
+ORIGINAL REVIEW:
+"The sizing is super off on this bra. The band and cup size are off by at least one size if not 2. I have purchased several others and they fit great. The quality is not on par with other Ekouaer products."
+
+CHANGED REVIEW:
+"The sizing is super off on this bra. The band and cup size are off by at least one size if not 2. I have purchased several others and they fit great. The quality is not on par with other Ekouaer products."
+
+RULES APPLIED:
+['intensifier:super']
+
+FULL OPERATIONS:
+- intensifier:super | used custom intensifier
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8885 -> 0.765 | Change: -0.1235
+Negative: 0.0 -> 0.0 | Change: 0.0
+Neutral: 0.784 -> 0.855 | Change: 0.071
+Positive: 0.216 -> 0.145 | Change: -0.071
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.784 -> Enhanced margin: -0.855 | Margin change: -0.071
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 10
+
+ORIGINAL REVIEW:
+"got wrong color and only 3 in package."
+
+CHANGED REVIEW:
+"got vaderphrasewrongcolor and only 3 in package."
+
+RULES APPLIED:
+['fashion:wrong_color']
+
+FULL OPERATIONS:
+- fashion:wrong_color | replaced exact phrase | matched=['wrong color'] | replacement=vaderphrasewrongcolor
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.4767 -> -0.4588 | Change: 0.0179
+Negative: 0.341 -> 0.375 | Change: 0.034
+Neutral: 0.659 -> 0.625 | Change: -0.034
+Positive: 0.0 -> 0.0 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.318 -> Enhanced margin: 0.25 | Margin change: -0.068
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 126
+
+ORIGINAL REVIEW:
+"I applaud the authors' attempt to provide an accessible, easy to understand synthesis of student development theory, but they have sacrificed depth for breadth and left the reader with a text that, like over-processed food, provides some nutrition but ultimately fails to satisfy. The book is below the level of most master's degree students and practitioners in student affairs, though it might provide a useful introduction to theory for undergraduates or a useful reference book for administrators who don't have time to read original sources."
+
+CHANGED REVIEW:
+"I applaud the authors' attempt to provide an accessible, easy to understand synthesis of student development theory, but they have sacrificed depth for breadth and left the reader with a text that, like over-processed food, provides some nutrition but ultimately fails to satisfy.it might provide a useful introduction to theory for undergraduates or a useful reference book for administrators who don't have time to read original sources. but The book is below the level of most master's degree students and practitioners in student affairs"
+
+RULES APPLIED:
+['concessive_normalisation:though']
+
+FULL OPERATIONS:
+- concessive_normalisation:though | normalised trailing concessive contrast to 'but' | matched=though
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9528 -> 0.9209 | Change: -0.0319
+Negative: 0.038 -> 0.039 | Change: 0.001
+Neutral: 0.741 -> 0.772 | Change: 0.031
+Positive: 0.222 -> 0.189 | Change: -0.033
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.519 -> Enhanced margin: 0.583 | Margin change: 0.064
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 197
+
+ORIGINAL REVIEW:
+"First, I'd like to emphasize that I loved The Secret History. I've waited years for Tartt's second book, but I found it something of a let-down. I suppose this is mostly because I enjoyed Secret so much and I was expecting more of the same (I'm an academic and a classicist, and I was thrilled with the way Tartt brought my field to life). The Little Friend is cute enough, but, my own obscure interests aside, it just doesn't compare to Secret History (first novel or not, Ms. Tartt)."
+
+CHANGED REVIEW:
+"First, I'd like to emphasize that I loved The Secret History. I've waited years for Tartt's second book, but I found it something of a let-down. I suppose this is mostly because I enjoyed Secret so much and I vaderphraseneutralexpectedmore of the same (I'm an academic and a classicist, and I was thrilled with the way Tartt brought my field to life). The Little Friend is cute enough, but, my own obscure interests aside, it just doesn't compare to Secret History (first novel or not, Ms. Tartt)."
+
+RULES APPLIED:
+['neutral_phrase:neutral_expected_more']
+
+FULL OPERATIONS:
+- neutral_phrase:neutral_expected_more | replaced exact phrase | matched=['was expecting more'] | replacement=vaderphraseneutralexpectedmore
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9762 -> 0.9733 | Change: -0.0029
+Negative: 0.0 -> 0.02 | Change: 0.02
+Neutral: 0.742 -> 0.719 | Change: -0.023
+Positive: 0.258 -> 0.261 | Change: 0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.742 -> Enhanced margin: -0.699 | Margin change: 0.043
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 151
+
+ORIGINAL REVIEW:
+"This book is dreadful. Not only is it poorly written because Julie Powell over-writes, but because Julie Powell and her life come across as shallow. Thank goodness Julia Child or Judith Jones never met her and I wish I had never bought her book. Don't waste your money. I'm sure Julie Powell is laughing all the way to the bank for those of us who were duped into buying her book thinking it would focus on food and life rather than a cheap attempt to garner fame and ... money. She doesn't even try to hide her objective. Because of so much negative publicity and the critics slamming the "Julie" part of the Julie & Julia movie, hopefully others will not make the mistake of buying this book or any others she may write.Instead, I recommend My Life in France or any of Julia Child's other books. There, you find an authentic, unpretentious person with a true passion for food and life. Julia Child is inspiring and authentic -- everything Julie Powell is not. If you're looking for a true food book, not a gimmick, stick with the real Julia.I'm putting my Julie & Julia book in the recycle bin."
+
+CHANGED REVIEW:
+"This book is dreadful. Not only is it vaderphrasepoorlywritten because Julie Powell over-writes, but because Julie Powell and her life come across as shallow. Thank goodness Julia Child or Judith Jones never met her and I wish I had never bought her book. Don't waste your money. I'm sure Julie Powell is laughing all the way to the bank for those of us who were duped into buying her book thinking it would focus on food and life rather than a cheap attempt to garner fame and ... money. She doesn't even try to hide her objective. Because of so much negative publicity and the critics slamming the "Julie" part of the Julie & Julia movie, hopefully others will not make the mistake of buying this book or any others she may write.Instead, I recommend My Life in France or any of Julia Child's other books. There, you find an authentic, unpretentious person with a true passion for food and life. Julia Child is inspiring and authentic -- everything Julie Powell is not. If you're looking for a true food book, not a gimmick, stick with the real Julia.I'm putting my Julie & Julia book in the recycle bin."
+
+RULES APPLIED:
+['books:poorly_written', 'domain_lexicon:authentic']
+
+FULL OPERATIONS:
+- domain_lexicon:authentic | used custom domain lexicon value
+- books:poorly_written | replaced exact phrase | matched=['poorly written'] | replacement=vaderphrasepoorlywritten
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9876 -> 0.9904 | Change: 0.0028
+Negative: 0.067 -> 0.075 | Change: 0.008
+Neutral: 0.725 -> 0.694 | Change: -0.031
+Positive: 0.208 -> 0.231 | Change: 0.023
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.658 -> Enhanced margin: -0.619 | Margin change: 0.039
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 107
+
+ORIGINAL REVIEW:
+"The material itself is very comfortable and nice. The color is great & it does look like the picture! I am usually a size small and this ran a little too large for me. It didn't give me much shape (I am 5'3 with an athletic build) but I liked that it was flowy and not skin tight. It just ran a little big and kind of hung on me. If there was a size XS I would exchanged the sizing but unfortunately, a small is as small as it goes!"
+
+CHANGED REVIEW:
+"The material itself is very comfortable and nice. The color is great & it does look like the picture! I am usually a size small and this ran a little too large for me. It didn't give me much shape (I am 5'3 with an athletic build) but I liked that it was flowy and not skin tight. It just vaderphraserunslarge and kind of hung on me. If there was a size XS I would exchanged the sizing but unfortunately, a small is as small as it goes!"
+
+RULES APPLIED:
+['fashion:runs_large']
+
+FULL OPERATIONS:
+- fashion:runs_large | replaced exact phrase | matched=['ran a little big'] | replacement=vaderphraserunslarge
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8322 -> 0.6611 | Change: -0.1711
+Negative: 0.034 -> 0.07 | Change: 0.036
+Neutral: 0.826 -> 0.79 | Change: -0.036
+Positive: 0.14 -> 0.14 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.686 -> Enhanced margin: 0.65 | Margin change: -0.036
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 53
+
+ORIGINAL REVIEW:
+"This product works great and IF you can set it up and leave it alone, it is perfect. Thing is, most of us can't do that. You need a larger base on this thing so you can adjust it for best reception without it trying to fall over. I did it with a unusable CD. NO proble and I now love it, period. The stability situation came up due to the rabbit ears that I did not see in the photo. I should have known, but then I might have not bought it and THAT would have been a mistake (IMHO). I do not find the need for a larger base to be a fatal flaw at all. The performance far out weighs it. Terk HDTVa Indoor Amplified High-Definition Antenna for Off-Air HDTV Reception"
+
+CHANGED REVIEW:
+"This product vaderphraseworksgreat and IF you can set it up and leave it alone, it is perfect. Thing is, most of us can't do that. You need a larger base on this thing so you can adjust it for best reception without it trying to fall over. I did it with a unusable CD. NO proble and I now love it, period. The stability situation came up due to the rabbit ears that I did not see in the photo. I should have known, but then I might have not bought it and THAT would have been a mistake (IMHO). I do not find the need for a larger base to be a fatal flaw at all. The performance far out weighs it. Terk HDTVa Indoor Amplified High-Definition Antenna for Off-Air HDTV Reception"
+
+RULES APPLIED:
+['custom_negator:no', 'domain_lexicon:unusable', 'positive_phrase:works_great']
+
+FULL OPERATIONS:
+- domain_lexicon:unusable | used custom domain lexicon value
+- custom_negator:no | used custom VADER negator
+- positive_phrase:works_great | replaced exact phrase | matched=['works great'] | replacement=vaderphraseworksgreat
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.3218 -> -0.6208 | Change: -0.299
+Negative: 0.091 -> 0.108 | Change: 0.017
+Neutral: 0.835 -> 0.82 | Change: -0.015
+Positive: 0.074 -> 0.071 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.744 -> Enhanced margin: 0.712 | Margin change: -0.032
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 139
+
+ORIGINAL REVIEW:
+"Cute Romper that I returned bc it was too short from the waist to the crotch. I am 61 yrs old & wear a size 6 in bottoms & I ordered a large. In all fairness, I didn't want a snug fit or camel toe. The color blue was so pretty & the fabric was soft to the touch. I'm thinking about ordering an x-large lol"
+
+CHANGED REVIEW:
+"Cute Romper that I returned bc it was too short from the waist to the crotch. I am 61 yrs old & wear a size 6 in bottoms & I ordered a large. In all fairness, I didn't want a snug fit or camel toe. The color blue was so pretty & the fabric was soft to the touch. I'm thinking about ordering an x-large lol"
+
+RULES APPLIED:
+['domain_lexicon:soft']
+
+FULL OPERATIONS:
+- domain_lexicon:soft | used custom domain lexicon value
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8217 -> 0.8774 | Change: 0.0557
+Negative: 0.053 -> 0.051 | Change: -0.002
+Neutral: 0.791 -> 0.757 | Change: -0.034
+Positive: 0.157 -> 0.192 | Change: 0.035
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.738 -> Enhanced margin: -0.706 | Margin change: 0.032
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 54
+
+ORIGINAL REVIEW:
+"I initially purchased this bag as an easy travel companion to a trip to a theme park in Orlando. I looked at many different bags and eventually settled on one. Unfortunately, when I received the bag there were some challenges. I still used it but I may purchase a different bag if I took the trip again.Pros:The bag is light weight.It seems durable.The bag is compact and small (If that is what you want)It was comfortable on my body especially because of how light and small it was.ConsThe bag was way too small.You cannot fit much inside - my intention was to fit my iPad, a Sony camera with a couple lenses, my wallet and maybe a water bottle. I perhaps underestimated the size but 9.7 and above tablet cannot fit. The camera and lenses (Sony) do but with not much room left for water, or a ponchoConclusionThe bag itself is fine but be careful to judge the size you want and the items you will want to put in it because this one was too small for my needs. Perhaps this is more my fault but I was left disappointed by that.If you want a bag just to put your wallet, phone and maybe a small water bottle it will be fine, but not much else."
+
+CHANGED REVIEW:
+"I initially purchased this bag as an easy travel companion to a trip to a theme park in Orlando. I looked at many different bags and eventually settled on one. Unfortunately, when I received the bag there were some challenges. I still used it but I may purchase a different bag if I took the trip again.Pros:The bag is light weight.It seems durable.The bag is compact and small (If that is what you want)It was comfortable on my body especially because of how light and small it was.ConsThe bag was way too small.You vaderphrasenotfitting much inside - my intention was to fit my iPad, a Sony camera with a couple lenses, my wallet and maybe a water bottle. I perhaps underestimated the size but 9.7 and above tablet vaderphrasenotfitting. The camera and lenses (Sony) do but with not much room left for water, or a ponchoConclusionThe bag itself is fine but be careful to judge the size you want and the items you will want to put in it because this one was too small for my needs. Perhaps this is more my fault but I was left disappointed by that.If you want a bag just to put your wallet, phone and maybe a small water bottle it will be fine, but not much else."
+
+RULES APPLIED:
+['domain_lexicon:durable', 'fashion:not_fitting']
+
+FULL OPERATIONS:
+- domain_lexicon:durable | used custom domain lexicon value
+- fashion:not_fitting | replaced exact phrase | matched=['cannot fit', 'cannot fit'] | replacement=vaderphrasenotfitting
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.7401 -> -0.7794 | Change: -0.0393
+Negative: 0.092 -> 0.099 | Change: 0.007
+Neutral: 0.826 -> 0.805 | Change: -0.021
+Positive: 0.082 -> 0.095 | Change: 0.013
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.734 -> Enhanced margin: 0.706 | Margin change: -0.028
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 122
+
+ORIGINAL REVIEW:
+"If a book can be rated for just making you think than this is one.Actually, the late-Jacques Ellul had been involved in the Reformed Church in France and was Professor of Law and Sociology and History of Institutions at the University of Bordeaux.His Reformed theology wrestling with Marxist influence helped build his observations that have been appreciated by both social conservatives and liberals. He drew from the only viable Marxist critique - that industrialisation, in essence dehumanizes people (separates them from what they make). Just look at how impersonal Western society has become (this is just one aspect). Ellul goes further and describes the fetish for technique (e.g. learn something, do it, have power). A good current example of this is contemporary education (the road to power is knowledge, hence the Technique of the classroom). The danger lies in the Falleness of man with knowledge of Technique without proper morals and valuing.However, Ellul often fell into the French deconstructive mindset, which always makes it difficult to build upon a proper weltenschaaung (worldview).Ellul was a very humane man, who sought to be informative."
+
+CHANGED REVIEW:
+"If a book can be rated for just making you think than this is one.Actually, the late-Jacques Ellul had been involved in the Reformed Church in France and was Professor of Law and Sociology and History of Institutions at the University of Bordeaux.His Reformed theology wrestling with Marxist influence helped build his observations that have been appreciated by both social conservatives and liberals. He drew from the only viable Marxist critique - that industrialisation, in essence dehumanizes people (separates them from what they make). Just look at how impersonal Western society has become (this is just one aspect). Ellul goes further and describes the fetish for technique (e.g. learn something, do it, have power). A good current example of this is contemporary education (the road to power is knowledge, hence the Technique of the classroom). The danger lies in the Falleness of man with knowledge of Technique without proper morals and valuing.However, Ellul often fell into the French deconstructive mindset, which always makes it difficult to build upon a proper weltenschaaung (worldview).Ellul was a very humane man, who sought to be informative."
+
+RULES APPLIED:
+['domain_lexicon:informative']
+
+FULL OPERATIONS:
+- domain_lexicon:informative | used custom domain lexicon value
+
+SENTIMENT:
+True label: pos
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.743 -> -0.5423 | Change: 0.2007
+Negative: 0.071 -> 0.07 | Change: -0.001
+Neutral: 0.896 -> 0.883 | Change: -0.013
+Positive: 0.033 -> 0.047 | Change: 0.014
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.863 -> Enhanced margin: -0.836 | Margin change: 0.027
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 131
+
+ORIGINAL REVIEW:
+"So disappointed. I really wanted to love this. I ordered this in a large (pink). I ordered down a size since many of the reviews said it ran a bit big.I I was looking for a nice light shirt to wear in the sweltering summers here. The material IS light... and transparent. I could see every line of my bra and exactly where my jeans started... and the pockets and individual belt loops on said jeans. It wasn't all bad though. The loose fit was great and forgiving of my fat rolls and covered the junk in my trunk nicely. This is asymmetrical so it's a bit longer in the back than the front (the front is 28.5 inches long and the back is 32 inches) The neckline was nice and high. No risk of flashing innocent bystanders and scarring them for life. It was really comfy too, but I wanted something I could wear in public, so it unfortunately has to go back."
+
+CHANGED REVIEW:
+"So disappointed. I really wanted to love this. I ordered this in a large (pink). I ordered down a size since many of the reviews said it vaderphraserunslarge.I I was looking for a nice light shirt to wear in the sweltering summers here. The material IS light... and vaderphraseseethrough. I could see every line of my bra and exactly where my jeans started... and the pockets and individual belt loops on said jeans. It wasn't all bad though. The loose fit was great and forgiving of my fat rolls and covered the junk in my trunk nicely. This is asymmetrical so it's a bit longer in the back than the front (the front is 28.5 inches long and the back is 32 inches) The neckline was nice and high. No risk of flashing innocent bystanders and scarring them for life. It was really comfy too, but I wanted something I could wear in public, so it unfortunately has to go back."
+
+RULES APPLIED:
+['custom_negator:no', 'fashion:runs_large', 'fashion:see_through']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- fashion:runs_large | replaced exact phrase | matched=['ran a bit big'] | replacement=vaderphraserunslarge
+- fashion:see_through | replaced exact phrase | matched=['transparent'] | replacement=vaderphraseseethrough
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.7043 -> 0.5849 | Change: -0.1194
+Negative: 0.063 -> 0.076 | Change: 0.013
+Neutral: 0.827 -> 0.814 | Change: -0.013
+Positive: 0.11 -> 0.111 | Change: 0.001
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.764 -> Enhanced margin: -0.738 | Margin change: 0.026
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 176
+
+ORIGINAL REVIEW:
+"...otherwise it's a complete waste of time and money (and yes, three dollars is far more than what this PDF is worth). Val Waldeck accomplishes nothing in this "publication" other than to state very clearly that Jesus Christ is the only one you should believe in. Make no mistake, the foreword contains the following: "This ebook was written with the earnest desire that it will assist Christians to obey the instruction of 1 John 4:1".As a non-Scientologist curious what all this "Church of Scientology" talk is about I was grossly disappointed with this pamphlet. I use the term pamphlet as this text actually contains only 12 pages (not 40 - and in large font print no less!) dealing with the background/history/rumors of The Church of Scientology and L. Ron Hubbard. The remainder is pro-Christianity rhetoric with heavy biblical referencing and two pages with some vague bullet point style tidbits about what cults are and do. Save yourself as you will learn nothing here about the Church of Scientology that you wouldn't already know from word-of-mouth alone."
+
+CHANGED REVIEW:
+"...otherwise it's vaderphrasewasteofmoney and money (and yes, three dollars is far more than what this PDF is worth). Val Waldeck accomplishes nothing in this "publication" other than to state very clearly that Jesus Christ is the only one you should believe in. Make no mistake, the foreword contains the following: "This ebook was written with the earnest desire that it will assist Christians to obey the instruction of 1 John 4:1".As a non-Scientologist curious what all this "Church of Scientology" talk is about I was grossly disappointed with this pamphlet. I use the term pamphlet as this text actually contains only 12 pages (not 40 - and in large font print no less!) dealing with the background/history/rumors of The Church of Scientology and L. Ron Hubbard. The remainder is pro-Christianity rhetoric with heavy biblical referencing and two pages with some vague bullet point style tidbits about what cults are and do. Save yourself as you will learn nothing here about the Church of Scientology that you wouldn't already know from word-of-mouth alone."
+
+RULES APPLIED:
+['custom_negator:no', 'negative_phrase:waste_of_money']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- negative_phrase:waste_of_money | replaced exact phrase | matched=['a complete waste of time'] | replacement=vaderphrasewasteofmoney
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.6352 -> 0.4186 | Change: -0.2166
+Negative: 0.093 -> 0.101 | Change: 0.008
+Neutral: 0.802 -> 0.793 | Change: -0.009
+Positive: 0.104 -> 0.105 | Change: 0.001
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.709 -> Enhanced margin: -0.692 | Margin change: 0.017
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 68
+
+ORIGINAL REVIEW:
+"This is the first book I have read by Henry James and I was really impressed. I chose this book for my junior AP English research project because I thought it sounded interesting. When I realized how long the book was I thought I would regret my choice. Once I started reading, it was a little hard to get into because the first few chapters were really slow but after I got past those chapters the plot got really interesting and went by really quickly. I really enjoyed this novel because it dealt with a woman's struggle for independence in the 1800s and has strong characters. The novel tells the story of Isable Archer, a young American girl who had nothing, whose expatriate Aunt, Mrs. Touchett, comes and takes her to Europe so that she can become known in society and find a husband. While in Europe Miss Archer meets many people and has many suitors but struggles to keep her independence. The characters play an important role in creating the story. Henry James did a wonderful job of developing them to such depth that at some times I even felt like I actually knew what the characters were thinking. The characters are very complex and every few chapters there is a twist and the reader is completely deceived which is what makes the novel so unique. I also like the characters because they really seemed real, not just fictional and I know people who are like the characters. The novel is well written and filled with similes, metaphors, light imagery and color that contribute to the ironic tone. I recommend this book to every woman but I don't think that men would find the subject as appealing."
+
+CHANGED REVIEW:
+"This is the first book I have read by Henry James and I was really impressed. I chose this book for my junior AP English research project because I thought it sounded interesting. When I realized how long the book was I thought I would regret my choice. Once I started reading, it was a little hard to get into because the first few chapters were really slow but after I got past those chapters the plot got really interesting and went by really quickly. I really enjoyed this novel because it dealt with a woman's struggle for independence in the 1800s and has strong characters. The novel tells the story of Isable Archer, a young American girl who had nothing, whose expatriate Aunt, Mrs. Touchett, comes and takes her to Europe so that she can become known in society and find a husband. While in Europe Miss Archer meets many people and has many suitors but struggles to keep her independence. The characters play an important role in creating the story. Henry James did a wonderful job of developing them to such depth that at some times I even felt like I actually knew what the characters were thinking. The characters are very complex and every few chapters there is a twist and the reader is completely deceived which is what makes the novel so unique. I also like the characters because they really seemed real, not just fictional and I know people who are like the characters. The novel is vaderphrasewellwritten and filled with similes, metaphors, light imagery and color that contribute to the ironic tone. I recommend this book to every woman but I don't think that men would find the subject as appealing."
+
+RULES APPLIED:
+['positive_phrase:well_written']
+
+FULL OPERATIONS:
+- positive_phrase:well_written | replaced exact phrase | matched=['well written'] | replacement=vaderphrasewellwritten
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9935 -> 0.9941 | Change: 0.0006
+Negative: 0.053 -> 0.053 | Change: 0.0
+Neutral: 0.753 -> 0.748 | Change: -0.005
+Positive: 0.193 -> 0.198 | Change: 0.005
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.56 -> Enhanced margin: 0.55 | Margin change: -0.01
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 177
+
+ORIGINAL REVIEW:
+"I have mixed feelings about this item. The previously punched wires sometimes un-connected as I punched down more wires. For example, port 1 worked great, then it didn't as I punched ports 2,3,or 4. Re-punching fixed it, but it got old after 4 ports. I re-punched port 1 a few times and the whole panel once just for good measure. I'm left handed and worked left to right. I bought extra keystone cat6 punch-downs and replaced the patch panel with them. Much less frustration. I plan to use some velcro tape to make it look a little cleaner. I may return it but $18 isn't a big hit and I'm not completely sure it was defective on port 1, although ports 2 and 3 didn't have any problems. I gave up after port 4. The project: I have an unfinished basement and decided to run cat6 wire and put keystone connectors for various outlets on the first floor in existing wall openings, cat 6 being one of them. All utilities enter the house in the basement. The router was moved to the basement and a wireless access point went upstairs. Some former wireless media is now wired."
+
+CHANGED REVIEW:
+"I have vaderphraseneutralprosandcons about this item. The previously punched wires sometimes un-connected as I punched down more wires. For example, port 1 worked great, then it didn't as I punched ports 2,3,or 4. Re-punching fixed it, but it got old after 4 ports. I re-punched port 1 a few times and the whole panel once just for good measure. I'm left handed and worked left to right. I bought extra keystone cat6 punch-downs and replaced the patch panel with them. Much less frustration. I plan to use some velcro tape to make it look a little cleaner.ports 2 and 3 didn't have any problems. but I may return it but $18 isn't a big hit and I'm not completely sure it was defective on port 1 I gave up after port 4. The project: I have an unfinished basement and decided to run cat6 wire and put keystone connectors for various outlets on the first floor in existing wall openings, cat 6 being one of them. All utilities enter the house in the basement. The router was moved to the basement and a wireless access point went upstairs. Some former wireless media is now wired."
+
+RULES APPLIED:
+['concessive_normalisation:although', 'neutral_phrase:neutral_pros_and_cons']
+
+FULL OPERATIONS:
+- concessive_normalisation:although | normalised trailing concessive contrast to 'but' | matched=although
+- neutral_phrase:neutral_pros_and_cons | replaced exact phrase | matched=['mixed feelings'] | replacement=vaderphraseneutralprosandcons
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.1107 -> -0.2597 | Change: -0.149
+Negative: 0.054 -> 0.055 | Change: 0.001
+Neutral: 0.89 -> 0.896 | Change: 0.006
+Positive: 0.057 -> 0.049 | Change: -0.008
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.833 -> Enhanced margin: 0.841 | Margin change: 0.008
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 28
+
+ORIGINAL REVIEW:
+"Gorgeous boots and design, with two issues. First, Sam Edelman shoes all run very narrow. I typically wear a 7.5-8 wide. I bought these in an 8 wide and they're slightly narrow on my feet. They'll stretch, but unless you have narrow feet, consider buying the wide width. Length is fairly true to size, though.Second, the saddle leather is far less rich looking in person. In the photo, it's a gorgeous, shiny cognac color. In person, it's a duller deep tan, which is a bit disappointing."
+
+CHANGED REVIEW:
+"Gorgeous boots and design, with two issues. First, Sam Edelman shoes all run very narrow. I typically wear a 7.5-8 wide. I bought these in an 8 wide and they're slightly narrow on my feet. They'll stretch, but unless you have narrow feet, consider buying the wide width. Length is fairly vaderphrasetruetosize, though.Second, the saddle leather is far less rich looking in person. In the photo, it's a gorgeous, shiny cognac color. In person, it's a duller deep tan, which is a bit disappointing."
+
+RULES APPLIED:
+['diminisher:fairly', 'positive_phrase:true_to_size']
+
+FULL OPERATIONS:
+- diminisher:fairly | used custom diminisher
+- positive_phrase:true_to_size | replaced exact phrase | matched=['true to size'] | replacement=vaderphrasetruetosize
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8523 -> 0.847 | Change: -0.0053
+Negative: 0.081 -> 0.083 | Change: 0.002
+Neutral: 0.752 -> 0.748 | Change: -0.004
+Positive: 0.167 -> 0.169 | Change: 0.002
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.585 -> Enhanced margin: 0.579 | Margin change: -0.006
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 93
+
+ORIGINAL REVIEW:
+"I love the keyboard size and the fact that it has a numeric keyboard already built in. The mouse is a bit "sticky" so I use a USB mouse. The screen is bright and clear, very easy to read and not hard on the eyes after long sessions. It is too heavy to tote around everywhere but that is not what I do with mine. I don't like the fingerprint magnet black finish although it does look nice when it's polished up. The only real problem I have with it is its constant freezes. I increased the memory from 1gig to 2gigs and it has helped it to run faster but has not done anything for the freeze issues. Would I recommend it? Yes, but with reservations about the cause of the freezing (not yet established) and would recommend buying extra memory before even opening the box. We have two of these machines in our family. Both perform similarly and both have those random freezes that just appear out of nowhere. UPDATE*** freezes appear to be related to video card driver requiring updates & compatibility issues with Vista. Problem reduced to occasional freezes compared to 2 or 3 per day before finding updated drivers. EDIT 2012... THE VIDEO CARD INSIDE OF IT MELTED DOWN IN 2011, TURNING IT INTO AN EXPENSIVE PAPERWEIGHT! HP DID OFFER A RECALL ON THE PRODUCT, BUT IT WAS TOO LATE FOR ME AS IT ENDED A FEW MONTHS BEFORE MINE MELTED DOWN. THEN, MY DAUGHTER'S IDENTICAL LAPTOP DID THE SAME THING!!"
+
+CHANGED REVIEW:
+"I love the keyboard size and the fact that it has a numeric keyboard already built in. The mouse is a bit "sticky" so I use a USB mouse. The screen is bright and clear, very easy to read and not hard on the eyes after long sessions. It is too heavy to tote around everywhere but that is not what I do with mine. I don't like the fingerprint magnet black finish although it does look nice when it's polished up. The only real problem I have with it is its constant freezes. I increased the memory from 1gig to 2gigs and it has helped it to run faster but has not done anything for the freeze issues. Would I recommend it? Yes, but with reservations about the cause of the freezing (not yet established) and vaderphrasewouldrecommend buying extra memory before even opening the box. We have two of these machines in our family. Both perform similarly and both have those random freezes that just appear out of nowhere. UPDATE*** freezes appear to be related to video card driver requiring updates & compatibility issues with Vista. Problem reduced to occasional freezes compared to 2 or 3 per day before finding updated drivers. EDIT 2012... THE VIDEO CARD INSIDE OF IT MELTED DOWN IN 2011, TURNING IT INTO AN EXPENSIVE PAPERWEIGHT! HP DID OFFER A RECALL ON THE PRODUCT, BUT IT WAS TOO LATE FOR ME AS IT ENDED A FEW MONTHS BEFORE MINE MELTED DOWN. THEN, MY DAUGHTER'S IDENTICAL LAPTOP DID THE SAME THING!!"
+
+RULES APPLIED:
+['positive_phrase:would_recommend']
+
+FULL OPERATIONS:
+- positive_phrase:would_recommend | replaced exact phrase | matched=['would recommend'] | replacement=vaderphrasewouldrecommend
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9217 -> 0.9355 | Change: 0.0138
+Negative: 0.06 -> 0.06 | Change: 0.0
+Neutral: 0.834 -> 0.83 | Change: -0.004
+Positive: 0.106 -> 0.11 | Change: 0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.774 -> Enhanced margin: -0.77 | Margin change: 0.004
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 58
+
+ORIGINAL REVIEW:
+"I was SO disappointed with this book. I was looking forward to reading it, especially as many reviews compared it to Rushdie's "The Ground Beneath Her Feet" (both stories centered around music and both authors from India I guess) but actually finishing this tedious book exhausted me. The interactions and struggles of the Maggiore Quartet, to which our narrator belongs, were mildly interesting but the rest of the book was weighed down with such hackneyed conventions that at times it became unintentionally funny. When Julia's big secret is revealed, when their tormented lives are discussed in toe-curling dialogue, you realize this is pure Barbara Cartland beach reading. If you want a shmaltzy romance then you will love it. If you want to read a good book that is based on the life of a struggling classical musician, read "Grace Notes" by Bernard MacLaverty."
+
+CHANGED REVIEW:
+"I was SO disappointed with this book. I was looking forward to reading it, especially as many reviews compared it to Rushdie's "The Ground Beneath Her Feet" (both stories centered around music and both authors from India I guess) but actually finishing this tedious book exhausted me. The interactions and struggles of the Maggiore Quartet, to which our narrator belongs, were mildly interesting but the rest of the book was weighed down with such hackneyed conventions that at times it became unintentionally funny. When Julia's big secret is revealed, when their tormented lives are discussed in toe-curling dialogue, you realize this is pure Barbara Cartland beach reading. If you want a shmaltzy romance then you will love it. If you want to read a good book that is based on the life of a struggling classical musician, read "Grace Notes" by Bernard MacLaverty."
+
+RULES APPLIED:
+['diminisher:mildly']
+
+FULL OPERATIONS:
+- diminisher:mildly | used custom diminisher
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.95 -> 0.9464 | Change: -0.0036
+Negative: 0.077 -> 0.077 | Change: 0.0
+Neutral: 0.752 -> 0.754 | Change: 0.002
+Positive: 0.172 -> 0.169 | Change: -0.003
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.675 -> Enhanced margin: -0.677 | Margin change: -0.002
+
+FLAGS:
+Text changed: False | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 59
+
+ORIGINAL REVIEW:
+"Alternate history books can be a lot of fun because you can create practically any situation you want and change history to govern your every whim. For instance, let's say that you really liked the craziness of the 30 Year War in central Germany and wanted to play around with that historical period and characters. So, let's imagine that we take a town out of West Virginia in the late twentieth century America, a town that is full of coal miners and other Appalachians, and transpose it in both time and place, and then see what happens. Oh! Wait! That is the premise of this book!!!Unfortunately, Eric Flint's book has a hard time extracting all the good that could come out of this premise. I found several faulty areas in this book. Examples include:* Because the historical time period in question is not particularly well known to American readers, Flint spends many pages filling in the details on the personalities, locations, and military tactics of the time. Unfortunately the way it is done is in an almost dry, high school history text book kind of way and I found those segments torturous to get through.* All of the characters in this book are so sketchily pulled together that they become caricatures. We have the good union organizer against the evil corporate CEO; we have the heroic school teacher; we have the female school teacher who is really a 60's radical who finally finds that her heart really does belong to the people of this West Virginia coal mining town, and so on.* The transplanted Americans have a huge technological edge over the Europeans and they use it to their advantage. OK, that makes sense in the initial settings; but Flint has this advantage continue throughout a whole year and nothing seems to wear out or run out (with the exception of contraceptives). How is it that they always seem to have enough gasoline for all kinds of vehicles? Have enough to build a whole network of highways? And keep the town electricity, television, and radio networks going?* The characters have very little trouble with getting acclimated to the political and brutal tactics of the war that surrounds and attempts to engulf them. I was particularly struck by how quickly these Americans became nothing more than cold blooded murderers and had no second thoughts. Of particular not in this class is an eighteen year old girl who becomes a sharpshooter in the story and has no problems - or regrets - even as she kills hundreds of foes. Sorry, this smacks to me of the writer never having had to face the regrets that Americans have when killing people.* Love is very very fast in the seventeenth century. The main American leader takes one look at the face of a young Jewish woman and immediately falls in love; The Jewish woman does the same (Excuse me? Read the history of that time period and of how the Jews were persecuted and it is highly unlikely that the woman would have done anything except recoil in horror from the American); The Jewish father blesses the love affair and subsequent marriage; Another American saves a beautiful German woman (are there any other kinds in this story?) from his allies and proposes to her that evening! And so on.So, was there anything good in this story?Oh yes, plenty. This is a morality story. The good Americans get transplanted into this vicious and unforgiving world but they maintain their essential goodness and immediately start working to improve the lot of all those around them. From the first scene in Germany where they stop the torturing and raping of the poor farmers they find themselves near; to dealing with integration issues; to trying to change the political culture of the area they are in, they are invariably shown to be thoughtful and aware of the importance of what they are doing. As if it was not obvious enough, Flint has his main character (Mike Stearns) constantly thinking about how his role parallels that of George Washington.There are also lots of comedic moments. I think my favorite was the story told by Gretchen (A young German woman who has just been rescued by the Americans from a mob) of her feelings towards a woman who takes them into the showers. The Germans know that you are not supposed to be clean as that makes you look like a Jew! However, this Duchess (as Gretchen imagines the American woman to be) strips right down to nothing and leads a whole troop of German women through the showers and introduces them to towels and ... robes !!! What a hoot!This is clearly the first book in what is bound to become a series. Since this first book is already over 570 pages in length, it is clear to me that only a series can fully develop the themes that were begun in this volume. I certainly hope, and expect, that Flint will be able to get away from the scattershot and overly broad approach he took here and develop his characters and storyline more fully in the future volumes. If he does so, then I think this will be a fun series. If he maintains the pace and depth of this book, then this series will not go anywhere. Definitely worth looking for the next volume!"
+
+CHANGED REVIEW:
+"Alternate history books can be a lot of fun because you can create practically any situation you want and change history to govern your every whim. For instance, let's say that you really liked the craziness of the 30 Year War in central Germany and wanted to play around with that historical period and characters. So, let's imagine that we take a town out of West Virginia in the late twentieth century America, a town that is full of coal miners and other Appalachians, and transpose it in both time and place, and then see what happens. Oh! Wait! That is the premise of this book!!!Unfortunately, Eric Flint's book has a hard time extracting all the good that could come out of this premise. I found several faulty areas in this book. Examples include:* Because the historical time period in question is not particularly well known to American readers, Flint spends many pages filling in the details on the personalities, locations, and military tactics of the time. Unfortunately the way it is done is in an almost dry, high school history text book kind of way and I found those segments torturous to get through.* All of the characters in this book are so sketchily pulled together that they become caricatures. We have the good union organizer against the evil corporate CEO; we have the heroic school teacher; we have the female school teacher who is really a 60's radical who finally finds that her heart really does belong to the people of this West Virginia coal mining town, and so on.* The transplanted Americans have a huge technological edge over the Europeans and they use it to their advantage. OK, that makes sense in the initial settings; but Flint has this advantage continue throughout a whole year and nothing seems to wear out or run out (with the exception of contraceptives). How is it that they always seem to have enough gasoline for all kinds of vehicles? Have enough to build a whole network of highways? And keep the town electricity, television, and radio networks going?* The characters have very little trouble with getting acclimated to the political and brutal tactics of the war that surrounds and attempts to engulf them. I was particularly struck by how quickly these Americans became nothing more than cold blooded murderers and had no second thoughts. Of particular not in this class is an eighteen year old girl who becomes a sharpshooter in the story and has vaderphrasenoproblems - or regrets - even as she kills hundreds of foes. Sorry, this smacks to me of the writer never having had to face the regrets that Americans have when killing people.* Love is very very fast in the seventeenth century. The main American leader takes one look at the face of a young Jewish woman and immediately falls in love; The Jewish woman does the same (Excuse me? Read the history of that time period and of how the Jews were persecuted and it is highly unlikely that the woman would have done anything except recoil in horror from the American); The Jewish father blesses the love affair and subsequent marriage; Another American saves a beautiful German woman (are there any other kinds in this story?) from his allies and proposes to her that evening! And so on.So, was there anything good in this story?Oh yes, plenty. This is a morality story. The good Americans get transplanted into this vicious and unforgiving world but they maintain their essential goodness and immediately start working to improve the lot of all those around them. From the first scene in Germany where they stop the torturing and raping of the poor farmers they find themselves near; to dealing with integration issues; to trying to change the political culture of the area they are in, they are invariably shown to be thoughtful and aware of the importance of what they are doing. As if it was not obvious enough, Flint has his main character (Mike Stearns) constantly thinking about how his role parallels that of George Washington.There are also lots of comedic moments. I think my favorite was the story told by Gretchen (A young German woman who has just been rescued by the Americans from a mob) of her feelings towards a woman who takes them into the showers. The Germans know that you are not supposed to be clean as that makes you look like a Jew! However, this Duchess (as Gretchen imagines the American woman to be) strips right down to nothing and leads a whole troop of German women through the showers and introduces them to towels and ... robes !!! What a hoot!This is clearly the first book in what is bound to become a series. Since this first book is already over 570 pages in length, it is clear to me that only a series can fully develop the themes that were begun in this volume. I certainly hope, and expect, that Flint will be able to get away from the scattershot and overly broad approach he took here and develop his characters and storyline more fully in the future volumes. If he does so, then I think this will be a fun series. If he maintains the pace and depth of this book, then this series will not go anywhere. Definitely worth looking for the next volume!"
+
+RULES APPLIED:
+['custom_negator:no', 'positive_phrase:no_problems']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- positive_phrase:no_problems | replaced exact phrase | matched=['no problems'] | replacement=vaderphrasenoproblems
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8743 -> 0.9646 | Change: 0.0903
+Negative: 0.102 -> 0.096 | Change: -0.006
+Neutral: 0.784 -> 0.786 | Change: 0.002
+Positive: 0.114 -> 0.118 | Change: 0.004
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.67 -> Enhanced margin: 0.668 | Margin change: -0.002
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 88
+
+ORIGINAL REVIEW:
+"Kaplan writes that the "American Experience" is something every young man should endeavor to experience. My grandfather's generation had WW2 and my father's had Vietnam: my generation's is the protracted war on terror. He describes the American Experience as one of exoticism, adventure, and bloodshed. I find it odd that he understands the American pathos in these terms. Perhaps, he does have a point: where I am bothered is that he celebrates this, rather than criticizes it.Kaplan explores a few hot spots all over the globe where American troops have been deployed in the war on terror. You will learn about the instability and how American Forces are giving back to communities. The section on the Phillipines outlines many civil projects that the special forces embark on and how much our troops are adored for this fact. They seem to do no wrong. Kaplan does make one passing reference to Abu Ghraib. He seems as interested in it as the average American.Amazingly, Kaplan finds himself in the assualt on Fallujah and in Afghanistan. There is very little description of any real bloodshed. I would characterize this along the lines of Stephen Ambrose's historical writings: he celebrates the American character in the face of danger as do-gooders trying to raise the world up to its standards and freedoms. Violence is glossed over as if it is an unfortunate outcome to our policies. Economic agendas are virtually ignored. It does not seem to occur to Kaplan that we could be pre-occupied with the flow of oil.Lastly, Kaplan is not happy with the way the war is being fought. He desires more of a "great game" atmosphere were hyper educated warriors engage in Kiplingesque antics in the field. He does not agree with the culture of the regimentation of the army. He would like to see them play by their own rules and still get the job done. This would be more representative of the American Experience.While I enjoyed the details and historical anecdotes, I couldnt help to feel morally repulsed by Kaplan's embrace of the American Empire. The views he expressed in "The Coming Anarchy" have moved to the foreground. Kaplan is not far from joining the ranks of "The Project for the New American Century." Criticism aside, I still do enjoy reading him. Although, this is no "Balkan Ghosts.""
+
+CHANGED REVIEW:
+"Kaplan writes that the "American Experience" is something every young man should endeavor to experience. My grandfather's generation had WW2 and my father's had Vietnam: my generation's is the protracted war on terror. He describes the American Experience as one of exoticism, adventure, and bloodshed. I find it odd that he understands the American pathos in these terms. Perhaps, he does have a point: where I am bothered is that he celebrates this, rather than criticizes it.Kaplan explores a few hot spots all over the globe where American troops have been deployed in the war on terror. You will learn about the instability and how American Forces are giving back to communities. The section on the Phillipines outlines many civil projects that the special forces embark on and how much our troops are adored for this fact. They seem to do no wrong. Kaplan does make one passing reference to Abu Ghraib. He seems as interested in it as the average American.Amazingly, Kaplan finds himself in the assualt on Fallujah and in Afghanistan. There is very little description of any real bloodshed. I would characterize this along the lines of Stephen Ambrose's historical writings: he celebrates the American character in the face of danger as do-gooders trying to raise the world up to its standards and freedoms. Violence is glossed over as if it is an unfortunate outcome to our policies. Economic agendas are virtually ignored. It does not seem to occur to Kaplan that we could be pre-occupied with the flow of oil.Lastly, Kaplan is vaderphrasenotsatisfied with the way the war is being fought. He desires more of a "great game" atmosphere were hyper educated warriors engage in Kiplingesque antics in the field. He does not agree with the culture of the regimentation of the army. He would like to see them play by their own rules and still get the job done. This would be more representative of the American Experience.While I enjoyed the details and historical anecdotes, I couldnt help to feel morally repulsed by Kaplan's embrace of the American Empire. The views he expressed in "The Coming Anarchy" have moved to the foreground. Kaplan is not far from joining the ranks of "The Project for the New American Century." Criticism aside, I still do enjoy reading him. Although, this is no "Balkan Ghosts.""
+
+RULES APPLIED:
+['custom_negator:no', 'negative_phrase:not_satisfied']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+- negative_phrase:not_satisfied | replaced exact phrase | matched=['not happy'] | replacement=vaderphrasenotsatisfied
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.9558 -> -0.9571 | Change: -0.0013
+Negative: 0.138 -> 0.138 | Change: 0.0
+Neutral: 0.766 -> 0.766 | Change: 0.0
+Positive: 0.096 -> 0.096 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.628 -> Enhanced margin: 0.628 | Margin change: 0.0
+
+FLAGS:
+Text changed: True | Score changed: True | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 3
+
+ORIGINAL REVIEW:
+"Ron Powers' MARK TWAIN contains a great deal of valuable material. It is unfortunately marred by Powers' writing style and his unfortunate tendency to compare 19th-century Twain with various 'rock stars'. I don't know if he's trying to popularize Twain with a 'hip young audience' or what, but these anachronistic references were like pickles in a Charlotte Russe. They just don't belong there.It's a pity since there is so much other amazing information on Twain here. The annoying asides have made it very difficult for me to finish the book. I keep putting it aside in disbelief.No, Mark Twain was not a rock star. Got that?"
+
+CHANGED REVIEW:
+"Ron Powers' MARK TWAIN contains a great deal of valuable material. It is unfortunately marred by Powers' writing style and his unfortunate tendency to compare 19th-century Twain with various 'rock stars'. I don't know if he's trying to popularize Twain with a 'hip young audience' or what, but these anachronistic references were like pickles in a Charlotte Russe. They just don't belong there.It's a pity since there is so much other amazing information on Twain here. The annoying asides have made it very difficult for me to finish the book. I keep putting it aside in disbelief.No, Mark Twain was not a rock star. Got that?"
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.7571 -> 0.7571 | Change: 0.0
+Negative: 0.093 -> 0.093 | Change: 0.0
+Neutral: 0.758 -> 0.758 | Change: 0.0
+Positive: 0.148 -> 0.148 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.61 -> Enhanced margin: 0.61 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 36
+
+ORIGINAL REVIEW:
+"This was the third acquisition in my new jewelry-hobby library. I probably should have read the reviews more carefully, as I probably wouldn't have bought it. I read it through in a single 20 or 30 minute session and I got a few new ideas out of it, but no new techniques. Some of the designs are nice in a funky/modern mode. It got me a little more interested in working with colored art wire than I had been, but I've been doing this for only a couple of months, and I found it didn't have enough substance to be worth the cost."
+
+CHANGED REVIEW:
+"This was the third acquisition in my new jewelry-hobby library. I probably should have read the reviews more carefully, as I probably wouldn't have bought it. I read it through in a single 20 or 30 minute session and I got a few new ideas out of it, but no new techniques. Some of the designs are nice in a funky/modern mode. It got me a little more interested in working with colored art wire than I had been, but I've been doing this for only a couple of months, and I found it didn't have enough substance to be worth the cost."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.803 -> 0.803 | Change: 0.0
+Negative: 0.028 -> 0.028 | Change: 0.0
+Neutral: 0.863 -> 0.863 | Change: 0.0
+Positive: 0.109 -> 0.109 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.754 -> Enhanced margin: 0.754 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 38
+
+ORIGINAL REVIEW:
+"This is one of those mysteries where you have absolutely no idea what is going on until the very end. Is she imagining things because of her brain injury? Is she really seeing ghosts come back from the dead to take their revenge? Or is it all just an elaborate plot to send her crazy? I really enjoyed most this book and I would have loved to give it a higher mark. Sadly, though, it was let down by the ending, which seemed to be rushed and didn't really fit the rest of the story. It is as if the author ran out of inspiration at a certain point and just tacked on a stock ending. I was left with a feeling of dissapointment and anti-climax when I finished this novel. Such a shame."
+
+CHANGED REVIEW:
+"This is one of those mysteries where you have absolutely no idea what is going on until the very end. Is she imagining things because of her brain injury? Is she really seeing ghosts come back from the dead to take their revenge? Or is it all just an elaborate plot to send her crazy? I really enjoyed most this book and I would have loved to give it a higher mark. Sadly, though, it was let down by the ending, which seemed to be rushed and didn't really fit the rest of the story. It is as if the author ran out of inspiration at a certain point and just tacked on a stock ending. I was left with a feeling of dissapointment and anti-climax when I finished this novel. Such a shame."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.793 -> -0.793 | Change: 0.0
+Negative: 0.159 -> 0.159 | Change: 0.0
+Neutral: 0.729 -> 0.729 | Change: 0.0
+Positive: 0.112 -> 0.112 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.57 -> Enhanced margin: 0.57 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 62
+
+ORIGINAL REVIEW:
+"The authors provide two to three page essays with a touch of nostalgiaon fifty specific elements of American life in years gone by. Subjects range from the highly tangible (drive-in movies, manual typewriters) to activities (hitchhiking, bridge parties) to abstract social norms (formal dating, parietal rules on college campuses). The strength of the book may well lie in its myriad of photographs that complement each essay extraordinarily well. The topics covered reinforce the fact that the authors are female (feminine hygiene products, white gloves, and mending, to name a few), and the reader will no doubt frequently ask himself or herself "why didn't they include this idea?""
+
+CHANGED REVIEW:
+"The authors provide two to three page essays with a touch of nostalgiaon fifty specific elements of American life in years gone by. Subjects range from the highly tangible (drive-in movies, manual typewriters) to activities (hitchhiking, bridge parties) to abstract social norms (formal dating, parietal rules on college campuses). The strength of the book may well lie in its myriad of photographs that complement each essay extraordinarily well. The topics covered reinforce the fact that the authors are female (feminine hygiene products, white gloves, and mending, to name a few), and the reader will no doubt frequently ask himself or herself "why didn't they include this idea?""
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.4019 -> 0.4019 | Change: 0.0
+Negative: 0.042 -> 0.042 | Change: 0.0
+Neutral: 0.892 -> 0.892 | Change: 0.0
+Positive: 0.066 -> 0.066 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.826 -> Enhanced margin: 0.826 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 69
+
+ORIGINAL REVIEW:
+"One of the reviews said "picks up activity at about ten feet ahead and four feet from the back." and I found that not to be true, especially when aimed through a double-paned glass door. I bought mine to use through my patio door, since that is the door would-be burglars try to open. There are two steps up to the door and the motion detector does not go off until you come up the first step, which is just 3 ft. from the closed door. So, that is a bit disappointing to me, but the unit is still useful. The sound is superior and frightens me each time I hear it! And if you use the siren, it is better then my alarm's siren! I particularly like this unit because it works on batteries so there is no need to have a long cord from the outlet to the door! But, there should be clear instructions of how to install the batteries. It took three of us to figure it out since all we had to go by was the markings inside the unit which did not help."
+
+CHANGED REVIEW:
+"One of the reviews said "picks up activity at about ten feet ahead and four feet from the back." and I found that not to be true, especially when aimed through a double-paned glass door. I bought mine to use through my patio door, since that is the door would-be burglars try to open. There are two steps up to the door and the motion detector does not go off until you come up the first step, which is just 3 ft. from the closed door. So, that is a bit disappointing to me, but the unit is still useful. The sound is superior and frightens me each time I hear it! And if you use the siren, it is better then my alarm's siren! I particularly like this unit because it works on batteries so there is no need to have a long cord from the outlet to the door! But, there should be clear instructions of how to install the batteries. It took three of us to figure it out since all we had to go by was the markings inside the unit which did not help."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.8755 -> 0.8755 | Change: 0.0
+Negative: 0.065 -> 0.065 | Change: 0.0
+Neutral: 0.835 -> 0.835 | Change: 0.0
+Positive: 0.1 -> 0.1 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.735 -> Enhanced margin: 0.735 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 70
+
+ORIGINAL REVIEW:
+"Evelyn Waugh's "A Handful of Dust," first published in 1934, was, of course, quite popular in its time, with both critics and readers. As a society novel about adultery, it was considered to be quite satiric and witty, and an accurate portrait of the vicious upper-crust London society between the twentieth century's two great wars (And so it seems to be.) The book has been described as the story of the 19th century fictional French character, Mme. Bovary, literature's most famous female adulterer, as rewritten by Noel Coward, one of twentieth century England's greatest society wits. However, these days, most people know Waugh, one of the outstanding twentieth century English novelists, only for his more mellow post-World War II "Brideshead Revisited," as filmed and frequently shown on public television -- if they know the author at all.The title "A Handful of Dust," to begin with, is a quote from the lengthy poem "The Wasteland," by T.S. Eliot, famous Anglo-American poet of the early twentieth century. "Dust," the book, really only novella length at about 210 pages, concerns Lady Brenda and Tony Last, young couple. Tony is considered to be too involved with Hetton, his family home, then considered a hideous Victorian pile, and with trying to lead a proper Victorian lord of the manor life, to pay proper attention to the selfish Brenda and to realize she's bored silly. So she starts an affair with John Beaver, bounder, and soon enough seeks a divorce.All sources agree that this book was Waugh's revenge on his first wife, who was then seeking a divorce. All sources, including the author, writing himself, in this book, further agree that, having got that far, he was at a loss for how to end it. So he incorporated a previously-published short story of some note, folding Tony into that action, and having this character, somewhat puzzlingly, going off to explore Brazil. The effect of this is that, for the relatively minor sin of inattention, the more sinned-against than sinning Tony meets what most of us would agree is an extremely sad end; whereas the author has Lady Brenda marrying Tony's wealthier, member of parliament (and thus generally resident in London) friend Jock Grant-Menzies, MP, thus appearing, at least, to have come out ahead. This was what Waugh intended: he wrote,"Fortune is the least capricious of deities, and arranges things on the just and rigid system that no one shall be very happy for very long." The author definitely did not believe in offering his audience any easy consolation.Interestingly enough, the author had still to provide another ending for the American edition of this book: an American magazine had published, and owned the copyright on, the story he used to end the British edition. The alternative ending he came up with, also printed here, is much shorter than the other. It has Tony coming back unharmed from the foreign travel then expected of a divorcing man, to be met at the dock by Brenda, already regretting her adventure with Beaver. And Tony has begun to think of spicing up his life, much as Brenda had previously done. Either way, it's obvious that nobody really comes out ahead here."
+
+CHANGED REVIEW:
+"Evelyn Waugh's "A Handful of Dust," first published in 1934, was, of course, quite popular in its time, with both critics and readers. As a society novel about adultery, it was considered to be quite satiric and witty, and an accurate portrait of the vicious upper-crust London society between the twentieth century's two great wars (And so it seems to be.) The book has been described as the story of the 19th century fictional French character, Mme. Bovary, literature's most famous female adulterer, as rewritten by Noel Coward, one of twentieth century England's greatest society wits. However, these days, most people know Waugh, one of the outstanding twentieth century English novelists, only for his more mellow post-World War II "Brideshead Revisited," as filmed and frequently shown on public television -- if they know the author at all.The title "A Handful of Dust," to begin with, is a quote from the lengthy poem "The Wasteland," by T.S. Eliot, famous Anglo-American poet of the early twentieth century. "Dust," the book, really only novella length at about 210 pages, concerns Lady Brenda and Tony Last, young couple. Tony is considered to be too involved with Hetton, his family home, then considered a hideous Victorian pile, and with trying to lead a proper Victorian lord of the manor life, to pay proper attention to the selfish Brenda and to realize she's bored silly. So she starts an affair with John Beaver, bounder, and soon enough seeks a divorce.All sources agree that this book was Waugh's revenge on his first wife, who was then seeking a divorce. All sources, including the author, writing himself, in this book, further agree that, having got that far, he was at a loss for how to end it. So he incorporated a previously-published short story of some note, folding Tony into that action, and having this character, somewhat puzzlingly, going off to explore Brazil. The effect of this is that, for the relatively minor sin of inattention, the more sinned-against than sinning Tony meets what most of us would agree is an extremely sad end; whereas the author has Lady Brenda marrying Tony's wealthier, member of parliament (and thus generally resident in London) friend Jock Grant-Menzies, MP, thus appearing, at least, to have come out ahead. This was what Waugh intended: he wrote,"Fortune is the least capricious of deities, and arranges things on the just and rigid system that no one shall be very happy for very long." The author definitely did not believe in offering his audience any easy consolation.Interestingly enough, the author had still to provide another ending for the American edition of this book: an American magazine had published, and owned the copyright on, the story he used to end the British edition. The alternative ending he came up with, also printed here, is much shorter than the other. It has Tony coming back unharmed from the foreign travel then expected of a divorcing man, to be met at the dock by Brenda, already regretting her adventure with Beaver. And Tony has begun to think of spicing up his life, much as Brenda had previously done. Either way, it's obvious that nobody really comes out ahead here."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.6629 -> 0.6629 | Change: 0.0
+Negative: 0.071 -> 0.071 | Change: 0.0
+Neutral: 0.852 -> 0.852 | Change: 0.0
+Positive: 0.077 -> 0.077 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.775 -> Enhanced margin: 0.775 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 83
+
+ORIGINAL REVIEW:
+"I had to trim off the bottom portion so it will fit into the charger. It no longer protects the bottom, but it will keep the rest of the radio more dust and shock resistant."
+
+CHANGED REVIEW:
+"I had to trim off the bottom portion so it will fit into the charger. It no longer protects the bottom, but it will keep the rest of the radio more dust and shock resistant."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.4336 -> -0.4336 | Change: 0.0
+Negative: 0.139 -> 0.139 | Change: 0.0
+Neutral: 0.771 -> 0.771 | Change: 0.0
+Positive: 0.091 -> 0.091 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.632 -> Enhanced margin: 0.632 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 119
+
+ORIGINAL REVIEW:
+"I bought these to wear on the 4th of July. They are an ok flip flop but not the most comfortable. The matierial doesn't bend very well and there is no arch support. They were inexpensive but not my go to shoe."
+
+CHANGED REVIEW:
+"I bought these to wear on the 4th of July. They are an ok flip flop but not the most comfortable. The matierial doesn't bend very well and there is no arch support. They were inexpensive but not my go to shoe."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: neg | Correct: False
+Enhanced prediction: neg | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: -0.6979 -> -0.6979 | Change: 0.0
+Negative: 0.214 -> 0.214 | Change: 0.0
+Neutral: 0.685 -> 0.685 | Change: 0.0
+Positive: 0.101 -> 0.101 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.471 -> Enhanced margin: 0.471 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 134
+
+ORIGINAL REVIEW:
+"These are cute and seem to be of good quality but my 4 year old won't wear them. He's had the plastic ones and we all know how uncomfortable wire glasses are compared to plastic ones... I just thought he would like them to go with his police uniform costume which he wears frequently but no... they are cute and seem to be well made though! Just not so comfortable and he won't wear them."
+
+CHANGED REVIEW:
+"These are cute and seem to be of good quality but my 4 year old won't wear them. He's had the plastic ones and we all know how uncomfortable wire glasses are compared to plastic ones... I just thought he would like them to go with his police uniform costume which he wears frequently but no... they are cute and seem to be well made though! Just not so comfortable and he won't wear them."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neu
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.6303 -> 0.6303 | Change: 0.0
+Negative: 0.091 -> 0.091 | Change: 0.0
+Neutral: 0.749 -> 0.749 | Change: 0.0
+Positive: 0.16 -> 0.16 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: 0.589 -> Enhanced margin: 0.589 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 137
+
+ORIGINAL REVIEW:
+"Maybe I'm being too picky, but I get tired of suspending disbelief with romances. A note to Kane: no one in the 19th century would have been named Breanna! It's a misspelled version of a name that would likely have been spelled Briana, if it was used at all in that time period. She's named her characters straight off the top 10 list of 1999. The names of the heroine's children are also utterly unrealistic. Holly? Quinn? The heroines' characters are also overly modern. Liberated women of a certain type didn't exist then. Read Mary Balogh or Amanda Scott, two authors with characters who are a touch more believable. This book does have all the required elements -- romance, sex, a touch of danger -- though Kane's language and plot is sugary. "Precious" is obviously her favorite word."
+
+CHANGED REVIEW:
+"Maybe I'm being too picky, but I get tired of suspending disbelief with romances. A note to Kane: no one in the 19th century would have been named Breanna! It's a misspelled version of a name that would likely have been spelled Briana, if it was used at all in that time period. She's named her characters straight off the top 10 list of 1999. The names of the heroine's children are also utterly unrealistic. Holly? Quinn? The heroines' characters are also overly modern. Liberated women of a certain type didn't exist then. Read Mary Balogh or Amanda Scott, two authors with characters who are a touch more believable. This book does have all the required elements -- romance, sex, a touch of danger -- though Kane's language and plot is sugary. "Precious" is obviously her favorite word."
+
+RULES APPLIED:
+['custom_negator:no']
+
+FULL OPERATIONS:
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.9032 -> 0.9032 | Change: 0.0
+Negative: 0.072 -> 0.072 | Change: 0.0
+Neutral: 0.777 -> 0.777 | Change: 0.0
+Positive: 0.15 -> 0.15 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.705 -> Enhanced margin: -0.705 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False
+
+------------------------------------------------------------------------------------------------------------------------
+REVIEW INDEX: 190
+
+ORIGINAL REVIEW:
+"Yes yes -- Communism and Socialism bad -- Capitalism good. In general I agree with this philosophy. I certainly don't agree with how this book tries to prove it.In Atlas shrugged every capitalist is a heroic hard-worker who want only what he has fairly earned and is too noble to stoop into the politics to protect his interests. Every politician and social worker is a self-important yet sniveling leech who actually despises the poor but helps them because doing so fulfills his/her feelings of superiority.Now re-read that last paragraph and realize I am not exaggerating. Everyone... every single character... EVERYONE in the whole book fits this mold no matter how stupid it makes there actions. This is so far from reality that you learn nothing about real life. We ALL know of Capitalists that are greedy and would readily twist political policy and hurt the overall economy to make more money. We all know there are social workers out there who actually care about people and really are trying to selflessly help them.After 200 pages or so of seeing people act stupidly to fulfill their respective roll you get a little sick. After 300 you can hardly take it. This is not a book worthy of being recognized as a classic. The only thing this book does well is teach the reader to hate Communism."
+
+CHANGED REVIEW:
+"Yes yes -- Communism and Socialism bad -- Capitalism good. In general I agree with this philosophy. I certainly don't agree with how this book tries to prove it.In Atlas shrugged every capitalist is a heroic hard-worker who want only what he has fairly earned and is too noble to stoop into the politics to protect his interests. Every politician and social worker is a self-important yet sniveling leech who actually despises the poor but helps them because doing so fulfills his/her feelings of superiority.Now re-read that last paragraph and realize I am not exaggerating. Everyone... every single character... EVERYONE in the whole book fits this mold no matter how stupid it makes there actions. This is so far from reality that you learn nothing about real life. We ALL know of Capitalists that are greedy and would readily twist political policy and hurt the overall economy to make more money. We all know there are social workers out there who actually care about people and really are trying to selflessly help them.After 200 pages or so of seeing people act stupidly to fulfill their respective roll you get a little sick. After 300 you can hardly take it. This is not a book worthy of being recognized as a classic. The only thing this book does well is teach the reader to hate Communism."
+
+RULES APPLIED:
+['custom_negator:no', 'diminisher:fairly']
+
+FULL OPERATIONS:
+- diminisher:fairly | used custom diminisher
+- custom_negator:no | used custom VADER negator
+
+SENTIMENT:
+True label: neg
+Raw prediction: pos | Correct: False
+Enhanced prediction: pos | Correct: False
+
+SCORE CHANGE (Raw -> Enhanced):
+Compound: 0.2457 -> 0.2457 | Change: 0.0
+Negative: 0.138 -> 0.138 | Change: 0.0
+Neutral: 0.687 -> 0.687 | Change: 0.0
+Positive: 0.175 -> 0.175 | Change: 0.0
+
+TRUE-CLASS MARGIN:
+Raw margin: -0.549 -> Enhanced margin: -0.549 | Margin change: 0.0
+
+FLAGS:
+Text changed: False | Score changed: False | Prediction changed: False

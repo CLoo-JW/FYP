@@ -1,0 +1,30 @@
+
+========== ENHANCED VADER AUDIT SUMMARY ==========
+Total reviews: 200
+Reviews where at least one rule was applied: 74
+Reviews whose text was changed: 42
+Reviews whose VADER scores changed: 57
+Reviews whose predicted sentiment changed: 10
+
+========== SENTIMENT CLASSIFICATION EFFECT ==========
+effect
+corrected             8
+harmed                0
+remained_correct     82
+remained_wrong      110
+Name: count, dtype: int64
+
+Corrected: 8
+Harmed: 0
+Net corrections: 8
+Correction precision: 1.0
+
+True-class margin improved: 37
+True-class margin worsened: 19
+
+Effects among rule-detected reviews:
+effect
+remained_wrong      39
+remained_correct    27
+corrected            8
+Name: count, dtype: int64

@@ -1,0 +1,4 @@
+/testing
+/venv
+Dataset/Reviews/*.csv
+.env

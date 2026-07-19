@@ -1,0 +1,21 @@
+
+========== SHORT SVM REVIEW-LEVEL AUDIT SUMMARY ==========
+                                      metric  count  percent
+                               Total reviews    200    100.0
+        Reviews with at least 1 rule applied    149     74.5
+               Reviews with no rules applied     51     25.5
+             Reviews whose sentiment changed     53     26.5
+                     Corrected reviews total     25     12.5
+        Corrected reviews with rules applied     18      9.0
+     Corrected reviews with no rules applied      7      3.5
+                        Harmed reviews total     15      7.5
+           Harmed reviews with rules applied     11      5.5
+        Harmed reviews with no rules applied      4      2.0
+        Wrong to wrong changed reviews total     13      6.5
+   Wrong to wrong changed with rules applied      8      4.0
+Wrong to wrong changed with no rules applied      5      2.5
+                      Stayed correct reviews     83     41.5
+                        Stayed wrong reviews     64     32.0
+                       Net corrections total     10      5.0
+          Net corrections with rules applied      7      3.5
+       Net corrections with no rules applied      3      1.5

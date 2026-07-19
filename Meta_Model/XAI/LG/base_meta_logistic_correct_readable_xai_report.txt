@@ -1,0 +1,4940 @@
+row_index:
+0
+
+prediction_result:
+correct
+
+review_text:
+"They aren't as warm or water resistant as I would have like given they are advertised as waterproof."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5851
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.6234 (contribution: 0.1553);
+Base RoBERTa Pos = 0.0807 (contribution: 0.0622);
+Base NB Neu = 0.4462 (contribution: 0.0542);
+Base SVM Neu = 0.3966 (contribution: 0.0439);
+Base VADER Neg = 0.087 (contribution: 0.0198)
+
+top_opposing_features:
+Base VADER Compound = 0.2105 (contribution: -0.0341);
+Base NB Neg = 0.2751 (contribution: -0.0123);
+Base SVM Pos = 0.3423 (contribution: -0.011);
+Base RoBERTa Neg = 0.2959 (contribution: -0.0058)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base RoBERTa Pos, Base NB Neu, Base SVM Neu, Base VADER Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+1
+
+prediction_result:
+correct
+
+review_text:
+"Pins bend too easily"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6576
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7283 (contribution: 0.7044);
+Base RoBERTa Pos = 0.0225 (contribution: 0.4791);
+Base VADER Pos = 0.444 (contribution: 0.0411);
+Base VADER Neu = 0.556 (contribution: 0.0354);
+Base RoBERTa Neu = 0.2492 (contribution: 0.0291)
+
+top_opposing_features:
+Base NB Neu = 0.4347 (contribution: -0.0601);
+Base NB Neg = 0.295 (contribution: -0.0171);
+Base VADER Compound = 0.34 (contribution: -0.0084);
+Base NB Pos = 0.2703 (contribution: -0.0068);
+Base VADER Neg = 0.0 (contribution: -0.0042)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Pos, Base VADER Neu, Base RoBERTa Neu. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+5
+
+prediction_result:
+correct
+
+review_text:
+"I buy a lot of stuff on Amazon and I'd say this is one of cheapest quality items I've seen. I got this for my daughter and although she likes it, I feel it's very poor quality.I don't expect this garment to last more than a month , very disappointing. 100%polyester"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8413
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9056 (contribution: 1.0332);
+Base RoBERTa Pos = 0.0071 (contribution: 0.5021);
+Base VADER Compound = -0.5245 (contribution: 0.2907);
+Base RoBERTa Neu = 0.0872 (contribution: 0.1065);
+Base NB Neu = 0.2392 (contribution: 0.0858)
+
+top_opposing_features:
+Base SVM Pos = 0.3901 (contribution: -0.0995);
+Base VADER Pos = 0.086 (contribution: -0.0122);
+Base SVM Neu = 0.2764 (contribution: -0.0093);
+Base NB Pos = 0.2702 (contribution: -0.0068);
+Base VADER Neu = 0.783 (contribution: -0.0024)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neu. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+6
+
+prediction_result:
+correct
+
+review_text:
+"I have the highest respect for the nations highest award. Very good program about the medal of honor and I would recommend it highly."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8693
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9476 (contribution: 1.0544);
+Base RoBERTa Neg = 0.004 (contribution: 0.6768);
+Base NB Pos = 0.587 (contribution: 0.1492);
+Base SVM Pos = 0.3878 (contribution: 0.1258);
+Base NB Neg = 0.179 (contribution: 0.0924)
+
+top_opposing_features:
+Base VADER Neu = 0.463 (contribution: -0.0469);
+Base NB Neu = 0.234 (contribution: -0.0188)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base NB Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+7
+
+prediction_result:
+correct
+
+review_text:
+"Great case for the price! Stunning tempered glass panels really make it a showpiece."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8696
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9586 (contribution: 1.0736);
+Base RoBERTa Neg = 0.0043 (contribution: 0.6763);
+Base NB Pos = 0.5796 (contribution: 0.1453);
+Base SVM Pos = 0.3711 (contribution: 0.0969);
+Base NB Neg = 0.1803 (contribution: 0.0916)
+
+top_opposing_features:
+Base VADER Neu = 0.611 (contribution: -0.0241);
+Base NB Neu = 0.2401 (contribution: -0.0179);
+Base SVM Neg = 0.3387 (contribution: -0.003)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base NB Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+9
+
+prediction_result:
+correct
+
+review_text:
+"They are ok. I got the wrong size somehow. Also they are made out of cheap material. I will wear them but I bought a different pair on amazon for a little more money that was definitely worth it."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4916
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.7579 (contribution: 0.1431);
+Base RoBERTa Neu = 0.486 (contribution: 0.0871);
+Base NB Neg = 0.4425 (contribution: 0.0196);
+Base NB Pos = 0.2903 (contribution: 0.0114)
+
+top_opposing_features:
+Base NB Neu = 0.2672 (contribution: -0.0513);
+Base SVM Neu = 0.3233 (contribution: -0.0277);
+Base RoBERTa Neg = 0.1094 (contribution: -0.0265);
+Base VADER Pos = 0.235 (contribution: -0.0212);
+Base RoBERTa Pos = 0.4046 (contribution: -0.015)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base NB Neg, Base NB Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+10
+
+prediction_result:
+correct
+
+review_text:
+"Very good strap works as stated"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7902
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8481 (contribution: 0.8814);
+Base RoBERTa Neg = 0.0116 (contribution: 0.6618);
+Base NB Pos = 0.4631 (contribution: 0.0834);
+Base SVM Pos = 0.3553 (contribution: 0.0697);
+Base NB Neg = 0.2189 (contribution: 0.0694)
+
+top_opposing_features:
+Base VADER Neu = 0.61 (contribution: -0.0243);
+Base SVM Neu = 0.3704 (contribution: -0.0207);
+Base NB Neu = 0.318 (contribution: -0.0057)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base NB Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+11
+
+prediction_result:
+correct
+
+review_text:
+"I did not the length to long."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5309
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.5396 (contribution: 0.1137);
+Base NB Pos = 0.2072 (contribution: 0.0714);
+Base RoBERTa Pos = 0.0986 (contribution: 0.0579);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base NB Neu = 0.432 (contribution: 0.0459)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base NB Pos, Base RoBERTa Pos, Base VADER Pos, Base NB Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+13
+
+prediction_result:
+correct
+
+review_text:
+"This book was absolutely the most boring book I've ever read! The sisters take up about 20 pages just explaining who's who in their family, which was just about the most unbelievably dull experience I've ever had reading. Also, they always manage to sound like they were and are perfect people. It's a great premise for a book, but the story is lost when Bessie and Sadie only speak of what great things they did, and not of what the blacks of that time period did. I love Black History, but this book was an extreme disappointment to me. I'd rather read a school textbook than this book."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6447
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8908 (contribution: 1.0057);
+Base RoBERTa Pos = 0.0093 (contribution: 0.4988);
+Base RoBERTa Neu = 0.0999 (contribution: 0.1004);
+Base NB Neu = 0.2392 (contribution: 0.0858);
+Base NB Pos = 0.5634 (contribution: 0.0486)
+
+top_opposing_features:
+Base SVM Pos = 0.4609 (contribution: -0.1934);
+Base VADER Compound = 0.8372 (contribution: -0.1804);
+Base SVM Neg = 0.1407 (contribution: -0.1487);
+Base NB Neg = 0.1974 (contribution: -0.0547);
+Base VADER Pos = 0.147 (contribution: -0.0031)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Neu, Base NB Pos. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+14
+
+prediction_result:
+correct
+
+review_text:
+"Much clearer than VHS-to-DVD-to-Digital"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4653
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0611 (contribution: 0.5647);
+Base RoBERTa Pos = 0.4096 (contribution: 0.1185);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Pos = 0.3377 (contribution: 0.0391);
+Base VADER Neu = 1.0 (contribution: 0.0356)
+
+top_opposing_features:
+Base VADER Pos = 0.0 (contribution: -0.0281);
+Base VADER Compound = 0.0 (contribution: -0.007);
+Base RoBERTa Neu = 0.5293 (contribution: -0.0038);
+Base SVM Neg = 0.3363 (contribution: -0.0017)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Neg, Base SVM Pos, Base VADER Neu. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+15
+
+prediction_result:
+correct
+
+review_text:
+"ADAPTER IS NOT READY FOR PRIME TIME"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7599
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8343 (contribution: 0.901);
+Base RoBERTa Pos = 0.0144 (contribution: 0.4912);
+Base VADER Compound = -0.2755 (contribution: 0.2045);
+Base RoBERTa Neu = 0.1513 (contribution: 0.0759);
+Base SVM Neg = 0.3736 (contribution: 0.0312)
+
+top_opposing_features:
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2636 (contribution: -0.0081);
+Base SVM Neu = 0.3222 (contribution: -0.0037)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base SVM Neg. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+16
+
+prediction_result:
+correct
+
+review_text:
+"This is not a good FM antenna, but it is a very good amplifier. Meaning If the reception is weak, this antenna will not help. But if the reception is already strong, the sound quality will improve a lot."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5497
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base VADER Neg = 0.232 (contribution: 0.1441);
+Base RoBERTa Neu = 0.522 (contribution: 0.105);
+Base NB Pos = 0.1749 (contribution: 0.0946);
+Base SVM Neu = 0.4055 (contribution: 0.0527);
+Base NB Neg = 0.5071 (contribution: 0.032)
+
+top_opposing_features:
+Base VADER Compound = -0.3069 (contribution: -0.2015);
+Base RoBERTa Neg = 0.1419 (contribution: -0.0229);
+Base NB Neu = 0.3181 (contribution: -0.0213);
+Base VADER Neu = 0.602 (contribution: -0.0022)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base VADER Neg, Base RoBERTa Neu, Base NB Pos, Base SVM Neu, Base NB Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+18
+
+prediction_result:
+correct
+
+review_text:
+"Believe"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5712
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0325 (contribution: 0.6209);
+Base RoBERTa Pos = 0.6068 (contribution: 0.4615);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base VADER Neu = 1.0 (contribution: 0.0356);
+Base SVM Neu = 0.3371 (contribution: 0.0161)
+
+top_opposing_features:
+Base NB Neg = 0.406 (contribution: -0.0382);
+Base VADER Pos = 0.0 (contribution: -0.0281);
+Base NB Neu = 0.2898 (contribution: -0.0101);
+Base VADER Compound = 0.0 (contribution: -0.007);
+Base SVM Neg = 0.3441 (contribution: -0.006)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Neg, Base VADER Neu, Base SVM Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+21
+
+prediction_result:
+correct
+
+review_text:
+"fake and gay"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7316
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8088 (contribution: 0.8536);
+Base RoBERTa Pos = 0.0246 (contribution: 0.4758);
+Base VADER Compound = -0.4767 (contribution: 0.2741);
+Base RoBERTa Neu = 0.1666 (contribution: 0.0685);
+Base VADER Neu = 0.392 (contribution: 0.0627)
+
+top_opposing_features:
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Pos = 0.3204 (contribution: -0.007);
+Base SVM Neu = 0.3391 (contribution: -0.0016)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base VADER Neu. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+22
+
+prediction_result:
+correct
+
+review_text:
+".this book is NOT a dictionary of music notation>a dictionary would EXPLAIN all the notations used.this is a TYPESETTING GUIDE to writing down notation.it assumes you know the meaning of the notation already..it uses a number of terms that it does not explainsome of them are partially explained elsewhere if you know what entry to look under.but many of them you have to infer.wtf. this is supposed to explain all the terms not use the socratic method so i can perhaps infer the meanings..if you are going to hand write scores this book is of little use.if you are going to use software to print a score it is totally superfluous..incomplete!i was looking for a book to DEFINE the meaning of notations that i find in scores.it did NOT tell me what i needed to know..save your money. do not buy this tiny little 4 1/4 x 5 1/2 x 6/8' tome.there has to be better books about music notation that actually explain things..save your money. if you are printing scores you don't need it.finale or sibelius or most any scorewriter will automate it for you..a number of the explanations, such as they are, are incomprehensible.this book is too small, too short, too condensed, to tell me anything useful that i need to know..in short: useless waste of money -- do not buy this book.."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5547
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.0462 (contribution: 0.4435);
+Base RoBERTa Neg = 0.5106 (contribution: 0.3007);
+Base SVM Pos = 0.106 (contribution: 0.2774);
+Base SVM Neg = 0.5354 (contribution: 0.1562);
+Base NB Neg = 0.6136 (contribution: 0.1054)
+
+top_opposing_features:
+Base VADER Compound = 0.6476 (contribution: -0.1148);
+Base RoBERTa Neu = 0.4433 (contribution: -0.0636);
+Base NB Pos = 0.1607 (contribution: -0.0275);
+Base VADER Neu = 0.921 (contribution: -0.0254);
+Base VADER Pos = 0.053 (contribution: -0.0171)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base SVM Neg, Base NB Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+24
+
+prediction_result:
+correct
+
+review_text:
+"The Cay by: Theodore TaylorThe main characters of the book are Timothy and Phillip. Timothy is a large black man that takes care of Phillip on the island. He is caring and hard working. He dies during a hurricane trying to protect Phillip. Phillip is a young boy who gets stranded on the island with Timothy. At first Phillip doesn't appreciate Timothy because he's black but soon he and Timothy become great friends.The plot of the story is about a young boy and an elderly man who get shipwrecked on an island. The young boy becomes blind shortly after the shipwreck. The young boy has to learn to become friends with the elderly black man. They end up becoming great friends learning new ways of surviving on the island.The setting of The Cay is on an island in the Caribbean during the time of World War II.The theme of the book is racism, life, faith, and survival.I liked The Cay because it teaches you that you can't judge someone by the color of their skin. Also it teaches you that it's okay to have disabilities because it doesn't stop people from doing things to be independent."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4892
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.9723 (contribution: 0.2125);
+Base RoBERTa Neu = 0.6487 (contribution: 0.1678);
+Base RoBERTa Pos = 0.1626 (contribution: 0.0426);
+Base VADER Neg = 0.075 (contribution: 0.0096)
+
+top_opposing_features:
+Base NB Pos = 0.573 (contribution: -0.1922);
+Base SVM Neu = 0.2872 (contribution: -0.063);
+Base NB Neu = 0.2485 (contribution: -0.0623);
+Base NB Neg = 0.1785 (contribution: -0.0307);
+Base RoBERTa Neg = 0.1887 (contribution: -0.0177)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base RoBERTa Pos, Base VADER Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+25
+
+prediction_result:
+correct
+
+review_text:
+"It was easy to put in my wife's new Alcatel phone, and it does its job."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8467
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9085 (contribution: 0.9864);
+Base RoBERTa Neg = 0.0056 (contribution: 0.6738);
+Base SVM Pos = 0.3807 (contribution: 0.1135);
+Base NB Pos = 0.4986 (contribution: 0.1022);
+Base SVM Neu = 0.2781 (contribution: 0.081)
+
+top_opposing_features:
+Base NB Neu = 0.3016 (contribution: -0.0082);
+Base SVM Neg = 0.3412 (contribution: -0.0044);
+Base VADER Pos = 0.162 (contribution: -0.001)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base NB Pos, Base SVM Neu. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+26
+
+prediction_result:
+correct
+
+review_text:
+"Thriller, edited by the ubiquitous James Patterson, is the first publication of the recently formed International Thriller Writers Inc. To publicise (and help fund) the ITW, Patterson has compiled a collection of thirty stories donated by well-known thriller writers, all using "a familiar character or plotline" from their novels.Unsurprisingly, the result is something of a mixed bag. Not all novelists are masters of the short story form, and many of these writers seem uncomfortable within its confines. Some of the stories skimp on characterization, and some on plot; some work well as stand-alones, but others rely too much on the readers' knowledge of characters and organizations from the writers' novels. That said, there are some gems inside.Patterson leads with one of the strongest stories: 'James Penney's New Identity', by Lee Child. Penney, a Vietnam vet, suffers from post-traumatic syndrome, and has been retrenched after seventeen years in the same job because of a poor attendance record. Going slightly crazy, he sets fire to his house before fleeing in his prized Firebird, but the fire spreads. Soon he's wanted for arson - and then, he encounters military cop Jack Reacher. It's a neat little tale, and all you need to know about Reacher for it to work is his idea of honour.J. A. Konrath's 'Epitaph' is less surprising, but it's a well-written and punchy story involving Phin Trout, one of the colourful sidekicks of Whiskey Sour's heroine "Jack" Daniels. In James Rollins's amusing and fast-paced 'Kowalski's in Love', Sigma Force's heroic but less-than-brilliant Joe Kowalski has to fight his way past booby traps and rabid baboons to loot a mad scientist's island laboratory before the Brazilian government fire-bombs the place. In F. Paul Wilson's 'Interlude at Duane's', unarmed career criminal Repairman Jack has to hunt for improvised weapons in a drug-store held up by a heavily armed team of enthusiastic amateurs; the action is frantic, and the results gruesome, but the tone is light-heartedly anarchic.More serious is James Siegel's 'Empathy', a grim and claustrophobic stand-alone about a masseuse who suspects that a client is a paedophile, but lacks proof. David Morrell's 'The Abelard Sanction' features a tense armed stand-off between enemy spies in a sanctuary; it starts with several pages of background, but Morrell manages to make this as interesting as his conflicted characters. Dennis Lynds's 'Success of a Mission' and Grant Blackwood's 'Sacrifical Lion' are well-constructed accounts of dangerous undercover missions - one in the Middle East, the other in Stalin's Russia.Two of the stories make use of the September 11 attacks and their aftermath. David Dun's 'Spirit Walker' pits Tilok tracker Kier Wintripp against the Anthrax letter bomber, and in Steve Berry's 'The Devils' Due' - one of the gems in the collection - Osama Bin Laden arranges a meeting with Cotton Malone and offers to surrender.For fans of historical conspiracies, there is Katherine Neville's 'The Tuesday Club', in which Benjamin Franklin and Thomas Jefferson look for secret messages in 'Frere Jacques'. David Liss pits 18th century thief-taker Benjamin Weaver against a cunning highwayman, and Ted Bell spins a yarn of Napoleonic-era sailors and pirates in 'The Powder Monkey'.Christopher Reich's 'Assassins' and Robert Liparulo's 'Kill Zone' are little more than character studies, but Liparullo does a particularly good job of showing us the viewpoint of police sniper Byron Stone.Alex Kava's 'Goodnight, Sweet Mother' and John Lescroart and M. J. Rose's 'The Portal' are both enjoyably twisted, but Heather Graham's 'The Face in the Window' is rather predictable. Michael and Daniel Palmer's 'Disfigured' is an intriguing tale of a deranged kidnap plot, but needed to be at least twice as long.James Grippando's 'Operation Northwoods' feels more like a teaser for his next novel - as do Gayle Lynds's 'The Hunt for Dmitri', Brad Thor's 'The Athens Solution', and Douglas Preston and Lincoln Child's 'Gone Fishing', despite their promising beginnings.Chris Mooney's 'Falling', Denise Hamilton's 'At The Drop of A Hat', Christopher Rice's 'Man Catch', and M. Diane Vogt's 'Surviving Toronto' all feel more like compressed novels, with too many scenes and characters reduced to ciphers and most of the tension left out. Raelynn Hillhouse handles the short story length better in 'Diplomatic Constraints', an exciting prologue to 'Outsourced', but I still felt I was missing something.This book is rather like a smorgasbord for thriller readers. Even if you don't like everything on offer, chances are you'll find something you'll want to try again."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.8152
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base SVM Neu = 0.7673 (contribution: 0.4066);
+Base RoBERTa Neu = 0.7042 (contribution: 0.1953);
+Base NB Neu = 0.5847 (contribution: 0.1359);
+Base NB Pos = 0.1981 (contribution: 0.0779);
+Base VADER Compound = 0.5419 (contribution: 0.0732)
+
+top_opposing_features:
+Base NB Neg = 0.2172 (contribution: -0.0233);
+Base RoBERTa Neg = 0.201 (contribution: -0.0164)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base SVM Neu, Base RoBERTa Neu, Base NB Neu, Base NB Pos, Base VADER Compound. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+27
+
+prediction_result:
+correct
+
+review_text:
+"I just got mine now, and its an awesome cross! Great detail of the Holy Trinity. Love it!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8537
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9772 (contribution: 1.106);
+Base RoBERTa Neg = 0.0029 (contribution: 0.679);
+Base NB Pos = 0.5313 (contribution: 0.1196);
+Base NB Neg = 0.1881 (contribution: 0.0872);
+Base SVM Pos = 0.3615 (contribution: 0.0803)
+
+top_opposing_features:
+Base VADER Neu = 0.519 (contribution: -0.0383);
+Base NB Neu = 0.2806 (contribution: -0.0115);
+Base SVM Neu = 0.3523 (contribution: -0.0007)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base NB Neg, Base SVM Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+28
+
+prediction_result:
+correct
+
+review_text:
+"This batch that I bouth in 2010 no only won't burn in either my CD/DVD player but it ejects itself before I can press a button. Same with the other player on my machine which also burns blu rays. I took the DL Verbatims from 2007-2008 and saved them to one BluRay and all the info was transferred wihtout a hitch. The 4.7s work great, I even get what should be DL space items compressed without much quality loss to the 4.7s This is very bad. They did something in the factory that reduced the quality of the DL disk to where the machine dosent even want it to sit there. I kicks it out. Sometimes im lucky if i put it in and press burn right away it will register but more often then not burns coaster."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5515
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.746 (contribution: 0.7373);
+Base RoBERTa Pos = 0.02 (contribution: 0.4828);
+Base SVM Neg = 0.4403 (contribution: 0.0827);
+Base SVM Pos = 0.2606 (contribution: 0.0723);
+Base RoBERTa Neu = 0.234 (contribution: 0.0364)
+
+top_opposing_features:
+Base VADER Compound = 0.8794 (contribution: -0.195);
+Base NB Neu = 0.4612 (contribution: -0.0798);
+Base NB Pos = 0.1909 (contribution: -0.0218);
+Base VADER Neu = 0.838 (contribution: -0.0116);
+Base VADER Pos = 0.115 (contribution: -0.0079)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Neg, Base SVM Pos, Base RoBERTa Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+31
+
+prediction_result:
+correct
+
+review_text:
+"I liked the monitor colors, size, clarity, but I have an HP computer (good processor, three years old) and it will not download the driver software. I find the buttons ( not very deep) in the back to be uncmfortable to work from the front.. I'm reasonably computer savvy and have not had this problem before. So I called AOC twice but neither technician could figure out a way to resolve the problem, using the disc or with a separate emailed download. They said this happens sometimes."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6168
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6542 (contribution: 0.5671);
+Base RoBERTa Pos = 0.0297 (contribution: 0.4681);
+Base VADER Compound = -0.4981 (contribution: 0.2815);
+Base SVM Neg = 0.362 (contribution: 0.0223);
+Base SVM Pos = 0.3 (contribution: 0.0201)
+
+top_opposing_features:
+Base NB Neu = 0.5658 (contribution: -0.1579);
+Base NB Neg = 0.2248 (contribution: -0.0442);
+Base NB Pos = 0.2094 (contribution: -0.0183);
+Base VADER Pos = 0.079 (contribution: -0.0132);
+Base VADER Neu = 0.829 (contribution: -0.0101)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Neg, Base SVM Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+32
+
+prediction_result:
+correct
+
+review_text:
+"I am going to be honest and I am telling you that for premade and moldable fronts or grillz they are pretty damn nice and comfortable! I have purchased two different sets of them and I like both sets and I wear them often! I am basically saying that I am far from a goofy type guy that is clueless about looking good or people telling you that you look good but you actually look dumb as hell and they're not trying to hurt your feelings, LoL!"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6271
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base SVM Neu = 0.4686 (contribution: 0.1144);
+Base NB Pos = 0.1794 (contribution: 0.0913);
+Base VADER Compound = 0.5775 (contribution: 0.0847);
+Base RoBERTa Neu = 0.4475 (contribution: 0.0681);
+Base VADER Neg = 0.141 (contribution: 0.0661)
+
+top_opposing_features:
+Base NB Neu = 0.2581 (contribution: -0.0567);
+Base VADER Pos = 0.216 (contribution: -0.0152);
+Base RoBERTa Neg = 0.2229 (contribution: -0.0139);
+Base VADER Neu = 0.643 (contribution: -0.0016)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base SVM Neu, Base NB Pos, Base VADER Compound, Base RoBERTa Neu, Base VADER Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+33
+
+prediction_result:
+correct
+
+review_text:
+"This is the book that was used for MATH 0150 at Kean University, Union, NJ, USA."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4472
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.8873 (contribution: 0.286);
+Base RoBERTa Pos = 0.0806 (contribution: 0.0622);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base VADER Neu = 1.0 (contribution: 0.003);
+Base SVM Neg = 0.3316 (contribution: 0.0004)
+
+top_opposing_features:
+Base NB Pos = 0.5121 (contribution: -0.1484);
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Neu = 0.2705 (contribution: -0.0493);
+Base RoBERTa Neg = 0.0321 (contribution: -0.0351)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base RoBERTa Pos, Base VADER Pos, Base VADER Neu, Base SVM Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+35
+
+prediction_result:
+correct
+
+review_text:
+"You'd have to be nuts to trust your data to this device"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6858
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7367 (contribution: 0.7199);
+Base RoBERTa Pos = 0.0211 (contribution: 0.4811);
+Base NB Neg = 0.5872 (contribution: 0.0953);
+Base NB Neu = 0.2439 (contribution: 0.0823);
+Base RoBERTa Neu = 0.2422 (contribution: 0.0324)
+
+top_opposing_features:
+Base NB Pos = 0.1689 (contribution: -0.026);
+Base SVM Neu = 0.3435 (contribution: -0.001)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neg, Base NB Neu, Base RoBERTa Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+39
+
+prediction_result:
+correct
+
+review_text:
+"Don't let this one pass you buy. Despite the height of the heel , it's extremely comfortable .I have this shoe in the black patent. It's a a buy you won't regret.."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7311
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.851 (contribution: 0.8863);
+Base RoBERTa Neg = 0.0093 (contribution: 0.6664);
+Base SVM Neu = 0.2496 (contribution: 0.1125);
+Base SVM Pos = 0.3684 (contribution: 0.0923);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base NB Neg = 0.5144 (contribution: -0.1006);
+Base NB Pos = 0.234 (contribution: -0.0384);
+Base SVM Neg = 0.382 (contribution: -0.0269);
+Base NB Neu = 0.2516 (contribution: -0.016);
+Base VADER Pos = 0.114 (contribution: -0.009)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Neu, Base SVM Pos, Base VADER Neg. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+40
+
+prediction_result:
+correct
+
+review_text:
+"Item is cracked and unusable"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8062
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9073 (contribution: 1.0363);
+Base RoBERTa Pos = 0.0106 (contribution: 0.4969);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base RoBERTa Neu = 0.0821 (contribution: 0.1089);
+Base NB Neu = 0.2635 (contribution: 0.0677)
+
+top_opposing_features:
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2823 (contribution: -0.0045);
+Base VADER Neg = 0.0 (contribution: -0.0042);
+Base SVM Neu = 0.3271 (contribution: -0.003)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neu. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+41
+
+prediction_result:
+correct
+
+review_text:
+"I like the color of the case but it is too tight for my phone (I have a 5s). It pushes on the volume buttons so that it goes up and down without me pressing them. It squeezes the phone so that the screen is popping out a bit from the backing. I also have trouble plugging it in, as the case does not entirely align with the area for the charger. I am hoping that it stretches over time and is not so tight after a few weeks."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5672
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base NB Neu = 0.5736 (contribution: 0.1293);
+Base RoBERTa Neu = 0.4677 (contribution: 0.0781);
+Base NB Pos = 0.2091 (contribution: 0.0699);
+Base RoBERTa Pos = 0.0501 (contribution: 0.0694);
+Base SVM Neu = 0.3845 (contribution: 0.0321)
+
+top_opposing_features:
+Base NB Neg = 0.2173 (contribution: -0.0233);
+Base VADER Neg = 0.04 (contribution: -0.0204);
+Base VADER Compound = 0.2617 (contribution: -0.0175);
+Base SVM Pos = 0.3375 (contribution: -0.009)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base NB Neu, Base RoBERTa Neu, Base NB Pos, Base RoBERTa Pos, Base SVM Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+45
+
+prediction_result:
+correct
+
+review_text:
+"Seascape, an avalanche of human emotions,knits the calm hermit Ben and the hysteric drifter Tracy in an net where the must bear their souls and see if love exists past an abortion, earning for escape, and distance from hope. Beautiful dialogue including outstanding scene/monologue, or directoral work."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.6522
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0222 (contribution: 0.641);
+Base RoBERTa Pos = 0.7026 (contribution: 0.6281);
+Base SVM Pos = 0.3993 (contribution: 0.1457);
+Base NB Neg = 0.2175 (contribution: 0.0702);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base NB Pos = 0.2328 (contribution: -0.039);
+Base SVM Neu = 0.3696 (contribution: -0.0197);
+Base VADER Neu = 0.683 (contribution: -0.0131)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base NB Neg, Base VADER Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+46
+
+prediction_result:
+correct
+
+review_text:
+"this is a downgrade from mx610"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7029
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7654 (contribution: 0.7731);
+Base RoBERTa Pos = 0.0133 (contribution: 0.4929);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base RoBERTa Neu = 0.2214 (contribution: 0.0424);
+Base NB Neu = 0.3367 (contribution: 0.0131)
+
+top_opposing_features:
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base VADER Neg = 0.0 (contribution: -0.0042);
+Base NB Neg = 0.3314 (contribution: -0.0031);
+Base SVM Neu = 0.3439 (contribution: -0.001)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neu. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+47
+
+prediction_result:
+correct
+
+review_text:
+"It's great. I'm near the max distance from Green Bay, WI. Time Warner took our NBC any MyTV off because of price disputes. Now TWC can do whatever with local tv. With next day shipping it was only around $42.00."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5429
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0514 (contribution: 0.5836);
+Base RoBERTa Pos = 0.6449 (contribution: 0.5278);
+Base SVM Pos = 0.329 (contribution: 0.0241);
+Base VADER Neg = 0.048 (contribution: 0.0146);
+Base VADER Neu = 0.86 (contribution: 0.0141)
+
+top_opposing_features:
+Base NB Neg = 0.4082 (contribution: -0.0395);
+Base NB Pos = 0.261 (contribution: -0.024);
+Base VADER Pos = 0.093 (contribution: -0.0125);
+Base NB Neu = 0.3308 (contribution: -0.0037)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base VADER Neg, Base VADER Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+48
+
+prediction_result:
+correct
+
+review_text:
+"It lasted one night. It was flimsy and super thin. Not worth it."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7252
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8642 (contribution: 0.9564);
+Base RoBERTa Pos = 0.0133 (contribution: 0.4928);
+Base RoBERTa Neu = 0.1225 (contribution: 0.0897);
+Base SVM Neg = 0.4319 (contribution: 0.0763);
+Base SVM Pos = 0.2661 (contribution: 0.065)
+
+top_opposing_features:
+Base VADER Compound = 0.4997 (contribution: -0.0636);
+Base NB Pos = 0.1937 (contribution: -0.0213);
+Base NB Neu = 0.3661 (contribution: -0.0088);
+Base SVM Neu = 0.302 (contribution: -0.0061)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base SVM Neg, Base SVM Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+50
+
+prediction_result:
+correct
+
+review_text:
+"Few months ago, our U.S history teacher advice us to buy this book and i got the last one, on the last minute. When I began read the book, it doesnt have enough "entertainment" but in few chapters later, I just notice that some part(maybe all) occured during the historical action a that time. What I mostly enjoyed is that when I read in this book, i learning more often and gave me a head start, because were in the part about the Spanish American War at class. I already finished the book a month ago and i enjoyed it alot. I recommended to the reader who like history or a student that needs more backup at history."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8718 (contribution: 0.9226);
+Base RoBERTa Neg = 0.0074 (contribution: 0.6701);
+Base SVM Pos = 0.4513 (contribution: 0.2358);
+Base SVM Neg = 0.1872 (contribution: 0.0805);
+Base VADER Neg = 0.045 (contribution: 0.0174)
+
+top_opposing_features:
+Base NB Neg = 0.6002 (contribution: -0.15);
+Base NB Pos = 0.1714 (contribution: -0.0716);
+Base NB Neu = 0.2284 (contribution: -0.0197);
+Base SVM Neu = 0.3614 (contribution: -0.0107);
+Base VADER Pos = 0.12 (contribution: -0.008)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base SVM Neg, Base VADER Neg. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+51
+
+prediction_result:
+correct
+
+review_text:
+"I got this as a replacement for my first Nexus case that had the magnets come loose. This one does have a sturdy magnet and clasp that won't come loose, but the cover is rather loose fitting and doesn't fold into a stand very well. I got the white case that looked great at first, but it gets dirty quickly and is hard to clean. I tried rubbing alcohol but that dulled the finish."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5381
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.694 (contribution: 0.6407);
+Base RoBERTa Pos = 0.024 (contribution: 0.4767);
+Base SVM Pos = 0.1461 (contribution: 0.2241);
+Base VADER Compound = 0.0873 (contribution: 0.079);
+Base SVM Neu = 0.5628 (contribution: 0.0261)
+
+top_opposing_features:
+Base NB Neu = 0.5602 (contribution: -0.1537);
+Base NB Neg = 0.2424 (contribution: -0.0374);
+Base SVM Neg = 0.2911 (contribution: -0.0325);
+Base NB Pos = 0.1974 (contribution: -0.0206);
+Base VADER Pos = 0.143 (contribution: -0.0037)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base VADER Compound, Base SVM Neu. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+52
+
+prediction_result:
+correct
+
+review_text:
+"Says it's for a toddler but this hat was huge"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4952
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.5522 (contribution: 0.1199);
+Base VADER Compound = 0.4497 (contribution: 0.0434);
+Base NB Neu = 0.4135 (contribution: 0.0349);
+Base SVM Neu = 0.3745 (contribution: 0.0223);
+Base SVM Pos = 0.2804 (contribution: 0.014)
+
+top_opposing_features:
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base VADER Pos = 0.269 (contribution: -0.032);
+Base RoBERTa Neg = 0.1161 (contribution: -0.0258);
+Base NB Neg = 0.2619 (contribution: -0.0148);
+Base NB Pos = 0.3246 (contribution: -0.0133)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Compound, Base NB Neu, Base SVM Neu, Base SVM Pos. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+53
+
+prediction_result:
+correct
+
+review_text:
+"The second novel in this series does not disappoint. We are presented with another cozy mystery, in which the characters and life in Botswana play a much more prominent role than the case itself. In most cases, I would say that this is a drawback, but McCall Smith's writing is so good, that the reader finds himself happily devouring the pages and learning about Mma Ramotswe and her entourage.Not only do we get a depiction of culture in Botswana, we get this through the colorful commentary of the characters. When I read lines like ""old Botswana morality, as everybody knew, was so plainly right" I can't help it but break a smile. The dialogues are truly priceless, and even the thoughts of some characters, such as the evil and conniving maid of Ramotswe's fiance, are truly entertaining.Like I mentioned, there is not much emphasis on the couple of cases in which the No. 1 Ladies' Detective Agency is focusing on, but this is fine. The part that does bother me a little though, and is the reason why I am giving it 4 stars instead of 5, is that the main character reaches conclusions without us having any idea of what the reasoning was. For example, she decides someone is a bad person by looking at a picture, or she gets a clear profile of family and work of a woman she meets just by looking at her and what she is carrying. But we never know how she determined this, which is frustrating. I much rather have the logic described similar to what we get with Sherlock Holmes. Anyway, a small defect that overall does not invalidate the great appeal of this book."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5568
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8276 (contribution: 0.8457);
+Base RoBERTa Neg = 0.0109 (contribution: 0.6633);
+Base SVM Neg = 0.0889 (contribution: 0.1347);
+Base NB Neg = 0.2172 (contribution: 0.0704);
+Base SVM Pos = 0.341 (contribution: 0.0448)
+
+top_opposing_features:
+Base SVM Neu = 0.5701 (contribution: -0.2407);
+Base NB Pos = 0.1981 (contribution: -0.0574);
+Base VADER Neg = 0.098 (contribution: -0.0315);
+Base VADER Pos = 0.139 (contribution: -0.0048);
+Base VADER Neu = 0.764 (contribution: -0.0007)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Neg, Base NB Neg, Base SVM Pos. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+54
+
+prediction_result:
+correct
+
+review_text:
+"If your looking for a long dress that is comfortable and different this is the one."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7478
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.7297 (contribution: 0.6753);
+Base RoBERTa Neg = 0.0073 (contribution: 0.6703);
+Base NB Pos = 0.5701 (contribution: 0.1403);
+Base NB Neg = 0.1806 (contribution: 0.0915);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base SVM Neu = 0.384 (contribution: -0.0356);
+Base NB Neu = 0.2492 (contribution: -0.0164)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base NB Neg, Base VADER Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+57
+
+prediction_result:
+correct
+
+review_text:
+"Good affordable laptop ram option"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7255
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8202 (contribution: 0.8329);
+Base RoBERTa Neg = 0.0082 (contribution: 0.6685);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base VADER Pos = 0.42 (contribution: 0.0422);
+Base SVM Pos = 0.3374 (contribution: 0.0386)
+
+top_opposing_features:
+Base VADER Neu = 0.58 (contribution: -0.0289);
+Base NB Pos = 0.2717 (contribution: -0.0184)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Neg, Base VADER Pos, Base SVM Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+59
+
+prediction_result:
+correct
+
+review_text:
+"This is not on Charter's list even though the description said so."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.532
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.0173 (contribution: 0.4869);
+Base RoBERTa Neg = 0.5772 (contribution: 0.4243);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base SVM Pos = 0.2732 (contribution: 0.0555);
+Base SVM Neg = 0.3897 (contribution: 0.0436)
+
+top_opposing_features:
+Base NB Neu = 0.4766 (contribution: -0.0913);
+Base RoBERTa Neu = 0.4055 (contribution: -0.0456);
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.199 (contribution: -0.0203)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base SVM Pos, Base SVM Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+60
+
+prediction_result:
+correct
+
+review_text:
+"Maybe I'm not imaginative, but most of the things this book offers are decorative items, not functional items. And they're not particularly attractive or interesting decorative items. A knitted pint glass? What FOR? I don't mind the occasional tchotchky, but these items are both silly and useless, as far as I'm concerned. There are two exceptions, a cute nightgown designed in the style of a twenties flapper dress, and a pair of ear muffs made of knitted fried eggs. If you like this kind of thing, and I don't know anyone who does, or if you like to knit and want to punish everyone you know with presents they'll hate, this is the book for you. Otherwise, stay far, far away."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8145
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7105 (contribution: 0.6715);
+Base RoBERTa Pos = 0.0241 (contribution: 0.4766);
+Base VADER Compound = -0.4764 (contribution: 0.274);
+Base SVM Pos = 0.1268 (contribution: 0.2497);
+Base NB Neu = 0.2371 (contribution: 0.0874)
+
+top_opposing_features:
+Base NB Neg = 0.1988 (contribution: -0.0542);
+Base VADER Pos = 0.125 (contribution: -0.0064)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base NB Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+62
+
+prediction_result:
+correct
+
+review_text:
+"When I first read this book I thought it was interesting but it sure didn't go with what I remembered from the Bible. In my Bible study groups we had not covered Revelations that much, so I had to go look up a few things. I discovered that many of the evangelists use a Bible written by a man named Scofield. He came from a dubious background. Look him up on the internet. While in prison for forgery, he converted to Christianity, of the Darbyite influence. Anyway, he ended up writing a Bible using his interpretations of what it meant, so of course, then he has changed it to his liking.But what the authors are saying is that we, believers in Jesus, will receive this Rapture they are talking about instead of going through the tribulations, but the original Bible does not say this. So I am wondering, if Armegeddon comes, and the Christians who believe what the authors are preaching, when they don't receive this Rapture when promised, will that make them turn away from God? Is this more a Satanic than a Christian book? I don't know, but I would suggest that before you take it as gospel, that you should look a little deeper. Jesus warned of us the false prophets. One thing good about the book is that it does make one want to get right with God. You might want to read the book "Forcing God's Hands..." by Grace Halsell, she has written a book explaining how this evangelical belief started and what it means and it is truly scary for the people of this world."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6077
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base VADER Compound = 0.9513 (contribution: 0.2057);
+Base SVM Neu = 0.5538 (contribution: 0.1977);
+Base RoBERTa Neu = 0.5831 (contribution: 0.1353);
+Base SVM Pos = 0.0994 (contribution: 0.0872);
+Base RoBERTa Pos = 0.0717 (contribution: 0.0643)
+
+top_opposing_features:
+Base NB Neu = 0.2411 (contribution: -0.0667);
+Base NB Pos = 0.3479 (contribution: -0.03);
+Base VADER Neg = 0.05 (contribution: -0.0119);
+Base SVM Neg = 0.3468 (contribution: -0.003);
+Base RoBERTa Neg = 0.3451 (contribution: -0.0004)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base VADER Compound, Base SVM Neu, Base RoBERTa Neu, Base SVM Pos, Base RoBERTa Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+64
+
+prediction_result:
+correct
+
+review_text:
+"Great for DVD's, but bad for Wi-Fi"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5954
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.0693 (contribution: 0.4087);
+Base RoBERTa Neg = 0.5154 (contribution: 0.3097);
+Base VADER Compound = -0.4939 (contribution: 0.2801);
+Base VADER Neu = 0.407 (contribution: 0.0602);
+Base NB Neu = 0.3074 (contribution: 0.0349)
+
+top_opposing_features:
+Base SVM Pos = 0.3563 (contribution: -0.0547);
+Base RoBERTa Neu = 0.4153 (contribution: -0.0503);
+Base NB Neg = 0.2442 (contribution: -0.0367);
+Base SVM Neg = 0.2968 (contribution: -0.0281);
+Base SVM Neu = 0.3469 (contribution: -0.0006)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Compound, Base VADER Neu, Base NB Neu. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+66
+
+prediction_result:
+correct
+
+review_text:
+"Awful book! I like some of Alexandra Raife's books, but this one is awful. First there is the tease that is hinted at but not revealed. Just tell us, for pity's sake, so we can understand what is going on! Then the main male character is so unlikable that you keep hoping someone will show up who is really worth caring about. When I think of some of this author's other books, it's difficult to believe that this was even penned by her. The bad language and emotional shifts are excessive, and I don't care for the "sex for fun with no commitment" attitude. "We'll just have sex and nobody will get hurt!" What is that??? "I want to see your naked body and make love to IT???????????????????" A huge disappointment and I can't believe an author like Mary Stewart who has recommended this author has read this particular book."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7435
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9273 (contribution: 1.0735);
+Base RoBERTa Pos = 0.0057 (contribution: 0.5043);
+Base RoBERTa Neu = 0.067 (contribution: 0.1162);
+Base SVM Pos = 0.2358 (contribution: 0.1052);
+Base NB Neu = 0.2312 (contribution: 0.0918)
+
+top_opposing_features:
+Base VADER Compound = 0.9109 (contribution: -0.2059);
+Base NB Neg = 0.1756 (contribution: -0.0631);
+Base SVM Neg = 0.2957 (contribution: -0.029)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base SVM Pos, Base NB Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+67
+
+prediction_result:
+correct
+
+review_text:
+"I didn't really care for this book at all, the plot was a little too far fetched. I didn't like Anne at all, she was too vain, obsessed with being queen and just too full of herself for my liking.I liked Horatio the best but even his character could have had a little more depth to him.I only gave this book two stars for the Monkey. If you still want to read this book, I would suggest the library."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4884
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6004 (contribution: 0.4672);
+Base RoBERTa Pos = 0.0364 (contribution: 0.4581);
+Base VADER Compound = 0.0574 (contribution: 0.0894);
+Base SVM Neg = 0.3785 (contribution: 0.035);
+Base VADER Neg = 0.084 (contribution: 0.0013)
+
+top_opposing_features:
+Base NB Neu = 0.5769 (contribution: -0.1661);
+Base NB Neg = 0.2216 (contribution: -0.0454);
+Base RoBERTa Neu = 0.3632 (contribution: -0.0254);
+Base NB Pos = 0.2015 (contribution: -0.0198);
+Base SVM Pos = 0.3295 (contribution: -0.019)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Neg, Base VADER Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+68
+
+prediction_result:
+correct
+
+review_text:
+"This is not a story. Rather it is a collection of stories about semi-related events occurring over a period of about 50 years, which in and of itself would not be such a bad thing, but East of Eden is so long! The style of Steinbeck's prose is erratic at best which, again, wouldn't be so unpleasant if East of Eden weren't trying to pass itself off as a novel. The basis of the story's symbolism is evident from the first chapter, but Steinbeck doesn't stop there. He hammers his message home with a three ton sledgehammer that is about as subtle as a train wreck. For example, each generation in East of Eden has a Cain character and an Abel character, and Steinbeck dives relatively deep when he begins the name of the corresponding characters with a "C" and an "A". That seems to be the limit of his subtlety as this bludgeoning draws slowly out over the torturous course of over seven hundred pages, finally grinding to a leadenly melodramatic finish. And yet, at the end of this gruelling road, the message is still frustratingly vague. The reader has suffered for nothing. The sporadic insertion of episodes totally unrelated to the rest of the book is reminiscent of bits of trash floating in a river of sludge from some factory's drain pipe. John Steinbeck is that factory, and in East of Eden he pumps out page after page of superficial writing. As Steinbeck would, were he writing this review, extend the metaphor beyond its use, one might even consider East of Eden a waste product from the creation of masterpieces such as The Grapes of Wrath and Tortilla Flat.I see that East of Eden might contain a modicum of interest for students of Steinbeck (I myself have researched the man and used this book to defend a thesis), but someone looking to become acquainted for the first time with the power that Steinbeck can wield would be better served by The Red Pony or one of the afore-mentioned alternatives."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6367
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base RoBERTa Neu = 0.6307 (contribution: 0.1589);
+Base NB Neu = 0.5846 (contribution: 0.1359);
+Base SVM Neu = 0.4901 (contribution: 0.1354);
+Base SVM Pos = 0.0325 (contribution: 0.1143);
+Base NB Pos = 0.1981 (contribution: 0.0779)
+
+top_opposing_features:
+Base VADER Compound = 0.1561 (contribution: -0.0517);
+Base SVM Neg = 0.4774 (contribution: -0.0319);
+Base NB Neg = 0.2172 (contribution: -0.0233);
+Base RoBERTa Neg = 0.2416 (contribution: -0.0119)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base RoBERTa Neu, Base NB Neu, Base SVM Neu, Base SVM Pos, Base NB Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+69
+
+prediction_result:
+correct
+
+review_text:
+"This is a very good book with useful tips. I tried baking my pie on the floor of the oven like she suggests. The first time it turned out amazing. Every time since it has burned. Anyone have ideas why this happened? I have tried reducing the temperature and the crust comes out nice and golden but seems a little tougher to me."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5856
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0635 (contribution: 0.5599);
+Base RoBERTa Pos = 0.556 (contribution: 0.3731);
+Base NB Pos = 0.4659 (contribution: 0.0849);
+Base NB Neg = 0.2106 (contribution: 0.0742);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base SVM Neu = 0.3708 (contribution: -0.0211);
+Base NB Neu = 0.3235 (contribution: -0.0048);
+Base RoBERTa Neu = 0.3805 (contribution: -0.0012)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base NB Neg, Base VADER Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+70
+
+prediction_result:
+correct
+
+review_text:
+"I took a trip to Thailand and was appalled at what I saw, from the filth and smut to the rampant corruption, prostitution, and hideous architecture. And through it all was the ever-present face of THE KING, hundreds of feet tall on skyscrapers, in subways, on office buildings, billboards...everywhere. Say anything critical of him and you're in big trouble.So my question going into this book was: How much is the King responsible for the Thailand that I experienced? For the innumerable narratives of abuse and extortion at the hands of government officials and one of the world's most deplorable legal systems?My answer after reading much of this book is that the King, even if not directly responsible for all that is foul in Thailand, is a huge power player in the utterly fragmented, rudderless, and byzantine world of this Southeast Asian power. His throne and the hold in which it has over his people, would seem anything but democratic -- as the king himself, in his own words, does not truly believe in the concept. I think we are seeing that play out to this day. Like all monarchs, the takeaway is that he is interested in retaining the power of the throne at all costs, and then implementing public works as a "gift" to his people. It's like entering the middle ages.Most fascinating and dizzying of all is that this is all perpetrated in the name of Buddhism, of creating a community of well being and dharma for an entire society. This is one of the most indicting statements I have ever heard against Buddhist precepts, and shows how that religion just like any other can be manipulated for the retention of power by a monarchy. It's actually quite a straightforward story that's played itself over time and again in human history, but the Buddhist and particularly the Hindu notions of royalty give this chapter in human domination a mephitic whiff all of its own. My hat's off to Handley for describing much of this insanely complex power brokering from its origins, but in its play-by=play analysis the book cannot help but be a dense, tiresome slog.But the question remains -- without the King, would Thailand look something more like Burma or Cambodia? A scary thought to be sure."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5029
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.9663 (contribution: 0.2106);
+Base NB Neu = 0.5449 (contribution: 0.1124);
+Base SVM Neu = 0.4396 (contribution: 0.086);
+Base RoBERTa Pos = 0.0051 (contribution: 0.0802);
+Base RoBERTa Neg = 0.9015 (contribution: 0.0614)
+
+top_opposing_features:
+Base RoBERTa Neu = 0.0934 (contribution: -0.1073);
+Base SVM Pos = 0.4538 (contribution: -0.0561);
+Base NB Neg = 0.2273 (contribution: -0.0214);
+Base VADER Neg = 0.052 (contribution: -0.0102)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base NB Neu, Base SVM Neu, Base RoBERTa Pos, Base RoBERTa Neg. The main opposing signal was Base RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+71
+
+prediction_result:
+correct
+
+review_text:
+"For both my girls, we needed to size-up."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5022
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.7386 (contribution: 0.2123);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base RoBERTa Pos = 0.1539 (contribution: 0.0447);
+Base SVM Neu = 0.3588 (contribution: 0.007);
+Base NB Neu = 0.3609 (contribution: 0.0039)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Pos = 0.3746 (contribution: -0.0493);
+Base RoBERTa Neg = 0.1074 (contribution: -0.0267);
+Base NB Neg = 0.2645 (contribution: -0.0143)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Pos, Base RoBERTa Pos, Base SVM Neu, Base NB Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+74
+
+prediction_result:
+correct
+
+review_text:
+"She really likes it."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.6775
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0198 (contribution: 0.6458);
+Base RoBERTa Pos = 0.6788 (contribution: 0.5867);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base VADER Pos = 0.508 (contribution: 0.0569);
+Base NB Neg = 0.2784 (contribution: 0.0352)
+
+top_opposing_features:
+Base VADER Neu = 0.492 (contribution: -0.0424);
+Base SVM Neg = 0.3346 (contribution: -0.0008)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Neg, Base VADER Pos, Base NB Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+77
+
+prediction_result:
+correct
+
+review_text:
+"If i had known all it was was a patch glued to a crappy wallet id have just bought a patch and done it myself... At least i would have centered it..."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5975
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.0473 (contribution: 0.4417);
+Base VADER Compound = -0.5574 (contribution: 0.3021);
+Base RoBERTa Neg = 0.4979 (contribution: 0.2772);
+Base NB Neg = 0.4978 (contribution: 0.0609);
+Base NB Neu = 0.2978 (contribution: 0.0421)
+
+top_opposing_features:
+Base RoBERTa Neu = 0.4548 (contribution: -0.0692);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2044 (contribution: -0.0193);
+Base VADER Neu = 0.878 (contribution: -0.0183)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neg, Base NB Neg, Base NB Neu. The main opposing signal was Base RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+78
+
+prediction_result:
+correct
+
+review_text:
+"good price quality seems great"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8029
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8713 (contribution: 0.9216);
+Base RoBERTa Neg = 0.0131 (contribution: 0.6589);
+Base VADER Pos = 0.7 (contribution: 0.089);
+Base SVM Pos = 0.3657 (contribution: 0.0876);
+Base NB Pos = 0.4364 (contribution: 0.0692)
+
+top_opposing_features:
+Base VADER Neu = 0.3 (contribution: -0.0719);
+Base SVM Neu = 0.3563 (contribution: -0.0051);
+Base NB Neu = 0.3284 (contribution: -0.004)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Pos, Base SVM Pos, Base NB Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+79
+
+prediction_result:
+correct
+
+review_text:
+"This is yet another book that was not written for the general public. While it does name various techniques, nowhere in it does it tell you how to do the techniques. In fact, the book says:"If you do not receive instructions from an enlightened teacher, you will not know how to set up the stove and erect the cauldron. You will not know how to build the foundation, how to gather the herbs, how to obtain the cinnibar, or how to pick the herbs at the right moment. You will not know what is the waterwheel, what is the right amount of fire, what is the union of ch'ien and k'un, what is the interaction of k'an and li, and what is the exchange of wood and metal." [and it goes on like this for another two paragraphs]After you read the entire book, you still will not know any of the answers to these questions. This is not a tutorial or 'how to' book."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5448
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base SVM Neu = 0.4729 (contribution: 0.1186);
+Base NB Neu = 0.5217 (contribution: 0.0988);
+Base SVM Pos = 0.1151 (contribution: 0.0809);
+Base NB Pos = 0.1962 (contribution: 0.0793);
+Base RoBERTa Pos = 0.0387 (contribution: 0.0722)
+
+top_opposing_features:
+Base VADER Neg = 0.014 (contribution: -0.0427);
+Base SVM Neg = 0.412 (contribution: -0.0174);
+Base NB Neg = 0.2821 (contribution: -0.011)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base SVM Neu, Base NB Neu, Base SVM Pos, Base NB Pos, Base RoBERTa Pos. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+80
+
+prediction_result:
+correct
+
+review_text:
+"The story is great, but the condition of the book was less than what I expected. All of the pages are brown and tear easily. The purchase that I selected was classified as "new". I was disappointed."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7015
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8702 (contribution: 0.9675);
+Base RoBERTa Pos = 0.0088 (contribution: 0.4996);
+Base SVM Pos = 0.2027 (contribution: 0.1491);
+Base RoBERTa Neu = 0.121 (contribution: 0.0903);
+Base SVM Neg = 0.426 (contribution: 0.0717)
+
+top_opposing_features:
+Base NB Neu = 0.5781 (contribution: -0.167);
+Base NB Neg = 0.223 (contribution: -0.0449);
+Base NB Pos = 0.1989 (contribution: -0.0203);
+Base VADER Pos = 0.138 (contribution: -0.0044)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base RoBERTa Neu, Base SVM Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+81
+
+prediction_result:
+correct
+
+review_text:
+"Requires assembly. Don't let the picture fool you. It is supposed to come already assembled. Fake product. Don't buy!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8314
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8493 (contribution: 0.9288);
+Base RoBERTa Pos = 0.0114 (contribution: 0.4957);
+Base VADER Compound = -0.7424 (contribution: 0.3661);
+Base NB Neg = 0.5779 (contribution: 0.0917);
+Base RoBERTa Neu = 0.1393 (contribution: 0.0816)
+
+top_opposing_features:
+Base NB Pos = 0.1684 (contribution: -0.0261);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Neu = 0.3279 (contribution: -0.0029)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base NB Neg, Base RoBERTa Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+82
+
+prediction_result:
+correct
+
+review_text:
+"Not as good as they seem, but acceptable."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6468
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.6549 (contribution: 0.1709);
+Base NB Neu = 0.5064 (contribution: 0.0897);
+Base VADER Neg = 0.16 (contribution: 0.0824);
+Base SVM Neu = 0.4201 (contribution: 0.0669);
+Base NB Pos = 0.215 (contribution: 0.0657)
+
+top_opposing_features:
+Base VADER Pos = 0.277 (contribution: -0.0345);
+Base RoBERTa Neg = 0.1753 (contribution: -0.0192);
+Base NB Neg = 0.2786 (contribution: -0.0116);
+Base VADER Compound = 0.3065 (contribution: -0.003);
+Base VADER Neu = 0.563 (contribution: -0.0027)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base NB Neu, Base VADER Neg, Base SVM Neu, Base NB Pos. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+84
+
+prediction_result:
+correct
+
+review_text:
+"Very good!!!! very good I love it. it works as good as i expected. impressive. I will come back again"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8849
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.978 (contribution: 1.1074);
+Base RoBERTa Neg = 0.0048 (contribution: 0.6753);
+Base SVM Pos = 0.4471 (contribution: 0.2285);
+Base NB Pos = 0.5998 (contribution: 0.1561);
+Base SVM Neg = 0.1511 (contribution: 0.1004)
+
+top_opposing_features:
+Base SVM Neu = 0.4018 (contribution: -0.0552);
+Base VADER Neu = 0.45 (contribution: -0.0489);
+Base NB Neu = 0.2255 (contribution: -0.0201)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base NB Pos, Base SVM Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+87
+
+prediction_result:
+correct
+
+review_text:
+"I think I expected too much from this book and was therefore disappointed with it. It was an interesting account of Griffin's follies, but it wasn't as eerie as I had thought it would be. If you're into sci-fi you should read it, otherwise...well, it's up to you."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4889
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base NB Neu = 0.4994 (contribution: 0.0856);
+Base NB Pos = 0.1942 (contribution: 0.0807);
+Base SVM Neu = 0.4289 (contribution: 0.0756);
+Base RoBERTa Pos = 0.0327 (contribution: 0.0736);
+Base SVM Pos = 0.2218 (contribution: 0.0377)
+
+top_opposing_features:
+Base VADER Neg = 0.042 (contribution: -0.0187);
+Base NB Neg = 0.3065 (contribution: -0.0063);
+Base SVM Neg = 0.3493 (contribution: -0.0036)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base NB Neu, Base NB Pos, Base SVM Neu, Base RoBERTa Pos, Base SVM Pos. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+88
+
+prediction_result:
+correct
+
+review_text:
+"Work for our PS4 but are fragile."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4592
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.0733 (contribution: 0.4028);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base NB Neu = 0.2425 (contribution: 0.0834);
+Base RoBERTa Neg = 0.3863 (contribution: 0.0703);
+Base NB Pos = 0.5239 (contribution: 0.0412)
+
+top_opposing_features:
+Base RoBERTa Neu = 0.5404 (contribution: -0.1101);
+Base NB Neg = 0.2337 (contribution: -0.0407);
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Pos = 0.326 (contribution: -0.0144)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base VADER Compound, Base NB Neu, Base RoBERTa Neg, Base NB Pos. The main opposing signal was Base RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+89
+
+prediction_result:
+correct
+
+review_text:
+"Poor quality. Material is cheap, itchy, rough, and has a odor that didn't go away with washing."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7892
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9 (contribution: 1.0229);
+Base RoBERTa Pos = 0.0088 (contribution: 0.4996);
+Base VADER Compound = -0.6369 (contribution: 0.3296);
+Base RoBERTa Neu = 0.0912 (contribution: 0.1046);
+Base SVM Pos = 0.2699 (contribution: 0.06)
+
+top_opposing_features:
+Base NB Neu = 0.4712 (contribution: -0.0872);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2065 (contribution: -0.0188);
+Base NB Neg = 0.3223 (contribution: -0.0066)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base SVM Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+90
+
+prediction_result:
+correct
+
+review_text:
+"I bought this book wanting to learn how to make a journal. This book did not show the basics. It was a waste of money, the author seemed more interested in presenting cute ideas and making pretty pictures than teaching basics."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6875
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8304 (contribution: 0.8936);
+Base RoBERTa Pos = 0.0175 (contribution: 0.4865);
+Base NB Neg = 0.6121 (contribution: 0.1048);
+Base NB Neu = 0.227 (contribution: 0.0949);
+Base RoBERTa Neu = 0.1521 (contribution: 0.0755)
+
+top_opposing_features:
+Base VADER Compound = 0.7501 (contribution: -0.1503);
+Base NB Pos = 0.1609 (contribution: -0.0275);
+Base SVM Neu = 0.325 (contribution: -0.0033);
+Base VADER Neg = 0.061 (contribution: -0.0002)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neg, Base NB Neu, Base RoBERTa Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+92
+
+prediction_result:
+correct
+
+review_text:
+"I was loving this bag. It provides a place for everything so you can put everything in its place. it's deceptively roomy as well. The problem is a already have a hole in one of the compartments. bummer. It would be a five star review otherwise."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5212
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base NB Pos = 0.207 (contribution: 0.0715);
+Base RoBERTa Neu = 0.4484 (contribution: 0.0685);
+Base VADER Neg = 0.11 (contribution: 0.0396);
+Base RoBERTa Pos = 0.2356 (contribution: 0.0252);
+Base NB Neg = 0.4369 (contribution: 0.0186)
+
+top_opposing_features:
+Base VADER Compound = 0.1779 (contribution: -0.0446);
+Base SVM Neu = 0.3179 (contribution: -0.033);
+Base SVM Pos = 0.3407 (contribution: -0.0103);
+Base RoBERTa Neg = 0.316 (contribution: -0.0036);
+Base SVM Neg = 0.3414 (contribution: -0.0018)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base NB Pos, Base RoBERTa Neu, Base VADER Neg, Base RoBERTa Pos, Base NB Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+93
+
+prediction_result:
+correct
+
+review_text:
+"It isn't chocolate like the one on the pic, i feel misled 👎"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6331
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6077 (contribution: 0.4807);
+Base RoBERTa Pos = 0.0226 (contribution: 0.4788);
+Base VADER Compound = -0.2755 (contribution: 0.2045);
+Base SVM Neg = 0.3677 (contribution: 0.0267);
+Base NB Neu = 0.3358 (contribution: 0.0138)
+
+top_opposing_features:
+Base RoBERTa Neu = 0.3697 (contribution: -0.0285);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Pos = 0.3317 (contribution: -0.022);
+Base NB Neg = 0.3085 (contribution: -0.012);
+Base VADER Neu = 0.826 (contribution: -0.0096)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Neg, Base NB Neu. The main opposing signal was Base RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+95
+
+prediction_result:
+correct
+
+review_text:
+"They're ok. They fall out easily even though I ordered my correct size of 00 gauge. And the picture on here looks better then the gems in person just so you know."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5056
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base VADER Compound = 0.7579 (contribution: 0.1431);
+Base NB Neu = 0.5689 (contribution: 0.1266);
+Base RoBERTa Neu = 0.4785 (contribution: 0.0834);
+Base NB Pos = 0.2015 (contribution: 0.0754);
+Base SVM Pos = 0.3037 (contribution: 0.0046)
+
+top_opposing_features:
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base RoBERTa Neg = 0.0801 (contribution: -0.0298);
+Base RoBERTa Pos = 0.4414 (contribution: -0.0238);
+Base SVM Neu = 0.3295 (contribution: -0.0216);
+Base NB Neg = 0.2296 (contribution: -0.021)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base VADER Compound, Base NB Neu, Base RoBERTa Neu, Base NB Pos, Base SVM Pos. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+96
+
+prediction_result:
+correct
+
+review_text:
+"Easy to use, serves its purpose well"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8283
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8981 (contribution: 0.9683);
+Base RoBERTa Neg = 0.0078 (contribution: 0.6693);
+Base NB Pos = 0.5609 (contribution: 0.1354);
+Base NB Neg = 0.1872 (contribution: 0.0877);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base VADER Neu = 0.5 (contribution: -0.0412);
+Base NB Neu = 0.2519 (contribution: -0.016);
+Base SVM Neg = 0.339 (contribution: -0.0032)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base NB Neg, Base VADER Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+97
+
+prediction_result:
+correct
+
+review_text:
+"chain isn't the best "fake" quality but the charm is cute and unique. I just put it on another one of my chains."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5694
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0407 (contribution: 0.6046);
+Base RoBERTa Pos = 0.5157 (contribution: 0.303);
+Base NB Pos = 0.5477 (contribution: 0.1283);
+Base NB Neg = 0.1929 (contribution: 0.0844);
+Base SVM Pos = 0.3256 (contribution: 0.0181)
+
+top_opposing_features:
+Base VADER Neu = 0.661 (contribution: -0.0165);
+Base NB Neu = 0.2594 (contribution: -0.0148);
+Base VADER Neg = 0.076 (contribution: -0.0112);
+Base RoBERTa Neu = 0.4436 (contribution: -0.0023)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base NB Neg, Base SVM Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+98
+
+prediction_result:
+correct
+
+review_text:
+"Jean Jules Jusserand (1855 - 1932) was a diplomat, and an author. He was the French ambassador to the United States from 1902 to 1925, and during that time he wrote and published "With Americans of Past and Present Days" (1916) which was the winner of the first Pulitzer Prize in History in 1917. The work was a look at the relations between the United States and France up to that point in time. Just a couple years later, in the midst of World War I, Jusserand published a new edition of his work re-titled "Brothers In Arms", with a new preface, and he replaced his address about Horace Howard Furness with a piece entitled "On Lafayette's Birthday and the Anniversary of the Marne"."With Americans of Past and Present Days" was an unusual work in several ways. Instead of providing a standard complete history of the relationship between the two countries, it is a collection of four essays followed by a piece about speeches given when commemorating the two hundredth anniversary of the Birth of Franklin, and then two addresses, and "Brothers In Arms" replaces one speech with another, and in both cases the majority of the text deals with the period around the birth of the United States.The first, and longest, essay is titled "Rochambeau and the French in America", and covers the relationship between Rochambeau and Washington, as well as the attitudes of the French towards the Americans, and the English, and their motives for helping the United States achieve its independence. It also covers to some extent the biography of Rochambeau after the revolution was over.The second essay is titled "Major L'Enfant and the Federal City" and it covers the creation of Washington D.C. and the significant contribution of Major Pierre Charles L'Enfant. Interestingly enough, though not all of the Major's ideas were implemented initially and the Major was dismissed before the work was completed, he was vindicated when the Park Commission and the Senate committee issued reports on the city in 1902, they wrote "The original plan of the city of Washington having stood the test of a century, has met universal approval. The departures from that plan are to be regretted, and wherever possible, remedied."The third essay is titled "Washington and the French", and covers how Washington's perception of our French allies changed from some initial suspicion, to one of respect, and lasting friendships with the French officers who served under him. Washington never had a chance to visit France, but his record of correspondence is quite clear. One of the most interesting areas was where Washington wrote about the revolution in France:"The Revolution which has been effected in France is of so wonderful a nature that the mind can hardly realize the fact...but I fear, though it has gone triumphantly through the first paroxysm, it is not the last it has to encounter before matters are finally settled. In a word, the revolution is of too great a magnitude to be effected in so short a space, and with the loss of so little blood."Washington was amazingly prescient in his statement, as indeed the initial relatively peaceful revolution would soon turn to a period of terror.The next essay is simply titled "Abraham Lincoln", and it covers the attitudes of the French towards the great man. Just as the French took the cause of liberty to heart during our revolution, they greatly admired Lincoln for his stance against slavery. Jusserand's discussion of the reaction of the French to Lincoln's death really puts into perspective how much they thought of him.Next is a short piece titled "The Franklin Medal" and it discusses the minting of a special commemorative medal on the second centennial of the birth of Benjamin Franklin as a gift to be given to France. The French, of course, were enamored with Franklin and Franklin likewise was a strong supporter of the French. With the earthquake destroying San Francisco at around the same time, the French in return minted a special medal depicting a city rising from the ruins which was given to the mayor in 1909.The first of the two addresses in the revised edition is about Lafayette's Birthday and the Anniversary of the Marne. This is my least favorite section of either the original or the updated edition of the book. Unlike the other sections of the book, this one is more negative, and is really more an attack on Germany than anything else. There is a great deal of talk about France's position as well, but the thoughts about the United States are few and far between. It is understandable that a speech given near the end of a long and bloody conflict could be full of bitterness and hatred of the enemy, but that is all the more reason to not include it here. The new edition was published after the war, but clearly Jusserand had not forgiven the Germans or he would not have included it here. Ultimately it doesn't really fit, though the speech it replaces was also the weakest section of the original edition.Given the period in which this book was written, it should come as no surprise that the final address is about war, or perhaps it would be more accurate to say that it is about peace. Though Jusserand touches on the great conflict of the day, the address is much more about what he sees as the world moving away from wars and towards peace. Obviously, one could point out many ways in which his perception was way off, but in fact the nature of war has indeed changed quite a bit.In the first essay in this book, Jusserand describes how the French forbid their navy to interfere with Captain Cook's exploration in the time of the Revolutionary War. Can one ever imagine an enemy in this day and age doing such a thing? Another point which is driven home in the essay on Rochambeau is how important it was to be perceived as treating one's prisoners well, and once again that no longer appears to be of primary importance. So while Jusserand may not have been correct in seeing war becoming less significant, his perception that its nature had changed would seem to have been proved out by the two World Wars, as well as the conflicts during the Cold War.Overall this is an interesting work of history. It lacks the objectivity that so many look for in a historical text, as Jusserand is very much promoting the strength of the relationship between the two countries. Significant events, such as the Louisiana Purchase are barely mentioned at all, and large gaps exist between what he covers. His choice of subjects for his essays and addresses vary quite a bit as well. The first three essays are very strong pieces, followed by the weaker essay on Lincoln and then the two weakest pieces of the book. I gave the original edition four stars, rounding up, but in this case I am going with three stars because I feel it was weakened by the decision to include the piece on Lafayette and the anniversary of the Marne."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.7684
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base RoBERTa Neu = 0.748 (contribution: 0.217);
+Base VADER Compound = 0.9603 (contribution: 0.2086);
+Base SVM Neu = 0.5228 (contribution: 0.1674);
+Base NB Neu = 0.5847 (contribution: 0.1359);
+Base NB Pos = 0.1981 (contribution: 0.0779)
+
+top_opposing_features:
+Base RoBERTa Neg = 0.0184 (contribution: -0.0366);
+Base NB Neg = 0.2172 (contribution: -0.0233);
+Base VADER Neu = 0.759 (contribution: -0.0001)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base RoBERTa Neu, Base VADER Compound, Base SVM Neu, Base NB Neu, Base NB Pos. The main opposing signal was Base RoBERTa Neg.
+
+====================================================================================================
+
+row_index:
+99
+
+prediction_result:
+correct
+
+review_text:
+"These sit on your ears (they do not "cup" the ears) but are very comfortable. They are not very loud which concerns me."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5343
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.617 (contribution: 0.1521);
+Base VADER Compound = 0.7086 (contribution: 0.1272);
+Base RoBERTa Pos = 0.1323 (contribution: 0.0499);
+Base NB Neg = 0.4791 (contribution: 0.0266);
+Base NB Pos = 0.2728 (contribution: 0.0241)
+
+top_opposing_features:
+Base NB Neu = 0.2481 (contribution: -0.0626);
+Base SVM Neu = 0.2951 (contribution: -0.0554);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base SVM Neg = 0.4225 (contribution: -0.0198);
+Base RoBERTa Neg = 0.2508 (contribution: -0.0108)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Compound, Base RoBERTa Pos, Base NB Neg, Base NB Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+101
+
+prediction_result:
+correct
+
+review_text:
+"Fahrenheit 451 was a disappointing book for a reader who is not an avid science fiction lover. This book is very difficult to read. The correctors a sometimes very confusing to understand. The setting is also very hard to have a visual picture. Although the plot is very good the way that it is described is hard to understand. I think if you are a science fiction lover that you would like this book. But if you sometimes like to read science fiction you will not like this because you have to be a huge science fiction lover to like this. I also think you need to be above the 6th grade or a very advanced reader."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4956
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.5953 (contribution: 0.4578);
+Base RoBERTa Pos = 0.0384 (contribution: 0.4552);
+Base SVM Pos = 0.2379 (contribution: 0.1025);
+Base NB Neg = 0.5468 (contribution: 0.0797);
+Base NB Neu = 0.2779 (contribution: 0.0569)
+
+top_opposing_features:
+Base VADER Compound = 0.9711 (contribution: -0.2267);
+Base RoBERTa Neu = 0.3663 (contribution: -0.0269);
+Base NB Pos = 0.1753 (contribution: -0.0248)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base NB Neg, Base NB Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+102
+
+prediction_result:
+correct
+
+review_text:
+"This book is one of the worst I have ever started to read ("started" because I couldn't finish it). At first glance, the plot sounds interesting; but upon actually reading the text, it is lost in a miasma of cardboard characters and uninteresting subplots. The author goes on at great length about a wholly unbelievable technology (which allows one person to experience another's experiences), much to the detriment of the story. On top of this poor organization, the writing itself is amateurish -- not at all helped by being entirely in present tense, as if the author is hoping to distract the reader from the weak plot and characters. There have been very few books which I've started and been unwilling to finish, but this is one of them."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8763
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.894 (contribution: 1.0117);
+Base RoBERTa Pos = 0.0077 (contribution: 0.5012);
+Base VADER Compound = -0.6364 (contribution: 0.3294);
+Base SVM Neg = 0.4825 (contribution: 0.1153);
+Base RoBERTa Neu = 0.0982 (contribution: 0.1012)
+
+top_opposing_features:
+Base NB Pos = 0.164 (contribution: -0.0269);
+Base SVM Neu = 0.266 (contribution: -0.0106);
+Base VADER Pos = 0.104 (contribution: -0.0095)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Neg, Base RoBERTa Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+103
+
+prediction_result:
+correct
+
+review_text:
+"I read this book years ago. It had a great plot but it got a bit silly in parts. Read it if you don't have anything better on hand. It was okay."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.563
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base VADER Compound = 0.7384 (contribution: 0.1368);
+Base RoBERTa Neu = 0.5301 (contribution: 0.109);
+Base NB Pos = 0.2259 (contribution: 0.0579);
+Base NB Neg = 0.5289 (contribution: 0.0361);
+Base RoBERTa Pos = 0.2262 (contribution: 0.0275)
+
+top_opposing_features:
+Base NB Neu = 0.2452 (contribution: -0.0643);
+Base VADER Pos = 0.276 (contribution: -0.0342);
+Base SVM Neu = 0.3264 (contribution: -0.0247);
+Base RoBERTa Neg = 0.2438 (contribution: -0.0116);
+Base SVM Pos = 0.3253 (contribution: -0.0041)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base NB Pos, Base NB Neg, Base RoBERTa Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+106
+
+prediction_result:
+correct
+
+review_text:
+"These hats would have been much warmer with a inner liner of fleece. Otherwise these are good."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5741
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0699 (contribution: 0.5473);
+Base RoBERTa Pos = 0.493 (contribution: 0.2636);
+Base NB Pos = 0.4882 (contribution: 0.0967);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base NB Neg = 0.2495 (contribution: 0.0518)
+
+top_opposing_features:
+Base NB Neu = 0.2623 (contribution: -0.0144);
+Base SVM Neg = 0.3526 (contribution: -0.0107);
+Base VADER Neu = 0.733 (contribution: -0.0054);
+Base RoBERTa Neu = 0.4371 (contribution: -0.0022)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base VADER Neg, Base NB Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+108
+
+prediction_result:
+correct
+
+review_text:
+"Wow. I expected better. Is it Cornwell or his wife that just doesn't get us to that place we have come to expect from Cornwell. Trite might be a description. Forgetable is probably what I am going to be left with on this one.The period is one of my favorites, it is the dawn of the regency era, when the terror is taking over France. Great we have seen this in before in such works as Dickens, A Tale of Two Cities, and in the Scarlett Pimpernel.With those classic examples, Cornwell should know that he has do as well as they, or better. He doesn't. We have a little princess of a heroine whose backbone is forced upon us. We have a transparent villian, and we have a hero who really shines as hero only through the mist colored eyes of a romance novel. So what is a novel from one of the premier historical novelists is rally a romance with a thin veneer of historical laced on it.Better has been done elsewhere. Can be skipped."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6022
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.9859 (contribution: 0.2169);
+Base RoBERTa Neu = 0.5563 (contribution: 0.122);
+Base NB Neu = 0.42 (contribution: 0.0388);
+Base RoBERTa Pos = 0.1887 (contribution: 0.0364);
+Base SVM Pos = 0.2523 (contribution: 0.0254)
+
+top_opposing_features:
+Base NB Pos = 0.3524 (contribution: -0.0333);
+Base NB Neg = 0.2276 (contribution: -0.0214);
+Base VADER Neg = 0.042 (contribution: -0.0187);
+Base VADER Pos = 0.208 (contribution: -0.0127);
+Base SVM Neg = 0.3873 (contribution: -0.012)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base NB Neu, Base RoBERTa Pos, Base SVM Pos. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+109
+
+prediction_result:
+correct
+
+review_text:
+"Have read a good third of the book so far. Story is usually fine and moves right along, is humorous at times even--which is o.k.; the thing that bugs this reader is the fact the author seems to slow things down now and then whenever he attempts to cram his political views down the reader's throat. I don't mind messages in small doses, but to stop your narrative and get on a soap box and start preaching is just plain stupid and bothersome and does not work. Rocky is a good word to describe this tale. On the other hand, I loved Cottonpickers. Your money, your choice."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.626
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base VADER Compound = 0.8074 (contribution: 0.1591);
+Base NB Neu = 0.5768 (contribution: 0.1312);
+Base NB Pos = 0.1979 (contribution: 0.078);
+Base RoBERTa Pos = 0.1021 (contribution: 0.0571);
+Base RoBERTa Neu = 0.4249 (contribution: 0.0569)
+
+top_opposing_features:
+Base NB Neg = 0.2253 (contribution: -0.0218);
+Base SVM Neg = 0.3681 (contribution: -0.0077);
+Base VADER Neu = 0.762 (contribution: -0.0001)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base VADER Compound, Base NB Neu, Base NB Pos, Base RoBERTa Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+110
+
+prediction_result:
+correct
+
+review_text:
+"Was nice and appropriate for a costume party. I got with the purple lining - matched my costume and highlights."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7786
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8997 (contribution: 0.9711);
+Base RoBERTa Neg = 0.004 (contribution: 0.6768);
+Base NB Pos = 0.4243 (contribution: 0.0628);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Neu = 0.3209 (contribution: 0.0339)
+
+top_opposing_features:
+Base SVM Neg = 0.3728 (contribution: -0.0218);
+Base SVM Pos = 0.3063 (contribution: -0.0153);
+Base NB Neu = 0.2928 (contribution: -0.0096);
+Base VADER Neu = 0.732 (contribution: -0.0056)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base VADER Neg, Base SVM Neu. The main opposing signal was Base SVM Neg.
+
+====================================================================================================
+
+row_index:
+111
+
+prediction_result:
+correct
+
+review_text:
+"This first (outside) later I'd this shirt is made of sheer fabric. The second layer is only a half shirt, so it looks ridiculous. Why not make the first layer the length of a full shirt?"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7655
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7888 (contribution: 0.8166);
+Base RoBERTa Pos = 0.0158 (contribution: 0.489);
+Base VADER Compound = -0.4144 (contribution: 0.2526);
+Base SVM Pos = 0.1935 (contribution: 0.1614);
+Base SVM Neg = 0.4951 (contribution: 0.1251)
+
+top_opposing_features:
+Base NB Neu = 0.4769 (contribution: -0.0915);
+Base VADER Neu = 0.923 (contribution: -0.0258);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2019 (contribution: -0.0197);
+Base NB Neg = 0.3212 (contribution: -0.0071)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base SVM Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+113
+
+prediction_result:
+correct
+
+review_text:
+"Too light and cheap feeling"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.736
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7824 (contribution: 0.8046);
+Base RoBERTa Pos = 0.0179 (contribution: 0.4859);
+Base VADER Compound = 0.128 (contribution: 0.0649);
+Base RoBERTa Neu = 0.1997 (contribution: 0.0527);
+Base NB Neu = 0.3179 (contribution: 0.0271)
+
+top_opposing_features:
+Base SVM Pos = 0.3196 (contribution: -0.006);
+Base VADER Neg = 0.0 (contribution: -0.0042);
+Base SVM Neu = 0.3216 (contribution: -0.0037);
+Base NB Pos = 0.2966 (contribution: -0.0018)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neu. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+114
+
+prediction_result:
+correct
+
+review_text:
+"If a industrial cleaner never do a good job. what you expect from kiddy model"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7388
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7564 (contribution: 0.7566);
+Base RoBERTa Pos = 0.0163 (contribution: 0.4884);
+Base VADER Compound = -0.1793 (contribution: 0.1712);
+Base NB Neu = 0.2364 (contribution: 0.0879);
+Base NB Neg = 0.5123 (contribution: 0.0664)
+
+top_opposing_features:
+Base SVM Pos = 0.3466 (contribution: -0.0418);
+Base NB Pos = 0.2513 (contribution: -0.0104);
+Base VADER Pos = 0.113 (contribution: -0.0082);
+Base SVM Neu = 0.3164 (contribution: -0.0044)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base NB Neu, Base NB Neg. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+115
+
+prediction_result:
+correct
+
+review_text:
+"This outfit does not look like the picture they promote it to look like. I'm very disappointed."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.865
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9321 (contribution: 1.0823);
+Base RoBERTa Pos = 0.0069 (contribution: 0.5024);
+Base VADER Compound = -0.614 (contribution: 0.3216);
+Base SVM Pos = 0.2152 (contribution: 0.1326);
+Base RoBERTa Neu = 0.061 (contribution: 0.119)
+
+top_opposing_features:
+Base NB Pos = 0.1618 (contribution: -0.0273);
+Base VADER Pos = 0.112 (contribution: -0.0083)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base RoBERTa Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+117
+
+prediction_result:
+correct
+
+review_text:
+"Best bookbag I ever had. Great price and great material."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.873
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9641 (contribution: 1.0832);
+Base RoBERTa Neg = 0.0045 (contribution: 0.6759);
+Base SVM Pos = 0.4258 (contribution: 0.1916);
+Base VADER Pos = 0.674 (contribution: 0.0846);
+Base NB Pos = 0.464 (contribution: 0.0839)
+
+top_opposing_features:
+Base VADER Neu = 0.326 (contribution: -0.0679);
+Base NB Neu = 0.3281 (contribution: -0.0041)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base VADER Pos, Base NB Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+121
+
+prediction_result:
+correct
+
+review_text:
+"material not as expected. very cheap looking and didnt look cute as on photo"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6863
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8313 (contribution: 0.8953);
+Base RoBERTa Pos = 0.0124 (contribution: 0.4942);
+Base VADER Compound = -0.357 (contribution: 0.2327);
+Base SVM Pos = 0.2566 (contribution: 0.0776);
+Base RoBERTa Neu = 0.1564 (contribution: 0.0735)
+
+top_opposing_features:
+Base NB Neu = 0.5668 (contribution: -0.1586);
+Base NB Neg = 0.2276 (contribution: -0.0431);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2056 (contribution: -0.019);
+Base VADER Neu = 0.84 (contribution: -0.0119)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+123
+
+prediction_result:
+correct
+
+review_text:
+"Mr. Pullman is quite possibly the most gifted writer to ever walk the earth. His talent for words is incredibly. The finly woven characters in The Subtle Knife are exquisite. I believe that people will remember His Dark Materials as we remember Dickens or Twain. I know that some of you disagree with Mr. Pullmans religeos veiws in this book but he is doing what few writers have ever dared and you should appreciate it and not be so uptight."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.6192
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8001 (contribution: 0.7978);
+Base RoBERTa Neg = 0.0181 (contribution: 0.6491);
+Base SVM Pos = 0.3348 (contribution: 0.034);
+Base VADER Neu = 0.862 (contribution: 0.0144);
+Base SVM Neu = 0.3392 (contribution: 0.0138)
+
+top_opposing_features:
+Base NB Neg = 0.5953 (contribution: -0.1472);
+Base NB Pos = 0.1723 (contribution: -0.0712);
+Base NB Neu = 0.2324 (contribution: -0.0191);
+Base VADER Pos = 0.064 (contribution: -0.0174);
+Base VADER Compound = -0.2262 (contribution: -0.0121)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base VADER Neu, Base SVM Neu. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+124
+
+prediction_result:
+correct
+
+review_text:
+"This is the second band (silver/gold) that I have ordered and they generally seem to last about a year. No complaints about that, as I wear it every day. I agree with some of the other raters in that a tool should have been included to do the adjustment. I had one left over from the last band I ordered, and it broke because the pins in the band were in so tight. So, along with the others, I will need to take this to a jeweler to adjust. This band is huge and it should be disclosed that the buyer will need (most likely) to get the band adjusted."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6255
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base SVM Neu = 0.5726 (contribution: 0.2161);
+Base RoBERTa Neu = 0.6259 (contribution: 0.1565);
+Base NB Neu = 0.5727 (contribution: 0.1288);
+Base NB Pos = 0.1987 (contribution: 0.0774);
+Base RoBERTa Pos = 0.1065 (contribution: 0.056)
+
+top_opposing_features:
+Base VADER Compound = -0.4404 (contribution: -0.2447);
+Base NB Neg = 0.2286 (contribution: -0.0212);
+Base RoBERTa Neg = 0.2676 (contribution: -0.009)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base SVM Neu, Base RoBERTa Neu, Base NB Neu, Base NB Pos, Base RoBERTa Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+125
+
+prediction_result:
+correct
+
+review_text:
+"Until Thomas L. Thompson's "The Mythic Past," this was the best (and still the briefest) read on the essential history behind the stories that inspire us. While the author questions orthodox (fundamentalist) interpretations (where do YOU draw the line between mythic truth and historical accuracy -- Adam & Eve? the Patriarchs? Moses? David & Solomon? Josiah?... you get the picture) it in no way interferes with a devout appreciation of the scriptures, or with a contemporary concern for the political integrity of the Holy Land, etc. Worth tracking down if you're interested in the subject."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5878
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0177 (contribution: 0.6499);
+Base RoBERTa Pos = 0.6334 (contribution: 0.5079);
+Base NB Neg = 0.217 (contribution: 0.0705);
+Base SVM Pos = 0.3547 (contribution: 0.0686);
+Base SVM Neu = 0.2966 (contribution: 0.0607)
+
+top_opposing_features:
+Base NB Pos = 0.2099 (contribution: -0.0512);
+Base SVM Neg = 0.3487 (contribution: -0.0085);
+Base RoBERTa Neu = 0.3489 (contribution: -0.0007)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neg, Base SVM Pos, Base SVM Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+126
+
+prediction_result:
+correct
+
+review_text:
+"THIS REVIEW IS NOT BASED UPON CONTENT OF BOOK - I thought this would be great to have on Kindle, so I could access it wherever I might be (visiting friends, on vacation or discussing cooking w/ others). Unfortunately, as a reference book, this publication on Kindle simply doesn't work. In fact, it's extremely frustrating. The otherwise logical linking of content (not unusual for a cookbook) - for example, a recipe for marinade referenced in a recipe for a certain cut of meat - cannot be accessed in any reasonable way. The text references page numbers, which are absent from the Kindle. There could be embedded links to take a reader to the referenced material, but there are no links in this. Even trying to do a word search is very frustrating as you may find a number of results and there is no easy way to determine which of the results is related to what you are seeking. In sum, a waste of money. My confession: this is the first reference-type book I've tried on Kindle, so perhaps this deficiency in the product / application is well-known, but I naively thought that such a common use of hot links would be an obvious tool to make the Kindle presentation of the book superior even to the paper version. Alas, that opportunity is not realized with this."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8711
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8801 (contribution: 0.9859);
+Base RoBERTa Pos = 0.0096 (contribution: 0.4984);
+Base SVM Neg = 0.6214 (contribution: 0.2226);
+Base VADER Compound = -0.1744 (contribution: 0.1696);
+Base SVM Pos = 0.2131 (contribution: 0.1352)
+
+top_opposing_features:
+Base NB Pos = 0.1627 (contribution: -0.0271);
+Base SVM Neu = 0.1655 (contribution: -0.023);
+Base VADER Pos = 0.085 (contribution: -0.0123);
+Base VADER Neu = 0.824 (contribution: -0.0093)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Neg, Base VADER Compound, Base SVM Pos. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+127
+
+prediction_result:
+correct
+
+review_text:
+"Nice head sett"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5167
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0701 (contribution: 0.547);
+Base RoBERTa Pos = 0.5398 (contribution: 0.3449);
+Base VADER Pos = 0.583 (contribution: 0.0694);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Neu = 0.338 (contribution: 0.0151)
+
+top_opposing_features:
+Base VADER Neu = 0.417 (contribution: -0.0539);
+Base SVM Pos = 0.3008 (contribution: -0.0247);
+Base SVM Neg = 0.3612 (contribution: -0.0154);
+Base NB Pos = 0.2937 (contribution: -0.0067);
+Base RoBERTa Neu = 0.3902 (contribution: -0.0014)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Pos, Base VADER Neg, Base SVM Neu. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+130
+
+prediction_result:
+correct
+
+review_text:
+"She wore these 3 times and they already ripped/broke. Tried to return/exchange and wasn't allowed to. My daughter is so upset as this was her favorite Christmas present."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7646
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8041 (contribution: 0.845);
+Base RoBERTa Pos = 0.019 (contribution: 0.4843);
+Base VADER Compound = -0.0941 (contribution: 0.1418);
+Base SVM Pos = 0.2199 (contribution: 0.1262);
+Base NB Neg = 0.536 (contribution: 0.0756)
+
+top_opposing_features:
+Base NB Pos = 0.186 (contribution: -0.0227);
+Base VADER Pos = 0.096 (contribution: -0.0107);
+Base VADER Neu = 0.797 (contribution: -0.0048)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base NB Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+132
+
+prediction_result:
+correct
+
+review_text:
+"The Swann camera is a good security system for either home or business uses. The system has a few hiccups - the motion sensor among them -- but is value priced and simple to use. The included 2GB SD card can record up to 3 hours of continuous footage. I recommend you upgrade to the 32GB SD card, which can handle up to two days of continuous recording. I won't repeat the issues addressed by other reviewers. Although, the motion sensor is temperamental, so expect to spend a bit longer than you might have wanted for the initial configuration. The Swann website offers these installation tips: * For best results do NOT point the camera towards a light source such as the sun or light. * Also do not have the camera in a shaded area looking out into a well lit area as this will display poor results. Example: If the camera is hidden in a mailbox, because the mailbox is dark inside the camera sensor will try to adjust according to the available light. But if outside the mailbox there is good light like sunshine, you will get poor results. The light to the camera sensor in the front of the camera needs to be the same as the light at the focal target for best results. * Power for Wired and Wireless Cameras, both types of cameras require a power source, although the camera maybe weatherproof the connections to the AV cable and power adapter are not. Please make sure that these connections are in a water or moisture free environment. * Over time the lens or front case glass may become dirty, please use a lint free cloth to clean both. Similar cloth that would be used to clean a CD Disc. * Power adapters: all power adapters are for indoor use only and must be shielded from outdoor elements. When using an outdoor camera, please use extension cords to power the camera and keep cables away from the outdoor elements. * When installing the camera, before screwing in the mounting bracket, check the image on the screen to see if the picture is clear from direct sun or light. In summary, with proper set-up, the Swann SWA43-D6C12 Digital Wireless Camera and 4 Channel SD Recorder works better than the Defender Alarm Clock DVR with Built-in Color Pinhole Camera, another security system I tested as part of the Amazon Vine Program. Rating: Three stars."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5322
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.994 (contribution: 0.2195);
+Base NB Neu = 0.5838 (contribution: 0.1354);
+Base SVM Pos = 0.0851 (contribution: 0.093);
+Base NB Pos = 0.1982 (contribution: 0.0778);
+Base RoBERTa Neu = 0.4383 (contribution: 0.0635)
+
+top_opposing_features:
+Base SVM Neu = 0.17 (contribution: -0.1777);
+Base SVM Neg = 0.745 (contribution: -0.0911);
+Base RoBERTa Pos = 0.5059 (contribution: -0.0392);
+Base RoBERTa Neg = 0.0558 (contribution: -0.0325);
+Base NB Neg = 0.218 (contribution: -0.0232)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base NB Neu, Base SVM Pos, Base NB Pos, Base RoBERTa Neu. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+133
+
+prediction_result:
+correct
+
+review_text:
+"Granddaughter loves itMy granddaughter is 5 and is tall for her age.We got a 4 and it fits perfect"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8672
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9643 (contribution: 1.0835);
+Base RoBERTa Neg = 0.003 (contribution: 0.6788);
+Base NB Pos = 0.5922 (contribution: 0.152);
+Base NB Neg = 0.1761 (contribution: 0.0941);
+Base SVM Pos = 0.3657 (contribution: 0.0875)
+
+top_opposing_features:
+Base NB Neu = 0.2318 (contribution: -0.0191);
+Base VADER Neu = 0.654 (contribution: -0.0175)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base NB Neg, Base SVM Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+134
+
+prediction_result:
+correct
+
+review_text:
+"The sound quality was terrible. The headsets themselves felt great and durable"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6486
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6609 (contribution: 0.5795);
+Base RoBERTa Pos = 0.0426 (contribution: 0.4489);
+Base NB Neu = 0.2534 (contribution: 0.0753);
+Base NB Neg = 0.5092 (contribution: 0.0653);
+Base SVM Neg = 0.3823 (contribution: 0.0379)
+
+top_opposing_features:
+Base NB Pos = 0.2374 (contribution: -0.013);
+Base SVM Neu = 0.3271 (contribution: -0.003)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Neu, Base NB Neg, Base SVM Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+135
+
+prediction_result:
+correct
+
+review_text:
+"Not all wool as title implies. Very cheaply made."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6274
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6411 (contribution: 0.5427);
+Base RoBERTa Pos = 0.0243 (contribution: 0.4763);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base NB Neu = 0.3 (contribution: 0.0405);
+Base NB Neg = 0.3714 (contribution: 0.0122)
+
+top_opposing_features:
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Pos = 0.331 (contribution: -0.021);
+Base RoBERTa Neu = 0.3346 (contribution: -0.0117);
+Base VADER Neg = 0.0 (contribution: -0.0042)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base NB Neu, Base NB Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+138
+
+prediction_result:
+correct
+
+review_text:
+"This book started with a bang and got me hooked. It is a very interesting premise and the accounts that Gladwell started with were relevant and powerful in illustrating his thesis. Halfway through the book, the different stories Gladwell included become less and less pertinent to his central thesis. The point becomes really diffuse in the second half of the book and he almost lost my interest. One of the stars in my rating is from the fact that it is a decent effort and an interesting premise, but could be executed better to maintain readers' interest."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6174
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base VADER Compound = 0.9138 (contribution: 0.1936);
+Base NB Neu = 0.5838 (contribution: 0.1353);
+Base RoBERTa Neu = 0.5353 (contribution: 0.1116);
+Base NB Pos = 0.1989 (contribution: 0.0773);
+Base RoBERTa Pos = 0.2708 (contribution: 0.0169)
+
+top_opposing_features:
+Base VADER Neg = 0.014 (contribution: -0.0427);
+Base NB Neg = 0.2174 (contribution: -0.0233);
+Base RoBERTa Neg = 0.1939 (contribution: -0.0171);
+Base SVM Pos = 0.346 (contribution: -0.0125);
+Base SVM Neu = 0.3413 (contribution: -0.0101)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base VADER Compound, Base NB Neu, Base RoBERTa Neu, Base NB Pos, Base RoBERTa Pos. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+139
+
+prediction_result:
+correct
+
+review_text:
+"The cable works great and I'm very pleased with the purchase. Works exactly as described for the classic Xbox."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8948
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9717 (contribution: 1.0963);
+Base RoBERTa Neg = 0.0032 (contribution: 0.6785);
+Base SVM Pos = 0.4478 (contribution: 0.2298);
+Base NB Pos = 0.602 (contribution: 0.1572);
+Base NB Neg = 0.1744 (contribution: 0.0951)
+
+top_opposing_features:
+Base NB Neu = 0.2236 (contribution: -0.0204);
+Base VADER Neu = 0.7 (contribution: -0.0105)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base NB Pos, Base NB Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+141
+
+prediction_result:
+correct
+
+review_text:
+"The Lorex LW2731 package comes with a 7 inch full colour LCD monitor and one security camera. The monitor is a bit on the small side coming in at 7 inches but supports up to 4 video feeds. The camera is also a tad on the largish side measuring around 4 inches (much larger than a webcam) but has built in LED lights for illumination. When I received this unit I thought I would set up the camera at the front of my house on the porch overhang pointing at my front door. This proved to be a bit of a pain in that both the camera and the monitor require mains power (no battery option). The power adapter for the camera, although it has a fairly generous amount of chord, was not enough to put the camera where I wanted so I had to rethink. Another problem with this is that you end up having to drill a hole through your wall in which to put the power cable, so not a quick easy solution. This leads me to another point. If a thief or whomever is determined to break into your house, then its a very simple case of just having to snip the wire and the camera won't work. It would have been much better for the camera at least to run off batteries. The wireless part of this unit is the video feed from the camera to the monitor, not the monitor to your home network. You have the ability to view the camera feed over skype (a good option) so that you can see your video feeds from anyplace, however in order to do this you must hook the monitor into your computer (cable supplied) and leave your computer running all the time (you must also remember to turn off power saving features on your computer). The video quality that the camera transmits is excellent. Better than some of the security camera footage you see on the news and the camera works very well whether in bright light or with the aid of the built in LEDs and sensor at night. The range of the wireless feed seems to be good. I couldn't find anyplace in my 3 story house where I couldn't pick up the video feed, even when I placed the camera in the top corner of a bedroom on the top floor and took the monitor down to the opposite corner of my bottom floor, so it was travelling a fair distance and through a lot of wood and concrete. If you are thinking of buying this unit to monitor the outside of your house (which I think most people would), then be prepared to have to do some work and drill holes in your walls to do this. Also be prepared to have to rethink where you wish to put the camera due to the power cables length. This is a major shortcoming of this unit in my opinion. If you are just looking to monitor the inside of your house or small business then this unit will work great, with the addition of some extra cameras. Overall then, a good security system once setup but has some fairly big flaws."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5615
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base VADER Compound = 0.9949 (contribution: 0.2198);
+Base RoBERTa Neu = 0.6247 (contribution: 0.1559);
+Base NB Neu = 0.5806 (contribution: 0.1335);
+Base SVM Pos = 0.0823 (contribution: 0.0942);
+Base NB Pos = 0.2023 (contribution: 0.0749)
+
+top_opposing_features:
+Base SVM Neu = 0.1143 (contribution: -0.2322);
+Base SVM Neg = 0.8034 (contribution: -0.1041);
+Base VADER Neg = 0.034 (contribution: -0.0256);
+Base NB Neg = 0.2171 (contribution: -0.0234);
+Base RoBERTa Neg = 0.3071 (contribution: -0.0046)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base NB Neu, Base SVM Pos, Base NB Pos. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+144
+
+prediction_result:
+correct
+
+review_text:
+"The Wheel of Time had a a lot of momentum in the first 4 or 5 books, but 6-8 are slow-paced at best. Thats not necissarily a bad thing though. There were not really any dull moments that I could find, it's just that detail fills up so much of the book that the plot progresses slowly. If you like Jordan's characters, you will be interested enough to read through the book and find out what happens to them. Overall, its a decent book, just don't expect a whole lot to happen in it."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.569
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Base VADER Compound = 0.9664 (contribution: 0.2106);
+Base NB Neu = 0.5618 (contribution: 0.1224);
+Base RoBERTa Neu = 0.5212 (contribution: 0.1046);
+Base NB Pos = 0.1978 (contribution: 0.0781);
+Base SVM Neu = 0.4097 (contribution: 0.0568)
+
+top_opposing_features:
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base RoBERTa Neg = 0.0455 (contribution: -0.0336);
+Base RoBERTa Pos = 0.4333 (contribution: -0.0219);
+Base NB Neg = 0.2405 (contribution: -0.0189);
+Base VADER Pos = 0.195 (contribution: -0.0086)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Base VADER Compound, Base NB Neu, Base RoBERTa Neu, Base NB Pos, Base SVM Neu. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+145
+
+prediction_result:
+correct
+
+review_text:
+"great concept but such a pain to program and get songs onto the thing. I returned"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5441
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.1243 (contribution: 0.3261);
+Base VADER Compound = -0.4404 (contribution: 0.2616);
+Base RoBERTa Neg = 0.4011 (contribution: 0.0977);
+Base NB Neu = 0.2603 (contribution: 0.0701);
+Base NB Neg = 0.4624 (contribution: 0.0472)
+
+top_opposing_features:
+Base RoBERTa Neu = 0.4746 (contribution: -0.0786);
+Base NB Pos = 0.2773 (contribution: -0.0055);
+Base VADER Pos = 0.134 (contribution: -0.005);
+Base SVM Neu = 0.3383 (contribution: -0.0017)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neg, Base NB Neu, Base NB Neg. The main opposing signal was Base RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+147
+
+prediction_result:
+correct
+
+review_text:
+"I recieved this book for a Christmas present .I haven't read it but know the person I got it for will enjoy it. I got it on time really before I exspected it .Good service .I think if you want something fast you should order from this company."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7104
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9005 (contribution: 0.9725);
+Base RoBERTa Neg = 0.0081 (contribution: 0.6688);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Neu = 0.3223 (contribution: 0.0324);
+Base VADER Compound = 0.8625 (contribution: 0.0122)
+
+top_opposing_features:
+Base NB Neg = 0.4807 (contribution: -0.0812);
+Base SVM Neg = 0.3701 (contribution: -0.0203);
+Base NB Neu = 0.2385 (contribution: -0.0181);
+Base NB Pos = 0.2808 (contribution: -0.0135);
+Base SVM Pos = 0.3076 (contribution: -0.013)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Neg, Base SVM Neu, Base VADER Compound. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+148
+
+prediction_result:
+correct
+
+review_text:
+"Public Reviews Written by YouReviewer Rank: 35 Page: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11-20pixelThe Great and Secret Show: the First Book of Art by Clive BarkerEdition: Unknown BindingAvailability: This item is currently unavailable.Not Really For Me, 17 Jun 2007Clive Barker was born in 1952 and he is the best-selling author of a large number of books, including his first book for children, The Thief of Always. He is also an acclaimed artist, film producer, and director. For four years Mr, Barker has been working on a vast array of paintings to illuminate the text of The Books Of Abarat, over one hundred of which can be found within this first volume.Mr. Barker lives in California with his partner, the photographer David Armstrong, and their daughter, Nicole. They share their house with four dogs, five goldfish, a parrot and a large number of other pets of all shapes and sizes.This book is a fantasy novel and describes a race against time to try to find the secret of "The Art" - a state of being or consciousness which allows its owner to transcend their humanity and enter into a heightened spiritual state - between Fletcher and the evil-intentioned Jaffe.I had heard such good things about this author that I felt I really ought to get round to reading one of his books. I can understand the attraction of the book, but it was not really my kind of thing. That is not to say that someone interested in this type of book would not find it a page turner and I am certainly not going to start to criticise the book until I have read other offerings from the author. Suffice to say it just did not do it for me."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5254
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Base VADER Compound = 0.8248 (contribution: 0.1648);
+Base RoBERTa Neu = 0.6331 (contribution: 0.1601);
+Base NB Pos = 0.1691 (contribution: 0.0988);
+Base NB Neg = 0.5626 (contribution: 0.0426);
+Base VADER Pos = 0.066 (contribution: 0.0322)
+
+top_opposing_features:
+Base SVM Neu = 0.1781 (contribution: -0.1698);
+Base NB Neu = 0.2682 (contribution: -0.0507);
+Base VADER Neg = 0.021 (contribution: -0.0367);
+Base SVM Neg = 0.4848 (contribution: -0.0336);
+Base RoBERTa Neg = 0.0676 (contribution: -0.0312)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from VADER. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base NB Pos, Base NB Neg, Base VADER Pos. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+151
+
+prediction_result:
+correct
+
+review_text:
+"The neckline sags and will not lay flat. I am 5-4, 130#. The neckline sag in a really weird way, not just like it was too big. The pic from another review showing the sagging neckline is how mine fit. The arms are way too tight. Too bad I missed the return window. :\"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8503
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8478 (contribution: 0.9259);
+Base RoBERTa Pos = 0.0101 (contribution: 0.4977);
+Base VADER Compound = -0.8226 (contribution: 0.3938);
+Base NB Neg = 0.5732 (contribution: 0.0899);
+Base RoBERTa Neu = 0.1422 (contribution: 0.0802)
+
+top_opposing_features:
+Base NB Pos = 0.1734 (contribution: -0.0251);
+Base VADER Pos = 0.042 (contribution: -0.0187);
+Base SVM Neu = 0.3096 (contribution: -0.0052)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base NB Neg, Base RoBERTa Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+154
+
+prediction_result:
+correct
+
+review_text:
+"I really hate that at the top of the lens, the manufacturers name is written. Makes them looks cheap. They should have printed it along the sides on the plastic where it is not as noticeable. I guess you get what you pay for."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8029
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9018 (contribution: 1.0261);
+Base RoBERTa Pos = 0.0068 (contribution: 0.5026);
+Base VADER Compound = -0.5563 (contribution: 0.3017);
+Base SVM Pos = 0.2215 (contribution: 0.1242);
+Base RoBERTa Neu = 0.0914 (contribution: 0.1045)
+
+top_opposing_features:
+Base NB Neu = 0.5357 (contribution: -0.1354);
+Base NB Neg = 0.2666 (contribution: -0.0281);
+Base NB Pos = 0.1977 (contribution: -0.0205);
+Base VADER Pos = 0.039 (contribution: -0.0192);
+Base VADER Neu = 0.844 (contribution: -0.0126)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base RoBERTa Neu. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+155
+
+prediction_result:
+correct
+
+review_text:
+"Sure, it bows out the side of my NZXT Tempest, but this heatsink cannot be beat. Plus, it looks great - really stands out amongst the (sadly not yet dead) trend of flashy blue LEDs."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.635
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8705 (contribution: 0.9203);
+Base RoBERTa Neg = 0.0154 (contribution: 0.6543);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Neu = 0.3089 (contribution: 0.0471);
+Base VADER Compound = 0.8074 (contribution: 0.0109)
+
+top_opposing_features:
+Base NB Neg = 0.5662 (contribution: -0.1304);
+Base SVM Pos = 0.2666 (contribution: -0.0839);
+Base NB Pos = 0.1928 (contribution: -0.0603);
+Base SVM Neg = 0.4245 (contribution: -0.0503);
+Base NB Neu = 0.241 (contribution: -0.0177)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Neg, Base SVM Neu, Base VADER Compound. The main opposing signal was Base NB Neg.
+
+====================================================================================================
+
+row_index:
+158
+
+prediction_result:
+correct
+
+review_text:
+"My shirt showed up smelling of fish/ mildew covered in actual mold i was able to wash it and remove the smell but material is cheap quality very thin"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7247
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8633 (contribution: 0.9548);
+Base RoBERTa Pos = 0.0079 (contribution: 0.501);
+Base VADER Compound = 0.0 (contribution: 0.1092);
+Base RoBERTa Neu = 0.1288 (contribution: 0.0866);
+Base SVM Pos = 0.272 (contribution: 0.0572)
+
+top_opposing_features:
+Base NB Neu = 0.4953 (contribution: -0.1053);
+Base VADER Neu = 1.0 (contribution: -0.0386);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Neg = 0.2783 (contribution: -0.0236);
+Base NB Pos = 0.2263 (contribution: -0.0151)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base SVM Pos. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+159
+
+prediction_result:
+correct
+
+review_text:
+"Very thin, some raffles"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5244
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.7051 (contribution: 0.1957);
+Base RoBERTa Pos = 0.0767 (contribution: 0.0631);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base NB Pos = 0.2698 (contribution: 0.0262);
+Base NB Neg = 0.3757 (contribution: 0.0069)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base SVM Neu = 0.3271 (contribution: -0.024);
+Base RoBERTa Neg = 0.2182 (contribution: -0.0144);
+Base SVM Neg = 0.3543 (contribution: -0.0047)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base RoBERTa Pos, Base VADER Pos, Base NB Pos, Base NB Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+161
+
+prediction_result:
+correct
+
+review_text:
+"This book was awful! The writing was very well done, but the plot was terrible. I really hated this book and it's the last one I read by John Saul. This one really did me in. It is about the occult and family curses and a Ouija board. It definitely made an impression on me. It's about the Conger family curse. Their youngest daughter, Sarah, was looked on as being mentally ill simply because she had been so traumatized she couldn't talk; when really, the older daughter, Elizabeth, was the one that belonged in the Looney bin. She killed three kids and her pet cat and played tea party with them and a skeleton in a cave shaft. Sarah saw everything she did but couldn't talk so tried in other ways to tell her parents what was going on but they didn't get it and blamed her for things. Sarah was institutionalized for 15 years! The ending is awful too. It's just sad and depressing from cover to cover and never gets better. I wouldn't recommend this to anyone!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8525
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9236 (contribution: 1.0665);
+Base RoBERTa Pos = 0.0053 (contribution: 0.5048);
+Base VADER Compound = -0.9927 (contribution: 0.4526);
+Base RoBERTa Neu = 0.0711 (contribution: 0.1142);
+Base NB Neg = 0.5636 (contribution: 0.0862)
+
+top_opposing_features:
+Base SVM Neg = 0.2491 (contribution: -0.065);
+Base NB Pos = 0.175 (contribution: -0.0248);
+Base VADER Pos = 0.064 (contribution: -0.0154)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neg. The main opposing signal was Base SVM Neg.
+
+====================================================================================================
+
+row_index:
+162
+
+prediction_result:
+correct
+
+review_text:
+"This is not Sklansky's best work. The books does have 2 or 3 good concepts but the rest of the book is vague. I wish he had combined this useful info in another book. The rest of the book is junk, with some filler quizes and crap advice. I mean geesh...his discussion on final table play is horrible."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.649
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8865 (contribution: 0.9977);
+Base RoBERTa Pos = 0.0096 (contribution: 0.4984);
+Base RoBERTa Neu = 0.104 (contribution: 0.0985);
+Base VADER Neu = 0.647 (contribution: 0.0202);
+Base SVM Neg = 0.354 (contribution: 0.0161)
+
+top_opposing_features:
+Base NB Neu = 0.5808 (contribution: -0.1691);
+Base NB Neg = 0.2199 (contribution: -0.046);
+Base NB Pos = 0.1993 (contribution: -0.0202);
+Base SVM Pos = 0.3242 (contribution: -0.0121);
+Base SVM Neu = 0.3217 (contribution: -0.0037)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base VADER Neu, Base SVM Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+163
+
+prediction_result:
+correct
+
+review_text:
+"It's soft and well made. It needs to be just an inch longer to fit my wallet and Kindle."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.715
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.041 (contribution: 0.604);
+Base RoBERTa Pos = 0.5862 (contribution: 0.4256);
+Base NB Pos = 0.5901 (contribution: 0.1509);
+Base SVM Pos = 0.3994 (contribution: 0.1458);
+Base NB Neg = 0.1765 (contribution: 0.0938)
+
+top_opposing_features:
+Base NB Neu = 0.2334 (contribution: -0.0189);
+Base RoBERTa Neu = 0.3728 (contribution: -0.0011)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base SVM Pos, Base NB Neg. The main opposing signal was Base NB Neu.
+
+====================================================================================================
+
+row_index:
+165
+
+prediction_result:
+correct
+
+review_text:
+"One edge of the band is pretty rough. Some of the stitching on the inside is not great and required a bit of trimming to make comfortable against my skin. My main complaint though is that the included pins were the wrong size. If you look at the photo I uploaded you can see one of the pins sitting on top of the band, they are the same size, that's not going to work! Luckily I could just use the pins that were already in my watch but I did buy this band specifically to have a back up set. On the positive side this band does include a pin removal tool which is quite well made and works great."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4973
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base VADER Compound = 0.7044 (contribution: 0.1258);
+Base RoBERTa Neu = 0.5276 (contribution: 0.1078);
+Base SVM Neu = 0.4416 (contribution: 0.088);
+Base RoBERTa Pos = 0.1405 (contribution: 0.0479);
+Base SVM Pos = 0.2371 (contribution: 0.0315)
+
+top_opposing_features:
+Base NB Pos = 0.5978 (contribution: -0.2101);
+Base NB Neu = 0.2258 (contribution: -0.0757);
+Base NB Neg = 0.1764 (contribution: -0.0311);
+Base RoBERTa Neg = 0.3319 (contribution: -0.0018)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base SVM Neu, Base RoBERTa Pos, Base SVM Pos. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+168
+
+prediction_result:
+correct
+
+review_text:
+"Did not expect the texture to feel and look like plastic"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6861
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7929 (contribution: 0.8242);
+Base RoBERTa Pos = 0.012 (contribution: 0.4948);
+Base RoBERTa Neu = 0.1951 (contribution: 0.055);
+Base NB Neg = 0.47 (contribution: 0.0502);
+Base SVM Pos = 0.2892 (contribution: 0.0343)
+
+top_opposing_features:
+Base NB Pos = 0.1953 (contribution: -0.021);
+Base VADER Compound = 0.3612 (contribution: -0.0157);
+Base VADER Neu = 0.8 (contribution: -0.0053);
+Base VADER Neg = 0.0 (contribution: -0.0042)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base RoBERTa Neu, Base NB Neg, Base SVM Pos. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+169
+
+prediction_result:
+correct
+
+review_text:
+"I've read lots about Princess Diana. This book like so many others paints Diana as a shrew and Charles as a victim. What no one seems to care about is that Charles entered his marriage with a girlfriend on his arm. Camilla did not appear "sometime after the marriage broke down".Too many times before the wedding and on the honeymoon Charles failed to reassure Diana regarding his real relationship with Camilla.He never gave Camilla up.That alone accounts for 99% of the problems that faced the Wales.Another sour point in the book is the Tiggy situation. I thought royal nannies stayed in the background. But not Tiggy. Tiggy was everywhere to be seen. Most books support Tiggy as "great" and Diana is horrible. I'm confused as to the Christmas Party where Diana sidles up to Tiggy and whispers "sorry to here about the baby".Everyone(and I mean everyone in the whole room heard the whispered comment. That seems strange to me. Also I've had people "hit me between the eyes" with an off-the-wall statement like that. And all I say is "beg pardon".I don't have to be helped from the room nor consult a lawyer.Seems way over played to me.The authors seem to dismiss Diana's good deeds as play acting for good press.If you are a Diana fan. Look elsewhere for a book to read about the princess."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5111
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7828 (contribution: 0.8055);
+Base RoBERTa Pos = 0.0089 (contribution: 0.4994);
+Base SVM Pos = 0.2229 (contribution: 0.1223);
+Base NB Neg = 0.5541 (contribution: 0.0825);
+Base NB Neu = 0.2777 (contribution: 0.0571)
+
+top_opposing_features:
+Base VADER Compound = 0.9302 (contribution: -0.2126);
+Base SVM Neg = 0.1563 (contribution: -0.1367);
+Base NB Pos = 0.1682 (contribution: -0.0261);
+Base VADER Pos = 0.132 (contribution: -0.0053);
+Base VADER Neu = 0.775 (contribution: -0.0011)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base NB Neg, Base NB Neu. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+170
+
+prediction_result:
+correct
+
+review_text:
+"... and this book is the reason. It delivers on it's promise, which is that it takes an experienced VB programmer and gives you the concepts and details that you need to know to not only pass the exams, but do very, very well. O'Reilly's web site support for the book is excellent as well. The author has posted an excellent write-up that details how to approach the tests, with excellent recommendations for additional study aids. And, aside from certification, my level of skill with using VB, which was pretty substantial before, has gone through the roof. If you want to lift your skills and be able to crank out clean, reliable, robust applications, get this book."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8051
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.9421 (contribution: 1.0449);
+Base RoBERTa Neg = 0.0035 (contribution: 0.6777);
+Base NB Pos = 0.5124 (contribution: 0.1096);
+Base SVM Pos = 0.3576 (contribution: 0.0735);
+Base SVM Neg = 0.2071 (contribution: 0.0695)
+
+top_opposing_features:
+Base SVM Neu = 0.4353 (contribution: -0.0922);
+Base NB Neu = 0.2312 (contribution: -0.0192);
+Base VADER Neu = 0.714 (contribution: -0.0083)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base SVM Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+171
+
+prediction_result:
+correct
+
+review_text:
+"Fits great. Soft!!! I judge a sweatshirt by the tight cuffs and neck. 5 stars..."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8009
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8642 (contribution: 0.9093);
+Base RoBERTa Neg = 0.0134 (contribution: 0.6584);
+Base NB Pos = 0.5024 (contribution: 0.1043);
+Base SVM Pos = 0.3678 (contribution: 0.0912);
+Base NB Neg = 0.1908 (contribution: 0.0856)
+
+top_opposing_features:
+Base SVM Neu = 0.3822 (contribution: -0.0337);
+Base VADER Neu = 0.689 (contribution: -0.0122);
+Base NB Neu = 0.3068 (contribution: -0.0074)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base NB Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+172
+
+prediction_result:
+correct
+
+review_text:
+"As close to blu-ray as you can get!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5694
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.0276 (contribution: 0.6305);
+Base RoBERTa Pos = 0.4678 (contribution: 0.2198);
+Base NB Pos = 0.452 (contribution: 0.0775);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Pos = 0.3382 (contribution: 0.0399)
+
+top_opposing_features:
+Base VADER Pos = 0.0 (contribution: -0.0281);
+Base NB Neu = 0.2769 (contribution: -0.0121);
+Base VADER Compound = 0.0 (contribution: -0.007);
+Base SVM Neg = 0.3399 (contribution: -0.0037);
+Base RoBERTa Neu = 0.5046 (contribution: -0.0034)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base NB Pos, Base VADER Neg, Base SVM Pos. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+174
+
+prediction_result:
+correct
+
+review_text:
+"These books are just plain BAD. Sterling LOVED dressage in #26, hated it in #27, Now she loves it again . In this book, Sterling was eager to jump. I thought she couldn't get over a 2 foot vertical??! I LOVE TO JUMP, but Christina is obsessed. It's all she thinks about. She doesn't remember how to have fun on a horse. She also thinks everybody else has to be as serious about riding as she is. What if Dylan was as serious about soccar as she is about riding?? Would she even care????? My advice to the authers: Bring Sammy back and drop Christina and only do books about Melanie and racing!!!!!!!!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4767
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.6087 (contribution: 0.4827);
+Base RoBERTa Pos = 0.0642 (contribution: 0.4165);
+Base SVM Pos = 0.2679 (contribution: 0.0626);
+Base NB Neu = 0.2996 (contribution: 0.0407);
+Base NB Pos = 0.4461 (contribution: 0.0265)
+
+top_opposing_features:
+Base VADER Compound = 0.768 (contribution: -0.1565);
+Base SVM Neg = 0.246 (contribution: -0.0674);
+Base NB Neg = 0.2543 (contribution: -0.0328);
+Base RoBERTa Neu = 0.3271 (contribution: -0.0081);
+Base VADER Pos = 0.131 (contribution: -0.0055)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base SVM Pos, Base NB Neu, Base NB Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+175
+
+prediction_result:
+correct
+
+review_text:
+"Best router and all-in-one device for home networking"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7519
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8501 (contribution: 0.8848);
+Base RoBERTa Neg = 0.0051 (contribution: 0.6746);
+Base SVM Pos = 0.3586 (contribution: 0.0752);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base VADER Pos = 0.375 (contribution: 0.0346)
+
+top_opposing_features:
+Base VADER Neu = 0.625 (contribution: -0.022);
+Base NB Pos = 0.2925 (contribution: -0.0073)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base VADER Neg, Base VADER Pos. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+177
+
+prediction_result:
+correct
+
+review_text:
+"Nice fit, comfortable, cute."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7894
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8824 (contribution: 0.9409);
+Base RoBERTa Neg = 0.0093 (contribution: 0.6664);
+Base VADER Pos = 1.0 (contribution: 0.1391);
+Base NB Neg = 0.2159 (contribution: 0.0712);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base VADER Neu = 0.0 (contribution: -0.1179);
+Base SVM Neu = 0.3591 (contribution: -0.0082)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base VADER Pos, Base NB Neg, Base VADER Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+178
+
+prediction_result:
+correct
+
+review_text:
+"This product is bad, do not buy"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8422
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9294 (contribution: 1.0772);
+Base RoBERTa Pos = 0.0105 (contribution: 0.497);
+Base VADER Compound = -0.5423 (contribution: 0.2968);
+Base RoBERTa Neu = 0.0601 (contribution: 0.1195);
+Base NB Neg = 0.6046 (contribution: 0.102)
+
+top_opposing_features:
+Base NB Pos = 0.1658 (contribution: -0.0265);
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base SVM Neu = 0.3341 (contribution: -0.0022)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+181
+
+prediction_result:
+correct
+
+review_text:
+"Both the jersey and the shorts have a tight rubbery substance that feels like a rubber band against your arms and legs. Other kits that I have purchased didn't have it and I don't particularly like it. However, it may not bother some. Just not for me. Other than that, the product looks like it is good quality. I decided to return mine and try another product."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6237
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Base VADER Compound = 0.8869 (contribution: 0.1849);
+Base SVM Neu = 0.4846 (contribution: 0.1301);
+Base RoBERTa Neu = 0.4763 (contribution: 0.0824);
+Base NB Pos = 0.1938 (contribution: 0.081);
+Base NB Neu = 0.4866 (contribution: 0.078)
+
+top_opposing_features:
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Neg = 0.3196 (contribution: -0.0038);
+Base VADER Pos = 0.179 (contribution: -0.0035)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Base VADER Compound, Base SVM Neu, Base RoBERTa Neu, Base NB Pos, Base NB Neu. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+183
+
+prediction_result:
+correct
+
+review_text:
+"There is no way that I paying $19 for a Kindle book that was originally published in the 50's. What an outrage by the publisher. Ms. Rand's estate should really negotiate with a new publisher."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7402
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.8025 (contribution: 0.842);
+Base RoBERTa Pos = 0.0124 (contribution: 0.4942);
+Base VADER Compound = -0.6705 (contribution: 0.3412);
+Base RoBERTa Neu = 0.1851 (contribution: 0.0597);
+Base VADER Neg = 0.155 (contribution: 0.006)
+
+top_opposing_features:
+Base SVM Pos = 0.373 (contribution: -0.0769);
+Base NB Neu = 0.4332 (contribution: -0.0589);
+Base SVM Neg = 0.2854 (contribution: -0.0369);
+Base NB Neg = 0.2494 (contribution: -0.0347);
+Base VADER Pos = 0.0 (contribution: -0.025)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base VADER Neg. The main opposing signal was Base SVM Pos.
+
+====================================================================================================
+
+row_index:
+186
+
+prediction_result:
+correct
+
+review_text:
+"Functions as stated,arrived quickly. A bit more bulky than my preference for fit."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4866
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.5334 (contribution: 0.1106);
+Base RoBERTa Pos = 0.0494 (contribution: 0.0696);
+Base NB Neu = 0.4129 (contribution: 0.0346);
+Base VADER Compound = 0.3612 (contribution: 0.0147);
+Base SVM Neg = 0.2961 (contribution: 0.0082)
+
+top_opposing_features:
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Pos = 0.3488 (contribution: -0.0307);
+Base SVM Pos = 0.3745 (contribution: -0.024);
+Base SVM Neu = 0.3294 (contribution: -0.0218);
+Base NB Neg = 0.2383 (contribution: -0.0193)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base RoBERTa Pos, Base NB Neu, Base VADER Compound, Base SVM Neg. The main opposing signal was Base VADER Neg.
+
+====================================================================================================
+
+row_index:
+187
+
+prediction_result:
+correct
+
+review_text:
+"Does ths job"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4782
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.6104 (contribution: 0.1488);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base RoBERTa Pos = 0.1742 (contribution: 0.0399);
+Base VADER Neu = 1.0 (contribution: 0.003);
+Base NB Neg = 0.3465 (contribution: 0.0013)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base SVM Neu = 0.3296 (contribution: -0.0216);
+Base NB Neu = 0.3202 (contribution: -0.0201);
+Base NB Pos = 0.3333 (contribution: -0.0195)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Pos, Base RoBERTa Pos, Base VADER Neu, Base NB Neg. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+189
+
+prediction_result:
+correct
+
+review_text:
+"I was bitterly disappointed with this book. After waiting so long to read it, it seemed to be a rush effort by an otherwise good author. It seems that Harris has been pressured into writing this sequel and unfortunately as it is often said some things are better left alone. Who didn't wonder in amazement as Lecter walked off towards his next victim at the end of Silence of the Lambs. However, the major problem here is what could have been an explosive book, will fail to satisfy. I will not give away the ending but it will be said that the words weak and pathetic spring to mind. As I did, you will wonder why you stayed up all night to find that in the last 100 pages explosive has turned out to be nothing but a fizzle. Harris has proven himself in the past with his other books but I would give this one a real wide birth unless you a huge fan. Dont expect to hear any screaming lambs in this one. If they are screaming it is in pain knowing that the much anticipated sequel just did not do them any justice."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7726
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.7717 (contribution: 0.7848);
+Base RoBERTa Pos = 0.0139 (contribution: 0.4918);
+Base VADER Compound = -0.9518 (contribution: 0.4385);
+Base SVM Pos = 0.1659 (contribution: 0.1979);
+Base NB Neg = 0.6106 (contribution: 0.1043)
+
+top_opposing_features:
+Base SVM Neg = 0.1354 (contribution: -0.1529);
+Base NB Pos = 0.1611 (contribution: -0.0274);
+Base VADER Pos = 0.074 (contribution: -0.014)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base SVM Pos, Base NB Neg. The main opposing signal was Base SVM Neg.
+
+====================================================================================================
+
+row_index:
+191
+
+prediction_result:
+correct
+
+review_text:
+"these are not cotton! they are scratchy and NOT cotton at all. :("
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8439
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neg = 0.9214 (contribution: 1.0625);
+Base RoBERTa Pos = 0.0064 (contribution: 0.5032);
+Base VADER Compound = -0.4926 (contribution: 0.2796);
+Base RoBERTa Neu = 0.0722 (contribution: 0.1137);
+Base NB Neg = 0.5102 (contribution: 0.0657)
+
+top_opposing_features:
+Base VADER Pos = 0.0 (contribution: -0.025);
+Base NB Pos = 0.2133 (contribution: -0.0176);
+Base SVM Neu = 0.3037 (contribution: -0.0059);
+Base VADER Neu = 0.79 (contribution: -0.0036)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neg, Base RoBERTa Pos, Base VADER Compound, Base RoBERTa Neu, Base NB Neg. The main opposing signal was Base VADER Pos.
+
+====================================================================================================
+
+row_index:
+192
+
+prediction_result:
+correct
+
+review_text:
+"Works as described. It's thick but pliable and feels like it's made well"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7851
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8284 (contribution: 0.8471);
+Base RoBERTa Neg = 0.0087 (contribution: 0.6676);
+Base NB Pos = 0.4957 (contribution: 0.1007);
+Base SVM Pos = 0.3578 (contribution: 0.0738);
+Base VADER Neg = 0.0 (contribution: 0.0589)
+
+top_opposing_features:
+Base VADER Neu = 0.651 (contribution: -0.018);
+Base NB Neu = 0.2667 (contribution: -0.0137);
+Base SVM Neu = 0.3535 (contribution: -0.002)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base SVM Pos, Base VADER Neg. The main opposing signal was Base VADER Neu.
+
+====================================================================================================
+
+row_index:
+193
+
+prediction_result:
+correct
+
+review_text:
+"This book has more heart, warmth, and originality than any book I have read in quite a while. I read Labyrinth of Chaos in late 2001, while on a trip, and I could not put it down. This is fiction in the tradition of Walt Whitman, a novel of the open road, and the the product of a generous and open spirit.Labyrinth of Chaos is the story of a trip taken by a young American named Alan Agrippa, through Great Britain. Agrippa is the classic young traveler, enjoying everything, meeting people, drinking in new experiences, trying to get the most of his time overseas. Agrippa is an open-minded, positive person, and I don't think he has a cross word for anyone throughout the book. I remember thinking, as I closed this book, "There was not a single example of anger or negativity in this book," which is quite remarkable for a three-hundred page novel.There's not much plot to Labyrinth of Chaos, other than Alan's relationship with a French girl named Ronia. It's a "picaresque," a novel in which the main plot is simply the accumulation of interesting experiences. We are treated to a detailed account of Agrippa's adventures -- his trips through city streets, museums, coffee shops, and conversations with wise scientists and philosophers and fellow hipsters.The core of the novel is found in Alan's reflections on the intersection of mysticism, psychology, physics, and the structure of the universe. He discusses his ideas with Ronia and other characters, giving the novel an interesting flavor as a "novel of ideas."Some might say that some dialogue and descriptions in this book are a little stilted -- but to dwell on that issue is to miss the point. This is a book that says "come join me on this adventure of life and ideas and self-creation," and to truly follow him you would have to follow your own passions and create your own work of art. Wallace doesn't indulge in the vice of so many fiction writers these days, who try to awe or intimidate their readers with long, pseudo-technical passages and footnotes that show off their questionable erudition or knowledge of trivia. The attitude of those writers is a deadening one, rigid, self-obsessed and closed-off -- "You can't do this" -- the very opposite of the Whitmanesque spirit in literature. Whitman, and Brian Wallace, tell you you can. And you should.If you enjoyed Labyrinth of Chaos, I would suggest another book that it reminded me of: Andre Vandenbroeck's "Breaking Through: The Narrative of the Great Work" (the story of an Italian filmmaker who is pursuing connections between science and spirit by investigating Paleolithic culture in Spain)."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7636
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.833 (contribution: 0.8551);
+Base RoBERTa Neg = 0.0057 (contribution: 0.6735);
+Base SVM Pos = 0.4805 (contribution: 0.2864);
+Base SVM Neu = 0.2678 (contribution: 0.0924);
+Base NB Neg = 0.218 (contribution: 0.07)
+
+top_opposing_features:
+Base NB Pos = 0.2118 (contribution: -0.0502);
+Base VADER Pos = 0.136 (contribution: -0.0053)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base SVM Neu, Base NB Neg. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+194
+
+prediction_result:
+correct
+
+review_text:
+"bought them, they LOOK sturdy as all get out...double zippers (these are pretty bad, won't lie), filled them up with sand at the beach behind my house, they were nice and heavy, and i assumed sturdy. we have a little ladderball game for the yard, and used these to weigh the stands down (i'm actually a photographer and these are going to be used to weigh down the boom stands in my studio, but they were in the car lol). i dropped one of the sandbags from no less than 2 feet, onto soft grass mind you, and BOOM. huge split in them. look. for the price they're fine. just be aware they're not heavy canvas bags. they're this cheapy-vinyl material that will definitely split if they fall or you drop them from any more than a foot or so. so be careful. i'll patch mine with gaffers tape."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4366
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base VADER Compound = 0.7726 (contribution: 0.1479);
+Base RoBERTa Neu = 0.533 (contribution: 0.1104);
+Base RoBERTa Pos = 0.1275 (contribution: 0.051);
+Base VADER Pos = 0.098 (contribution: 0.0221);
+Base VADER Neu = 0.853 (contribution: 0.0011)
+
+top_opposing_features:
+Base NB Pos = 0.5953 (contribution: -0.2083);
+Base SVM Neu = 0.2699 (contribution: -0.08);
+Base NB Neu = 0.2294 (contribution: -0.0736);
+Base NB Neg = 0.1753 (contribution: -0.0313);
+Base SVM Pos = 0.3895 (contribution: -0.0301)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base VADER Compound, Base RoBERTa Neu, Base RoBERTa Pos, Base VADER Pos, Base VADER Neu. The main opposing signal was Base NB Pos.
+
+====================================================================================================
+
+row_index:
+195
+
+prediction_result:
+correct
+
+review_text:
+"The title definitely perked my interest. What did jewels and the Afghanistan war have in common? I soon discovered the surprising connection. Has intrigue, adventure and suspense with the result that I couldn't put the book down until completely reading it from cover to cover in one sitting.When does the movie come out?"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7023
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8099 (contribution: 0.815);
+Base RoBERTa Neg = 0.0107 (contribution: 0.6636);
+Base NB Pos = 0.4466 (contribution: 0.0746);
+Base NB Neg = 0.2621 (contribution: 0.0446);
+Base SVM Neg = 0.2669 (contribution: 0.0366)
+
+top_opposing_features:
+Base SVM Neu = 0.4015 (contribution: -0.0549);
+Base NB Neu = 0.2914 (contribution: -0.0098);
+Base VADER Neu = 0.722 (contribution: -0.0071)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base NB Pos, Base NB Neg, Base SVM Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+196
+
+prediction_result:
+correct
+
+review_text:
+"Working out"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4972
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.6588 (contribution: 0.1728);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base NB Pos = 0.2391 (contribution: 0.0484);
+Base NB Neg = 0.4694 (contribution: 0.0248);
+Base RoBERTa Pos = 0.2672 (contribution: 0.0177)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Neu = 0.2915 (contribution: -0.037);
+Base RoBERTa Neg = 0.0739 (contribution: -0.0304);
+Base SVM Neu = 0.3235 (contribution: -0.0275)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Pos, Base NB Pos, Base NB Neg, Base RoBERTa Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+
+row_index:
+197
+
+prediction_result:
+correct
+
+review_text:
+"Wanted a Linksys/Cisco -n device with good reviews for future expandability but did not see any under $100 devices so went with old standby WRT54GL. Great reception, easy install for basic sharing of clearwire with two PCs - one connected by cable & the other wireless."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7279
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Pos = 0.8232 (contribution: 0.838);
+Base RoBERTa Neg = 0.0108 (contribution: 0.6635);
+Base SVM Pos = 0.3607 (contribution: 0.0789);
+Base VADER Neg = 0.0 (contribution: 0.0589);
+Base SVM Neg = 0.2747 (contribution: 0.0323)
+
+top_opposing_features:
+Base SVM Neu = 0.3647 (contribution: -0.0143);
+Base VADER Neu = 0.72 (contribution: -0.0074);
+Base NB Neu = 0.3126 (contribution: -0.0065)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Pos, Base RoBERTa Neg, Base SVM Pos, Base VADER Neg, Base SVM Neg. The main opposing signal was Base SVM Neu.
+
+====================================================================================================
+
+row_index:
+198
+
+prediction_result:
+correct
+
+review_text:
+"Bed connection"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4868
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Base RoBERTa Neu = 0.622 (contribution: 0.1545);
+Base VADER Pos = 0.0 (contribution: 0.053);
+Base RoBERTa Pos = 0.2281 (contribution: 0.027);
+Base NB Neg = 0.4084 (contribution: 0.0131);
+Base NB Pos = 0.2913 (contribution: 0.0108)
+
+top_opposing_features:
+Base VADER Compound = 0.0 (contribution: -0.1022);
+Base VADER Neg = 0.0 (contribution: -0.0547);
+Base NB Neu = 0.3003 (contribution: -0.0318);
+Base RoBERTa Neg = 0.1499 (contribution: -0.022);
+Base SVM Neu = 0.3331 (contribution: -0.0182)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Base RoBERTa Neu, Base VADER Pos, Base RoBERTa Pos, Base NB Neg, Base NB Pos. The main opposing signal was Base VADER Compound.
+
+====================================================================================================
+

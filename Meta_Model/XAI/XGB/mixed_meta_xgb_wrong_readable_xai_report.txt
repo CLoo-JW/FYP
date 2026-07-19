@@ -1,0 +1,3358 @@
+row_index:
+2
+
+prediction_result:
+wrong
+
+review_text:
+"I ordered 3 sizes up because of the reviews , the material is thinner than I expected but not see through, has thumb holes didn't really notice until after I bought it , so gets baggy at the bottom , I really like how it has the flowy sides the shape nd style of the shirt is really nice on top of a pencil skirt (is the way I'm wearing it , I would say the bag doesn't have much shape but I would go darker to be more sliming, I like the hood and the comfy part of the sweater , it's tighter on my upper arms only cuz I have bigger upper arms the elbow down is bigger material , and it doesn't look like expensive quality but grateful was only 15.99 . I may purchase another color. I bought the pink one("purple) it's not purple it's actually pink close to the picture looks to me like a rosy darker hot pink color. I am thinning of getting the green one next it'll be a grate live in sweater for the fall and casual for winter under the coat. Love the hood with extra space not too snug"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5779
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3781 (SHAP contribution: 0.2118);
+Enhanced SVM Neu = 0.4521 (SHAP contribution: 0.1472);
+Enhanced NB Pos = 0.1803 (SHAP contribution: 0.1417);
+Enhanced NB Neu = 0.425 (SHAP contribution: 0.0931);
+Enhanced VADER Compound = 0.9897 (SHAP contribution: 0.0802)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0668);
+Enhanced NB Neg = 0.3946 (SHAP contribution: -0.0178);
+Enhanced RoBERTa Pos = 0.5938 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was Naive Bayes. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Pos, Enhanced NB Neu, Enhanced VADER Compound. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+3
+
+prediction_result:
+wrong
+
+review_text:
+"I like the glasses but not the fit. I can't get the nose piece right. They sit on my cheeks."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5927
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7574 (SHAP contribution: 0.6301);
+Enhanced RoBERTa Pos = 0.0169 (SHAP contribution: 0.3439);
+Enhanced VADER Compound = -0.2299 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.2067 (SHAP contribution: 0.1044);
+Enhanced RoBERTa Neu = 0.2257 (SHAP contribution: 0.0844)
+
+top_opposing_features:
+Enhanced NB Neu = 0.3772 (SHAP contribution: -0.057);
+Enhanced VADER Pos = 0.086 (SHAP contribution: -0.049);
+Enhanced SVM Neg = 0.3523 (SHAP contribution: -0.0179);
+Enhanced VADER Neu = 0.784 (SHAP contribution: -0.0112);
+Enhanced NB Neg = 0.441 (SHAP contribution: -0.0052)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Neu. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+4
+
+prediction_result:
+wrong
+
+review_text:
+"Too dark to use them indoors."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8264
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6354 (SHAP contribution: 0.663);
+Enhanced RoBERTa Pos = 0.0237 (SHAP contribution: 0.3098);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.2112 (SHAP contribution: 0.12)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.3666 (SHAP contribution: -0.0154)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+8
+
+prediction_result:
+wrong
+
+review_text:
+"Love these so much, but they do not come with the jump rings as advertised in the pitcure. Luckily I had extra in storage, but if you don't, be sure to buy some separately."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4586
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4691 (SHAP contribution: 0.1417);
+Enhanced RoBERTa Neg = 0.1496 (SHAP contribution: 0.052);
+Enhanced VADER Pos = 0.179 (SHAP contribution: 0.0354);
+Enhanced VADER Compound = 0.6815 (SHAP contribution: 0.0269);
+Enhanced VADER Neu = 0.76 (SHAP contribution: 0.0067)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2625 (SHAP contribution: -0.2725);
+Enhanced NB Neu = 0.2908 (SHAP contribution: -0.0846);
+Enhanced NB Pos = 0.2918 (SHAP contribution: -0.0356);
+Enhanced SVM Neg = 0.4171 (SHAP contribution: -0.0187);
+Enhanced NB Neg = 0.4175 (SHAP contribution: -0.0151)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced VADER Neu. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+12
+
+prediction_result:
+wrong
+
+review_text:
+"I bought the book with just a little knowledge of the candle making industry. The problem with the book is its not updated for the new technology and materials that are used in candle making today. Yes it does a good job of breaking down the VERY BASICS but thats it. You need to know more about the industry than this book covers. I got more information from watching videos on youtube and the different candle supply companies websites than the couple of books I recently purchased. Watch videos and get up to date information on new waxes and materials. Save yourself the $15 or whatever you may spend and research the internet and the big candle supply companies out there. They know whats new and what works"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4956
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5729 (SHAP contribution: 0.1464);
+Enhanced RoBERTa Neg = 0.263 (SHAP contribution: 0.0655);
+Enhanced SVM Pos = 0.4066 (SHAP contribution: 0.0581);
+Enhanced VADER Pos = 0.063 (SHAP contribution: 0.0436);
+Enhanced NB Neu = 0.339 (SHAP contribution: 0.0337)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.3052 (SHAP contribution: -0.1582);
+Enhanced VADER Neg = 0.014 (SHAP contribution: -0.0905);
+Enhanced NB Pos = 0.3778 (SHAP contribution: -0.0532);
+Enhanced VADER Neu = 0.923 (SHAP contribution: -0.0428);
+Enhanced RoBERTa Pos = 0.1641 (SHAP contribution: -0.0125)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced VADER Pos, Enhanced NB Neu. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+14
+
+prediction_result:
+wrong
+
+review_text:
+"Much clearer than VHS-to-DVD-to-Digital"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.3675
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0605 (SHAP contribution: 0.0993);
+Enhanced RoBERTa Neu = 0.5338 (SHAP contribution: 0.0949);
+Enhanced SVM Neu = 0.362 (SHAP contribution: 0.0377);
+Enhanced NB Neu = 0.3596 (SHAP contribution: 0.029);
+Enhanced SVM Pos = 0.1948 (SHAP contribution: 0.0279)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3218 (SHAP contribution: -0.1444);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0905);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0823);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.034);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0299)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Neu, Enhanced SVM Pos. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+17
+
+prediction_result:
+wrong
+
+review_text:
+"FIVE STA...er...Make that ONE star!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4033
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5609 (SHAP contribution: 0.1034);
+Enhanced RoBERTa Neg = 0.0422 (SHAP contribution: 0.098);
+Enhanced NB Pos = 0.2387 (SHAP contribution: 0.0887);
+Enhanced SVM Pos = 0.1987 (SHAP contribution: 0.017);
+Enhanced NB Neu = 0.3198 (SHAP contribution: 0.0002)
+
+top_opposing_features:
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0823);
+Enhanced SVM Neu = 0.3219 (SHAP contribution: -0.0809);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0668);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0377);
+Enhanced SVM Neg = 0.4794 (SHAP contribution: -0.03)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced SVM Pos, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+19
+
+prediction_result:
+wrong
+
+review_text:
+"Ladies with smaller sized chest would be fine with this product- Ladies with larger (D+), don't bother! The ears don't stick enough to keep the girls lifted and give you a weird shape when they do stick for a couple minutes."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4317
+
+strongest_individual_feature:
+Enhanced VADER Neu
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced VADER Neu = 0.861 (SHAP contribution: 0.1197);
+Enhanced RoBERTa Neu = 0.5467 (SHAP contribution: 0.0964);
+Enhanced NB Pos = 0.1812 (SHAP contribution: 0.0748);
+Enhanced SVM Pos = 0.4122 (SHAP contribution: 0.0604);
+Enhanced RoBERTa Neg = 0.3667 (SHAP contribution: 0.0379)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2179 (SHAP contribution: -0.2725);
+Enhanced NB Neu = 0.2263 (SHAP contribution: -0.2262);
+Enhanced SVM Neg = 0.3699 (SHAP contribution: -0.0295);
+Enhanced NB Neg = 0.5924 (SHAP contribution: -0.0208);
+Enhanced VADER Neg = 0.041 (SHAP contribution: -0.0139)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced VADER Neu, while the strongest overall feature group was VADER. The top supporting features were Enhanced VADER Neu, Enhanced RoBERTa Neu, Enhanced NB Pos, Enhanced SVM Pos, Enhanced RoBERTa Neg. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+20
+
+prediction_result:
+wrong
+
+review_text:
+"It came stained! I'm so upset too because I planned to wear it to my sons graduation and now I don't have time to order something else.Edit: I raised my star rating from a 1 to a 4 because the company who manufactured the dress reached out and apologized for their mistake with the stains. Anytime a company goes out of there way and acknowledges their mistake I appreciate it."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4543
+
+strongest_individual_feature:
+Enhanced VADER Compound
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced VADER Compound = -0.6793 (SHAP contribution: 0.1737);
+Enhanced RoBERTa Neg = 0.413 (SHAP contribution: 0.1572);
+Enhanced NB Neu = 0.2555 (SHAP contribution: 0.0852);
+Enhanced SVM Neg = 0.4702 (SHAP contribution: 0.0374);
+Enhanced SVM Neu = 0.2166 (SHAP contribution: 0.0117)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3132 (SHAP contribution: -0.1478);
+Enhanced RoBERTa Neu = 0.4691 (SHAP contribution: -0.1176);
+Enhanced VADER Pos = 0.09 (SHAP contribution: -0.0486);
+Enhanced NB Neg = 0.5822 (SHAP contribution: -0.0407);
+Enhanced RoBERTa Pos = 0.1179 (SHAP contribution: -0.0092)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Enhanced VADER Compound, Enhanced RoBERTa Neg, Enhanced NB Neu, Enhanced SVM Neg, Enhanced SVM Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+28
+
+prediction_result:
+wrong
+
+review_text:
+"This batch that I bouth in 2010 no only won't burn in either my CD/DVD player but it ejects itself before I can press a button. Same with the other player on my machine which also burns blu rays. I took the DL Verbatims from 2007-2008 and saved them to one BluRay and all the info was transferred wihtout a hitch. The 4.7s work great, I even get what should be DL space items compressed without much quality loss to the 4.7s This is very bad. They did something in the factory that reduced the quality of the DL disk to where the machine dosent even want it to sit there. I kicks it out. Sometimes im lucky if i put it in and press burn right away it will register but more often then not burns coaster."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6771
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5057 (SHAP contribution: 0.1785);
+Enhanced SVM Neu = 0.3792 (SHAP contribution: 0.1779);
+Enhanced VADER Neu = 0.843 (SHAP contribution: 0.1158);
+Enhanced VADER Compound = 0.8444 (SHAP contribution: 0.1062);
+Enhanced NB Pos = 0.1778 (SHAP contribution: 0.0918)
+
+top_opposing_features:
+Enhanced SVM Neg = 0.4253 (SHAP contribution: -0.0253);
+Enhanced VADER Neg = 0.047 (SHAP contribution: -0.0139);
+Enhanced NB Neg = 0.5047 (SHAP contribution: -0.0133);
+Enhanced RoBERTa Pos = 0.3091 (SHAP contribution: -0.0125)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was VADER. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced VADER Neu, Enhanced VADER Compound, Enhanced NB Pos. The main opposing signal was Enhanced SVM Neg.
+
+====================================================================================================
+
+row_index:
+29
+
+prediction_result:
+wrong
+
+review_text:
+"Built great."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7285
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.032 (SHAP contribution: 0.457);
+Enhanced RoBERTa Pos = 0.7823 (SHAP contribution: 0.3294);
+Enhanced SVM Neg = 0.176 (SHAP contribution: 0.1451);
+Enhanced VADER Compound = 0.6249 (SHAP contribution: 0.0878);
+Enhanced SVM Pos = 0.4916 (SHAP contribution: 0.0875)
+
+top_opposing_features:
+Enhanced NB Neg = 0.2036 (SHAP contribution: -0.0312)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neg.
+
+====================================================================================================
+
+row_index:
+30
+
+prediction_result:
+wrong
+
+review_text:
+"These are okay. They are pretty but they are also kinda cheap. But hey look at the price. They do look very nice and are comfortable to wear."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.748
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0111 (SHAP contribution: 0.9673);
+Enhanced RoBERTa Pos = 0.8516 (SHAP contribution: 0.3274);
+Enhanced VADER Compound = 0.903 (SHAP contribution: 0.0624);
+Enhanced NB Pos = 0.3583 (SHAP contribution: 0.0576);
+Enhanced VADER Pos = 0.336 (SHAP contribution: 0.0496)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.2312 (SHAP contribution: -0.1518);
+Enhanced SVM Neu = 0.5016 (SHAP contribution: -0.1433);
+Enhanced NB Neg = 0.2808 (SHAP contribution: -0.049);
+Enhanced SVM Neg = 0.2672 (SHAP contribution: -0.0466)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Pos, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+33
+
+prediction_result:
+wrong
+
+review_text:
+"This is the book that was used for MATH 0150 at Kean University, Union, NJ, USA."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.432
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0328 (SHAP contribution: 0.3262);
+Enhanced RoBERTa Neu = 0.8853 (SHAP contribution: 0.0896);
+Enhanced NB Neg = 0.3423 (SHAP contribution: 0.0686);
+Enhanced SVM Pos = 0.4168 (SHAP contribution: 0.0685);
+Enhanced NB Pos = 0.3708 (SHAP contribution: 0.0478)
+
+top_opposing_features:
+Enhanced RoBERTa Pos = 0.082 (SHAP contribution: -0.2138);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0918);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0573);
+Enhanced SVM Neg = 0.2921 (SHAP contribution: -0.0436);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0203)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Neu, Enhanced NB Neg, Enhanced SVM Pos, Enhanced NB Pos. The main opposing signal was Enhanced RoBERTa Pos.
+
+====================================================================================================
+
+row_index:
+34
+
+prediction_result:
+wrong
+
+review_text:
+"Just what the travel doctor ordered!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.349
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5666 (SHAP contribution: 0.0991);
+Enhanced RoBERTa Neg = 0.2022 (SHAP contribution: 0.0612);
+Enhanced SVM Pos = 0.4053 (SHAP contribution: 0.0581);
+Enhanced NB Neg = 0.3131 (SHAP contribution: 0.0185);
+Enhanced SVM Neg = 0.3051 (SHAP contribution: 0.0125)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2896 (SHAP contribution: -0.1612);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0905);
+Enhanced NB Pos = 0.3839 (SHAP contribution: -0.0532);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0504);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0428)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced NB Neg, Enhanced SVM Neg. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+36
+
+prediction_result:
+wrong
+
+review_text:
+"The Road to Gandolfo is a spoof, or satire, or meant to be generally amusing, or some combination of those three.A guy that is kicked out of the army for becoming a political embarrassment, decides to do something even more politically embarrassing. He kidnaps the Pope.The Pope doesn't mind that much, he gets to kick back, shoot the breeze, sink a few cold ones, have a few barbies, and generally be not stressed.The problem will be getting all the Catholics to pay the ransom that they want for him, as he is taxing them all."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4969
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4046 (SHAP contribution: 0.2009);
+Enhanced SVM Neu = 0.378 (SHAP contribution: 0.1518);
+Enhanced VADER Neu = 0.842 (SHAP contribution: 0.1158);
+Enhanced RoBERTa Neg = 0.5611 (SHAP contribution: 0.0917);
+Enhanced NB Pos = 0.2094 (SHAP contribution: 0.0841)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.53 (SHAP contribution: -0.0693);
+Enhanced SVM Neg = 0.4789 (SHAP contribution: -0.0253);
+Enhanced NB Neg = 0.4198 (SHAP contribution: -0.0133);
+Enhanced NB Neu = 0.3707 (SHAP contribution: -0.0018)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced VADER Neu, Enhanced RoBERTa Neg, Enhanced NB Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+37
+
+prediction_result:
+wrong
+
+review_text:
+"They are great, the only reason why I didnt keep them is that I looked bad in these. My body isnt for it, but otherwise if you know you look good in these type of pants- that would be a good buy. Quality is pretty nice.I wished I looked better, but well, life ;)"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.7026
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4144 (SHAP contribution: 0.2022);
+Enhanced SVM Neu = 0.4789 (SHAP contribution: 0.1476);
+Enhanced NB Pos = 0.2206 (SHAP contribution: 0.1347);
+Enhanced VADER Compound = 0.9688 (SHAP contribution: 0.096);
+Enhanced RoBERTa Neg = 0.1413 (SHAP contribution: 0.0813)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.033 (SHAP contribution: -0.0448);
+Enhanced VADER Pos = 0.346 (SHAP contribution: -0.0437);
+Enhanced VADER Neu = 0.621 (SHAP contribution: -0.0431);
+Enhanced SVM Pos = 0.2241 (SHAP contribution: -0.0159);
+Enhanced RoBERTa Pos = 0.4444 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Pos, Enhanced VADER Compound, Enhanced RoBERTa Neg. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+38
+
+prediction_result:
+wrong
+
+review_text:
+"Awesome... for 2 weeks junk!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4112
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.2372 (SHAP contribution: 0.1385);
+Enhanced RoBERTa Neg = 0.0732 (SHAP contribution: 0.099);
+Enhanced SVM Pos = 0.1897 (SHAP contribution: 0.017)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0905);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0736);
+Enhanced SVM Neu = 0.3415 (SHAP contribution: -0.0689);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0377);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.034)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced SVM Pos. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+42
+
+prediction_result:
+wrong
+
+review_text:
+"the channel memory is funky if its turned up to loud it cuts out the remote is too small and hard to read, understand and hold"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7873
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8691 (SHAP contribution: 0.6401);
+Enhanced RoBERTa Pos = 0.0076 (SHAP contribution: 0.3618);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = -0.4588 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.1027 (SHAP contribution: 0.1044)
+
+top_opposing_features:
+Enhanced NB Neu = 0.4278 (SHAP contribution: -0.057);
+Enhanced VADER Neu = 0.821 (SHAP contribution: -0.0112);
+Enhanced SVM Neu = 0.4508 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+43
+
+prediction_result:
+wrong
+
+review_text:
+"Wedding planner Carnegie Kincaid is going through a rough patch professionally and personally. Her Seattle based businesses "Made in Heaven Wedding Design" is not making much money and her relationship with her commitment phobic significant other Aaron Gold is strained. She decides to attend the wedding of her college friend Tracy West because of the business contacts she will make there as Tracy is a big Hollywood star and her parents know all the movers and shakes.When Carnegie learns her cousin died, she decides that the wedding is the perfect place to get some answers regarding his death. Although Carnegie wasn't close to her cousin Brian Theale, she wants to know if his death was an accident or murder. A professional who examined the body thinks he was murdered but the sheriff and the task force classified it an accident. Brian's fellow smoke jumpers who were with him shortly after he died will be at the wedding so Carnegie will have an easy time questioning the suspects. To her delight, Aaron comes up for the wedding and since he is a journalist with skills that are needed to question suspects, they team up to find out the truth behind Brian's death.The heroine becomes the de facto wedding planner for the West wedding which gives her easy access to the suspects and her determination to find out if the cousin she didn't like was murdered is laudable. Doing her job while trying to scope out a murderer leads to some very funny situations and the comic relief is needed because the tension throughout the storyline is as tight as a high wire. Deborah Donnelly is a very creative writer whose mystery series is refreshingly innovative and totally exciting.Harriet Klausner"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5933
+
+strongest_individual_feature:
+Enhanced SVM Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced SVM Neu = 0.4452 (SHAP contribution: 0.1286);
+Enhanced RoBERTa Neu = 0.6682 (SHAP contribution: 0.1259);
+Enhanced VADER Neg = 0.181 (SHAP contribution: 0.0803);
+Enhanced RoBERTa Neg = 0.1772 (SHAP contribution: 0.0702);
+Enhanced VADER Pos = 0.14 (SHAP contribution: 0.0686)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.9583 (SHAP contribution: -0.0823);
+Enhanced NB Pos = 0.481 (SHAP contribution: -0.0584);
+Enhanced VADER Neu = 0.68 (SHAP contribution: -0.049);
+Enhanced RoBERTa Pos = 0.1546 (SHAP contribution: -0.0109);
+Enhanced SVM Pos = 0.3447 (SHAP contribution: -0.002)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced SVM Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced SVM Neu, Enhanced RoBERTa Neu, Enhanced VADER Neg, Enhanced RoBERTa Neg, Enhanced VADER Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+44
+
+prediction_result:
+wrong
+
+review_text:
+"I am still having trouble getting it setup for wifi internet. If I can fix that problem it is a good buy."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.3944
+
+strongest_individual_feature:
+Enhanced VADER Compound
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Enhanced VADER Compound = -0.3612 (SHAP contribution: 0.1638);
+Enhanced RoBERTa Neg = 0.3814 (SHAP contribution: 0.1483);
+Enhanced NB Neu = 0.2541 (SHAP contribution: 0.0852);
+Enhanced NB Neg = 0.3476 (SHAP contribution: 0.0399);
+Enhanced SVM Neu = 0.2904 (SHAP contribution: 0.0117)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3756 (SHAP contribution: -0.1478);
+Enhanced RoBERTa Neu = 0.4958 (SHAP contribution: -0.1176);
+Enhanced VADER Pos = 0.119 (SHAP contribution: -0.0762);
+Enhanced SVM Neg = 0.334 (SHAP contribution: -0.0398);
+Enhanced RoBERTa Pos = 0.1229 (SHAP contribution: -0.0392)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced VADER Compound, while the strongest overall feature group was Naive Bayes. The top supporting features were Enhanced VADER Compound, Enhanced RoBERTa Neg, Enhanced NB Neu, Enhanced NB Neg, Enhanced SVM Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+47
+
+prediction_result:
+wrong
+
+review_text:
+"It's great. I'm near the max distance from Green Bay, WI. Time Warner took our NBC any MyTV off because of price disputes. Now TWC can do whatever with local tv. With next day shipping it was only around $42.00."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4693
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3247 (SHAP contribution: 0.1448);
+Enhanced VADER Neu = 0.86 (SHAP contribution: 0.1197);
+Enhanced RoBERTa Neg = 0.0533 (SHAP contribution: 0.0835);
+Enhanced SVM Neu = 0.3628 (SHAP contribution: 0.0667);
+Enhanced VADER Pos = 0.093 (SHAP contribution: 0.0474)
+
+top_opposing_features:
+Enhanced NB Neu = 0.2375 (SHAP contribution: -0.2132);
+Enhanced NB Pos = 0.329 (SHAP contribution: -0.1631);
+Enhanced RoBERTa Pos = 0.622 (SHAP contribution: -0.0112);
+Enhanced VADER Neg = 0.048 (SHAP contribution: -0.01);
+Enhanced VADER Compound = 0.4588 (SHAP contribution: -0.0092)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced VADER Neu, Enhanced RoBERTa Neg, Enhanced SVM Neu, Enhanced VADER Pos. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+55
+
+prediction_result:
+wrong
+
+review_text:
+"Incarcerated in a labor camp in Siberia, Ivan Denisovich struggles to find food, warmth and a bit of dignity over the course of his day as a forced laborer in the Gulag.....One Day in the Life of Ivan DenisovichRich B"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6199
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6672 (SHAP contribution: 0.6834);
+Enhanced RoBERTa Pos = 0.0166 (SHAP contribution: 0.3439);
+Enhanced VADER Compound = 0.0516 (SHAP contribution: 0.1031);
+Enhanced RoBERTa Neu = 0.3162 (SHAP contribution: 0.0844);
+Enhanced VADER Neu = 0.741 (SHAP contribution: 0.0132)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.4415 (SHAP contribution: -0.1276);
+Enhanced VADER Pos = 0.132 (SHAP contribution: -0.1102);
+Enhanced SVM Neg = 0.2269 (SHAP contribution: -0.0535);
+Enhanced NB Neg = 0.2338 (SHAP contribution: -0.0394);
+Enhanced NB Neu = 0.4319 (SHAP contribution: -0.0382)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced RoBERTa Neu, Enhanced VADER Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+56
+
+prediction_result:
+wrong
+
+review_text:
+"I read this book many years ago when I was 13 or 14 so my memory is a little fuzzy on the details, but I remember it made a huge impression on me at the time. I saw the movie and that is what originally inspired me to read the book, but there is a lot more to the book than just the love story that was portrayed in the movie. There is a lot of political and social history presented in the novel, but not so much that it overwhelms the reader. The story and the history are balanced very well. The main character strives to do well and survive against the odds, which was inspirational despite the fact that so many unfortunate incidents happened to him."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7011
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0069 (SHAP contribution: 0.9428);
+Enhanced RoBERTa Pos = 0.8038 (SHAP contribution: 0.3622);
+Enhanced VADER Compound = 0.9731 (SHAP contribution: 0.0579);
+Enhanced NB Pos = 0.4504 (SHAP contribution: 0.0459);
+Enhanced SVM Neu = 0.3697 (SHAP contribution: 0.0158)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3062 (SHAP contribution: -0.0792);
+Enhanced VADER Neg = 0.045 (SHAP contribution: -0.0454);
+Enhanced NB Neg = 0.1938 (SHAP contribution: -0.0431);
+Enhanced SVM Neg = 0.324 (SHAP contribution: -0.0207);
+Enhanced VADER Pos = 0.199 (SHAP contribution: -0.0165)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Pos, Enhanced SVM Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+61
+
+prediction_result:
+wrong
+
+review_text:
+"I purchased this in 2013. It was easy to set up and has worked great since then. Only issue is when the display is out of it's dock it will sometimes lock up and require a restart to get the functions to work again. Also, none of the administrative functions work while it is in the dock, have to remove from dock to do anything. Now, here we are in the latter part of 2017 and I can no longer access the system on my iPhone because Uniden had not issued any upgrades that will allow their system to work with IOS 11. Trying to contact Uniden but like so many companies these days they hide their contact information so that you either spend way too much time to find it, or you never find it, which means they don't have to help many people, just sell a product and write it off."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7564
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6496 (SHAP contribution: 0.6481);
+Enhanced VADER Pos = 0.058 (SHAP contribution: 0.1583);
+Enhanced SVM Pos = 0.2375 (SHAP contribution: 0.12);
+Enhanced RoBERTa Pos = 0.0354 (SHAP contribution: 0.088);
+Enhanced NB Neu = 0.2082 (SHAP contribution: 0.0864)
+
+top_opposing_features:
+Enhanced VADER Compound = 0.3946 (SHAP contribution: -0.0382);
+Enhanced NB Neg = 0.6205 (SHAP contribution: -0.0258)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Pos, Enhanced SVM Pos, Enhanced RoBERTa Pos, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+63
+
+prediction_result:
+wrong
+
+review_text:
+"I have two of these that I'll be returning. The menu functions require about an hour of training. Between the three buttons and power button, it's a puzzle trying to figure out which buttons do what, and how long you have to hold down which button for 1, 2 or 5 seconds to make something happen. Aside from that, I wouldn't have been rating this a bad product if it wasn't for what followed. I hooked one up for a day, and noticed that the time stamp seemed to fall back about 2 minutes every hour. GPS function is a non-existent joke. It simply doesn't work. It did manage to locate where I parked my car, and after that reported everywhere I went at the same location. The time stamp started to jam after 4 hours of use, and after another hour, the camera stopped recording all together losing the last hour of my drive. I'm not sure why it has any sort of built in power source, as it gets about 2 minutes on a full charge before shutting off. Again, I can deal with the power deficiency issue, and complicated menu, the lack of a working GPS, and even the time stamp, but when it just decided to stop recording I'm not seeing the point in having it. I also noticed after taking the time to read the reviews this is a cheap dysfunctional copy of a real product. 09/04/2014 Just an update. I mentioned I purchased two. For kicks and grins I tried the other one today and everything seems to work fine. It is still a little cheap, and difficult to move around the menus, but I admit the other one had to be really screwed up. The GPS on the new one works as well. I'd update the review to three stars from one. I'd give it four stars for overall value if the first one had worked."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7154
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6744 (SHAP contribution: 0.636);
+Enhanced RoBERTa Pos = 0.0218 (SHAP contribution: 0.3513);
+Enhanced VADER Pos = 0.044 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = -0.7806 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.183 (SHAP contribution: 0.12)
+
+top_opposing_features:
+Enhanced VADER Neu = 0.887 (SHAP contribution: -0.0333);
+Enhanced NB Neg = 0.485 (SHAP contribution: -0.0258);
+Enhanced SVM Neu = 0.3781 (SHAP contribution: -0.0154)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced VADER Neu.
+
+====================================================================================================
+
+row_index:
+64
+
+prediction_result:
+wrong
+
+review_text:
+"Great for DVD's, but bad for Wi-Fi"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5663
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4311 (SHAP contribution: 0.1948);
+Enhanced NB Neu = 0.444 (SHAP contribution: 0.1046);
+Enhanced VADER Neg = 0.386 (SHAP contribution: 0.0947);
+Enhanced RoBERTa Neg = 0.4934 (SHAP contribution: 0.085);
+Enhanced NB Neg = 0.2142 (SHAP contribution: 0.0733)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3419 (SHAP contribution: -0.1088);
+Enhanced VADER Compound = -0.4939 (SHAP contribution: -0.0693);
+Enhanced SVM Pos = 0.4906 (SHAP contribution: -0.0624);
+Enhanced SVM Neu = 0.3139 (SHAP contribution: -0.0576);
+Enhanced VADER Neu = 0.407 (SHAP contribution: -0.0406)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Neg, Enhanced RoBERTa Neg, Enhanced NB Neg. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+65
+
+prediction_result:
+wrong
+
+review_text:
+"Too small for my child's head"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8196
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8162 (SHAP contribution: 0.6355);
+Enhanced RoBERTa Pos = 0.013 (SHAP contribution: 0.3618);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.1998 (SHAP contribution: 0.1044)
+
+top_opposing_features:
+Enhanced NB Neu = 0.4641 (SHAP contribution: -0.0579);
+Enhanced NB Neg = 0.2355 (SHAP contribution: -0.0431);
+Enhanced SVM Neu = 0.3656 (SHAP contribution: -0.0154)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+69
+
+prediction_result:
+wrong
+
+review_text:
+"This is a very good book with useful tips. I tried baking my pie on the floor of the oven like she suggests. The first time it turned out amazing. Every time since it has burned. Anyone have ideas why this happened? I have tried reducing the temperature and the crust comes out nice and golden but seems a little tougher to me."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4989
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.372 (SHAP contribution: 0.1898);
+Enhanced SVM Neu = 0.3887 (SHAP contribution: 0.1395);
+Enhanced RoBERTa Neg = 0.0554 (SHAP contribution: 0.1173);
+Enhanced VADER Compound = 0.8275 (SHAP contribution: 0.0673);
+Enhanced VADER Pos = 0.181 (SHAP contribution: 0.0571)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0668);
+Enhanced SVM Pos = 0.4274 (SHAP contribution: -0.054);
+Enhanced SVM Neg = 0.1839 (SHAP contribution: -0.0174);
+Enhanced RoBERTa Pos = 0.5726 (SHAP contribution: -0.0112);
+Enhanced NB Pos = 0.459 (SHAP contribution: -0.0106)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+70
+
+prediction_result:
+wrong
+
+review_text:
+"I took a trip to Thailand and was appalled at what I saw, from the filth and smut to the rampant corruption, prostitution, and hideous architecture. And through it all was the ever-present face of THE KING, hundreds of feet tall on skyscrapers, in subways, on office buildings, billboards...everywhere. Say anything critical of him and you're in big trouble.So my question going into this book was: How much is the King responsible for the Thailand that I experienced? For the innumerable narratives of abuse and extortion at the hands of government officials and one of the world's most deplorable legal systems?My answer after reading much of this book is that the King, even if not directly responsible for all that is foul in Thailand, is a huge power player in the utterly fragmented, rudderless, and byzantine world of this Southeast Asian power. His throne and the hold in which it has over his people, would seem anything but democratic -- as the king himself, in his own words, does not truly believe in the concept. I think we are seeing that play out to this day. Like all monarchs, the takeaway is that he is interested in retaining the power of the throne at all costs, and then implementing public works as a "gift" to his people. It's like entering the middle ages.Most fascinating and dizzying of all is that this is all perpetrated in the name of Buddhism, of creating a community of well being and dharma for an entire society. This is one of the most indicting statements I have ever heard against Buddhist precepts, and shows how that religion just like any other can be manipulated for the retention of power by a monarchy. It's actually quite a straightforward story that's played itself over time and again in human history, but the Buddhist and particularly the Hindu notions of royalty give this chapter in human domination a mephitic whiff all of its own. My hat's off to Handley for describing much of this insanely complex power brokering from its origins, but in its play-by=play analysis the book cannot help but be a dense, tiresome slog.But the question remains -- without the King, would Thailand look something more like Burma or Cambodia? A scary thought to be sure."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6054
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.9035 (SHAP contribution: 0.7009);
+Enhanced RoBERTa Pos = 0.0053 (SHAP contribution: 0.3773);
+Enhanced RoBERTa Neu = 0.0912 (SHAP contribution: 0.0844)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.422 (SHAP contribution: -0.1276);
+Enhanced VADER Compound = 0.9663 (SHAP contribution: -0.1149);
+Enhanced VADER Pos = 0.105 (SHAP contribution: -0.0855);
+Enhanced SVM Neg = 0.1881 (SHAP contribution: -0.0535);
+Enhanced VADER Neu = 0.843 (SHAP contribution: -0.0434)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+72
+
+prediction_result:
+wrong
+
+review_text:
+"Wanted to update my 4 year old Sony TX630 with SSD. I read here, read there, finally ordered this MTRON drive and then the next evening found an obscure link with a better photo and it clearly showed that ZIF wasn't compatible with the microATA50 Toshiba Drives used in Sonys. I didn't open the OEM box when it came. I wrote Jonny at Rocket Disk and he said they'll restock it for a modest fee so its on its way back. I am writing this as a precaution to buyers who are unsure - the error will cost ya. My Bad. BUT, today, I found conics.net has an SSD that WILL work, similar price range. Too bad they're not on AMAZON."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6971
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.679 (SHAP contribution: 0.6259);
+Enhanced RoBERTa Pos = 0.0207 (SHAP contribution: 0.3513);
+Enhanced VADER Pos = 0.031 (SHAP contribution: 0.1673);
+Enhanced VADER Compound = -0.862 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.2316 (SHAP contribution: 0.12)
+
+top_opposing_features:
+Enhanced SVM Neg = 0.3241 (SHAP contribution: -0.0498);
+Enhanced VADER Neu = 0.85 (SHAP contribution: -0.0434);
+Enhanced SVM Neu = 0.4443 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced SVM Neg.
+
+====================================================================================================
+
+row_index:
+73
+
+prediction_result:
+wrong
+
+review_text:
+"The chest area of the dress was quite large. I decided to size up like I usually do with online purchases and it fit perfectly at my waist but the chest area was much to large even with the adjustable straps. I am a 34 DD and had this problem. It also has a very low back which is hard to wear a bra with!!!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5107
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4412 (SHAP contribution: 0.1929);
+Enhanced NB Neu = 0.4828 (SHAP contribution: 0.1117);
+Enhanced RoBERTa Neg = 0.5089 (SHAP contribution: 0.0849);
+Enhanced NB Pos = 0.2324 (SHAP contribution: 0.0792);
+Enhanced VADER Neg = 0.126 (SHAP contribution: 0.0729)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2957 (SHAP contribution: -0.2249);
+Enhanced VADER Compound = -0.4316 (SHAP contribution: -0.0374);
+Enhanced VADER Neu = 0.736 (SHAP contribution: -0.0369);
+Enhanced SVM Neg = 0.4397 (SHAP contribution: -0.0295);
+Enhanced RoBERTa Pos = 0.0499 (SHAP contribution: -0.005)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced VADER Neg. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+75
+
+prediction_result:
+wrong
+
+review_text:
+"SPOILER ALERT, SPOILER ALERT!Annakin Skywalker becomes Darth Vadar! oh yeah, everyone already knew that.my only disappointment with this book; no scenes on the wookie homeworld. it's my understanding it is shown and featured in the movie, yet nothing in these pages other than "yep, Yoda went there and escaped thanks to Bail Organa."still, this is a fine read."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5751
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4248 (SHAP contribution: 0.2045);
+Enhanced RoBERTa Neg = 0.4993 (SHAP contribution: 0.0918);
+Enhanced VADER Neg = 0.082 (SHAP contribution: 0.0752);
+Enhanced SVM Pos = 0.3886 (SHAP contribution: 0.0714);
+Enhanced VADER Pos = 0.156 (SHAP contribution: 0.0438)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2186 (SHAP contribution: -0.2472);
+Enhanced RoBERTa Pos = 0.0758 (SHAP contribution: -0.0112);
+Enhanced SVM Neg = 0.3929 (SHAP contribution: -0.0073)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced VADER Neg, Enhanced SVM Pos, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+76
+
+prediction_result:
+wrong
+
+review_text:
+"He says something as if it is in "quotation marks," in EVERY sentence. Who talks like that? Gets to be distracting.Also, he references "study after study" frequently, but I would love to hear him cite a study.My main gripe with him is his speaking habit of quoting one-third to one-half of each sentence. You'll know what I mean when you listen to him speak about ANYTHING. No other speaker does this."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5537
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3217 (SHAP contribution: 0.1513);
+Enhanced SVM Neu = 0.5743 (SHAP contribution: 0.1346);
+Enhanced NB Neu = 0.5576 (SHAP contribution: 0.1122);
+Enhanced NB Pos = 0.2587 (SHAP contribution: 0.0821);
+Enhanced VADER Compound = 0.7469 (SHAP contribution: 0.0497)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.037 (SHAP contribution: -0.0285);
+Enhanced SVM Pos = 0.2397 (SHAP contribution: -0.0235);
+Enhanced SVM Neg = 0.186 (SHAP contribution: -0.0037);
+Enhanced RoBERTa Neg = 0.6398 (SHAP contribution: -0.0007)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was Naive Bayes. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Neu, Enhanced NB Pos, Enhanced VADER Compound. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+85
+
+prediction_result:
+wrong
+
+review_text:
+"It's comfy but the shirt keeps coming up"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.433
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6153 (SHAP contribution: 0.1228);
+Enhanced NB Neu = 0.63 (SHAP contribution: 0.1223);
+Enhanced NB Pos = 0.1707 (SHAP contribution: 0.0982);
+Enhanced NB Neg = 0.1993 (SHAP contribution: 0.071);
+Enhanced RoBERTa Neg = 0.2265 (SHAP contribution: 0.059)
+
+top_opposing_features:
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0823);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0614);
+Enhanced SVM Neu = 0.3305 (SHAP contribution: -0.057);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.0499);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0399)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was Naive Bayes. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced NB Pos, Enhanced NB Neg, Enhanced RoBERTa Neg. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+86
+
+prediction_result:
+wrong
+
+review_text:
+"Cute but not look good on me and little small"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5549
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6748 (SHAP contribution: 0.6135);
+Enhanced RoBERTa Pos = 0.0312 (SHAP contribution: 0.2006);
+Enhanced VADER Compound = -0.2753 (SHAP contribution: 0.1419);
+Enhanced SVM Pos = 0.1516 (SHAP contribution: 0.1044);
+Enhanced RoBERTa Neu = 0.294 (SHAP contribution: 0.0844)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.153 (SHAP contribution: -0.1228);
+Enhanced NB Neu = 0.7231 (SHAP contribution: -0.066);
+Enhanced SVM Neg = 0.129 (SHAP contribution: -0.0535);
+Enhanced NB Neg = 0.133 (SHAP contribution: -0.0394);
+Enhanced SVM Neu = 0.7194 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Neu. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+88
+
+prediction_result:
+wrong
+
+review_text:
+"Work for our PS4 but are fragile."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4088
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5562 (SHAP contribution: 0.1109);
+Enhanced VADER Neg = 0.381 (SHAP contribution: 0.0803);
+Enhanced RoBERTa Neg = 0.3666 (SHAP contribution: 0.0636);
+Enhanced NB Neg = 0.2266 (SHAP contribution: 0.0364);
+Enhanced SVM Neg = 0.3566 (SHAP contribution: 0.0133)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.5719 (SHAP contribution: -0.0823);
+Enhanced VADER Neu = 0.619 (SHAP contribution: -0.0549);
+Enhanced SVM Neu = 0.3409 (SHAP contribution: -0.0355);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0347);
+Enhanced NB Pos = 0.4516 (SHAP contribution: -0.0325)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced VADER Neg, Enhanced RoBERTa Neg, Enhanced NB Neg, Enhanced SVM Neg. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+94
+
+prediction_result:
+wrong
+
+review_text:
+"Decent quality for tracking, they work"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4931
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.013 (SHAP contribution: 0.8947);
+Enhanced RoBERTa Pos = 0.7627 (SHAP contribution: 0.2989);
+Enhanced SVM Neu = 0.3626 (SHAP contribution: 0.0433);
+Enhanced VADER Neg = 0.0 (SHAP contribution: 0.0185)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.2244 (SHAP contribution: -0.2068);
+Enhanced SVM Pos = 0.2571 (SHAP contribution: -0.14);
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0845);
+Enhanced NB Pos = 0.2535 (SHAP contribution: -0.0646);
+Enhanced NB Neg = 0.4723 (SHAP contribution: -0.0521)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neu, Enhanced VADER Neg. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+97
+
+prediction_result:
+wrong
+
+review_text:
+"chain isn't the best "fake" quality but the charm is cute and unique. I just put it on another one of my chains."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6263
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4468 (SHAP contribution: 0.2044);
+Enhanced NB Neu = 0.4509 (SHAP contribution: 0.1063);
+Enhanced SVM Neu = 0.3703 (SHAP contribution: 0.0863);
+Enhanced RoBERTa Neg = 0.0408 (SHAP contribution: 0.0842);
+Enhanced VADER Neg = 0.076 (SHAP contribution: 0.0677)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.263 (SHAP contribution: -0.075);
+Enhanced VADER Neu = 0.661 (SHAP contribution: -0.0461);
+Enhanced RoBERTa Pos = 0.5124 (SHAP contribution: -0.0112);
+Enhanced SVM Pos = 0.2717 (SHAP contribution: -0.0076);
+Enhanced NB Pos = 0.2913 (SHAP contribution: -0.0013)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced SVM Neu, Enhanced RoBERTa Neg, Enhanced VADER Neg. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+99
+
+prediction_result:
+wrong
+
+review_text:
+"These sit on your ears (they do not "cup" the ears) but are very comfortable. They are not very loud which concerns me."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4185
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5873 (SHAP contribution: 0.2182);
+Enhanced VADER Compound = 0.7086 (SHAP contribution: 0.0538);
+Enhanced SVM Neu = 0.2457 (SHAP contribution: 0.0357);
+Enhanced VADER Neg = 0.0 (SHAP contribution: 0.0238);
+Enhanced VADER Neu = 0.818 (SHAP contribution: 0.009)
+
+top_opposing_features:
+Enhanced RoBERTa Neg = 0.1191 (SHAP contribution: -0.1551);
+Enhanced SVM Pos = 0.2314 (SHAP contribution: -0.1387);
+Enhanced NB Neg = 0.4825 (SHAP contribution: -0.0521);
+Enhanced SVM Neg = 0.5229 (SHAP contribution: -0.0177);
+Enhanced NB Pos = 0.2951 (SHAP contribution: -0.0016)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was VADER. The top supporting features were Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Neu, Enhanced VADER Neg, Enhanced VADER Neu. The main opposing signal was Enhanced RoBERTa Neg.
+
+====================================================================================================
+
+row_index:
+100
+
+prediction_result:
+wrong
+
+review_text:
+"The pattern is not the same as the model! But the bathing suit is still cute. Fits pretty well and has padding that can be removed. I got a small and I weigh 125 pounds I'm 57 and I'm at 32A"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4606
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0651 (SHAP contribution: 0.1142);
+Enhanced SVM Pos = 0.3676 (SHAP contribution: 0.0875);
+Enhanced VADER Compound = 0.9051 (SHAP contribution: 0.079);
+Enhanced NB Neg = 0.3544 (SHAP contribution: 0.075);
+Enhanced RoBERTa Pos = 0.4746 (SHAP contribution: 0.0496)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.4603 (SHAP contribution: -0.0846);
+Enhanced NB Pos = 0.2601 (SHAP contribution: -0.0769);
+Enhanced SVM Neg = 0.3254 (SHAP contribution: -0.0177)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was VADER. The top supporting features were Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced VADER Compound, Enhanced NB Neg, Enhanced RoBERTa Pos. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+101
+
+prediction_result:
+wrong
+
+review_text:
+"Fahrenheit 451 was a disappointing book for a reader who is not an avid science fiction lover. This book is very difficult to read. The correctors a sometimes very confusing to understand. The setting is also very hard to have a visual picture. Although the plot is very good the way that it is described is hard to understand. I think if you are a science fiction lover that you would like this book. But if you sometimes like to read science fiction you will not like this because you have to be a huge science fiction lover to like this. I also think you need to be above the 6th grade or a very advanced reader."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5702
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4042 (SHAP contribution: 0.1849);
+Enhanced VADER Compound = 0.9711 (SHAP contribution: 0.0869);
+Enhanced RoBERTa Neg = 0.5469 (SHAP contribution: 0.0807);
+Enhanced VADER Neg = 0.074 (SHAP contribution: 0.0751);
+Enhanced SVM Neu = 0.3669 (SHAP contribution: 0.0637)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3079 (SHAP contribution: -0.1473);
+Enhanced VADER Neu = 0.701 (SHAP contribution: -0.0425);
+Enhanced NB Neg = 0.332 (SHAP contribution: -0.0317);
+Enhanced VADER Pos = 0.225 (SHAP contribution: -0.0201);
+Enhanced RoBERTa Pos = 0.0489 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced RoBERTa Neg, Enhanced VADER Neg, Enhanced SVM Neu. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+104
+
+prediction_result:
+wrong
+
+review_text:
+"This is a must read for any followers of Machiavellian prince apples. Prawns and other Wannabees may discover knew uses for ancient manipulative Phycodian garble de spooks. Dat auld white majick sin four skin. Hal Zwingi"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4149
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5263 (SHAP contribution: 0.163);
+Enhanced SVM Neg = 0.1256 (SHAP contribution: 0.1451);
+Enhanced RoBERTa Neg = 0.0804 (SHAP contribution: 0.089);
+Enhanced SVM Pos = 0.5484 (SHAP contribution: 0.0757);
+Enhanced RoBERTa Pos = 0.3934 (SHAP contribution: 0.0489)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.5574 (SHAP contribution: -0.0807);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0573);
+Enhanced VADER Neg = 0.096 (SHAP contribution: -0.035);
+Enhanced NB Neg = 0.2295 (SHAP contribution: -0.0312);
+Enhanced VADER Neu = 0.904 (SHAP contribution: -0.0203)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neg, Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+105
+
+prediction_result:
+wrong
+
+review_text:
+"It was suppose to be Prime but it took 3 weeks to get here!! I did not like it one bit! The size ran small!!"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8101
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.9151 (SHAP contribution: 0.6373);
+Enhanced RoBERTa Pos = 0.0079 (SHAP contribution: 0.3513);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = -0.8192 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.1712 (SHAP contribution: 0.12)
+
+top_opposing_features:
+Enhanced NB Neg = 0.5205 (SHAP contribution: -0.0407);
+Enhanced SVM Neu = 0.3978 (SHAP contribution: -0.0154)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neg.
+
+====================================================================================================
+
+row_index:
+107
+
+prediction_result:
+wrong
+
+review_text:
+"L was way too small and XL way too big?"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7736
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6451 (SHAP contribution: 0.6473);
+Enhanced RoBERTa Pos = 0.0198 (SHAP contribution: 0.3618);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.1891 (SHAP contribution: 0.1044)
+
+top_opposing_features:
+Enhanced NB Neu = 0.4017 (SHAP contribution: -0.0579);
+Enhanced SVM Neu = 0.3762 (SHAP contribution: -0.0154)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+109
+
+prediction_result:
+wrong
+
+review_text:
+"Have read a good third of the book so far. Story is usually fine and moves right along, is humorous at times even--which is o.k.; the thing that bugs this reader is the fact the author seems to slow things down now and then whenever he attempts to cram his political views down the reader's throat. I don't mind messages in small doses, but to stop your narrative and get on a soap box and start preaching is just plain stupid and bothersome and does not work. Rocky is a good word to describe this tale. On the other hand, I loved Cottonpickers. Your money, your choice."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6179
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7534 (SHAP contribution: 0.6684);
+Enhanced RoBERTa Pos = 0.0198 (SHAP contribution: 0.3565);
+Enhanced SVM Pos = 0.0878 (SHAP contribution: 0.1044);
+Enhanced RoBERTa Neu = 0.2268 (SHAP contribution: 0.0844);
+Enhanced SVM Neg = 0.4828 (SHAP contribution: 0.0596)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.149 (SHAP contribution: -0.1155);
+Enhanced NB Neu = 0.4215 (SHAP contribution: -0.057);
+Enhanced NB Neg = 0.4613 (SHAP contribution: -0.0407);
+Enhanced SVM Neu = 0.4294 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced RoBERTa Neu, Enhanced SVM Neg. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+116
+
+prediction_result:
+wrong
+
+review_text:
+"Unable to install with Windows 7"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7762
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7681 (SHAP contribution: 0.6513);
+Enhanced RoBERTa Pos = 0.0141 (SHAP contribution: 0.3513);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1673);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1253);
+Enhanced RoBERTa Neu = 0.2178 (SHAP contribution: 0.0758)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.483 (SHAP contribution: -0.1478);
+Enhanced SVM Neg = 0.2764 (SHAP contribution: -0.0498);
+Enhanced NB Neu = 0.3546 (SHAP contribution: -0.01);
+Enhanced NB Neg = 0.2995 (SHAP contribution: -0.0089)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced RoBERTa Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+118
+
+prediction_result:
+wrong
+
+review_text:
+"We used this book in x-ray technology school and in preparation for the CT exam. The images are alright, although some of them are not the best quality. Also, by the time you get to the point of learning cross sectional anatomy you should have a deep knowledge of human anatomy, so I really don't see why the writer wasted so much useful space by writing about structure and physiology. I also didn't like the labeling, because instead of using numbers like most books do, they used abbreviations... kind of a give-away if you try to practice."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6348
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7823 (SHAP contribution: 0.6475);
+Enhanced RoBERTa Pos = 0.011 (SHAP contribution: 0.3147);
+Enhanced VADER Compound = -0.6183 (SHAP contribution: 0.1253);
+Enhanced RoBERTa Neu = 0.2067 (SHAP contribution: 0.0844);
+Enhanced NB Neu = 0.2399 (SHAP contribution: 0.0459)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3161 (SHAP contribution: -0.1478);
+Enhanced SVM Neg = 0.2429 (SHAP contribution: -0.0498);
+Enhanced VADER Neu = 0.822 (SHAP contribution: -0.0333);
+Enhanced NB Neg = 0.603 (SHAP contribution: -0.0258);
+Enhanced VADER Pos = 0.065 (SHAP contribution: -0.0179)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced RoBERTa Neu, Enhanced NB Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+119
+
+prediction_result:
+wrong
+
+review_text:
+"This product looks very nice and I liked it until I put it on. I also notice some embedded images in the dress as well. I would show a picture but I could not put my arm in it."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5388
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0533 (SHAP contribution: 0.3655);
+Enhanced RoBERTa Pos = 0.6241 (SHAP contribution: 0.276);
+Enhanced SVM Neg = 0.1869 (SHAP contribution: 0.1305);
+Enhanced SVM Pos = 0.5406 (SHAP contribution: 0.0875);
+Enhanced SVM Neu = 0.2725 (SHAP contribution: 0.0552)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.3226 (SHAP contribution: -0.2064);
+Enhanced NB Pos = 0.2856 (SHAP contribution: -0.0319);
+Enhanced VADER Neu = 0.842 (SHAP contribution: -0.0203);
+Enhanced NB Neg = 0.2996 (SHAP contribution: -0.0166);
+Enhanced VADER Pos = 0.158 (SHAP contribution: -0.004)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced SVM Pos, Enhanced SVM Neu. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+120
+
+prediction_result:
+wrong
+
+review_text:
+"It broke butterfly came off"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4784
+
+strongest_individual_feature:
+Enhanced SVM Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced SVM Neu = 0.541 (SHAP contribution: 0.1215);
+Enhanced NB Pos = 0.1993 (SHAP contribution: 0.1162);
+Enhanced RoBERTa Neu = 0.5407 (SHAP contribution: 0.1138);
+Enhanced VADER Neg = 0.412 (SHAP contribution: 0.0803);
+Enhanced NB Neu = 0.3917 (SHAP contribution: 0.0773)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.4215 (SHAP contribution: -0.0823);
+Enhanced VADER Neu = 0.588 (SHAP contribution: -0.0424);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0408);
+Enhanced NB Neg = 0.409 (SHAP contribution: -0.0076)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced SVM Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced SVM Neu, Enhanced NB Pos, Enhanced RoBERTa Neu, Enhanced VADER Neg, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+122
+
+prediction_result:
+wrong
+
+review_text:
+"These are very comfortable, but after a couple of washes, it's a bit looser."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5952
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5466 (SHAP contribution: 0.1526);
+Enhanced SVM Neu = 0.412 (SHAP contribution: 0.1453);
+Enhanced NB Neu = 0.4978 (SHAP contribution: 0.1153);
+Enhanced RoBERTa Neg = 0.0702 (SHAP contribution: 0.1065);
+Enhanced VADER Pos = 0.173 (SHAP contribution: 0.0763)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3073 (SHAP contribution: -0.1793);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0851);
+Enhanced RoBERTa Pos = 0.3832 (SHAP contribution: -0.0109)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Neu, Enhanced RoBERTa Neg, Enhanced VADER Pos. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+127
+
+prediction_result:
+wrong
+
+review_text:
+"Nice head sett"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5888
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3955 (SHAP contribution: 0.1883);
+Enhanced SVM Neu = 0.3936 (SHAP contribution: 0.1713);
+Enhanced NB Pos = 0.2234 (SHAP contribution: 0.1473);
+Enhanced NB Neu = 0.4232 (SHAP contribution: 0.0966);
+Enhanced RoBERTa Neg = 0.0725 (SHAP contribution: 0.0842)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.583 (SHAP contribution: -0.075);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0668);
+Enhanced VADER Neu = 0.417 (SHAP contribution: -0.0461);
+Enhanced NB Neg = 0.3534 (SHAP contribution: -0.0178);
+Enhanced RoBERTa Pos = 0.532 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Pos, Enhanced NB Neu, Enhanced RoBERTa Neg. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+128
+
+prediction_result:
+wrong
+
+review_text:
+"Do not buy if you have a Mac with the latest MacOS, as it has issue with its current driver. I am still waiting for an update."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8241
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.785 (SHAP contribution: 0.6769);
+Enhanced RoBERTa Pos = 0.013 (SHAP contribution: 0.3326);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1673);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1253);
+Enhanced RoBERTa Neu = 0.202 (SHAP contribution: 0.0758)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3557 (SHAP contribution: -0.1478)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced RoBERTa Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+129
+
+prediction_result:
+wrong
+
+review_text:
+"1 star for the language learning, could have 4 or 5 for the communicational purpose. This might be a very good guide for a person wanting to go to Japan, it teaches lot's of communicational situations, but of he language itself it teaches almost nothing, almost no (!) grammar and only a part of the script. At this rithym you'll need until volume 20."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4375
+
+strongest_individual_feature:
+Enhanced SVM Pos
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced SVM Pos = 0.5091 (SHAP contribution: 0.0875);
+Enhanced RoBERTa Neg = 0.0608 (SHAP contribution: 0.0851);
+Enhanced NB Pos = 0.3521 (SHAP contribution: 0.0516);
+Enhanced RoBERTa Pos = 0.4559 (SHAP contribution: 0.0496);
+Enhanced SVM Neu = 0.261 (SHAP contribution: 0.0479)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.067 (SHAP contribution: -0.0573);
+Enhanced SVM Neg = 0.2299 (SHAP contribution: -0.0466);
+Enhanced NB Neg = 0.2592 (SHAP contribution: -0.0431);
+Enhanced VADER Neu = 0.933 (SHAP contribution: -0.0203)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced SVM Pos, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced SVM Pos, Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced RoBERTa Pos, Enhanced SVM Neu. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+136
+
+prediction_result:
+wrong
+
+review_text:
+"You need to find a really good station in order for it to work properly"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.7449
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0194 (SHAP contribution: 0.9397);
+Enhanced RoBERTa Pos = 0.6999 (SHAP contribution: 0.276);
+Enhanced SVM Pos = 0.435 (SHAP contribution: 0.0875);
+Enhanced NB Neg = 0.3244 (SHAP contribution: 0.075);
+Enhanced NB Pos = 0.4528 (SHAP contribution: 0.0516)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.2806 (SHAP contribution: -0.2143);
+Enhanced SVM Neg = 0.2963 (SHAP contribution: -0.0436);
+Enhanced VADER Pos = 0.197 (SHAP contribution: -0.0165)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced NB Neg, Enhanced NB Pos. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+137
+
+prediction_result:
+wrong
+
+review_text:
+"I bought this rig for my wife and a big reason I chose this one is it said it has wireless display and I wanted my wife to be able to get netflix on the TV. Well this is simply not true. IF you buy an HD cable you can have a cabled display but there is simply no way I've found to hook up wireless to the TV."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7192
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6834 (SHAP contribution: 0.625);
+Enhanced VADER Pos = 0.023 (SHAP contribution: 0.1673);
+Enhanced VADER Compound = -0.4881 (SHAP contribution: 0.1419);
+Enhanced SVM Pos = 0.2988 (SHAP contribution: 0.1078);
+Enhanced RoBERTa Pos = 0.0331 (SHAP contribution: 0.0997)
+
+top_opposing_features:
+Enhanced VADER Neu = 0.892 (SHAP contribution: -0.0333);
+Enhanced NB Neg = 0.4839 (SHAP contribution: -0.0258);
+Enhanced SVM Neg = 0.3409 (SHAP contribution: -0.0179);
+Enhanced SVM Neu = 0.3603 (SHAP contribution: -0.0142)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Neu.
+
+====================================================================================================
+
+row_index:
+140
+
+prediction_result:
+wrong
+
+review_text:
+"I think that this book is really good, and I would recommend everyone to read it. I am really annoyed about the ending though, and I don't think he should have tried to avoid the happy ending by making up all of that stuff about can't live in different worlds and stupid stuff. Otherwise, I think it was a brilliant book to end a brilliant series."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6043
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4898 (SHAP contribution: 0.1522);
+Enhanced NB Pos = 0.2403 (SHAP contribution: 0.1126);
+Enhanced VADER Compound = 0.8876 (SHAP contribution: 0.1062);
+Enhanced VADER Neg = 0.111 (SHAP contribution: 0.0803);
+Enhanced RoBERTa Neg = 0.2495 (SHAP contribution: 0.0675)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.334 (SHAP contribution: -0.0428);
+Enhanced VADER Neu = 0.654 (SHAP contribution: -0.0385);
+Enhanced VADER Pos = 0.235 (SHAP contribution: -0.0201);
+Enhanced NB Neg = 0.4298 (SHAP contribution: -0.0151);
+Enhanced RoBERTa Pos = 0.2606 (SHAP contribution: -0.0125)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Pos, Enhanced VADER Compound, Enhanced VADER Neg, Enhanced RoBERTa Neg. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+142
+
+prediction_result:
+wrong
+
+review_text:
+"Now Face to Face and it's predecessor Through a Glass Darkly have joined my collection of favorite historical fiction. Contrary to the other opinion that the political intrigue of the novel was hard to follow, I felt that, for the first time, I was truly able to understand this period of English upheaval. I was reading these novels for the "fiction" and not for the "romance" so I didn't notice if there was romance missing. I didn't feel there was anything missing, actually. The only thing missing is a third book! Ms. Koen, is it on it's way?"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5697
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5742 (SHAP contribution: 0.1396);
+Enhanced SVM Neu = 0.3672 (SHAP contribution: 0.0891);
+Enhanced VADER Neg = 0.094 (SHAP contribution: 0.0861);
+Enhanced RoBERTa Neg = 0.3146 (SHAP contribution: 0.0842);
+Enhanced NB Pos = 0.2556 (SHAP contribution: 0.0691)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.223 (SHAP contribution: -0.0268);
+Enhanced SVM Neg = 0.4098 (SHAP contribution: -0.0144);
+Enhanced RoBERTa Pos = 0.1111 (SHAP contribution: -0.0125);
+Enhanced NB Neg = 0.4017 (SHAP contribution: -0.012)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced VADER Neg, Enhanced RoBERTa Neg, Enhanced NB Pos. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+143
+
+prediction_result:
+wrong
+
+review_text:
+"I haven't had these i a long time but at one time I owned two pairs. The surround sound quality was good and the worked as they were designed especially for the price. They were comfortable for extended wear as at the time I gamed for hours on most nights. The problem is construction and durability. Both pairs broke at the same spots at the second bend in the head band where the fold up. You can super glue and tape to repair the damage but it won't last long. There is too much stress on the head band in the way the ear pads press against the ear. Expect them to break, just a matter of time. I babied each of my two pairs but that didn't matter."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5201
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.585 (SHAP contribution: 0.4657);
+Enhanced VADER Compound = -0.7932 (SHAP contribution: 0.1419);
+Enhanced SVM Pos = 0.2459 (SHAP contribution: 0.12);
+Enhanced RoBERTa Pos = 0.0393 (SHAP contribution: 0.0865);
+Enhanced NB Neu = 0.3201 (SHAP contribution: 0.0694)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.3757 (SHAP contribution: -0.0846);
+Enhanced SVM Neg = 0.2902 (SHAP contribution: -0.0498);
+Enhanced VADER Pos = 0.076 (SHAP contribution: -0.0179);
+Enhanced VADER Neu = 0.813 (SHAP contribution: -0.0148);
+Enhanced SVM Neu = 0.4639 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Pos, Enhanced NB Neu. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+146
+
+prediction_result:
+wrong
+
+review_text:
+"This book appeared to be pieced together from all his other books. No innovation. I love Dirk Pitt novels and have read them all. This might be my last."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.6993
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0273 (SHAP contribution: 0.8046);
+Enhanced RoBERTa Pos = 0.7636 (SHAP contribution: 0.3257);
+Enhanced SVM Pos = 0.4253 (SHAP contribution: 0.0875);
+Enhanced VADER Compound = 0.6808 (SHAP contribution: 0.0656);
+Enhanced SVM Neu = 0.2085 (SHAP contribution: 0.0483)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.2091 (SHAP contribution: -0.1349);
+Enhanced VADER Neg = 0.065 (SHAP contribution: -0.0454);
+Enhanced NB Neg = 0.272 (SHAP contribution: -0.0431);
+Enhanced SVM Neg = 0.3661 (SHAP contribution: -0.0207);
+Enhanced VADER Pos = 0.2 (SHAP contribution: -0.0165)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced VADER Compound, Enhanced SVM Neu. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+148
+
+prediction_result:
+wrong
+
+review_text:
+"Public Reviews Written by YouReviewer Rank: 35 Page: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11-20pixelThe Great and Secret Show: the First Book of Art by Clive BarkerEdition: Unknown BindingAvailability: This item is currently unavailable.Not Really For Me, 17 Jun 2007Clive Barker was born in 1952 and he is the best-selling author of a large number of books, including his first book for children, The Thief of Always. He is also an acclaimed artist, film producer, and director. For four years Mr, Barker has been working on a vast array of paintings to illuminate the text of The Books Of Abarat, over one hundred of which can be found within this first volume.Mr. Barker lives in California with his partner, the photographer David Armstrong, and their daughter, Nicole. They share their house with four dogs, five goldfish, a parrot and a large number of other pets of all shapes and sizes.This book is a fantasy novel and describes a race against time to try to find the secret of "The Art" - a state of being or consciousness which allows its owner to transcend their humanity and enter into a heightened spiritual state - between Fletcher and the evil-intentioned Jaffe.I had heard such good things about this author that I felt I really ought to get round to reading one of his books. I can understand the attraction of the book, but it was not really my kind of thing. That is not to say that someone interested in this type of book would not find it a page turner and I am certainly not going to start to criticise the book until I have read other offerings from the author. Suffice to say it just did not do it for me."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4646
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6454 (SHAP contribution: 0.155);
+Enhanced SVM Pos = 0.3828 (SHAP contribution: 0.0875);
+Enhanced RoBERTa Neg = 0.0715 (SHAP contribution: 0.0858);
+Enhanced VADER Compound = 0.8248 (SHAP contribution: 0.0562);
+Enhanced SVM Neu = 0.2458 (SHAP contribution: 0.0429)
+
+top_opposing_features:
+Enhanced NB Pos = 0.2327 (SHAP contribution: -0.0828);
+Enhanced NB Neg = 0.5085 (SHAP contribution: -0.0521);
+Enhanced VADER Pos = 0.066 (SHAP contribution: -0.0447);
+Enhanced VADER Neu = 0.913 (SHAP contribution: -0.0203);
+Enhanced SVM Neg = 0.3713 (SHAP contribution: -0.0177)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Pos, Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced SVM Neu. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+149
+
+prediction_result:
+wrong
+
+review_text:
+"In this collection, editors Joseph Corre and Serena Rees attempt to put together a brief history of erotica, particularly subversive erotica. The diversity and quality of the illustrations make this book a nice find. The idea of the text is quite interesting--a historical and social survey of erotica--but still leaves something to be desired. The text is a little too light and doesn't seem particularly well researched."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6048
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5959 (SHAP contribution: 0.1266);
+Enhanced NB Neu = 0.4997 (SHAP contribution: 0.1153);
+Enhanced VADER Neu = 0.868 (SHAP contribution: 0.1091);
+Enhanced RoBERTa Neg = 0.2419 (SHAP contribution: 0.0724);
+Enhanced SVM Neu = 0.3465 (SHAP contribution: 0.0545)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3256 (SHAP contribution: -0.1643);
+Enhanced VADER Compound = 0.172 (SHAP contribution: -0.0283);
+Enhanced RoBERTa Pos = 0.1621 (SHAP contribution: -0.0109);
+Enhanced VADER Neg = 0.061 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Neu, Enhanced RoBERTa Neg, Enhanced SVM Neu. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+150
+
+prediction_result:
+wrong
+
+review_text:
+"This was a gift. Quality seems ok. Not great but ok. The stencil seems faded."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5102
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3547 (SHAP contribution: 0.1808);
+Enhanced SVM Neu = 0.5164 (SHAP contribution: 0.1309);
+Enhanced NB Pos = 0.197 (SHAP contribution: 0.127);
+Enhanced NB Neu = 0.407 (SHAP contribution: 0.1029);
+Enhanced VADER Neg = 0.271 (SHAP contribution: 0.0803)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.0892 (SHAP contribution: -0.0693);
+Enhanced VADER Neu = 0.428 (SHAP contribution: -0.0472);
+Enhanced VADER Pos = 0.302 (SHAP contribution: -0.0218);
+Enhanced NB Neg = 0.396 (SHAP contribution: -0.0178);
+Enhanced SVM Pos = 0.2251 (SHAP contribution: -0.0126)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Pos, Enhanced NB Neu, Enhanced VADER Neg. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+153
+
+prediction_result:
+wrong
+
+review_text:
+"I've known about this book for a while now, but I've never bothered paying attention to it given it's somewhat ridiculous price tag. Necessity forced me to forgo my earlier conclusions however, and I'm now angry at myself for not picking it up sooner. However much you think you know about Quartz, there's always more to learn, and this book is a whole lot easier to pick new tricks up from than Apple's scant free documentation. It's a bit dated when it comes to the XCode specific info, but unless you're a total newcomer you should be able to fill in the proverbial gaps there without much trouble.This is the second book on OS X programming that I have felt is truly worth owning; the first being Amit Singh's "Mac OS X Internals." This one's not as thick, nor is it hardbound, but there are lots of color plates. Good stuff."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5299
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3908 (SHAP contribution: 0.1963);
+Enhanced RoBERTa Neg = 0.5452 (SHAP contribution: 0.1029);
+Enhanced VADER Neg = 0.078 (SHAP contribution: 0.0751);
+Enhanced VADER Pos = 0.123 (SHAP contribution: 0.0686);
+Enhanced VADER Compound = 0.824 (SHAP contribution: 0.0497)
+
+top_opposing_features:
+Enhanced NB Pos = 0.3064 (SHAP contribution: -0.106);
+Enhanced NB Neg = 0.3561 (SHAP contribution: -0.0253);
+Enhanced SVM Neu = 0.3315 (SHAP contribution: -0.0147);
+Enhanced RoBERTa Pos = 0.064 (SHAP contribution: -0.0112);
+Enhanced SVM Neg = 0.3825 (SHAP contribution: -0.003)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced VADER Neg, Enhanced VADER Pos, Enhanced VADER Compound. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+156
+
+prediction_result:
+wrong
+
+review_text:
+"Reviewer: Chuck Spicer from Champaign, IL USA Brian distorts the Dune serious making unbelievable leaps and writing things that any Dune fan know just couldn't be or clash with Frank's vision. The characters are one dimensional and the story line is preposterous. It's as badly written as star trek books. This book might be entertaining to those looking for a fun read but anybody who holds Dune true and dear to their hearts will dislike this. This was obviously a tool to fatten his pockets. He should have listened to his father when he wrote "YOu don't write for success." Let Brian have his fun with the prequels but let us all hope he doesn't truely desicrate Dune by attempting Dune 7."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7313
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8311 (SHAP contribution: 0.7242);
+Enhanced RoBERTa Pos = 0.0115 (SHAP contribution: 0.3899);
+Enhanced SVM Pos = 0.2644 (SHAP contribution: 0.0922);
+Enhanced RoBERTa Neu = 0.1573 (SHAP contribution: 0.0844);
+Enhanced NB Neg = 0.4151 (SHAP contribution: 0.0399)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.181 (SHAP contribution: -0.1228);
+Enhanced VADER Compound = 0.9403 (SHAP contribution: -0.1149);
+Enhanced NB Neu = 0.4322 (SHAP contribution: -0.0579);
+Enhanced VADER Neu = 0.758 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced RoBERTa Neu, Enhanced NB Neg. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+159
+
+prediction_result:
+wrong
+
+review_text:
+"Very thin, some raffles"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4323
+
+strongest_individual_feature:
+Enhanced VADER Compound
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1882);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1681);
+Enhanced NB Neu = 0.2623 (SHAP contribution: 0.062);
+Enhanced VADER Neu = 1.0 (SHAP contribution: 0.0558);
+Enhanced SVM Neg = 0.4233 (SHAP contribution: 0.0462)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3325 (SHAP contribution: -0.1685);
+Enhanced RoBERTa Neg = 0.2156 (SHAP contribution: -0.1671);
+Enhanced RoBERTa Neu = 0.7048 (SHAP contribution: -0.0925)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Enhanced VADER Compound, Enhanced VADER Pos, Enhanced NB Neu, Enhanced VADER Neu, Enhanced SVM Neg. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+160
+
+prediction_result:
+wrong
+
+review_text:
+"Just don't know. ?? It worked at first. I read so many reviews and this appears to be the one I need for my ONE HDMI input Sony 26" TV (2005) I wanted to run my Sony DVD player and Yamaha receiver to it and out to TV. I haven't tried it with the remote. I had family visiting and needed the set-up in BR. But it only worked initially. I'm going to read more of the reviews, when I have time. Some people are really good with solutions and advice. Thanks! I could give it ONE star....but withholding that for now."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5933
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0194 (SHAP contribution: 0.8769);
+Enhanced RoBERTa Pos = 0.7555 (SHAP contribution: 0.3144);
+Enhanced VADER Compound = 0.905 (SHAP contribution: 0.057);
+Enhanced SVM Neu = 0.2793 (SHAP contribution: 0.0433);
+Enhanced VADER Neg = 0.0 (SHAP contribution: 0.0238)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.2251 (SHAP contribution: -0.1969);
+Enhanced NB Pos = 0.2273 (SHAP contribution: -0.0828);
+Enhanced SVM Pos = 0.2914 (SHAP contribution: -0.0792);
+Enhanced NB Neg = 0.5631 (SHAP contribution: -0.0521);
+Enhanced VADER Pos = 0.109 (SHAP contribution: -0.0447)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Neu, Enhanced VADER Neg. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+164
+
+prediction_result:
+wrong
+
+review_text:
+"Esy to use very long wire."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4396
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.699 (SHAP contribution: 0.1239);
+Enhanced SVM Neu = 0.4884 (SHAP contribution: 0.0879);
+Enhanced RoBERTa Neg = 0.2079 (SHAP contribution: 0.0651);
+Enhanced NB Neg = 0.1781 (SHAP contribution: 0.0529);
+Enhanced NB Neu = 0.3565 (SHAP contribution: 0.029)
+
+top_opposing_features:
+Enhanced VADER Compound = 0.0 (SHAP contribution: -0.0823);
+Enhanced VADER Neg = 0.0 (SHAP contribution: -0.0668);
+Enhanced VADER Neu = 1.0 (SHAP contribution: -0.043);
+Enhanced VADER Pos = 0.0 (SHAP contribution: -0.0278);
+Enhanced NB Pos = 0.4654 (SHAP contribution: -0.0244)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced RoBERTa Neg, Enhanced NB Neg, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+165
+
+prediction_result:
+wrong
+
+review_text:
+"One edge of the band is pretty rough. Some of the stitching on the inside is not great and required a bit of trimming to make comfortable against my skin. My main complaint though is that the included pins were the wrong size. If you look at the photo I uploaded you can see one of the pins sitting on top of the band, they are the same size, that's not going to work! Luckily I could just use the pins that were already in my watch but I did buy this band specifically to have a back up set. On the positive side this band does include a pin removal tool which is quite well made and works great."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.557
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6616 (SHAP contribution: 0.741);
+Enhanced RoBERTa Pos = 0.0284 (SHAP contribution: 0.2876);
+Enhanced RoBERTa Neu = 0.3099 (SHAP contribution: 0.0844);
+Enhanced NB Neg = 0.3681 (SHAP contribution: 0.0399);
+Enhanced NB Neu = 0.3176 (SHAP contribution: 0.0313)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3931 (SHAP contribution: -0.1478);
+Enhanced VADER Pos = 0.161 (SHAP contribution: -0.1228);
+Enhanced VADER Compound = 0.9416 (SHAP contribution: -0.1201);
+Enhanced SVM Neg = 0.271 (SHAP contribution: -0.0535);
+Enhanced VADER Neu = 0.794 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neg, Enhanced NB Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+166
+
+prediction_result:
+wrong
+
+review_text:
+"Seems like the prophet of cybernetics outsourced the writing of this history to a commodore 64. As I read this, I kept wondering if, perhaps, it was intended for youngsters? It's not bad, but quite light, and not up to Asimov's customary standard. I was puzzled that he dismissed Philip's assassination with a couple of sentences, that the internal conspiracies against Alexander aren't analyzed...Description of tactics and battles are simplistic. I suppose that when an author is so prolific and so eclectic, at some point, that limitations are unavoidable."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4593
+
+strongest_individual_feature:
+Enhanced SVM Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced SVM Neu = 0.4459 (SHAP contribution: 0.1452);
+Enhanced RoBERTa Neu = 0.6151 (SHAP contribution: 0.1295);
+Enhanced NB Neu = 0.474 (SHAP contribution: 0.1117);
+Enhanced VADER Neg = 0.118 (SHAP contribution: 0.0729);
+Enhanced RoBERTa Neg = 0.3053 (SHAP contribution: 0.0654)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.8442 (SHAP contribution: -0.0823);
+Enhanced VADER Pos = 0.051 (SHAP contribution: -0.0408);
+Enhanced SVM Neg = 0.3942 (SHAP contribution: -0.03);
+Enhanced NB Neg = 0.3931 (SHAP contribution: -0.0272);
+Enhanced NB Pos = 0.1329 (SHAP contribution: -0.0236)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced SVM Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced SVM Neu, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced VADER Neg, Enhanced RoBERTa Neg. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+167
+
+prediction_result:
+wrong
+
+review_text:
+"This shirt is a nice color and the material is OK. But I bought as a set to go with the big/lil sis shirt/onesie from this company and this shirt is cut totally differently. It is not fitted like the other 2 girl cut shirts I received. It's boxy and boyish and runs wide and short. I'm disappointed my middle daughter won't look coordinated with the other shirts advertised as the same from this company"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7534
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8262 (SHAP contribution: 0.628);
+Enhanced RoBERTa Pos = 0.0104 (SHAP contribution: 0.3439);
+Enhanced VADER Compound = -0.8634 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.1416 (SHAP contribution: 0.1044);
+Enhanced RoBERTa Neu = 0.1634 (SHAP contribution: 0.0844)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.086 (SHAP contribution: -0.0579);
+Enhanced NB Neu = 0.5987 (SHAP contribution: -0.057);
+Enhanced NB Neg = 0.2875 (SHAP contribution: -0.0052);
+Enhanced SVM Neu = 0.4351 (SHAP contribution: -0.0046)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Neu. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+173
+
+prediction_result:
+wrong
+
+review_text:
+"If you find this review to be helpful, please click "helpful" on the bottom.It's not a bad dress. But for the price, there are better dresses out there.What I didn't like about this dress is that the material is very scratchy. I'm 5'8, 150lbs 38DD and instead of being flattering, this dress will make you look somewhat pregnant.The print from far looks great, but close up, looks cheat and really bad."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5324
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7024 (SHAP contribution: 0.7124);
+Enhanced RoBERTa Pos = 0.025 (SHAP contribution: 0.3304);
+Enhanced RoBERTa Neu = 0.2726 (SHAP contribution: 0.0844);
+Enhanced NB Neu = 0.2204 (SHAP contribution: 0.0492);
+Enhanced SVM Neu = 0.3382 (SHAP contribution: 0.0132)
+
+top_opposing_features:
+Enhanced SVM Pos = 0.3357 (SHAP contribution: -0.1478);
+Enhanced VADER Pos = 0.237 (SHAP contribution: -0.1228);
+Enhanced VADER Compound = 0.8719 (SHAP contribution: -0.1149);
+Enhanced SVM Neg = 0.3261 (SHAP contribution: -0.0535);
+Enhanced NB Neg = 0.5714 (SHAP contribution: -0.0407)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Enhanced NB Neu, Enhanced SVM Neu. The main opposing signal was Enhanced SVM Pos.
+
+====================================================================================================
+
+row_index:
+174
+
+prediction_result:
+wrong
+
+review_text:
+"These books are just plain BAD. Sterling LOVED dressage in #26, hated it in #27, Now she loves it again . In this book, Sterling was eager to jump. I thought she couldn't get over a 2 foot vertical??! I LOVE TO JUMP, but Christina is obsessed. It's all she thinks about. She doesn't remember how to have fun on a horse. She also thinks everybody else has to be as serious about riding as she is. What if Dylan was as serious about soccar as she is about riding?? Would she even care????? My advice to the authers: Bring Sammy back and drop Christina and only do books about Melanie and racing!!!!!!!!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5512
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.3334 (SHAP contribution: 0.1598);
+Enhanced SVM Neu = 0.4517 (SHAP contribution: 0.1541);
+Enhanced NB Pos = 0.2181 (SHAP contribution: 0.1214);
+Enhanced VADER Neg = 0.102 (SHAP contribution: 0.0752);
+Enhanced VADER Pos = 0.131 (SHAP contribution: 0.0592)
+
+top_opposing_features:
+Enhanced RoBERTa Neg = 0.5972 (SHAP contribution: -0.0143);
+Enhanced RoBERTa Pos = 0.0694 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was SVM. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced NB Pos, Enhanced VADER Neg, Enhanced VADER Pos. The main opposing signal was Enhanced RoBERTa Neg.
+
+====================================================================================================
+
+row_index:
+176
+
+prediction_result:
+wrong
+
+review_text:
+"Backing not on properly"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7343
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6674 (SHAP contribution: 0.6534);
+Enhanced SVM Pos = 0.0945 (SHAP contribution: 0.12);
+Enhanced VADER Compound = 0.0258 (SHAP contribution: 0.1197);
+Enhanced RoBERTa Pos = 0.0424 (SHAP contribution: 0.1019);
+Enhanced RoBERTa Neu = 0.2903 (SHAP contribution: 0.0844)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.268 (SHAP contribution: -0.1155);
+Enhanced NB Neg = 0.5653 (SHAP contribution: -0.0407)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+179
+
+prediction_result:
+wrong
+
+review_text:
+"As the straight as-yet-not-ex-wife of a transvestite man, I am trying to find readings to help me explain my situation to myself, as well as to friends or relatives. _Read My Lips_ is a serious book not written with the affectation that seems to afflict many male-to-female writers. While I still don't share the author's belief that all gender classification is oppressive, Riki does a good job explaining why some people do. I was particularly taken with her understanding that being female in this society is not all sweetness and makeup, and her willingness to point out the ways all the different kinds of gender outlaws she has encountered oppress one another. Not recommended as the first book to give your elderly mother or father; some familiarity with the rhetoric of feminism and liberation is helpful."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.7051
+
+strongest_individual_feature:
+Enhanced SVM Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced SVM Neu = 0.3797 (SHAP contribution: 0.1779);
+Enhanced RoBERTa Neu = 0.6896 (SHAP contribution: 0.1636);
+Enhanced RoBERTa Neg = 0.1295 (SHAP contribution: 0.1126);
+Enhanced NB Neu = 0.4061 (SHAP contribution: 0.1043);
+Enhanced NB Pos = 0.2438 (SHAP contribution: 0.0828)
+
+top_opposing_features:
+Enhanced NB Neg = 0.3502 (SHAP contribution: -0.0272);
+Enhanced SVM Neg = 0.4228 (SHAP contribution: -0.0253);
+Enhanced RoBERTa Pos = 0.1809 (SHAP contribution: -0.0125)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced SVM Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced SVM Neu, Enhanced RoBERTa Neu, Enhanced RoBERTa Neg, Enhanced NB Neu, Enhanced NB Pos. The main opposing signal was Enhanced NB Neg.
+
+====================================================================================================
+
+row_index:
+180
+
+prediction_result:
+wrong
+
+review_text:
+"Does not work with CFLs"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8243
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8684 (SHAP contribution: 0.6349);
+Enhanced RoBERTa Pos = 0.0112 (SHAP contribution: 0.3618);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = -0.6369 (SHAP contribution: 0.1253);
+Enhanced SVM Pos = 0.0954 (SHAP contribution: 0.1044)
+
+top_opposing_features:
+Enhanced NB Neu = 0.3911 (SHAP contribution: -0.0579);
+Enhanced NB Neg = 0.5111 (SHAP contribution: -0.0407)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Enhanced NB Neu.
+
+====================================================================================================
+
+row_index:
+182
+
+prediction_result:
+wrong
+
+review_text:
+"Sure the technical merits of good graphics, etc are a plus but do not garner the poorly thought out product 5 stars. After using KVM's for years I have never had the problems like I have had with this. Other manufacturers manage to use Ctrl keys for their hotkey functions without the problems that this box plagues you with. While this box may have garnered rave reviews from the folks who want to play Linux, etc., I have to say to use this on a primary production machine will eventually drive you nuts. If you are always using constant Ctrl or Shift operations to mass select items you will constantly find that your key press was not registered. In addition, sometimes your mouse will just freeze until you click a button again. Oh well, the same goes for all Linksys products... they are a bit cheaper than what you would normally pay *but* you get what you pay for. Suitable for home or dorm but not for an all day production machine."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.7144
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4429 (SHAP contribution: 0.2212);
+Enhanced SVM Neu = 0.4516 (SHAP contribution: 0.1541);
+Enhanced VADER Neu = 0.838 (SHAP contribution: 0.1275);
+Enhanced RoBERTa Neg = 0.4868 (SHAP contribution: 0.0962);
+Enhanced VADER Compound = 0.9303 (SHAP contribution: 0.0869)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.034 (SHAP contribution: -0.0409);
+Enhanced NB Neg = 0.3424 (SHAP contribution: -0.0211);
+Enhanced RoBERTa Pos = 0.0703 (SHAP contribution: -0.0112)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced VADER Neu, Enhanced RoBERTa Neg, Enhanced VADER Compound. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+184
+
+prediction_result:
+wrong
+
+review_text:
+"GARABAGE - DON'T BUY!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7533
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.5858 (SHAP contribution: 0.4601);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1583);
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.1419);
+Enhanced SVM Pos = 0.1706 (SHAP contribution: 0.12);
+Enhanced RoBERTa Pos = 0.0414 (SHAP contribution: 0.0969)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.3728 (SHAP contribution: -0.075);
+Enhanced NB Neg = 0.7499 (SHAP contribution: -0.0258)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced SVM Pos, Enhanced RoBERTa Pos. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+185
+
+prediction_result:
+wrong
+
+review_text:
+"It was a good choice. Yes I would recommend it for those who enjoy the civil war times of history"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8622
+
+strongest_individual_feature:
+Enhanced RoBERTa Neg
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0104 (SHAP contribution: 1.0197);
+Enhanced RoBERTa Pos = 0.8329 (SHAP contribution: 0.3622);
+Enhanced SVM Neg = 0.1825 (SHAP contribution: 0.1451);
+Enhanced SVM Pos = 0.5105 (SHAP contribution: 0.0875);
+Enhanced VADER Compound = 0.7964 (SHAP contribution: 0.0656)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.14 (SHAP contribution: -0.0454);
+Enhanced NB Neg = 0.2709 (SHAP contribution: -0.0312)
+
+explanation:
+The meta XGBoost model predicted 'pos' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neg, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced SVM Pos, Enhanced VADER Compound. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+190
+
+prediction_result:
+wrong
+
+review_text:
+"This is an OK book for a beginner who knows little or nothing about networking. It does describe the various types of home networking available today, with a lot of information about wireless technologies. It could have been better organized by covering ethernet and wireless in separate sections. It is neither very clear for one getting started in home networking nor very helpful for one with basic knowledge who is looking to establish a more complex home network. It is an easy read and the "tips" inserts are helpful--really the best informative parts of the book. However, unless you are brand new to computers and networking, that is about all that is useful. Otherwise, save your money."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.669
+
+strongest_individual_feature:
+Enhanced RoBERTa Neu
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4768 (SHAP contribution: 0.1912);
+Enhanced SVM Neu = 0.4052 (SHAP contribution: 0.1453);
+Enhanced RoBERTa Neg = 0.0819 (SHAP contribution: 0.1115);
+Enhanced VADER Compound = 0.9508 (SHAP contribution: 0.1062);
+Enhanced VADER Pos = 0.166 (SHAP contribution: 0.0763)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.038 (SHAP contribution: -0.0448);
+Enhanced NB Pos = 0.4098 (SHAP contribution: -0.0232);
+Enhanced RoBERTa Pos = 0.4413 (SHAP contribution: -0.0125)
+
+explanation:
+The meta XGBoost model predicted 'neu' mainly because the strongest individual supporting feature was Enhanced RoBERTa Neu, while the strongest overall feature group was RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+198
+
+prediction_result:
+wrong
+
+review_text:
+"Bed connection"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4208
+
+strongest_individual_feature:
+Enhanced VADER Compound
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced VADER Compound = 0.0 (SHAP contribution: 0.2295);
+Enhanced SVM Pos = 0.261 (SHAP contribution: 0.1607);
+Enhanced VADER Pos = 0.0 (SHAP contribution: 0.1564);
+Enhanced VADER Neu = 1.0 (SHAP contribution: 0.0558);
+Enhanced SVM Neg = 0.4562 (SHAP contribution: 0.0462)
+
+top_opposing_features:
+Enhanced RoBERTa Neg = 0.1492 (SHAP contribution: -0.3461);
+Enhanced RoBERTa Pos = 0.2343 (SHAP contribution: -0.1141);
+Enhanced RoBERTa Neu = 0.6165 (SHAP contribution: -0.0768)
+
+explanation:
+The meta XGBoost model predicted 'neg' mainly because the strongest individual supporting feature was Enhanced VADER Compound, while the strongest overall feature group was VADER. The top supporting features were Enhanced VADER Compound, Enhanced SVM Pos, Enhanced VADER Pos, Enhanced VADER Neu, Enhanced SVM Neg. The main opposing signal was Enhanced RoBERTa Neg.
+
+====================================================================================================
+

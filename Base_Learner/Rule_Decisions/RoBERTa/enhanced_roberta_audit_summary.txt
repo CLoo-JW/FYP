@@ -1,0 +1,21 @@
+
+========== ENHANCED RoBERTa REVIEW-LEVEL AUDIT SUMMARY ==========
+                                 metric  count  percent
+                          Total reviews    200    100.0
+   Reviews with at least 1 rule applied    151     75.5
+          Reviews with no rules applied     49     24.5
+        Reviews whose sentiment changed      7      3.5
+                Corrected reviews total      3      1.5
+   Corrected reviews with rules applied      3      1.5
+Corrected reviews with no rules applied      0      0.0
+                   Harmed reviews total      4      2.0
+      Harmed reviews with rules applied      4      2.0
+   Harmed reviews with no rules applied      0      0.0
+           Wrong to wrong reviews total      0      0.0
+      Wrong to wrong with rules applied      0      0.0
+   Wrong to wrong with no rules applied      0      0.0
+                 Stayed correct reviews    126     63.0
+                   Stayed wrong reviews     67     33.5
+                  Net corrections total     -1     -0.5
+     Net corrections with rules applied     -1     -0.5
+  Net corrections with no rules applied      0      0.0

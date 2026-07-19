@@ -1,0 +1,229 @@
+
+========== SVM FEATURE-LEVEL AUDIT ==========
+Total unique polarity features: 1185
+
+========== MOST HARMFUL FEATURES ==========
+                                feature         feature_family  applications  corrected  harmed  net_corrections  decisive_cases  correction_precision  mean_margin_change decision
+                    FEAT_NEG_SCOPE_read         negation_scope             6          0       2               -2               2              0.000000            0.019851   REVIEW
+                      FEAT_CONTRAST_but        contrast_marker            86          6       8               -2              14              0.428571           -0.014297   REVIEW
+          FEAT_AFTER_CONTRAST_but_clear   after_contrast_scope             2          0       1               -1               1              0.000000           -0.394776   REVIEW
+        FEAT_AFTER_CONTRAST_but_battery   after_contrast_scope             1          0       1               -1               1              0.000000           -0.318555   REVIEW
+        FEAT_AFTER_CONTRAST_but_install   after_contrast_scope             1          0       1               -1               1              0.000000           -0.318555   REVIEW
+           FEAT_AFTER_CONTRAST_but_unit   after_contrast_scope             1          0       1               -1               1              0.000000           -0.318555   REVIEW
+         FEAT_AFTER_CONTRAST_but_useful   after_contrast_scope             1          0       1               -1               1              0.000000           -0.318555   REVIEW
+                    FEAT_NEG_SCOPE_true         negation_scope             1          0       1               -1               1              0.000000           -0.318555   REVIEW
+           FEAT_AFTER_CONTRAST_but_wide   after_contrast_scope             2          0       1               -1               1              0.000000           -0.297053   REVIEW
+          FEAT_AFTER_CONTRAST_but_think   after_contrast_scope             4          0       1               -1               1              0.000000           -0.217368   REVIEW
+      FEAT_AFTER_CONTRAST_but_difficult   after_contrast_scope             1          0       1               -1               1              0.000000           -0.212793   REVIEW
+    FEAT_AFTER_CONCESSION_though_belief after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+  FEAT_AFTER_CONCESSION_though_blessing after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+       FEAT_AFTER_CONCESSION_though_buy after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_child after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+    FEAT_AFTER_CONCESSION_though_convey after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+   FEAT_AFTER_CONCESSION_though_ethical after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_freed after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+    FEAT_AFTER_CONCESSION_though_future after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+FEAT_AFTER_CONCESSION_though_generation after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+   FEAT_AFTER_CONCESSION_though_include after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+    FEAT_AFTER_CONCESSION_though_legacy after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_life after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_like after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_live after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_paper after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_pass after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+       FEAT_AFTER_CONCESSION_though_put after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+   FEAT_AFTER_CONCESSION_though_rachael after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+    FEAT_AFTER_CONCESSION_though_seldom after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+       FEAT_AFTER_CONCESSION_though_sit after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_think after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_time after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_value after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+       FEAT_AFTER_CONCESSION_though_way after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_we.at after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_well after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+      FEAT_AFTER_CONCESSION_though_will after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+     FEAT_AFTER_CONCESSION_though_woman after_concession_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+         FEAT_AFTER_CONTRAST_but_belief   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+          FEAT_AFTER_CONTRAST_but_child   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+        FEAT_AFTER_CONTRAST_but_osmosis   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+           FEAT_AFTER_CONTRAST_but_pick   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+          FEAT_AFTER_CONTRAST_but_relay   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+          FEAT_AFTER_CONTRAST_but_value   after_contrast_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+                     FEAT_NEG_DEP_think    negation_dependency             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+                    FEAT_NEG_SCOPE_live         negation_scope             1          0       1               -1               1              0.000000           -0.190901   REVIEW
+           FEAT_AFTER_CONTRAST_but_bore   after_contrast_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+           FEAT_AFTER_CONTRAST_but_tear   after_contrast_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+                    FEAT_NEG_SCOPE_bore         negation_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+                  FEAT_NEG_SCOPE_detail         negation_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+                  FEAT_NEG_SCOPE_minute         negation_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+                    FEAT_NEG_SCOPE_tear         negation_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+                  FEAT_NEG_SCOPE_thrill         negation_scope             1          0       1               -1               1              0.000000           -0.173978   REVIEW
+          FEAT_AFTER_CONTRAST_but_width   after_contrast_scope             2          0       1               -1               1              0.000000           -0.154139   REVIEW
+        FEAT_AFTER_CONTRAST_but_reality   after_contrast_scope             1          0       1               -1               1              0.000000           -0.118205   REVIEW
+           FEAT_AFTER_CONTRAST_but_sack   after_contrast_scope             1          0       1               -1               1              0.000000           -0.118205   REVIEW
+                   FEAT_INTENSIFIED_cut      intensified_scope             1          0       1               -1               1              0.000000           -0.118205   REVIEW
+                   FEAT_INTENSIFIED_low      intensified_scope             1          0       1               -1               1              0.000000           -0.118205   REVIEW
+       FEAT_AFTER_CONTRAST_but_consider   after_contrast_scope             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+           FEAT_AFTER_CONTRAST_but_foot   after_contrast_scope             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+         FEAT_AFTER_CONTRAST_but_narrow   after_contrast_scope             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+                 FEAT_DIMINISHED_narrow       diminished_scope             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+                FEAT_INTENSIFIED_narrow      intensified_scope             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+               FEAT_PHRASE_true_to_size                 phrase             1          0       1               -1               1              0.000000           -0.118193   REVIEW
+                    FEAT_NEG_SCOPE_hold         negation_scope             3          0       1               -1               1              0.000000           -0.112927   REVIEW
+                     FEAT_NEG_SCOPE_way         negation_scope             2          0       1               -1               1              0.000000           -0.112190   REVIEW
+    FEAT_AFTER_CONTRAST_but_instruction   after_contrast_scope             2          0       1               -1               1              0.000000           -0.088014   REVIEW
+                  FEAT_NEG_SCOPE_bother         negation_scope             2          0       1               -1               1              0.000000           -0.083440   REVIEW
+            FEAT_AFTER_CONTRAST_but_abd   after_contrast_scope             1          0       1               -1               1              0.000000           -0.080142   REVIEW
+           FEAT_AFTER_CONTRAST_but_fall   after_contrast_scope             1          0       1               -1               1              0.000000           -0.080142   REVIEW
+           FEAT_AFTER_CONTRAST_but_seam   after_contrast_scope             1          0       1               -1               1              0.000000           -0.080142   REVIEW
+         FEAT_AFTER_CONTRAST_but_zipper   after_contrast_scope             1          0       1               -1               1              0.000000           -0.080142   REVIEW
+                    FEAT_NEG_SCOPE_work         negation_scope             5          0       1               -1               1              0.000000           -0.078403   REVIEW
+          FEAT_AFTER_CONTRAST_but_order   after_contrast_scope             1          0       1               -1               1              0.000000           -0.062109   REVIEW
+                  FEAT_NEG_SCOPE_action         negation_scope             1          0       1               -1               1              0.000000           -0.062109   REVIEW
+               FEAT_INTENSIFIED_clearly      intensified_scope             1          0       1               -1               1              0.000000           -0.041285   REVIEW
+                    FEAT_NEG_SCOPE_word         negation_scope             1          0       1               -1               1              0.000000           -0.041285   REVIEW
+                    FEAT_NEG_SCOPE_know         negation_scope             6          0       1               -1               1              0.000000           -0.022680   REVIEW
+                    FEAT_NEG_SCOPE_book         negation_scope             9          0       1               -1               1              0.000000           -0.018381   REVIEW
+                 FEAT_NEG_SCOPE_mistake         negation_scope             2          0       1               -1               1              0.000000            0.012733   REVIEW
+          FEAT_AFTER_CONTRAST_but_month   after_contrast_scope             3          0       1               -1               1              0.000000            0.042012   REVIEW
+         FEAT_AFTER_CONTRAST_but_course   after_contrast_scope             2          0       1               -1               1              0.000000            0.079084   REVIEW
+             FEAT_PHRASE_waste_of_money                 phrase             2          0       1               -1               1              0.000000            0.198134   REVIEW
+                    FEAT_NEG_SCOPE_help         negation_scope             3          1       2               -1               3              0.333333           -0.055473   REVIEW
+                    FEAT_NEG_SCOPE_need         negation_scope             5          1       1                0               2              0.500000           -0.098835   REVIEW
+                     FEAT_CAPS_EMPHASIS          caps_emphasis            39          3       3                0               6              0.500000           -0.051043   REVIEW
+            FEAT_AFTER_CONTRAST_but_use   after_contrast_scope             2          1       1                0               2              0.500000           -0.046313   REVIEW
+            FEAT_AFTER_CONTRAST_but_buy   after_contrast_scope             4          1       1                0               2              0.500000           -0.026995   REVIEW
+                  FEAT_NEG_SCOPE_regret         negation_scope             2          1       1                0               2              0.500000           -0.026906   REVIEW
+           FEAT_AFTER_CONTRAST_but_read   after_contrast_scope             7          1       1                0               2              0.500000            0.005113   REVIEW
+            FEAT_AFTER_CONTRAST_but_fit   after_contrast_scope             3          1       1                0               2              0.500000            0.030732   REVIEW
+                     FEAT_NEG_SCOPE_use         negation_scope             4          1       1                0               2              0.500000            0.035351   REVIEW
+              FEAT_PHRASE_does_not_work                 phrase            10          1       1                0               2              0.500000            0.119311   REVIEW
+      FEAT_AFTER_CONTRAST_but_advantage   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+       FEAT_AFTER_CONTRAST_but_continue   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+  FEAT_AFTER_CONTRAST_but_contraceptive   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+      FEAT_AFTER_CONTRAST_but_essential   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+      FEAT_AFTER_CONTRAST_but_exception   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+          FEAT_AFTER_CONTRAST_but_flint   after_contrast_scope             1          0       0                0               0                   NaN           -0.633813   REVIEW
+
+========== MOST HELPFUL FEATURES ==========
+                                        feature         feature_family  applications  corrected  harmed  net_corrections  decisive_cases  correction_precision  mean_margin_change decision
+                               FEAT_NEGATOR_not                negator            97         11       6                5              17              0.647059            0.026100   REVIEW
+                          FEAT_CONTRAST_however        contrast_marker            13          3       0                3               3              1.000000           -0.046808   REVIEW
+                            FEAT_NEG_SCOPE_idea         negation_scope             2          2       0                2               2              1.000000            0.121818   REVIEW
+             FEAT_AFTER_CONCESSION_though_story after_concession_scope             2          2       0                2               2              1.000000            0.117578   REVIEW
+                    FEAT_INTENSIFIER_absolutely            intensifier             2          2       0                2               2              1.000000            0.117578   REVIEW
+                    FEAT_AFTER_CONTRAST_but_big   after_contrast_scope             3          2       0                2               2              1.000000            0.088892   REVIEW
+                        FEAT_INTENSIFIER_really            intensifier            24          2       0                2               2              1.000000            0.031064   REVIEW
+                             FEAT_NEGATOR_never                negator             9          2       0                2               2              1.000000           -0.079113   REVIEW
+                         FEAT_CONCESSIVE_though      concessive_marker            10          3       1                2               4              0.750000            0.011280   REVIEW
+                                FEAT_NEGATOR_no                negator            27          4       2                2               6              0.666667            0.009930   REVIEW
+                          FEAT_INTENSIFIER_very            intensifier            35          6       4                2              10              0.600000            0.027253   REVIEW
+          FEAT_AFTER_CONCESSION_although_balkan after_concession_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+           FEAT_AFTER_CONCESSION_although_ghost after_concession_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                             FEAT_NEG_DEP_ghost    negation_dependency             1          1       0                1               1              1.000000            0.343037   REVIEW
+                         FEAT_NEG_SCOPE_culture         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                             FEAT_NEG_SCOPE_far         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                            FEAT_NEG_SCOPE_join         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                         FEAT_NEG_SCOPE_morally         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                           FEAT_NEG_SCOPE_occur         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                           FEAT_NEG_SCOPE_wrong         negation_scope             1          1       0                1               1              1.000000            0.343037   REVIEW
+                      FEAT_PHRASE_not_satisfied                 phrase             1          1       0                1               1              1.000000            0.343037   REVIEW
+                 FEAT_AFTER_CONTRAST_but_matter   after_contrast_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                  FEAT_AFTER_CONTRAST_but_taste   after_contrast_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+             FEAT_AFTER_CONTRAST_however_caveat   after_contrast_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                           FEAT_NEG_SCOPE_comma         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                       FEAT_NEG_SCOPE_correctly         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                       FEAT_NEG_SCOPE_denigrate         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                        FEAT_NEG_SCOPE_donachie         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                             FEAT_NEG_SCOPE_job         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                         FEAT_NEG_SCOPE_writing         negation_scope             1          1       0                1               1              1.000000            0.299005   REVIEW
+                             FEAT_NEG_SCOPE_set         negation_scope             2          1       0                1               1              1.000000            0.286265   REVIEW
+                      FEAT_NEG_SCOPE_understand         negation_scope             2          1       0                1               1              1.000000            0.283301   REVIEW
+                           FEAT_NEG_SCOPE_frank         negation_scope             1          1       0                1               1              1.000000            0.240384   REVIEW
+                         FEAT_NEG_SCOPE_herbert         negation_scope             1          1       0                1               1              1.000000            0.240384   REVIEW
+               FEAT_AFTER_CONTRAST_but_daughter   after_contrast_scope             1          1       0                1               1              1.000000            0.220797   REVIEW
+                         FEAT_PHRASE_runs_small                 phrase             1          1       0                1               1              1.000000            0.220797   REVIEW
+                     FEAT_PHRASE_never_received                 phrase             1          1       0                1               1              1.000000            0.213945   REVIEW
+                   FEAT_INTENSIFIED_description      intensified_scope             2          1       0                1               1              1.000000            0.199026   REVIEW
+                          FEAT_NEG_SCOPE_switch         negation_scope             2          1       0                1               1              1.000000            0.194864   REVIEW
+                       FEAT_NEG_SCOPE_technical         negation_scope             1          1       0                1               1              1.000000            0.192691   REVIEW
+                         FEAT_INTENSIFIED_small      intensified_scope             3          1       0                1               1              1.000000            0.187062   REVIEW
+                  FEAT_INTENSIFIED_disappointed      intensified_scope             3          1       0                1               1              1.000000            0.185886   REVIEW
+                   FEAT_AFTER_CONTRAST_but_give   after_contrast_scope             2          1       0                1               1              1.000000            0.181661   REVIEW
+                          FEAT_INTENSIFIED_line      intensified_scope             1          1       0                1               1              1.000000            0.172397   REVIEW
+                        FEAT_INTENSIFIED_stream      intensified_scope             1          1       0                1               1              1.000000            0.172397   REVIEW
+                            FEAT_NEG_SCOPE_deal         negation_scope             2          1       0                1               1              1.000000            0.165490   REVIEW
+                           FEAT_NEG_SCOPE_close         negation_scope             2          1       0                1               1              1.000000            0.146075   REVIEW
+                           FEAT_NEG_SCOPE_agree         negation_scope             3          1       0                1               1              1.000000            0.146052   REVIEW
+                      FEAT_INTENSIFIED_tangible      intensified_scope             1          1       0                1               1              1.000000            0.128646   REVIEW
+                             FEAT_NEG_SCOPE_ask         negation_scope             1          1       0                1               1              1.000000            0.128646   REVIEW
+                      FEAT_NEG_SCOPE_frequently         negation_scope             1          1       0                1               1              1.000000            0.128646   REVIEW
+                         FEAT_NEG_SCOPE_include         negation_scope             1          1       0                1               1              1.000000            0.128646   REVIEW
+                         FEAT_INTENSIFIED_enjoy      intensified_scope             3          1       0                1               1              1.000000            0.127512   REVIEW
+                   FEAT_AFTER_CONTRAST_but_feel   after_contrast_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+               FEAT_AFTER_CONTRAST_but_honestly   after_contrast_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+                  FEAT_AFTER_CONTRAST_but_stand   after_contrast_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+                       FEAT_INTENSIFIER_totally            intensifier             1          1       0                1               1              1.000000            0.122299   REVIEW
+                             FEAT_NEG_SCOPE_fan         negation_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+                         FEAT_NEG_SCOPE_improve         negation_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+                            FEAT_NEG_SCOPE_king         negation_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+                         FEAT_NEG_SCOPE_opinion         negation_scope             1          1       0                1               1              1.000000            0.122299   REVIEW
+               FEAT_AFTER_CONTRAST_but_purchase   after_contrast_scope             2          1       0                1               1              1.000000            0.120406   REVIEW
+               FEAT_AFTER_CONTRAST_however_bead   after_contrast_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+            FEAT_AFTER_CONTRAST_however_exactly   after_contrast_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+               FEAT_AFTER_CONTRAST_however_look   after_contrast_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+               FEAT_AFTER_CONTRAST_however_mean   after_contrast_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+           FEAT_AFTER_CONTRAST_however_mushroom   after_contrast_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+                         FEAT_NEG_SCOPE_exactly         negation_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+                        FEAT_NEG_SCOPE_mushroom         negation_scope             1          1       0                1               1              1.000000            0.120345   REVIEW
+FEAT_AFTER_CONCESSION_even_though_indispensable after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+         FEAT_AFTER_CONCESSION_even_though_life after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+          FEAT_AFTER_CONCESSION_though_addition after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+             FEAT_AFTER_CONCESSION_though_album after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_bizarre after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_carlton after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+      FEAT_AFTER_CONCESSION_though_conversation after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_couple after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+              FEAT_AFTER_CONCESSION_though_cuse after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+             FEAT_AFTER_CONCESSION_though_damon after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+     FEAT_AFTER_CONCESSION_though_demonstration after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_episode after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_format after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_friend after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_gervais after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_griffin after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+        FEAT_AFTER_CONCESSION_though_individual after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+              FEAT_AFTER_CONCESSION_though_ipod after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+         FEAT_AFTER_CONCESSION_though_lindelhof after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+              FEAT_AFTER_CONCESSION_though_lost after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_mainly after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+          FEAT_AFTER_CONCESSION_though_merchant after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+             FEAT_AFTER_CONCESSION_though_movie after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_podcast after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+           FEAT_AFTER_CONCESSION_though_purpose after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+             FEAT_AFTER_CONCESSION_though_ricky after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+              FEAT_AFTER_CONCESSION_though_show after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_single after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+              FEAT_AFTER_CONCESSION_though_song after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+             FEAT_AFTER_CONCESSION_though_steve after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+            FEAT_AFTER_CONCESSION_though_stewie after_concession_scope             1          1       0                1               1              1.000000            0.120167   REVIEW
+
+========== BLOCK FEATURES ==========
+No features were marked as BLOCK.
+
+========== FEATURE FAMILY SUMMARY ==========
+        feature_family  features  applications  corrected  harmed  net_corrections  decisive_cases  correction_precision  mean_margin_change
+         caps_emphasis         1            39          3       3                0               6              0.500000           -0.051043
+intensified_dependency         1             1          0       0                0               0                   NaN            0.471665
+   negation_dependency        14            14          2       1                1               3              0.666667           -0.038067
+      diminished_scope         8             8          2       1                1               3              0.666667            0.006012
+       contrast_marker         3           108         10       8                2              18              0.555556           -0.012710
+            diminisher         5            11          3       1                2               4              0.750000            0.034461
+     concessive_marker         3            17          5       1                4               6              0.833333           -0.016512
+                phrase        24            49          9       3                6              12              0.750000            0.061959
+           intensifier        10            78         13       4                9              17              0.764706            0.040917
+               negator         4           142         18       8               10              26              0.692308           -0.016035
+after_concession_scope        68            69         41      28               13              69              0.594203           -0.001784
+     intensified_scope        91           110         22       4               18              26              0.846154            0.005811
+  after_contrast_scope       659           788         60      34               26              94              0.638298           -0.082814
+        negation_scope       294           405         62      24               38              86              0.720930            0.009362

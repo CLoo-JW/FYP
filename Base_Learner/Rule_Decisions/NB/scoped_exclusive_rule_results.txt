@@ -1,0 +1,350 @@
+
+========== SCOPED-EXCLUSIVE PHRASE RULE SUMMARY ==========
+ scope                               rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change              exclusive_status decision
+phrase                   phrase:had_to_return                 2                       2          1       0                 1                1                   1.0           -0.036369 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:not_fitting                 4                       2          1       1                 2                0                   0.5           -0.076749 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:would_recommend                 3                       2          1       1                 2                0                   0.5           -0.050324 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                    phrase:well_written                 4                       3          0       0                 0                0                   NaN            0.125974 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:waste_of_money                 2                       2          0       0                 0                0                   NaN           -0.175592 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:works_great                 2                       2          0       0                 0                0                   NaN            0.009779 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:easy_to_follow                 1                       1          0       0                 0                0                   NaN           -0.164256 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase           phrase:neutral_expected_more                 2                       1          0       0                 0                0                   NaN            0.138579 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase           phrase:neutral_pros_and_cons                 1                       1          0       0                 0                0                   NaN            0.178566 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:never_received                 1                       1          0       0                 0                0                   NaN           -0.315082 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                       phrase:no_issues                 1                       1          0       0                 0                0                   NaN            0.258820 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:poorly_written                 1                       1          0       0                 0                0                   NaN           -0.141321 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                    phrase:true_to_size                 1                       1          0       0                 0                0                   NaN           -0.105051 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:wrong_color                 1                       1          0       0                 0                0                   NaN           -0.118010 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:bad_translation                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase             phrase:battery_drains_fast                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase            phrase:better_than_expected                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase         phrase:cannot_recommend_enough                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                    phrase:cheaply_made                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:color_faded                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:comfortable_fit                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase            phrase:could_not_be_happier                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:dead_on_arrival                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase            phrase:does_not_hold_charge                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase           phrase:exceeded_expectations                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase              phrase:fabric_feels_cheap                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                      phrase:fell_apart                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:flickering_screen                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                      phrase:great_read                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:hard_to_follow                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase              phrase:highly_informative                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                phrase:highly_recommend                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase             phrase:keeps_disconnecting                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:low_quality                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:missing_pages                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:missing_parts                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase phrase:neutral_average_nothing_special                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase        phrase:neutral_decent_for_price                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase      phrase:neutral_good_but_not_great                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase       phrase:neutral_not_bad_not_great                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase         phrase:neutral_okay_but_issues                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase   phrase:neutral_somewhat_disappointed                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:neutral_works_but                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:no_complaints                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:no_longer_works                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                      phrase:no_regrets                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                phrase:not_as_described                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                         phrase:not_bad                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                    phrase:not_charging                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:not_delivered                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:not_lasting                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:not_powering_on                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:not_turning_on                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                    phrase:not_worth_it                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:overheats_quickly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:poor_connection                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                        phrase:poor_fit                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:printing_error                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                  phrase:screen_cracked                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:seam_ripped                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:see_through                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:shrunk_after_wash                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:stopped_working                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase      phrase:touchscreen_not_responsive                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                     phrase:want_refund                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:works_as_expected                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:works_perfectly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase               phrase:worth_every_penny                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                 phrase:would_buy_again                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase             phrase:would_not_recommend                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                      phrase:wrong_item                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                      phrase:wrong_size                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:zipper_broken                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+phrase                   phrase:does_not_work                10                       7          0       1                 1               -1                   0.0           -0.057683 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+phrase                     phrase:no_problems                 2                       2          0       1                 1               -1                   0.0           -0.119851 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+phrase                      phrase:runs_large                 4                       2          0       1                 1               -1                   0.0           -0.082508 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+phrase                   phrase:not_satisfied                 1                       1          0       1                 1               -1                   0.0           -0.472575 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+phrase                      phrase:runs_small                 1                       1          0       1                 1               -1                   0.0           -0.215003 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+
+========== SCOPED-EXCLUSIVE PHRASE KEEP ==========
+None
+
+========== SCOPED-EXCLUSIVE PHRASE CULL ==========
+phrase:does_not_work
+phrase:no_problems
+phrase:runs_large
+phrase:not_satisfied
+phrase:runs_small
+
+========== SCOPED-EXCLUSIVE PHRASE REVIEW ==========
+phrase:had_to_return
+phrase:not_fitting
+phrase:would_recommend
+phrase:well_written
+phrase:waste_of_money
+phrase:works_great
+phrase:easy_to_follow
+phrase:neutral_expected_more
+phrase:neutral_pros_and_cons
+phrase:never_received
+phrase:no_issues
+phrase:poorly_written
+phrase:true_to_size
+phrase:wrong_color
+phrase:bad_translation
+phrase:battery_drains_fast
+phrase:better_than_expected
+phrase:cannot_recommend_enough
+phrase:cheaply_made
+phrase:color_faded
+phrase:comfortable_fit
+phrase:could_not_be_happier
+phrase:dead_on_arrival
+phrase:does_not_hold_charge
+phrase:exceeded_expectations
+phrase:fabric_feels_cheap
+phrase:fell_apart
+phrase:flickering_screen
+phrase:great_read
+phrase:hard_to_follow
+phrase:highly_informative
+phrase:highly_recommend
+phrase:keeps_disconnecting
+phrase:low_quality
+phrase:missing_pages
+phrase:missing_parts
+phrase:neutral_average_nothing_special
+phrase:neutral_decent_for_price
+phrase:neutral_good_but_not_great
+phrase:neutral_not_bad_not_great
+phrase:neutral_okay_but_issues
+phrase:neutral_somewhat_disappointed
+phrase:neutral_works_but
+phrase:no_complaints
+phrase:no_longer_works
+phrase:no_regrets
+phrase:not_as_described
+phrase:not_bad
+phrase:not_charging
+phrase:not_delivered
+phrase:not_lasting
+phrase:not_powering_on
+phrase:not_turning_on
+phrase:not_worth_it
+phrase:overheats_quickly
+phrase:poor_connection
+phrase:poor_fit
+phrase:printing_error
+phrase:screen_cracked
+phrase:seam_ripped
+phrase:see_through
+phrase:shrunk_after_wash
+phrase:stopped_working
+phrase:touchscreen_not_responsive
+phrase:want_refund
+phrase:works_as_expected
+phrase:works_perfectly
+phrase:worth_every_penny
+phrase:would_buy_again
+phrase:would_not_recommend
+phrase:wrong_item
+phrase:wrong_size
+phrase:zipper_broken
+
+========== SCOPED-EXCLUSIVE NEGATOR RULE SUMMARY ==========
+  scope          rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change              exclusive_status decision
+negator     negator:never                 9                       2          1       0                 1                1              1.000000            0.172415 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator        negator:no                27                       4          0       0                 0                0                   NaN           -0.144849 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:without                 9                       1          0       0                 0                0                   NaN            0.196267 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:ain't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator      negator:aint                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:aren't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:arent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:can't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:cannot                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator      negator:cant                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator  negator:couldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:couldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:didn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:didnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:doesn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:doesnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:don't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator      negator:dont                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:hadn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:hadnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:hasn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:hasnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:haven't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:havent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:isn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator      negator:isnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator       negator:n't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator        negator:nt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator negator:shouldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator  negator:shouldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:wasn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:wasnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:weren't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator    negator:werent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator     negator:won't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator      negator:wont                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator  negator:wouldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator   negator:wouldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+negator       negator:not                97                      68          8      14                22               -6              0.363636           -0.050471 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+
+========== SCOPED-EXCLUSIVE NEGATOR KEEP ==========
+None
+
+========== SCOPED-EXCLUSIVE NEGATOR CULL ==========
+negator:not
+
+========== SCOPED-EXCLUSIVE NEGATOR REVIEW ==========
+negator:never
+negator:no
+negator:without
+negator:ain't
+negator:aint
+negator:aren't
+negator:arent
+negator:can't
+negator:cannot
+negator:cant
+negator:couldn't
+negator:couldnt
+negator:didn't
+negator:didnt
+negator:doesn't
+negator:doesnt
+negator:don't
+negator:dont
+negator:hadn't
+negator:hadnt
+negator:hasn't
+negator:hasnt
+negator:haven't
+negator:havent
+negator:isn't
+negator:isnt
+negator:n't
+negator:nt
+negator:shouldn't
+negator:shouldnt
+negator:wasn't
+negator:wasnt
+negator:weren't
+negator:werent
+negator:won't
+negator:wont
+negator:wouldn't
+negator:wouldnt
+
+========== SCOPED-EXCLUSIVE INTENSIFIER RULE SUMMARY ==========
+      scope                 rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change              exclusive_status decision
+intensifier         intensifier:very                35                      26          4       2                 6                2              0.666667           -0.022002 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier    intensifier:extremely                 4                       3          0       0                 0                0                   NaN            0.119598 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier   intensifier:completely                 3                       2          0       0                 0                0                   NaN            0.070805 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier        intensifier:super                 4                       2          0       0                 0                0                   NaN           -0.043328 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier       intensifier:highly                 3                       1          0       0                 0                0                   NaN           -0.198050 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier      intensifier:totally                 1                       1          0       0                 0                0                   NaN           -0.028493 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier   intensifier:absolutely                 2                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier   intensifier:incredibly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier intensifier:ridiculously                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier    intensifier:seriously                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier intensifier:surprisingly                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier     intensifier:terribly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier        intensifier:ultra                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+intensifier       intensifier:really                24                      14          2       5                 7               -3              0.285714           -0.138453 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+
+========== SCOPED-EXCLUSIVE INTENSIFIER KEEP ==========
+None
+
+========== SCOPED-EXCLUSIVE INTENSIFIER CULL ==========
+intensifier:really
+
+========== SCOPED-EXCLUSIVE INTENSIFIER REVIEW ==========
+intensifier:very
+intensifier:extremely
+intensifier:completely
+intensifier:super
+intensifier:highly
+intensifier:totally
+intensifier:absolutely
+intensifier:incredibly
+intensifier:ridiculously
+intensifier:seriously
+intensifier:surprisingly
+intensifier:terribly
+intensifier:ultra
+
+========== SCOPED-EXCLUSIVE DIMINISHER RULE SUMMARY ==========
+     scope             rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change              exclusive_status decision
+diminisher    diminisher:almost                 7                       7          2       1                 3                1              0.666667           -0.041579 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher  diminisher:somewhat                 2                       2          0       0                 0                0                   NaN           -0.072931 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher    diminisher:mildly                 1                       1          0       0                 0                0                   NaN            0.255173 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher  diminisher:slightly                 3                       1          0       0                 0                0                   NaN            0.242196 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher    diminisher:fairly                 2                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher    diminisher:hardly                 1                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher     diminisher:kinda                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher diminisher:partially                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher    diminisher:partly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher     diminisher:sorta                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+diminisher    diminisher:barely                 4                       3          0       2                 2               -2              0.000000           -0.138819 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+
+========== SCOPED-EXCLUSIVE DIMINISHER KEEP ==========
+None
+
+========== SCOPED-EXCLUSIVE DIMINISHER CULL ==========
+diminisher:barely
+
+========== SCOPED-EXCLUSIVE DIMINISHER REVIEW ==========
+diminisher:almost
+diminisher:somewhat
+diminisher:mildly
+diminisher:slightly
+diminisher:fairly
+diminisher:hardly
+diminisher:kinda
+diminisher:partially
+diminisher:partly
+diminisher:sorta
+
+========== SCOPED-EXCLUSIVE CONTRAST RULE SUMMARY ==========
+   scope                          rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change              exclusive_status decision
+contrast      post_contrast_marker:however                13                       4          1       0                 1                1              1.000000            0.119560 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast          concessive_marker:though                10                       2          0       0                 0                0                   NaN            0.002339 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast     concessive_marker:even_though                 3                       1          0       0                 0                0                   NaN            0.143763 HAS_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast post_contrast_marker:nevertheless                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast  post_contrast_marker:nonetheless                 0                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast          post_contrast_marker:yet                 9                       0          0       0                 0                0                   NaN                 NaN  NO_SCOPED_EXCLUSIVE_EVIDENCE   REVIEW
+contrast        concessive_marker:although                 4                       1          0       1                 1               -1              0.000000           -0.472575 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+contrast          post_contrast_marker:but                86                      65          5      13                18               -8              0.277778           -0.062488 HAS_SCOPED_EXCLUSIVE_EVIDENCE     CULL
+
+========== SCOPED-EXCLUSIVE CONTRAST KEEP ==========
+None
+
+========== SCOPED-EXCLUSIVE CONTRAST CULL ==========
+concessive_marker:although
+post_contrast_marker:but
+
+========== SCOPED-EXCLUSIVE CONTRAST REVIEW ==========
+post_contrast_marker:however
+concessive_marker:though
+concessive_marker:even_though
+post_contrast_marker:nevertheless
+post_contrast_marker:nonetheless
+post_contrast_marker:yet

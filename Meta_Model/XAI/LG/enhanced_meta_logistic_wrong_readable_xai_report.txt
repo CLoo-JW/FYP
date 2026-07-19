@@ -1,0 +1,2800 @@
+row_index:
+2
+
+prediction_result:
+wrong
+
+review_text:
+"I ordered 3 sizes up because of the reviews , the material is thinner than I expected but not see through, has thumb holes didn't really notice until after I bought it , so gets baggy at the bottom , I really like how it has the flowy sides the shape nd style of the shirt is really nice on top of a pencil skirt (is the way I'm wearing it , I would say the bag doesn't have much shape but I would go darker to be more sliming, I like the hood and the comfy part of the sweater , it's tighter on my upper arms only cuz I have bigger upper arms the elbow down is bigger material , and it doesn't look like expensive quality but grateful was only 15.99 . I may purchase another color. I bought the pink one("purple) it's not purple it's actually pink close to the picture looks to me like a rosy darker hot pink color. I am thinning of getting the green one next it'll be a grate live in sweater for the fall and casual for winter under the coat. Love the hood with extra space not too snug"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5318
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Meta Contrast Count = 3.0 (contribution: 0.146);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Neg Phrase = 1.0 (contribution: 0.1058);
+Enhanced VADER Compound = 0.9897 (contribution: 0.0864);
+Enhanced SVM Neu = 0.4502 (contribution: 0.0816)
+
+top_opposing_features:
+Meta Intensifier Count = 3.0 (contribution: -0.2002);
+Meta Negator Count = 6.0 (contribution: -0.1279);
+Enhanced RoBERTa Pos = 0.5938 (contribution: -0.0395);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329);
+Meta Neg Phrase Count = 1.0 (contribution: -0.0301)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Meta Contrast Count, Meta Has Contrast, Meta Has Neg Phrase, Enhanced VADER Compound, Enhanced SVM Neu. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+3
+
+prediction_result:
+wrong
+
+review_text:
+"I like the glasses but not the fit. I can't get the nose piece right. They sit on my cheeks."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5962
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7574 (contribution: 0.4553);
+Enhanced RoBERTa Pos = 0.0169 (contribution: 0.2946);
+Enhanced VADER Compound = -0.2299 (contribution: 0.1406);
+Enhanced NB Pos = 0.1861 (contribution: 0.0583);
+Enhanced VADER Pos = 0.086 (contribution: 0.0404)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Enhanced NB Neu = 0.4297 (contribution: -0.0118);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced NB Pos, Enhanced VADER Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+4
+
+prediction_result:
+wrong
+
+review_text:
+"Too dark to use them indoors."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6267
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6354 (contribution: 0.3188);
+Enhanced RoBERTa Pos = 0.0237 (contribution: 0.2885);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772);
+Meta Has Negator = 0.0 (contribution: 0.0679)
+
+top_opposing_features:
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Enhanced NB Neg = 0.3063 (contribution: -0.0163);
+Enhanced RoBERTa Neu = 0.3409 (contribution: -0.0157);
+Meta Intensifier Count = 0.0 (contribution: -0.0116)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+8
+
+prediction_result:
+wrong
+
+review_text:
+"Love these so much, but they do not come with the jump rings as advertised in the pitcure. Luckily I had extra in storage, but if you don't, be sure to buy some separately."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5226
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced RoBERTa Neu = 0.4691 (contribution: 0.1129);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Enhanced VADER Compound = 0.6815 (contribution: 0.0489)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2501 (contribution: -0.0841);
+Enhanced NB Neu = 0.2139 (contribution: -0.0361);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Enhanced SVM Neg = 0.4308 (contribution: -0.0182)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Enhanced RoBERTa Neu, Meta Contrast Count, Meta Has Negator, Enhanced VADER Compound. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+11
+
+prediction_result:
+wrong
+
+review_text:
+"I did not the length to long."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4602
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.0984 (contribution: 0.2209);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772);
+Enhanced VADER Neu = 1.0 (contribution: 0.0596);
+Enhanced NB Neg = 0.4567 (contribution: 0.0549)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.5359 (contribution: -0.1051);
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from VADER. The top supporting features were Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Enhanced VADER Neu, Enhanced NB Neg. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+12
+
+prediction_result:
+wrong
+
+review_text:
+"I bought the book with just a little knowledge of the candle making industry. The problem with the book is its not updated for the new technology and materials that are used in candle making today. Yes it does a good job of breaking down the VERY BASICS but thats it. You need to know more about the industry than this book covers. I got more information from watching videos on youtube and the different candle supply companies websites than the couple of books I recently purchased. Watch videos and get up to date information on new waxes and materials. Save yourself the $15 or whatever you may spend and research the internet and the big candle supply companies out there. They know whats new and what works"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5564
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5729 (contribution: 0.1851);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Enhanced VADER Compound = 0.7391 (contribution: 0.0559);
+Meta Has Negator = 1.0 (contribution: 0.0502)
+
+top_opposing_features:
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Enhanced SVM Neu = 0.3083 (contribution: -0.0359);
+Enhanced NB Neu = 0.2172 (contribution: -0.0352);
+Enhanced VADER Neg = 0.014 (contribution: -0.027);
+Enhanced SVM Pos = 0.4025 (contribution: -0.0222)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Has Intensifier, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+14
+
+prediction_result:
+wrong
+
+review_text:
+"Much clearer than VHS-to-DVD-to-Digital"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.3925
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5338 (contribution: 0.1579);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Meta Negator Count = 0.0 (contribution: 0.0358);
+Enhanced SVM Pos = 0.1995 (contribution: 0.0266);
+Enhanced VADER Pos = 0.0 (contribution: 0.0194)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Intensifier Count, Meta Negator Count, Enhanced SVM Pos, Enhanced VADER Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+17
+
+prediction_result:
+wrong
+
+review_text:
+"FIVE STA...er...Make that ONE star!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.3862
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5609 (contribution: 0.1767);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Meta Negator Count = 0.0 (contribution: 0.0358);
+Enhanced SVM Pos = 0.1974 (contribution: 0.0271);
+Enhanced VADER Pos = 0.0 (contribution: 0.0194)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Intensifier Count, Meta Negator Count, Enhanced SVM Pos, Enhanced VADER Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+20
+
+prediction_result:
+wrong
+
+review_text:
+"It came stained! I'm so upset too because I planned to wear it to my sons graduation and now I don't have time to order something else.Edit: I raised my star rating from a 1 to a 4 because the company who manufactured the dress reached out and apologized for their mistake with the stains. Anytime a company goes out of there way and acknowledges their mistake I appreciate it."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6014
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced VADER Compound = -0.6793 (contribution: 0.2645);
+Enhanced RoBERTa Pos = 0.1179 (contribution: 0.2033);
+Enhanced NB Neg = 0.6372 (contribution: 0.1404);
+Enhanced NB Pos = 0.1512 (contribution: 0.0749);
+Enhanced RoBERTa Neg = 0.413 (contribution: 0.07)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.4691 (contribution: -0.0744);
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115);
+Meta Negator Count = 1.0 (contribution: -0.0104)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from VADER. The top supporting features were Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced NB Neg, Enhanced NB Pos, Enhanced RoBERTa Neg. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+28
+
+prediction_result:
+wrong
+
+review_text:
+"This batch that I bouth in 2010 no only won't burn in either my CD/DVD player but it ejects itself before I can press a button. Same with the other player on my machine which also burns blu rays. I took the DL Verbatims from 2007-2008 and saved them to one BluRay and all the info was transferred wihtout a hitch. The 4.7s work great, I even get what should be DL space items compressed without much quality loss to the 4.7s This is very bad. They did something in the factory that reduced the quality of the DL disk to where the machine dosent even want it to sit there. I kicks it out. Sometimes im lucky if i put it in and press burn right away it will register but more often then not burns coaster."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5805
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5057 (contribution: 0.1384);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Pos Phrase = 1.0 (contribution: 0.0903);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Enhanced VADER Compound = 0.8444 (contribution: 0.0687)
+
+top_opposing_features:
+Meta Pos Phrase Count = 1.0 (contribution: -0.0963);
+Meta Negator Count = 4.0 (contribution: -0.0733);
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Enhanced NB Neu = 0.2917 (contribution: -0.0156);
+Enhanced SVM Neg = 0.413 (contribution: -0.0147)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Has Pos Phrase, Meta Contrast Count, Enhanced VADER Compound. The main opposing signal was Meta Pos Phrase Count.
+
+====================================================================================================
+
+row_index:
+29
+
+prediction_result:
+wrong
+
+review_text:
+"Built great."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8034
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.7823 (contribution: 0.4664);
+Enhanced VADER Pos = 0.804 (contribution: 0.3786);
+Enhanced RoBERTa Neg = 0.032 (contribution: 0.3434);
+Enhanced SVM Pos = 0.4904 (contribution: 0.0864);
+Enhanced VADER Neu = 0.196 (contribution: 0.0815)
+
+top_opposing_features:
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Meta Pos Phrase Count = 0.0 (contribution: -0.0152);
+Meta Has Pos Phrase = 0.0 (contribution: -0.0111);
+Meta Has Diminisher = 0.0 (contribution: -0.0106);
+Meta Diminisher Count = 0.0 (contribution: -0.0092)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced RoBERTa Neg, Enhanced SVM Pos, Enhanced VADER Neu. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+30
+
+prediction_result:
+wrong
+
+review_text:
+"These are okay. They are pretty but they are also kinda cheap. But hey look at the price. They do look very nice and are comfortable to wear."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5173
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.8516 (contribution: 0.54);
+Enhanced RoBERTa Neg = 0.0111 (contribution: 0.3659);
+Meta Has Diminisher = 1.0 (contribution: 0.148);
+Meta Diminisher Count = 1.0 (contribution: 0.1053);
+Enhanced VADER Pos = 0.336 (contribution: 0.0993)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.5454 (contribution: -0.1472);
+Meta Has Contrast = 1.0 (contribution: -0.0798);
+Meta Has Intensifier = 1.0 (contribution: -0.049);
+Meta Contrast Count = 2.0 (contribution: -0.0479);
+Enhanced SVM Pos = 0.2125 (contribution: -0.0468)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Meta Has Diminisher, Meta Diminisher Count, Enhanced VADER Pos. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+34
+
+prediction_result:
+wrong
+
+review_text:
+"Just what the travel doctor ordered!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.3696
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5666 (contribution: 0.1807);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Meta Negator Count = 0.0 (contribution: 0.0358);
+Enhanced VADER Pos = 0.0 (contribution: 0.0194);
+Enhanced RoBERTa Pos = 0.2313 (contribution: 0.0175)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Enhanced SVM Neu = 0.2875 (contribution: -0.0532);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Intensifier Count, Meta Negator Count, Enhanced VADER Pos, Enhanced RoBERTa Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+36
+
+prediction_result:
+wrong
+
+review_text:
+"The Road to Gandolfo is a spoof, or satire, or meant to be generally amusing, or some combination of those three.A guy that is kicked out of the army for becoming a political embarrassment, decides to do something even more politically embarrassing. He kidnaps the Pope.The Pope doesn't mind that much, he gets to kick back, shoot the breeze, sink a few cold ones, have a few barbies, and generally be not stressed.The problem will be getting all the Catholics to pay the ransom that they want for him, as he is taxing them all."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6278
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.0343 (contribution: 0.2789);
+Enhanced RoBERTa Neg = 0.5611 (contribution: 0.2358);
+Enhanced VADER Compound = -0.53 (contribution: 0.2233);
+Enhanced VADER Pos = 0.062 (contribution: 0.052);
+Enhanced NB Pos = 0.2079 (contribution: 0.0479)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced RoBERTa Neu = 0.4046 (contribution: -0.0448);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115);
+Enhanced NB Neu = 0.3916 (contribution: -0.0061)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced VADER Pos, Enhanced NB Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+37
+
+prediction_result:
+wrong
+
+review_text:
+"They are great, the only reason why I didnt keep them is that I looked bad in these. My body isnt for it, but otherwise if you know you look good in these type of pants- that would be a good buy. Quality is pretty nice.I wished I looked better, but well, life ;)"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5868
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced SVM Neu = 0.4689 (contribution: 0.0971);
+Enhanced VADER Compound = 0.9688 (contribution: 0.0839);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Enhanced RoBERTa Neu = 0.4144 (contribution: 0.0748)
+
+top_opposing_features:
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced VADER Pos = 0.346 (contribution: -0.0202);
+Enhanced VADER Neg = 0.033 (contribution: -0.0189);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Enhanced NB Neu = 0.2869 (contribution: -0.0169)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Enhanced SVM Neu, Enhanced VADER Compound, Meta Contrast Count, Enhanced RoBERTa Neu. The main opposing signal was Meta Has Intensifier.
+
+====================================================================================================
+
+row_index:
+38
+
+prediction_result:
+wrong
+
+review_text:
+"Awesome... for 2 weeks junk!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4149
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.6896 (contribution: 0.3681);
+Enhanced RoBERTa Neg = 0.0732 (contribution: 0.2989);
+Meta Has Contrast = 0.0 (contribution: 0.0671);
+Enhanced VADER Neg = 0.0 (contribution: 0.0659);
+Meta Contrast Count = 0.0 (contribution: 0.0299)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.0 (contribution: -0.1013);
+Enhanced NB Neg = 0.4895 (contribution: -0.0747);
+Enhanced SVM Pos = 0.1861 (contribution: -0.0594);
+Enhanced NB Pos = 0.2322 (contribution: -0.057);
+Enhanced VADER Compound = 0.0 (contribution: -0.0431)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Meta Has Contrast, Enhanced VADER Neg, Meta Contrast Count. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+42
+
+prediction_result:
+wrong
+
+review_text:
+"the channel memory is funky if its turned up to loud it cuts out the remote is too small and hard to read, understand and hold"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7654
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8691 (contribution: 0.5803);
+Enhanced RoBERTa Pos = 0.0076 (contribution: 0.3031);
+Enhanced VADER Compound = -0.4588 (contribution: 0.2037);
+Enhanced RoBERTa Neu = 0.1233 (contribution: 0.0841);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819)
+
+top_opposing_features:
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced NB Neg = 0.284 (contribution: -0.0269);
+Enhanced NB Neu = 0.4722 (contribution: -0.0182);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced RoBERTa Neu, Enhanced VADER Pos. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+43
+
+prediction_result:
+wrong
+
+review_text:
+"Wedding planner Carnegie Kincaid is going through a rough patch professionally and personally. Her Seattle based businesses "Made in Heaven Wedding Design" is not making much money and her relationship with her commitment phobic significant other Aaron Gold is strained. She decides to attend the wedding of her college friend Tracy West because of the business contacts she will make there as Tracy is a big Hollywood star and her parents know all the movers and shakes.When Carnegie learns her cousin died, she decides that the wedding is the perfect place to get some answers regarding his death. Although Carnegie wasn't close to her cousin Brian Theale, she wants to know if his death was an accident or murder. A professional who examined the body thinks he was murdered but the sheriff and the task force classified it an accident. Brian's fellow smoke jumpers who were with him shortly after he died will be at the wedding so Carnegie will have an easy time questioning the suspects. To her delight, Aaron comes up for the wedding and since he is a journalist with skills that are needed to question suspects, they team up to find out the truth behind Brian's death.The heroine becomes the de facto wedding planner for the West wedding which gives her easy access to the suspects and her determination to find out if the cousin she didn't like was murdered is laudable. Doing her job while trying to scope out a murderer leads to some very funny situations and the comic relief is needed because the tension throughout the storyline is as tight as a high wire. Deborah Donnelly is a very creative writer whose mystery series is refreshingly innovative and totally exciting.Harriet Klausner"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4921
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6682 (contribution: 0.2514);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Enhanced SVM Neu = 0.4461 (contribution: 0.0782);
+Meta Has Intensifier = 1.0 (contribution: 0.0598)
+
+top_opposing_features:
+Meta Intensifier Count = 3.0 (contribution: -0.2002);
+Enhanced VADER Compound = -0.9583 (contribution: -0.1508);
+Enhanced NB Pos = 0.6211 (contribution: -0.0855);
+Meta Negator Count = 3.0 (contribution: -0.046);
+Enhanced NB Neu = 0.2204 (contribution: -0.0344)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Contrast Count, Enhanced SVM Neu, Meta Has Intensifier. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+44
+
+prediction_result:
+wrong
+
+review_text:
+"I am still having trouble getting it setup for wifi internet. If I can fix that problem it is a good buy."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4564
+
+strongest_feature_group:
+VADER
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.1229 (contribution: 0.1988);
+Enhanced VADER Compound = -0.3612 (contribution: 0.1768);
+Meta Has Negator = 0.0 (contribution: 0.0679);
+Enhanced VADER Neg = 0.222 (contribution: 0.0613);
+Enhanced RoBERTa Neg = 0.3814 (contribution: 0.0346)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.4958 (contribution: -0.0866);
+Enhanced NB Neg = 0.2426 (contribution: -0.0465);
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced VADER Neu = 0.658 (contribution: -0.0228);
+Enhanced NB Pos = 0.3463 (contribution: -0.0181)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from VADER. The top supporting features were Enhanced RoBERTa Pos, Enhanced VADER Compound, Meta Has Negator, Enhanced VADER Neg, Enhanced RoBERTa Neg. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+51
+
+prediction_result:
+wrong
+
+review_text:
+"I got this as a replacement for my first Nexus case that had the magnets come loose. This one does have a sturdy magnet and clasp that won't come loose, but the cover is rather loose fitting and doesn't fold into a stand very well. I got the white case that looked great at first, but it gets dirty quickly and is hard to clean. I tried rubbing alcohol but that dulled the finish."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5452
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Enhanced SVM Neu = 0.5629 (contribution: 0.175);
+Meta Contrast Count = 3.0 (contribution: 0.146);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Enhanced SVM Pos = 0.0928 (contribution: 0.0523)
+
+top_opposing_features:
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Enhanced RoBERTa Neu = 0.2827 (contribution: -0.0168);
+Enhanced RoBERTa Neg = 0.6928 (contribution: -0.0138);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Enhanced SVM Neu, Meta Contrast Count, Meta Has Contrast, Meta Has Intensifier, Enhanced SVM Pos. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+53
+
+prediction_result:
+wrong
+
+review_text:
+"The second novel in this series does not disappoint. We are presented with another cozy mystery, in which the characters and life in Botswana play a much more prominent role than the case itself. In most cases, I would say that this is a drawback, but McCall Smith's writing is so good, that the reader finds himself happily devouring the pages and learning about Mma Ramotswe and her entourage.Not only do we get a depiction of culture in Botswana, we get this through the colorful commentary of the characters. When I read lines like ""old Botswana morality, as everybody knew, was so plainly right" I can't help it but break a smile. The dialogues are truly priceless, and even the thoughts of some characters, such as the evil and conniving maid of Ramotswe's fiance, are truly entertaining.Like I mentioned, there is not much emphasis on the couple of cases in which the No. 1 Ladies' Detective Agency is focusing on, but this is fine. The part that does bother me a little though, and is the reason why I am giving it 4 stars instead of 5, is that the main character reaches conclusions without us having any idea of what the reasoning was. For example, she decides someone is a bad person by looking at a picture, or she gets a clear profile of family and work of a woman she meets just by looking at her and what she is carrying. But we never know how she determined this, which is frustrating. I much rather have the logic described similar to what we get with Sherlock Holmes. Anyway, a small defect that overall does not invalidate the great appeal of this book."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5339
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Contrast Count = 5.0 (contribution: 0.2769);
+Enhanced SVM Neu = 0.5017 (contribution: 0.1243);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced NB Neu = 0.6365 (contribution: 0.0752);
+Enhanced VADER Compound = 0.8426 (contribution: 0.0685)
+
+top_opposing_features:
+Meta Negator Count = 8.0 (contribution: -0.1824);
+Enhanced RoBERTa Neu = 0.1526 (contribution: -0.1073);
+Enhanced RoBERTa Pos = 0.8376 (contribution: -0.0778);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Contrast Count, Enhanced SVM Neu, Meta Has Contrast, Enhanced NB Neu, Enhanced VADER Compound. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+55
+
+prediction_result:
+wrong
+
+review_text:
+"Incarcerated in a labor camp in Siberia, Ivan Denisovich struggles to find food, warmth and a bit of dignity over the course of his day as a forced laborer in the Gulag.....One Day in the Life of Ivan DenisovichRich B"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5692
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6672 (contribution: 0.3544);
+Enhanced RoBERTa Pos = 0.0166 (contribution: 0.2949);
+Meta Has Negator = 0.0 (contribution: 0.0679);
+Enhanced VADER Compound = 0.0516 (contribution: 0.063);
+Meta Has Contrast = 0.0 (contribution: 0.031)
+
+top_opposing_features:
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced NB Neg = 0.261 (contribution: -0.0378);
+Enhanced SVM Neg = 0.2267 (contribution: -0.0343);
+Enhanced SVM Pos = 0.4422 (contribution: -0.0315);
+Meta Intensifier Count = 0.0 (contribution: -0.0116)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Meta Has Negator, Enhanced VADER Compound, Meta Has Contrast. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+61
+
+prediction_result:
+wrong
+
+review_text:
+"I purchased this in 2013. It was easy to set up and has worked great since then. Only issue is when the display is out of it's dock it will sometimes lock up and require a restart to get the functions to work again. Also, none of the administrative functions work while it is in the dock, have to remove from dock to do anything. Now, here we are in the latter part of 2017 and I can no longer access the system on my iPhone because Uniden had not issued any upgrades that will allow their system to work with IOS 11. Trying to contact Uniden but like so many companies these days they hide their contact information so that you either spend way too much time to find it, or you never find it, which means they don't have to help many people, just sell a product and write it off."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6109
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6496 (contribution: 0.3347);
+Enhanced RoBERTa Pos = 0.0354 (contribution: 0.2779);
+Enhanced NB Neg = 0.64 (contribution: 0.1417);
+Meta Negator Count = 4.0 (contribution: 0.0895);
+Enhanced NB Pos = 0.1493 (contribution: 0.0758)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Enhanced VADER Compound = 0.3946 (contribution: -0.0316);
+Enhanced VADER Neg = 0.041 (contribution: -0.0156);
+Meta Intensifier Count = 0.0 (contribution: -0.0116)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Neg, Meta Negator Count, Enhanced NB Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+63
+
+prediction_result:
+wrong
+
+review_text:
+"I have two of these that I'll be returning. The menu functions require about an hour of training. Between the three buttons and power button, it's a puzzle trying to figure out which buttons do what, and how long you have to hold down which button for 1, 2 or 5 seconds to make something happen. Aside from that, I wouldn't have been rating this a bad product if it wasn't for what followed. I hooked one up for a day, and noticed that the time stamp seemed to fall back about 2 minutes every hour. GPS function is a non-existent joke. It simply doesn't work. It did manage to locate where I parked my car, and after that reported everywhere I went at the same location. The time stamp started to jam after 4 hours of use, and after another hour, the camera stopped recording all together losing the last hour of my drive. I'm not sure why it has any sort of built in power source, as it gets about 2 minutes on a full charge before shutting off. Again, I can deal with the power deficiency issue, and complicated menu, the lack of a working GPS, and even the time stamp, but when it just decided to stop recording I'm not seeing the point in having it. I also noticed after taking the time to read the reviews this is a cheap dysfunctional copy of a real product. 09/04/2014 Just an update. I mentioned I purchased two. For kicks and grins I tried the other one today and everything seems to work fine. It is still a little cheap, and difficult to move around the menus, but I admit the other one had to be really screwed up. The GPS on the new one works as well. I'd update the review to three stars from one. I'd give it four stars for overall value if the first one had worked."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7053
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6744 (contribution: 0.3625);
+Enhanced VADER Compound = -0.7806 (contribution: 0.2924);
+Enhanced RoBERTa Pos = 0.0218 (contribution: 0.2902);
+Enhanced NB Neg = 0.6424 (contribution: 0.1429);
+Meta Negator Count = 5.0 (contribution: 0.1229)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Meta Contrast Count = 2.0 (contribution: -0.0327);
+Meta Has Intensifier = 1.0 (contribution: -0.0108)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced NB Neg, Meta Negator Count. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+64
+
+prediction_result:
+wrong
+
+review_text:
+"Great for DVD's, but bad for Wi-Fi"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4512
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced VADER Neg = 0.386 (contribution: 0.1303);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced RoBERTa Neu = 0.4311 (contribution: 0.0865);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Enhanced RoBERTa Pos = 0.0755 (contribution: 0.042)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.4939 (contribution: -0.0943);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Enhanced SVM Pos = 0.4915 (contribution: -0.0436);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced NB Pos = 0.4134 (contribution: -0.0287)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced VADER Neg, Meta Has Contrast, Enhanced RoBERTa Neu, Meta Intensifier Count, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+65
+
+prediction_result:
+wrong
+
+review_text:
+"Too small for my child's head"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7072
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8162 (contribution: 0.5211);
+Enhanced RoBERTa Pos = 0.013 (contribution: 0.2982);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772);
+Meta Has Negator = 0.0 (contribution: 0.0679)
+
+top_opposing_features:
+Enhanced NB Neg = 0.2407 (contribution: -0.0474);
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Enhanced NB Neu = 0.5402 (contribution: -0.0285);
+Meta Intensifier Count = 0.0 (contribution: -0.0116)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Enhanced NB Neg.
+
+====================================================================================================
+
+row_index:
+72
+
+prediction_result:
+wrong
+
+review_text:
+"Wanted to update my 4 year old Sony TX630 with SSD. I read here, read there, finally ordered this MTRON drive and then the next evening found an obscure link with a better photo and it clearly showed that ZIF wasn't compatible with the microATA50 Toshiba Drives used in Sonys. I didn't open the OEM box when it came. I wrote Jonny at Rocket Disk and he said they'll restock it for a modest fee so its on its way back. I am writing this as a precaution to buyers who are unsure - the error will cost ya. My Bad. BUT, today, I found conics.net has an SSD that WILL work, similar price range. Too bad they're not on AMAZON."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6544
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.679 (contribution: 0.3676);
+Enhanced VADER Compound = -0.862 (contribution: 0.3148);
+Enhanced RoBERTa Pos = 0.0207 (contribution: 0.2912);
+Enhanced NB Neg = 0.5039 (contribution: 0.0773);
+Enhanced VADER Pos = 0.031 (contribution: 0.0669)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Enhanced SVM Neg = 0.3001 (contribution: -0.0117);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced NB Neg, Enhanced VADER Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+73
+
+prediction_result:
+wrong
+
+review_text:
+"The chest area of the dress was quite large. I decided to size up like I usually do with online purchases and it fit perfectly at my waist but the chest area was much to large even with the adjustable straps. I am a 34 DD and had this problem. It also has a very low back which is hard to wear a bra with!!!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5225
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.0499 (contribution: 0.2648);
+Enhanced VADER Compound = -0.4316 (contribution: 0.1962);
+Enhanced RoBERTa Neg = 0.5089 (contribution: 0.1773);
+Meta Has Negator = 0.0 (contribution: 0.0679);
+Enhanced NB Pos = 0.2222 (contribution: 0.0411)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.4412 (contribution: -0.0616);
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115);
+Meta Has Intensifier = 1.0 (contribution: -0.0108)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced RoBERTa Neg, Meta Has Negator, Enhanced NB Pos. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+75
+
+prediction_result:
+wrong
+
+review_text:
+"SPOILER ALERT, SPOILER ALERT!Annakin Skywalker becomes Darth Vadar! oh yeah, everyone already knew that.my only disappointment with this book; no scenes on the wookie homeworld. it's my understanding it is shown and featured in the movie, yet nothing in these pages other than "yep, Yoda went there and escaped thanks to Bail Organa."still, this is a fine read."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4555
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced RoBERTa Neu = 0.4248 (contribution: 0.0821);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Enhanced RoBERTa Pos = 0.0758 (contribution: 0.042)
+
+top_opposing_features:
+Enhanced SVM Neu = 0.2225 (contribution: -0.1069);
+Enhanced NB Pos = 0.5289 (contribution: -0.0603);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced NB Neu = 0.2397 (contribution: -0.0293);
+Enhanced SVM Pos = 0.3937 (contribution: -0.0201)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Enhanced RoBERTa Neu, Meta Has Negator, Meta Intensifier Count, Enhanced RoBERTa Pos. The main opposing signal was Enhanced SVM Neu.
+
+====================================================================================================
+
+row_index:
+76
+
+prediction_result:
+wrong
+
+review_text:
+"He says something as if it is in "quotation marks," in EVERY sentence. Who talks like that? Gets to be distracting.Also, he references "study after study" frequently, but I would love to hear him cite a study.My main gripe with him is his speaking habit of quoting one-third to one-half of each sentence. You'll know what I mean when you listen to him speak about ANYTHING. No other speaker does this."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.576
+
+strongest_feature_group:
+SVM
+
+top_supporting_features:
+Enhanced SVM Neu = 0.5649 (contribution: 0.1766);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced NB Neu = 0.5718 (contribution: 0.0582);
+Enhanced VADER Compound = 0.7469 (contribution: 0.0568);
+Meta Has Negator = 1.0 (contribution: 0.0502)
+
+top_opposing_features:
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced VADER Neg = 0.037 (contribution: -0.0172);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Enhanced RoBERTa Neg = 0.6398 (contribution: -0.0117);
+Meta Has Diminisher = 0.0 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from SVM. The top supporting features were Enhanced SVM Neu, Meta Has Contrast, Enhanced NB Neu, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Meta Has Intensifier.
+
+====================================================================================================
+
+row_index:
+85
+
+prediction_result:
+wrong
+
+review_text:
+"It's comfy but the shirt keeps coming up"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5096
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6153 (contribution: 0.2146);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Meta Negator Count = 0.0 (contribution: 0.0358);
+Enhanced RoBERTa Pos = 0.1582 (contribution: 0.029)
+
+top_opposing_features:
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced VADER Neu = 1.0 (contribution: -0.0233)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Intensifier Count, Meta Negator Count, Enhanced RoBERTa Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+88
+
+prediction_result:
+wrong
+
+review_text:
+"Work for our PS4 but are fragile."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4691
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5562 (contribution: 0.1735);
+Enhanced VADER Neg = 0.381 (contribution: 0.1282);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Enhanced RoBERTa Pos = 0.0771 (contribution: 0.0418)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.5719 (contribution: -0.1038);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Enhanced NB Pos = 0.5327 (contribution: -0.0613);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced NB Neu = 0.2478 (contribution: -0.0272)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced VADER Neg, Meta Has Contrast, Meta Intensifier Count, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+92
+
+prediction_result:
+wrong
+
+review_text:
+"I was loving this bag. It provides a place for everything so you can put everything in its place. it's deceptively roomy as well. The problem is a already have a hole in one of the compartments. bummer. It would be a five star review otherwise."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.3491
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.2377 (contribution: 0.095);
+Meta Has Negator = 0.0 (contribution: 0.0679);
+Meta Has Contrast = 0.0 (contribution: 0.031);
+Enhanced VADER Compound = 0.1779 (contribution: 0.0282);
+Enhanced VADER Pos = 0.124 (contribution: 0.022)
+
+top_opposing_features:
+Enhanced RoBERTa Neu = 0.4537 (contribution: -0.0673);
+Enhanced RoBERTa Neg = 0.3087 (contribution: -0.0467);
+Enhanced SVM Pos = 0.5056 (contribution: -0.0466);
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced SVM Neg = 0.2671 (contribution: -0.0219)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Enhanced RoBERTa Pos, Meta Has Negator, Meta Has Contrast, Enhanced VADER Compound, Enhanced VADER Pos. The main opposing signal was Enhanced RoBERTa Neu.
+
+====================================================================================================
+
+row_index:
+94
+
+prediction_result:
+wrong
+
+review_text:
+"Decent quality for tracking, they work"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5171
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.7627 (contribution: 0.4456);
+Enhanced RoBERTa Neg = 0.013 (contribution: 0.364);
+Meta Has Contrast = 0.0 (contribution: 0.0671);
+Enhanced VADER Neg = 0.0 (contribution: 0.0659);
+Meta Contrast Count = 0.0 (contribution: 0.0299)
+
+top_opposing_features:
+Enhanced VADER Pos = 0.0 (contribution: -0.1013);
+Enhanced VADER Compound = 0.0 (contribution: -0.0431);
+Enhanced VADER Neu = 1.0 (contribution: -0.0363);
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Enhanced SVM Pos = 0.2653 (contribution: -0.0215)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Meta Has Contrast, Enhanced VADER Neg, Meta Contrast Count. The main opposing signal was Enhanced VADER Pos.
+
+====================================================================================================
+
+row_index:
+97
+
+prediction_result:
+wrong
+
+review_text:
+"chain isn't the best "fake" quality but the charm is cute and unique. I just put it on another one of my chains."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5248
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced RoBERTa Neu = 0.4468 (contribution: 0.0974);
+Enhanced VADER Compound = 0.7481 (contribution: 0.057);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446)
+
+top_opposing_features:
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced RoBERTa Pos = 0.5124 (contribution: -0.0267);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107);
+Enhanced VADER Pos = 0.263 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Enhanced RoBERTa Neu, Enhanced VADER Compound, Meta Has Negator, Meta Intensifier Count. The main opposing signal was Meta Has Intensifier.
+
+====================================================================================================
+
+row_index:
+100
+
+prediction_result:
+wrong
+
+review_text:
+"The pattern is not the same as the model! But the bathing suit is still cute. Fits pretty well and has padding that can be removed. I got a small and I weigh 125 pounds I'm 57 and I'm at 32A"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4862
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0651 (contribution: 0.3077);
+Enhanced NB Pos = 0.5414 (contribution: 0.1749);
+Enhanced RoBERTa Pos = 0.4746 (contribution: 0.1399);
+Enhanced VADER Compound = 0.9051 (contribution: 0.0962);
+Enhanced VADER Neg = 0.0 (contribution: 0.0659)
+
+top_opposing_features:
+Meta Has Contrast = 1.0 (contribution: -0.0798);
+Enhanced RoBERTa Neu = 0.4603 (contribution: -0.0364);
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Meta Pos Phrase Count = 0.0 (contribution: -0.0152);
+Meta Has Pos Phrase = 0.0 (contribution: -0.0111)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced VADER Neg. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+101
+
+prediction_result:
+wrong
+
+review_text:
+"Fahrenheit 451 was a disappointing book for a reader who is not an avid science fiction lover. This book is very difficult to read. The correctors a sometimes very confusing to understand. The setting is also very hard to have a visual picture. Although the plot is very good the way that it is described is hard to understand. I think if you are a science fiction lover that you would like this book. But if you sometimes like to read science fiction you will not like this because you have to be a huge science fiction lover to like this. I also think you need to be above the 6th grade or a very advanced reader."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4567
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced VADER Compound = 0.9711 (contribution: 0.0841);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Enhanced RoBERTa Neu = 0.4042 (contribution: 0.0678);
+Meta Has Intensifier = 1.0 (contribution: 0.0598)
+
+top_opposing_features:
+Meta Intensifier Count = 5.0 (contribution: -0.3634);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107);
+Enhanced RoBERTa Neg = 0.5469 (contribution: -0.0079)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Meta Has Contrast, Enhanced VADER Compound, Meta Contrast Count, Enhanced RoBERTa Neu, Meta Has Intensifier. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+104
+
+prediction_result:
+wrong
+
+review_text:
+"This is a must read for any followers of Machiavellian prince apples. Prawns and other Wannabees may discover knew uses for ancient manipulative Phycodian garble de spooks. Dat auld white majick sin four skin. Hal Zwingi"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4683
+
+strongest_feature_group:
+Naive Bayes
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0804 (contribution: 0.2912);
+Enhanced NB Pos = 0.6336 (contribution: 0.2441);
+Enhanced SVM Pos = 0.5454 (contribution: 0.1127);
+Enhanced NB Neg = 0.1569 (contribution: 0.0923);
+Meta Has Contrast = 0.0 (contribution: 0.0671)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.5574 (contribution: -0.1289);
+Enhanced VADER Pos = 0.0 (contribution: -0.1013);
+Enhanced RoBERTa Neu = 0.5263 (contribution: -0.052);
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Enhanced VADER Neu = 0.904 (contribution: -0.0222)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from Naive Bayes. The top supporting features were Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced SVM Pos, Enhanced NB Neg, Meta Has Contrast. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+105
+
+prediction_result:
+wrong
+
+review_text:
+"It was suppose to be Prime but it took 3 weeks to get here!! I did not like it one bit! The size ran small!!"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7581
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.9151 (contribution: 0.6318);
+Enhanced VADER Compound = -0.8192 (contribution: 0.303);
+Enhanced RoBERTa Pos = 0.0079 (contribution: 0.3028);
+Enhanced RoBERTa Neu = 0.077 (contribution: 0.1054);
+Meta Neg Phrase Count = 1.0 (contribution: 0.087)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Negator Count = 1.0 (contribution: -0.0104)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced RoBERTa Neu, Meta Neg Phrase Count. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+107
+
+prediction_result:
+wrong
+
+review_text:
+"L was way too small and XL way too big?"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6329
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6451 (contribution: 0.3297);
+Enhanced RoBERTa Pos = 0.0198 (contribution: 0.292);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772);
+Meta Has Negator = 0.0 (contribution: 0.0679)
+
+top_opposing_features:
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Enhanced NB Neg = 0.3039 (contribution: -0.0175);
+Enhanced NB Neu = 0.4478 (contribution: -0.0146);
+Enhanced RoBERTa Neu = 0.335 (contribution: -0.013)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+109
+
+prediction_result:
+wrong
+
+review_text:
+"Have read a good third of the book so far. Story is usually fine and moves right along, is humorous at times even--which is o.k.; the thing that bugs this reader is the fact the author seems to slow things down now and then whenever he attempts to cram his political views down the reader's throat. I don't mind messages in small doses, but to stop your narrative and get on a soap box and start preaching is just plain stupid and bothersome and does not work. Rocky is a good word to describe this tale. On the other hand, I loved Cottonpickers. Your money, your choice."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.585
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7534 (contribution: 0.4509);
+Enhanced RoBERTa Pos = 0.0198 (contribution: 0.2921);
+Meta Neg Phrase Count = 1.0 (contribution: 0.087);
+Enhanced NB Pos = 0.1642 (contribution: 0.0687);
+Enhanced SVM Pos = 0.0827 (contribution: 0.0543)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Enhanced VADER Neu = 0.721 (contribution: -0.0076)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Meta Neg Phrase Count, Enhanced NB Pos, Enhanced SVM Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+116
+
+prediction_result:
+wrong
+
+review_text:
+"Unable to install with Windows 7"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6834
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7681 (contribution: 0.4673);
+Enhanced RoBERTa Pos = 0.0141 (contribution: 0.2972);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772);
+Meta Has Negator = 0.0 (contribution: 0.0679)
+
+top_opposing_features:
+Meta Negator Count = 0.0 (contribution: -0.0438);
+Enhanced SVM Pos = 0.4791 (contribution: -0.0403);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Enhanced SVM Neg = 0.273 (contribution: -0.0201);
+Enhanced NB Pos = 0.3349 (contribution: -0.0127)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Pos, Enhanced VADER Compound, Meta Has Negator. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+118
+
+prediction_result:
+wrong
+
+review_text:
+"We used this book in x-ray technology school and in preparation for the CT exam. The images are alright, although some of them are not the best quality. Also, by the time you get to the point of learning cross sectional anatomy you should have a deep knowledge of human anatomy, so I really don't see why the writer wasted so much useful space by writing about structure and physiology. I also didn't like the labeling, because instead of using numbers like most books do, they used abbreviations... kind of a give-away if you try to practice."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6376
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.7823 (contribution: 0.4832);
+Enhanced RoBERTa Pos = 0.011 (contribution: 0.3);
+Enhanced VADER Compound = -0.6183 (contribution: 0.2477);
+Meta Negator Count = 3.0 (contribution: 0.0562);
+Enhanced VADER Pos = 0.065 (contribution: 0.0505)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Enhanced SVM Neg = 0.2408 (contribution: -0.03);
+Enhanced NB Neu = 0.4664 (contribution: -0.0174);
+Enhanced NB Neg = 0.3113 (contribution: -0.0139)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Meta Negator Count, Enhanced VADER Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+119
+
+prediction_result:
+wrong
+
+review_text:
+"This product looks very nice and I liked it until I put it on. I also notice some embedded images in the dress as well. I would show a picture but I could not put my arm in it."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.4783
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0533 (contribution: 0.3205);
+Enhanced RoBERTa Pos = 0.6241 (contribution: 0.2986);
+Enhanced SVM Pos = 0.5373 (contribution: 0.1088);
+Enhanced VADER Neg = 0.0 (contribution: 0.0659);
+Enhanced SVM Neu = 0.2716 (contribution: 0.0609)
+
+top_opposing_features:
+Meta Has Contrast = 1.0 (contribution: -0.0798);
+Meta Has Intensifier = 1.0 (contribution: -0.049);
+Enhanced NB Neg = 0.4001 (contribution: -0.0298);
+Meta Pos Phrase Count = 0.0 (contribution: -0.0152);
+Enhanced VADER Neu = 0.842 (contribution: -0.0131)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Pos, Enhanced VADER Neg, Enhanced SVM Neu. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+122
+
+prediction_result:
+wrong
+
+review_text:
+"These are very comfortable, but after a couple of washes, it's a bit looser."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5611
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5466 (contribution: 0.1668);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced NB Neu = 0.6015 (contribution: 0.066);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Enhanced SVM Neu = 0.4205 (contribution: 0.057)
+
+top_opposing_features:
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Enhanced NB Neu, Meta Has Intensifier, Enhanced SVM Neu. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+128
+
+prediction_result:
+wrong
+
+review_text:
+"Do not buy if you have a Mac with the latest MacOS, as it has issue with its current driver. I am still waiting for an update."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.739
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.785 (contribution: 0.4862);
+Enhanced RoBERTa Pos = 0.013 (contribution: 0.2982);
+Enhanced NB Neg = 0.6316 (contribution: 0.1378);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819);
+Enhanced VADER Compound = 0.0 (contribution: 0.0772)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115);
+Enhanced SVM Pos = 0.3569 (contribution: -0.0112)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Neg, Enhanced VADER Pos, Enhanced VADER Compound. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+129
+
+prediction_result:
+wrong
+
+review_text:
+"1 star for the language learning, could have 4 or 5 for the communicational purpose. This might be a very good guide for a person wanting to go to Japan, it teaches lot's of communicational situations, but of he language itself it teaches almost nothing, almost no (!) grammar and only a part of the script. At this rithym you'll need until volume 20."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.5398
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.0608 (contribution: 0.3123);
+Meta Diminisher Count = 2.0 (contribution: 0.2198);
+Enhanced NB Pos = 0.587 (contribution: 0.2091);
+Meta Has Diminisher = 1.0 (contribution: 0.148);
+Enhanced RoBERTa Pos = 0.4559 (contribution: 0.12)
+
+top_opposing_features:
+Meta Has Contrast = 1.0 (contribution: -0.0798);
+Enhanced VADER Pos = 0.067 (contribution: -0.0613);
+Meta Has Intensifier = 1.0 (contribution: -0.049);
+Enhanced RoBERTa Neu = 0.4833 (contribution: -0.0419);
+Enhanced VADER Neu = 0.933 (contribution: -0.0264)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Meta Diminisher Count, Enhanced NB Pos, Meta Has Diminisher, Enhanced RoBERTa Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+136
+
+prediction_result:
+wrong
+
+review_text:
+"You need to find a really good station in order for it to work properly"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.6367
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.6999 (contribution: 0.379);
+Enhanced RoBERTa Neg = 0.0194 (contribution: 0.357);
+Meta Has Contrast = 0.0 (contribution: 0.0671);
+Enhanced VADER Neg = 0.0 (contribution: 0.0659);
+Enhanced SVM Pos = 0.4398 (contribution: 0.0621)
+
+top_opposing_features:
+Meta Has Intensifier = 1.0 (contribution: -0.049);
+Meta Pos Phrase Count = 0.0 (contribution: -0.0152);
+Enhanced NB Neg = 0.3633 (contribution: -0.0113);
+Meta Has Pos Phrase = 0.0 (contribution: -0.0111);
+Meta Has Diminisher = 0.0 (contribution: -0.0106)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Meta Has Contrast, Enhanced VADER Neg, Enhanced SVM Pos. The main opposing signal was Meta Has Intensifier.
+
+====================================================================================================
+
+row_index:
+137
+
+prediction_result:
+wrong
+
+review_text:
+"I bought this rig for my wife and a big reason I chose this one is it said it has wireless display and I wanted my wife to be able to get netflix on the TV. Well this is simply not true. IF you buy an HD cable you can have a cabled display but there is simply no way I've found to hook up wireless to the TV."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.61
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6834 (contribution: 0.3726);
+Enhanced RoBERTa Pos = 0.0331 (contribution: 0.28);
+Enhanced VADER Compound = -0.4881 (contribution: 0.2118);
+Enhanced VADER Pos = 0.023 (contribution: 0.0708);
+Enhanced VADER Neu = 0.892 (contribution: 0.0336)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115);
+Meta Contrast Count = 1.0 (contribution: -0.0062)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Compound, Enhanced VADER Pos, Enhanced VADER Neu. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+140
+
+prediction_result:
+wrong
+
+review_text:
+"I think that this book is really good, and I would recommend everyone to read it. I am really annoyed about the ending though, and I don't think he should have tried to avoid the happy ending by making up all of that stuff about can't live in different worlds and stupid stuff. Otherwise, I think it was a brilliant book to end a brilliant series."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4692
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4898 (contribution: 0.1273);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Pos Phrase = 1.0 (contribution: 0.0903);
+Enhanced VADER Compound = 0.8876 (contribution: 0.074);
+Meta Has Intensifier = 1.0 (contribution: 0.0598)
+
+top_opposing_features:
+Meta Intensifier Count = 2.0 (contribution: -0.1186);
+Meta Pos Phrase Count = 1.0 (contribution: -0.0963);
+Enhanced NB Pos = 0.4619 (contribution: -0.042);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Enhanced NB Neu = 0.2837 (contribution: -0.0177)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Has Pos Phrase, Enhanced VADER Compound, Meta Has Intensifier. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+142
+
+prediction_result:
+wrong
+
+review_text:
+"Now Face to Face and it's predecessor Through a Glass Darkly have joined my collection of favorite historical fiction. Contrary to the other opinion that the political intrigue of the novel was hard to follow, I felt that, for the first time, I was truly able to understand this period of English upheaval. I was reading these novels for the "fiction" and not for the "romance" so I didn't notice if there was romance missing. I didn't feel there was anything missing, actually. The only thing missing is a third book! Ms. Koen, is it on it's way?"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4717
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5742 (contribution: 0.186);
+Meta Has Neg Phrase = 1.0 (contribution: 0.1058);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Enhanced RoBERTa Pos = 0.1111 (contribution: 0.0364)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Meta Negator Count = 3.0 (contribution: -0.046);
+Enhanced NB Pos = 0.4347 (contribution: -0.0346);
+Meta Has Intensifier = 0.0 (contribution: -0.0317)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Neg Phrase, Meta Has Negator, Meta Intensifier Count, Enhanced RoBERTa Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+143
+
+prediction_result:
+wrong
+
+review_text:
+"I haven't had these i a long time but at one time I owned two pairs. The surround sound quality was good and the worked as they were designed especially for the price. They were comfortable for extended wear as at the time I gamed for hours on most nights. The problem is construction and durability. Both pairs broke at the same spots at the second bend in the head band where the fold up. You can super glue and tape to repair the damage but it won't last long. There is too much stress on the head band in the way the ear pads press against the ear. Expect them to break, just a matter of time. I babied each of my two pairs but that didn't matter."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.4836
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced VADER Compound = -0.7932 (contribution: 0.2959);
+Enhanced RoBERTa Pos = 0.0393 (contribution: 0.2744);
+Enhanced RoBERTa Neg = 0.585 (contribution: 0.2624);
+Enhanced NB Pos = 0.176 (contribution: 0.0631);
+Meta Negator Count = 3.0 (contribution: 0.0562)
+
+top_opposing_features:
+Enhanced NB Neg = 0.1889 (contribution: -0.0719);
+Meta Contrast Count = 3.0 (contribution: -0.0593);
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced NB Neu = 0.6351 (contribution: -0.0427);
+Meta Has Contrast = 1.0 (contribution: -0.0369)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced VADER Compound, Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Enhanced NB Pos, Meta Negator Count. The main opposing signal was Enhanced NB Neg.
+
+====================================================================================================
+
+row_index:
+146
+
+prediction_result:
+wrong
+
+review_text:
+"This book appeared to be pieced together from all his other books. No innovation. I love Dirk Pitt novels and have read them all. This might be my last."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.736
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.7636 (contribution: 0.4466);
+Enhanced RoBERTa Neg = 0.0273 (contribution: 0.3485);
+Enhanced NB Pos = 0.5594 (contribution: 0.1884);
+Enhanced SVM Neu = 0.2088 (contribution: 0.1085);
+Enhanced NB Neg = 0.1879 (contribution: 0.0767)
+
+top_opposing_features:
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Meta Pos Phrase Count = 0.0 (contribution: -0.0152);
+Meta Has Pos Phrase = 0.0 (contribution: -0.0111);
+Meta Has Diminisher = 0.0 (contribution: -0.0106);
+Meta Diminisher Count = 0.0 (contribution: -0.0092)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Enhanced NB Pos, Enhanced SVM Neu, Enhanced NB Neg. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+149
+
+prediction_result:
+wrong
+
+review_text:
+"In this collection, editors Joseph Corre and Serena Rees attempt to put together a brief history of erotica, particularly subversive erotica. The diversity and quality of the illustrations make this book a nice find. The idea of the text is quite interesting--a historical and social survey of erotica--but still leaves something to be desired. The text is a little too light and doesn't seem particularly well researched."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5443
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5959 (contribution: 0.2011);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Enhanced RoBERTa Pos = 0.1621 (contribution: 0.0284)
+
+top_opposing_features:
+Enhanced NB Pos = 0.4783 (contribution: -0.0465);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced VADER Compound = 0.172 (contribution: -0.0132);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Enhanced SVM Pos = 0.3593 (contribution: -0.0118)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Meta Has Negator, Meta Intensifier Count, Enhanced RoBERTa Pos. The main opposing signal was Enhanced NB Pos.
+
+====================================================================================================
+
+row_index:
+150
+
+prediction_result:
+wrong
+
+review_text:
+"This was a gift. Quality seems ok. Not great but ok. The stencil seems faded."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5347
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Enhanced SVM Neu = 0.5164 (contribution: 0.1364);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced VADER Neg = 0.271 (contribution: 0.0817);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Enhanced RoBERTa Pos = 0.0366 (contribution: 0.0481)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.0892 (contribution: -0.045);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced VADER Pos = 0.302 (contribution: -0.0151);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Enhanced SVM Neu, Meta Has Contrast, Enhanced VADER Neg, Meta Has Negator, Enhanced RoBERTa Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+153
+
+prediction_result:
+wrong
+
+review_text:
+"I've known about this book for a while now, but I've never bothered paying attention to it given it's somewhat ridiculous price tag. Necessity forced me to forgo my earlier conclusions however, and I'm now angry at myself for not picking it up sooner. However much you think you know about Quartz, there's always more to learn, and this book is a whole lot easier to pick new tricks up from than Apple's scant free documentation. It's a bit dated when it comes to the XCode specific info, but unless you're a total newcomer you should be able to fill in the proverbial gaps there without much trouble.This is the second book on OS X programming that I have felt is truly worth owning; the first being Amit Singh's "Mac OS X Internals." This one's not as thick, nor is it hardbound, but there are lots of color plates. Good stuff."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.7238
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Contrast Count = 5.0 (contribution: 0.2769);
+Meta Has Diminisher = 1.0 (contribution: 0.1499);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Diminisher Count = 1.0 (contribution: 0.0776);
+Enhanced NB Neu = 0.6321 (contribution: 0.0741)
+
+top_opposing_features:
+Meta Negator Count = 4.0 (contribution: -0.0733);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Enhanced RoBERTa Neg = 0.5452 (contribution: -0.0079);
+Meta Has Pos Phrase = 0.0 (contribution: -0.0077)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Contrast Count, Meta Has Diminisher, Meta Has Contrast, Meta Diminisher Count, Enhanced NB Neu. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+156
+
+prediction_result:
+wrong
+
+review_text:
+"Reviewer: Chuck Spicer from Champaign, IL USA Brian distorts the Dune serious making unbelievable leaps and writing things that any Dune fan know just couldn't be or clash with Frank's vision. The characters are one dimensional and the story line is preposterous. It's as badly written as star trek books. This book might be entertaining to those looking for a fun read but anybody who holds Dune true and dear to their hearts will dislike this. This was obviously a tool to fatten his pockets. He should have listened to his father when he wrote "YOu don't write for success." Let Brian have his fun with the prequels but let us all hope he doesn't truely desicrate Dune by attempting Dune 7."
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.5742
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8311 (contribution: 0.5378);
+Enhanced RoBERTa Pos = 0.0115 (contribution: 0.2995);
+Enhanced NB Neg = 0.6045 (contribution: 0.1249);
+Meta Neg Phrase Count = 1.0 (contribution: 0.087);
+Enhanced NB Pos = 0.1604 (contribution: 0.0705)
+
+top_opposing_features:
+Enhanced VADER Compound = 0.9403 (contribution: -0.182);
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Meta Contrast Count = 2.0 (contribution: -0.0327)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced NB Neg, Meta Neg Phrase Count, Enhanced NB Pos. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+160
+
+prediction_result:
+wrong
+
+review_text:
+"Just don't know. ?? It worked at first. I read so many reviews and this appears to be the one I need for my ONE HDMI input Sony 26" TV (2005) I wanted to run my Sony DVD player and Yamaha receiver to it and out to TV. I haven't tried it with the remote. I had family visiting and needed the set-up in BR. But it only worked initially. I'm going to read more of the reviews, when I have time. Some people are really good with solutions and advice. Thanks! I could give it ONE star....but withholding that for now."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4248
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Meta Contrast Count = 2.0 (contribution: 0.0806);
+Enhanced VADER Compound = 0.905 (contribution: 0.0761);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Meta Has Negator = 1.0 (contribution: 0.0502)
+
+top_opposing_features:
+Enhanced RoBERTa Pos = 0.7555 (contribution: -0.0649);
+Enhanced SVM Neu = 0.2775 (contribution: -0.0614);
+Enhanced RoBERTa Neu = 0.2251 (contribution: -0.0568);
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Enhanced NB Neu = 0.2121 (contribution: -0.0366)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Meta Contrast Count, Enhanced VADER Compound, Meta Has Intensifier, Meta Has Negator. The main opposing signal was Enhanced RoBERTa Pos.
+
+====================================================================================================
+
+row_index:
+164
+
+prediction_result:
+wrong
+
+review_text:
+"Esy to use very long wire."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4868
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.699 (contribution: 0.2729);
+Enhanced SVM Neu = 0.489 (contribution: 0.1137);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Enhanced RoBERTa Pos = 0.093 (contribution: 0.0393);
+Meta Negator Count = 0.0 (contribution: 0.0358)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Meta Intensifier Count = 1.0 (contribution: -0.037);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Enhanced SVM Neu, Meta Has Intensifier, Enhanced RoBERTa Pos, Meta Negator Count. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+
+row_index:
+166
+
+prediction_result:
+wrong
+
+review_text:
+"Seems like the prophet of cybernetics outsourced the writing of this history to a commodore 64. As I read this, I kept wondering if, perhaps, it was intended for youngsters? It's not bad, but quite light, and not up to Asimov's customary standard. I was puzzled that he dismissed Philip's assassination with a couple of sentences, that the internal conspiracies against Alexander aren't analyzed...Description of tactics and battles are simplistic. I suppose that when an author is so prolific and so eclectic, at some point, that limitations are unavoidable."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5753
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6151 (contribution: 0.2144);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced SVM Neu = 0.4625 (contribution: 0.0918);
+Meta Has Pos Phrase = 1.0 (contribution: 0.0903);
+Enhanced NB Neu = 0.6261 (contribution: 0.0725)
+
+top_opposing_features:
+Enhanced VADER Compound = -0.8442 (contribution: -0.1369);
+Meta Pos Phrase Count = 1.0 (contribution: -0.0963);
+Meta Negator Count = 3.0 (contribution: -0.046);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Enhanced SVM Neu, Meta Has Pos Phrase, Enhanced NB Neu. The main opposing signal was Enhanced VADER Compound.
+
+====================================================================================================
+
+row_index:
+167
+
+prediction_result:
+wrong
+
+review_text:
+"This shirt is a nice color and the material is OK. But I bought as a set to go with the big/lil sis shirt/onesie from this company and this shirt is cut totally differently. It is not fitted like the other 2 girl cut shirts I received. It's boxy and boyish and runs wide and short. I'm disappointed my middle daughter won't look coordinated with the other shirts advertised as the same from this company"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.7011
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8262 (contribution: 0.5323);
+Enhanced VADER Compound = -0.8634 (contribution: 0.3152);
+Enhanced RoBERTa Pos = 0.0104 (contribution: 0.3006);
+Meta Neg Phrase Count = 1.0 (contribution: 0.087);
+Enhanced NB Pos = 0.1698 (contribution: 0.066)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Contrast = 1.0 (contribution: -0.0369);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Enhanced NB Neu = 0.4416 (contribution: -0.0136);
+Meta Has Intensifier = 1.0 (contribution: -0.0108)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced VADER Compound, Enhanced RoBERTa Pos, Meta Neg Phrase Count, Enhanced NB Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+174
+
+prediction_result:
+wrong
+
+review_text:
+"These books are just plain BAD. Sterling LOVED dressage in #26, hated it in #27, Now she loves it again . In this book, Sterling was eager to jump. I thought she couldn't get over a 2 foot vertical??! I LOVE TO JUMP, but Christina is obsessed. It's all she thinks about. She doesn't remember how to have fun on a horse. She also thinks everybody else has to be as serious about riding as she is. What if Dylan was as serious about soccar as she is about riding?? Would she even care????? My advice to the authers: Bring Sammy back and drop Christina and only do books about Melanie and racing!!!!!!!!"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.4975
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced SVM Neu = 0.453 (contribution: 0.0839);
+Enhanced VADER Compound = 0.768 (contribution: 0.0594);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446)
+
+top_opposing_features:
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Meta Negator Count = 2.0 (contribution: -0.0187);
+Enhanced NB Neu = 0.2852 (contribution: -0.0173);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Has Contrast, Enhanced SVM Neu, Enhanced VADER Compound, Meta Has Negator, Meta Intensifier Count. The main opposing signal was Meta Has Intensifier.
+
+====================================================================================================
+
+row_index:
+176
+
+prediction_result:
+wrong
+
+review_text:
+"Backing not on properly"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6272
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.6674 (contribution: 0.3546);
+Enhanced RoBERTa Pos = 0.0424 (contribution: 0.2716);
+Enhanced SVM Neg = 0.7478 (contribution: 0.1261);
+Enhanced VADER Compound = 0.0258 (contribution: 0.0701);
+Enhanced SVM Pos = 0.0891 (contribution: 0.0527)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced VADER Pos = 0.268 (contribution: -0.0474);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced SVM Neg, Enhanced VADER Compound, Enhanced SVM Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+179
+
+prediction_result:
+wrong
+
+review_text:
+"As the straight as-yet-not-ex-wife of a transvestite man, I am trying to find readings to help me explain my situation to myself, as well as to friends or relatives. _Read My Lips_ is a serious book not written with the affectation that seems to afflict many male-to-female writers. While I still don't share the author's belief that all gender classification is oppressive, Riki does a good job explaining why some people do. I was particularly taken with her understanding that being female in this society is not all sweetness and makeup, and her willingness to point out the ways all the different kinds of gender outlaws she has encountered oppress one another. Not recommended as the first book to give your elderly mother or father; some familiarity with the rhetoric of feminism and liberation is helpful."
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.6031
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.6896 (contribution: 0.2663);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced VADER Compound = 0.8172 (contribution: 0.0654);
+Meta Has Negator = 1.0 (contribution: 0.0502);
+Meta Intensifier Count = 0.0 (contribution: 0.0446)
+
+top_opposing_features:
+Meta Negator Count = 5.0 (contribution: -0.1006);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced SVM Neg = 0.4183 (contribution: -0.0157);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124);
+Meta Has Diminisher = 0.0 (contribution: -0.0107)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Enhanced VADER Compound, Meta Has Negator, Meta Intensifier Count. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+180
+
+prediction_result:
+wrong
+
+review_text:
+"Does not work with CFLs"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.8188
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neg = 0.8684 (contribution: 0.5795);
+Enhanced RoBERTa Pos = 0.0112 (contribution: 0.2998);
+Enhanced VADER Neg = 0.677 (contribution: 0.2545);
+Enhanced VADER Compound = -0.6369 (contribution: 0.2528);
+Enhanced NB Neg = 0.642 (contribution: 0.1427)
+
+top_opposing_features:
+Enhanced VADER Neu = 0.323 (contribution: -0.1034);
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Meta Has Neg Phrase = 1.0 (contribution: -0.0338);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Negator Count = 1.0 (contribution: -0.0104)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neg, Enhanced RoBERTa Pos, Enhanced VADER Neg, Enhanced VADER Compound, Enhanced NB Neg. The main opposing signal was Enhanced VADER Neu.
+
+====================================================================================================
+
+row_index:
+182
+
+prediction_result:
+wrong
+
+review_text:
+"Sure the technical merits of good graphics, etc are a plus but do not garner the poorly thought out product 5 stars. After using KVM's for years I have never had the problems like I have had with this. Other manufacturers manage to use Ctrl keys for their hotkey functions without the problems that this box plagues you with. While this box may have garnered rave reviews from the folks who want to play Linux, etc., I have to say to use this on a primary production machine will eventually drive you nuts. If you are always using constant Ctrl or Shift operations to mass select items you will constantly find that your key press was not registered. In addition, sometimes your mouse will just freeze until you click a button again. Oh well, the same goes for all Linksys products... they are a bit cheaper than what you would normally pay *but* you get what you pay for. Suitable for home or dorm but not for an all day production machine."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.5508
+
+strongest_feature_group:
+Polarity Shift Features
+
+top_supporting_features:
+Meta Contrast Count = 3.0 (contribution: 0.146);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced RoBERTa Neu = 0.4429 (contribution: 0.0947);
+Enhanced VADER Compound = 0.9303 (contribution: 0.0792);
+Enhanced SVM Neu = 0.4455 (contribution: 0.0777)
+
+top_opposing_features:
+Meta Negator Count = 5.0 (contribution: -0.1006);
+Meta Has Intensifier = 0.0 (contribution: -0.0317);
+Enhanced NB Neu = 0.2342 (contribution: -0.0308);
+Enhanced VADER Neg = 0.034 (contribution: -0.0185);
+Meta Has Neg Phrase = 0.0 (contribution: -0.0124)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from Polarity Shift Features. The top supporting features were Meta Contrast Count, Meta Has Contrast, Enhanced RoBERTa Neu, Enhanced VADER Compound, Enhanced SVM Neu. The main opposing signal was Meta Negator Count.
+
+====================================================================================================
+
+row_index:
+184
+
+prediction_result:
+wrong
+
+review_text:
+"GARABAGE - DON'T BUY!"
+
+true_sentiment:
+pos
+
+predicted_sentiment:
+neg
+
+prediction_confidence:
+0.6871
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.0414 (contribution: 0.2725);
+Enhanced RoBERTa Neg = 0.5858 (contribution: 0.2634);
+Enhanced NB Neg = 0.6322 (contribution: 0.1381);
+Enhanced SVM Neg = 0.6758 (contribution: 0.104);
+Enhanced VADER Pos = 0.0 (contribution: 0.0819)
+
+top_opposing_features:
+Meta Has Negator = 1.0 (contribution: -0.0526);
+Enhanced VADER Neg = 0.0 (contribution: -0.033);
+Enhanced RoBERTa Neu = 0.3728 (contribution: -0.0303);
+Meta Intensifier Count = 0.0 (contribution: -0.0116);
+Meta Neg Phrase Count = 0.0 (contribution: -0.0115)
+
+explanation:
+The meta model predicted 'neg' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Enhanced NB Neg, Enhanced SVM Neg, Enhanced VADER Pos. The main opposing signal was Meta Has Negator.
+
+====================================================================================================
+
+row_index:
+185
+
+prediction_result:
+wrong
+
+review_text:
+"It was a good choice. Yes I would recommend it for those who enjoy the civil war times of history"
+
+true_sentiment:
+neu
+
+predicted_sentiment:
+pos
+
+prediction_confidence:
+0.8467
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Pos = 0.8329 (contribution: 0.5202);
+Enhanced RoBERTa Neg = 0.0104 (contribution: 0.3668);
+Enhanced NB Pos = 0.5713 (contribution: 0.1974);
+Meta Pos Phrase Count = 1.0 (contribution: 0.1633);
+Enhanced VADER Pos = 0.43 (contribution: 0.1554)
+
+top_opposing_features:
+Enhanced VADER Neg = 0.14 (contribution: -0.0527);
+Meta Intensifier Count = 0.0 (contribution: -0.033);
+Meta Has Diminisher = 0.0 (contribution: -0.0106);
+Meta Diminisher Count = 0.0 (contribution: -0.0092);
+Meta Has Negator = 0.0 (contribution: -0.0032)
+
+explanation:
+The meta model predicted 'pos' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Pos, Enhanced RoBERTa Neg, Enhanced NB Pos, Meta Pos Phrase Count, Enhanced VADER Pos. The main opposing signal was Enhanced VADER Neg.
+
+====================================================================================================
+
+row_index:
+190
+
+prediction_result:
+wrong
+
+review_text:
+"This is an OK book for a beginner who knows little or nothing about networking. It does describe the various types of home networking available today, with a lot of information about wireless technologies. It could have been better organized by covering ethernet and wireless in separate sections. It is neither very clear for one getting started in home networking nor very helpful for one with basic knowledge who is looking to establish a more complex home network. It is an easy read and the "tips" inserts are helpful--really the best informative parts of the book. However, unless you are brand new to computers and networking, that is about all that is useful. Otherwise, save your money."
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.48
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.4768 (contribution: 0.1182);
+Meta Has Contrast = 1.0 (contribution: 0.1167);
+Enhanced VADER Compound = 0.9508 (contribution: 0.0817);
+Meta Has Intensifier = 1.0 (contribution: 0.0598);
+Enhanced NB Pos = 0.1522 (contribution: 0.0427)
+
+top_opposing_features:
+Meta Intensifier Count = 3.0 (contribution: -0.2002);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Enhanced NB Neu = 0.2298 (contribution: -0.0319);
+Enhanced VADER Neg = 0.038 (contribution: -0.0168);
+Enhanced SVM Pos = 0.3773 (contribution: -0.0162)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Has Contrast, Enhanced VADER Compound, Meta Has Intensifier, Enhanced NB Pos. The main opposing signal was Meta Intensifier Count.
+
+====================================================================================================
+
+row_index:
+199
+
+prediction_result:
+wrong
+
+review_text:
+"Toe seam"
+
+true_sentiment:
+neg
+
+predicted_sentiment:
+neu
+
+prediction_confidence:
+0.3909
+
+strongest_feature_group:
+RoBERTa
+
+top_supporting_features:
+Enhanced RoBERTa Neu = 0.5953 (contribution: 0.2007);
+Meta Intensifier Count = 0.0 (contribution: 0.0446);
+Meta Negator Count = 0.0 (contribution: 0.0358);
+Enhanced RoBERTa Pos = 0.1554 (contribution: 0.0295);
+Enhanced VADER Pos = 0.0 (contribution: 0.0194)
+
+top_opposing_features:
+Meta Has Contrast = 0.0 (contribution: -0.098);
+Meta Has Negator = 0.0 (contribution: -0.0648);
+Meta Contrast Count = 0.0 (contribution: -0.0503);
+Enhanced VADER Compound = 0.0 (contribution: -0.0341);
+Enhanced VADER Neg = 0.0 (contribution: -0.0329)
+
+explanation:
+The meta model predicted 'neu' mainly because the strongest supporting signals came from RoBERTa. The top supporting features were Enhanced RoBERTa Neu, Meta Intensifier Count, Meta Negator Count, Enhanced RoBERTa Pos, Enhanced VADER Pos. The main opposing signal was Meta Has Contrast.
+
+====================================================================================================
+

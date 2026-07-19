@@ -1,0 +1,316 @@
+
+========== STRICT EXCLUSIVE RULE SUMMARY ==========
+Total registered rules: 150
+Rules used anywhere: 51
+Rules with exclusive evidence: 14
+Rules without exclusive evidence: 136
+
+========== STRICT EXCLUSIVE-RULE TABLE ==========
+                              rule_key  all_applications  exclusive_applications  corrected  harmed  decisive_changes  net_corrections  correction_precision  mean_margin_change       exclusive_status decision
+              post_contrast_marker:but                86                      13          2       0                 2                2                   1.0            0.018665 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                      intensifier:very                35                       4          1       0                 1                1                   1.0           -0.062469 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:almost                 7                       1          1       0                 1                1                   1.0            0.074610 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:never                 9                       1          1       0                 1                1                   1.0            0.217940 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:not_fitting                 4                       1          1       0                 1                1                   1.0            0.359361 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+          post_contrast_marker:however                13                       1          1       0                 1                1                   1.0            0.374720 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                    intensifier:really                24                       2          1       1                 2                0                   0.5           -0.126256 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                 intensifier:extremely                 4                       1          0       0                 0                0                   NaN            0.311681 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                            negator:no                27                       1          0       0                 0                0                   NaN           -0.010604 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                      phrase:no_issues                 1                       1          0       0                 0                0                   NaN            0.258820 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:works_great                 2                       1          0       0                 0                0                   NaN            0.128173 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:wrong_color                 1                       1          0       0                 0                0                   NaN           -0.118010 HAS_EXCLUSIVE_EVIDENCE   REVIEW
+            concessive_marker:although                 4                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+         concessive_marker:even_though                 3                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              concessive_marker:though                10                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:barely                 4                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:fairly                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:hardly                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                      diminisher:kinda                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:mildly                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  diminisher:partially                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     diminisher:partly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   diminisher:slightly                 3                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   diminisher:somewhat                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                      diminisher:sorta                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                intensifier:absolutely                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                intensifier:completely                 3                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    intensifier:highly                 3                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                intensifier:incredibly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              intensifier:ridiculously                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 intensifier:seriously                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     intensifier:super                 4                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              intensifier:surprisingly                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  intensifier:terribly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   intensifier:totally                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     intensifier:ultra                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:ain't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                          negator:aint                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:aren't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:arent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:can't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:cannot                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                          negator:cant                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                      negator:couldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:couldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:didn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:didnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:doesn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:doesnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:don't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                          negator:dont                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:hadn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:hadnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:hasn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:hasnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:haven't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:havent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:isn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                          negator:isnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                           negator:n't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                            negator:nt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     negator:shouldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                      negator:shouldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:wasn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:wasnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:weren't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        negator:werent                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:without                 9                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                         negator:won't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                          negator:wont                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                      negator:wouldn't                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       negator:wouldnt                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:bad_translation                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+            phrase:battery_drains_fast                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+           phrase:better_than_expected                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+        phrase:cannot_recommend_enough                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   phrase:cheaply_made                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:color_faded                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:comfortable_fit                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+           phrase:could_not_be_happier                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:dead_on_arrival                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+           phrase:does_not_hold_charge                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:easy_to_follow                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+          phrase:exceeded_expectations                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+             phrase:fabric_feels_cheap                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:fell_apart                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:flickering_screen                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:great_read                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:had_to_return                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:hard_to_follow                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+             phrase:highly_informative                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+               phrase:highly_recommend                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+            phrase:keeps_disconnecting                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:low_quality                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:missing_pages                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:missing_parts                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+phrase:neutral_average_nothing_special                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+       phrase:neutral_decent_for_price                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+          phrase:neutral_expected_more                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+     phrase:neutral_good_but_not_great                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+      phrase:neutral_not_bad_not_great                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+        phrase:neutral_okay_but_issues                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+          phrase:neutral_pros_and_cons                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+  phrase:neutral_somewhat_disappointed                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:neutral_works_but                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:never_received                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:no_complaints                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:no_longer_works                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:no_problems                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:no_regrets                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+               phrase:not_as_described                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                        phrase:not_bad                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   phrase:not_charging                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:not_delivered                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:not_lasting                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:not_powering_on                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:not_satisfied                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:not_turning_on                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   phrase:not_worth_it                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:overheats_quickly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:poor_connection                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                       phrase:poor_fit                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:poorly_written                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:printing_error                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:runs_large                 4                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:runs_small                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:screen_cracked                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:seam_ripped                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:see_through                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:shrunk_after_wash                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:stopped_working                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+     phrase:touchscreen_not_responsive                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   phrase:true_to_size                 1                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                    phrase:want_refund                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                 phrase:waste_of_money                 2                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                   phrase:well_written                 4                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:works_as_expected                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:works_perfectly                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              phrase:worth_every_penny                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:would_buy_again                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+            phrase:would_not_recommend                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                phrase:would_recommend                 3                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:wrong_item                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                     phrase:wrong_size                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:zipper_broken                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+     post_contrast_marker:nevertheless                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+      post_contrast_marker:nonetheless                 0                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+              post_contrast_marker:yet                 9                       0          0       0                 0                0                   NaN                 NaN  NO_EXCLUSIVE_EVIDENCE   REVIEW
+                  phrase:does_not_work                10                       2          0       1                 1               -1                   0.0           -0.161189 HAS_EXCLUSIVE_EVIDENCE     CULL
+                           negator:not                97                      16          1       4                 5               -3                   0.2           -0.141390 HAS_EXCLUSIVE_EVIDENCE     CULL
+
+========== EXCLUSIVE KEEP ==========
+None
+
+========== EXCLUSIVE CULL ==========
+phrase:does_not_work
+negator:not
+
+========== EXCLUSIVE REVIEW ==========
+post_contrast_marker:but
+intensifier:very
+diminisher:almost
+negator:never
+phrase:not_fitting
+post_contrast_marker:however
+intensifier:really
+intensifier:extremely
+negator:no
+phrase:no_issues
+phrase:works_great
+phrase:wrong_color
+concessive_marker:although
+concessive_marker:even_though
+concessive_marker:though
+diminisher:barely
+diminisher:fairly
+diminisher:hardly
+diminisher:kinda
+diminisher:mildly
+diminisher:partially
+diminisher:partly
+diminisher:slightly
+diminisher:somewhat
+diminisher:sorta
+intensifier:absolutely
+intensifier:completely
+intensifier:highly
+intensifier:incredibly
+intensifier:ridiculously
+intensifier:seriously
+intensifier:super
+intensifier:surprisingly
+intensifier:terribly
+intensifier:totally
+intensifier:ultra
+negator:ain't
+negator:aint
+negator:aren't
+negator:arent
+negator:can't
+negator:cannot
+negator:cant
+negator:couldn't
+negator:couldnt
+negator:didn't
+negator:didnt
+negator:doesn't
+negator:doesnt
+negator:don't
+negator:dont
+negator:hadn't
+negator:hadnt
+negator:hasn't
+negator:hasnt
+negator:haven't
+negator:havent
+negator:isn't
+negator:isnt
+negator:n't
+negator:nt
+negator:shouldn't
+negator:shouldnt
+negator:wasn't
+negator:wasnt
+negator:weren't
+negator:werent
+negator:without
+negator:won't
+negator:wont
+negator:wouldn't
+negator:wouldnt
+phrase:bad_translation
+phrase:battery_drains_fast
+phrase:better_than_expected
+phrase:cannot_recommend_enough
+phrase:cheaply_made
+phrase:color_faded
+phrase:comfortable_fit
+phrase:could_not_be_happier
+phrase:dead_on_arrival
+phrase:does_not_hold_charge
+phrase:easy_to_follow
+phrase:exceeded_expectations
+phrase:fabric_feels_cheap
+phrase:fell_apart
+phrase:flickering_screen
+phrase:great_read
+phrase:had_to_return
+phrase:hard_to_follow
+phrase:highly_informative
+phrase:highly_recommend
+phrase:keeps_disconnecting
+phrase:low_quality
+phrase:missing_pages
+phrase:missing_parts
+phrase:neutral_average_nothing_special
+phrase:neutral_decent_for_price
+phrase:neutral_expected_more
+phrase:neutral_good_but_not_great
+phrase:neutral_not_bad_not_great
+phrase:neutral_okay_but_issues
+phrase:neutral_pros_and_cons
+phrase:neutral_somewhat_disappointed
+phrase:neutral_works_but
+phrase:never_received
+phrase:no_complaints
+phrase:no_longer_works
+phrase:no_problems
+phrase:no_regrets
+phrase:not_as_described
+phrase:not_bad
+phrase:not_charging
+phrase:not_delivered
+phrase:not_lasting
+phrase:not_powering_on
+phrase:not_satisfied
+phrase:not_turning_on
+phrase:not_worth_it
+phrase:overheats_quickly
+phrase:poor_connection
+phrase:poor_fit
+phrase:poorly_written
+phrase:printing_error
+phrase:runs_large
+phrase:runs_small
+phrase:screen_cracked
+phrase:seam_ripped
+phrase:see_through
+phrase:shrunk_after_wash
+phrase:stopped_working
+phrase:touchscreen_not_responsive
+phrase:true_to_size
+phrase:want_refund
+phrase:waste_of_money
+phrase:well_written
+phrase:works_as_expected
+phrase:works_perfectly
+phrase:worth_every_penny
+phrase:would_buy_again
+phrase:would_not_recommend
+phrase:would_recommend
+phrase:wrong_item
+phrase:wrong_size
+phrase:zipper_broken
+post_contrast_marker:nevertheless
+post_contrast_marker:nonetheless
+post_contrast_marker:yet
