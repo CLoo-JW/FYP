@@ -290,7 +290,7 @@ base_meta_xgb_study = optuna.create_study(
     )
 base_meta_xgb_study.optimize(
     base_meta_xgb_optuna,
-    n_trials=5
+    n_trials=30
 )
 
 base_meta_xgb_best = base_meta_xgb_study.best_params

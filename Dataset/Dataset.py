@@ -145,10 +145,10 @@ print("DATASET SIZE: " + str(len(balanced_df)))
 print(balanced_df['Sentiment'].value_counts())
 print(balanced_df["Domain"].value_counts())
 
-balanced_df = balanced_df.sample(frac=1, random_state=42)
-balanced_df = balanced_df.head(1000)
-balanced_df = balanced_df.reset_index(drop=True)
-print("\nSUBSET SIZE: " + str(len(balanced_df)))
+# balanced_df = balanced_df.sample(frac=1, random_state=42)
+# balanced_df = balanced_df.head(1000)
+# balanced_df = balanced_df.reset_index(drop=True)
+# print("\nSUBSET SIZE: " + str(len(balanced_df)))
 
 balanced_df["Stratify"] = (balanced_df["Domain"] + "_" + balanced_df["Sentiment"])
 text = balanced_df['Text']
