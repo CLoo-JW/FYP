@@ -347,9 +347,9 @@ base_nb_test_sentiment = predict_with_progress(
 
 print("\nBASE NAIVE BAYES BEST PARAMETERS: " + str(base_nb_study.best_value))
 print(base_nb_study.best_params)
-print("\nBASE NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_nb_val_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_nb_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_nb_val_sentiment, digits=4))
-print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_nb_test_sentiment, digits=4))
 
 base_nb_val_probabilities = predict_proba_with_progress(
@@ -535,5 +535,68 @@ plt.savefig(
 plt.close()
 
 print("Saved Base Naive Bayes Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/NB/Base"
+os.makedirs(output_folder, exist_ok=True)
+
+base_nb_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "vectorizer_type",
+        "search_range": "tfidf, count",
+        "best_value": base_nb_best["vectorizer_type"]
+    },
+    {
+        "hyperparameter": "model_type",
+        "search_range": "multinomial, complement",
+        "best_value": base_nb_best["model_type"]
+    },
+    {
+        "hyperparameter": "max_features",
+        "search_range": "30000, 50000, 100000, 150000",
+        "best_value": base_nb_best["max_features"]
+    },
+    {
+        "hyperparameter": "ngram_range",
+        "search_range": "1_1, 1_2, 1_3",
+        "best_value": base_nb_best["ngram_range"]
+    },
+    {
+        "hyperparameter": "min_df",
+        "search_range": "5, 10, 20, 50",
+        "best_value": base_nb_best["min_df"]
+    },
+    {
+        "hyperparameter": "max_df",
+        "search_range": "0.90, 0.95, 0.98",
+        "best_value": base_nb_best["max_df"]
+    },
+    {
+        "hyperparameter": "sublinear_tf",
+        "search_range": "True, False; TF-IDF only",
+        "best_value": base_nb_best.get("sublinear_tf", "Not applicable")
+    },
+    {
+        "hyperparameter": "binary",
+        "search_range": "True, False; Count only",
+        "best_value": base_nb_best.get("binary", "Not applicable")
+    },
+    {
+        "hyperparameter": "alpha",
+        "search_range": "0.01 to 2.0, logarithmic",
+        "best_value": base_nb_best["alpha"]
+    },
+    {
+        "hyperparameter": "fit_prior",
+        "search_range": "True, False",
+        "best_value": base_nb_best["fit_prior"]
+    }
+])
+
+base_nb_optuna_summary.to_csv(
+    os.path.join(output_folder, "base_nb_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Base NB Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

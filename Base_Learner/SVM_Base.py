@@ -11,6 +11,7 @@ import matplotlib.pyplot as plt
 from sklearn.svm import LinearSVC
 import os
 from sklearn.base import clone
+from sklearn.model_selection import train_test_split
 
 # ================================================================================================================ START
 # Dataset
@@ -30,6 +31,25 @@ for split_name, split_df in [
 
 text_train = train_split_df["Text"]
 sentiment_train = train_split_df["Sentiment"]
+
+
+OPTUNA_TRAIN_SIZE = min(90000, len(text_train))
+
+if OPTUNA_TRAIN_SIZE < len(text_train):
+    text_train_optuna, _, sentiment_train_optuna, _ = train_test_split(
+        text_train,
+        sentiment_train,
+        train_size=OPTUNA_TRAIN_SIZE,
+        stratify=sentiment_train,
+        random_state=42
+    )
+else:
+    text_train_optuna = text_train
+    sentiment_train_optuna = sentiment_train
+
+print("\n========== BASE SVM OPTUNA SUBSET ==========")
+print("Optuna training rows:", len(text_train_optuna))
+print(sentiment_train_optuna.value_counts())
 
 text_val = val_split_df["Text"]
 sentiment_val = val_split_df["Sentiment"]
@@ -142,74 +162,84 @@ def cross_val_predict_proba_with_progress(model, text, sentiment, cv, desc="Gene
 # BASE SVM HYPERPARAMETER TUNING WITH OPTUNA
 # ----------------------------------------------------------------------------- 
 def base_svm_optuna(trial):
-    vectorizer_type = trial.suggest_categorical("vectorizer_type", ["tfidf", "count"])
+    # vectorizer_type = trial.suggest_categorical(
+    #     "vectorizer_type",
+    #     ["tfidf", "count"]
+    # )
 
-    if vectorizer_type == 'tfidf':
-        optuna_vectorizer = TfidfVectorizer(
-            max_features=trial.suggest_categorical(
-                'max_features',
-                [30000, 50000, 100000, 150000]
-            ),
-            ngram_range=ngram_map[trial.suggest_categorical(
-                'ngram_range',
-                ["1_1", "1_2", "1_3"]
-            )],
-            min_df=trial.suggest_categorical(
-                'min_df',
-                [5, 10, 20, 50]
-            ),
-            max_df=trial.suggest_categorical(
-                "max_df",
-                [0.90, 0.95, 0.98]
-            ),
-            sublinear_tf=trial.suggest_categorical(
-                'sublinear_tf',
-                [True, False]
-            )
-        )
-    else:
-        optuna_vectorizer = CountVectorizer(
-            max_features=trial.suggest_categorical(
-                "max_features",
-                [30000, 50000, 100000, 150000]
-            ),
-            ngram_range=ngram_map[trial.suggest_categorical(
+    # if vectorizer_type == "tfidf":
+    optuna_vectorizer = TfidfVectorizer(
+        max_features=trial.suggest_categorical(
+            "max_features",
+            [30000, 50000, 100000]
+        ),
+        ngram_range=ngram_map[
+            trial.suggest_categorical(
                 "ngram_range",
                 ["1_1", "1_2", "1_3"]
-            )],
-            min_df=trial.suggest_categorical(
-                "min_df",
-                [5, 10, 20, 50]
-            ),
-            max_df=trial.suggest_categorical(
-                "max_df",
-                [0.90, 0.95, 0.98]
-            ),
-            binary=trial.suggest_categorical(
-                "binary",
-                [True, False]
             )
+        ],
+        min_df=trial.suggest_categorical(
+            "min_df",
+            [10, 20, 50]
+        ),
+        max_df=trial.suggest_categorical(
+            "max_df",
+            [0.90, 0.95, 0.98]
+        ),
+        sublinear_tf=trial.suggest_categorical(
+            "sublinear_tf",
+            [True, False]
         )
+    )
+
+    # else:
+    #     optuna_vectorizer = CountVectorizer(
+    #         max_features=trial.suggest_categorical(
+    #             "max_features",
+    #             [30000, 50000, 100000, 150000]
+    #         ),
+    #         ngram_range=ngram_map[
+    #             trial.suggest_categorical(
+    #                 "ngram_range",
+    #                 ["1_1", "1_2"]
+    #             )
+    #         ],
+    #         min_df=trial.suggest_categorical(
+    #             "min_df",
+    #             [10, 20, 50]
+    #         ),
+    #         max_df=trial.suggest_categorical(
+    #             "max_df",
+    #             [0.90, 0.95]
+    #         ),
+    #         binary=trial.suggest_categorical(
+    #             "binary",
+    #             [True, False]
+    #         )
+    #     )
 
     optuna_svc = LinearSVC(
         C=trial.suggest_float(
-            'C',
+            "C",
             0.1,
             10,
             log=True
         ),
         random_state=42,
-        max_iter=30000
+        max_iter=5000,
+        tol=0.001,
+        dual="auto"
     )
 
     optuna_svm_pipeline = ImbPipeline([
-        ('vec', optuna_vectorizer),
-        ('clf', optuna_svc)
+        ("vec", optuna_vectorizer),
+        ("clf", optuna_svc)
     ])
 
     optuna_svm_pipeline.fit(
-        text_train,
-        sentiment_train
+        text_train_optuna,
+        sentiment_train_optuna
     )
 
     validation_predictions = optuna_svm_pipeline.predict(
@@ -236,31 +266,35 @@ base_svm_study = optuna.create_study(
 base_svm_study.optimize(
     base_svm_optuna,
     n_trials=20,
-    n_jobs=1
+    n_jobs=1,
+    gc_after_trial=True,
+    show_progress_bar=True
 )
 base_svm_best = base_svm_study.best_params
 
-if base_svm_best['vectorizer_type'] == 'tfidf':
-    base_svm_vectorizer = TfidfVectorizer(
-        max_features=base_svm_best['max_features'],
-        ngram_range=ngram_map[base_svm_best['ngram_range']],
-        min_df=base_svm_best['min_df'],
-        max_df=base_svm_best['max_df'],
-        sublinear_tf=base_svm_best['sublinear_tf']
-    )
-else:
-    base_svm_vectorizer = CountVectorizer(
-        max_features=base_svm_best['max_features'],
-        ngram_range=ngram_map[base_svm_best['ngram_range']],
-        min_df=base_svm_best['min_df'],
-        max_df=base_svm_best['max_df'],
-        binary=base_svm_best['binary']
-    )
+# if base_svm_best['vectorizer_type'] == 'tfidf':
+base_svm_vectorizer = TfidfVectorizer(
+    max_features=base_svm_best['max_features'],
+    ngram_range=ngram_map[base_svm_best['ngram_range']],
+    min_df=base_svm_best['min_df'],
+    max_df=base_svm_best['max_df'],
+    sublinear_tf=base_svm_best['sublinear_tf']
+)
+# else:
+#     base_svm_vectorizer = CountVectorizer(
+#         max_features=base_svm_best['max_features'],
+#         ngram_range=ngram_map[base_svm_best['ngram_range']],
+#         min_df=base_svm_best['min_df'],
+#         max_df=base_svm_best['max_df'],
+#         binary=base_svm_best['binary']
+#     )
 
 base_svc = LinearSVC(
     C=base_svm_best['C'],
     random_state=42,
-    max_iter=30000
+    tol=0.0001,
+    dual='auto',
+    max_iter=10000
 )
 
 base_svm_uncalibrated_pipeline = ImbPipeline([
@@ -300,9 +334,9 @@ base_svm_test_sentiment = predict_with_progress(
 
 print("\nBASE SVM BEST PARAMETERS: " + str(base_svm_study.best_value))
 print(base_svm_study.best_params)
-print("\nBASE SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_svm_val_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_svm_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_svm_val_sentiment, digits=4))
-print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_svm_test_sentiment, digits=4))
 
 base_svm_val_probabilities = predict_proba_with_progress(
@@ -488,5 +522,48 @@ plt.savefig(
 plt.close()
 
 print("Saved Base SVM Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/SVM/Base"
+os.makedirs(output_folder, exist_ok=True)
+
+base_svm_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "max_features",
+        "search_range": "30000, 50000, 100000",
+        "best_value": base_svm_best["max_features"]
+    },
+    {
+        "hyperparameter": "ngram_range",
+        "search_range": "1_1, 1_2, 1_3",
+        "best_value": base_svm_best["ngram_range"]
+    },
+    {
+        "hyperparameter": "min_df",
+        "search_range": "10, 20, 50",
+        "best_value": base_svm_best["min_df"]
+    },
+    {
+        "hyperparameter": "max_df",
+        "search_range": "0.90, 0.95, 0.98",
+        "best_value": base_svm_best["max_df"]
+    },
+    {
+        "hyperparameter": "sublinear_tf",
+        "search_range": "True, False",
+        "best_value": base_svm_best["sublinear_tf"]
+    },
+    {
+        "hyperparameter": "C",
+        "search_range": "0.1 to 10.0, logarithmic",
+        "best_value": base_svm_best["C"]
+    }
+])
+
+base_svm_optuna_summary.to_csv(
+    os.path.join(output_folder, "base_svm_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Base SVM Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

@@ -923,79 +923,45 @@ UNIVERSAL_PHRASE_RULES = [
 # RULE / FEATURE PRUNING
 # -----------------------------------------------------------------------------
 NB_CULL_RULE_KEYS = {
-    # Add based on validation set results
+    "phrase:not_lasting",
 }
 
 NB_BLOCKED_EXACT_FEATURES = {
-    # Add based on validation set results
+    "FEAT_AFTER_CONTRAST_but_cut",
+    "FEAT_AFTER_CONTRAST_but_money",
+    "FEAT_AFTER_CONTRAST_but_country",
+    "FEAT_AFTER_CONTRAST_but_war",
+    "FEAT_AFTER_CONTRAST_but_effort",
+    "FEAT_AFTER_CONTRAST_but_deal",
+    "FEAT_AFTER_CONTRAST_but_limit",
+    "FEAT_AFTER_CONTRAST_but_fantasy",
+    "FEAT_AFTER_CONTRAST_but_predictable",
+    "FEAT_AFTER_CONTRAST_but_pocket",
+    "FEAT_AFTER_CONTRAST_but_perspective",
+    "FEAT_AFTER_CONTRAST_but_personality",
+    "FEAT_AFTER_CONTRAST_but_appreciate",
+    "FEAT_AFTER_CONTRAST_but_exist",
+    "FEAT_AFTER_CONTRAST_but_grow",
+    "FEAT_AFTER_CONTRAST_but_example",
+    "FEAT_AFTER_CONTRAST_but_state",
+    "FEAT_AFTER_CONTRAST_but_unfortunately",
+    "FEAT_NEG_SCOPE_soft",
+    "FEAT_NEG_SCOPE_trust",
+    "FEAT_NEG_SCOPE_world",
+    "FEAT_NEG_SCOPE_mind",
+    "FEAT_NEG_SCOPE_ending",
+    "FEAT_NEG_SCOPE_bring",
+    "FEAT_NEG_SCOPE_major",
+    "FEAT_NEG_SCOPE_content",
+    "FEAT_NEG_SCOPE_plan",
+    "FEAT_AFTER_CONCESSION_although_book",
+    "FEAT_AFTER_CONCESSION_though_character",
+    "FEAT_PHRASE_wrong_size",
+    "FEAT_PHRASE_stopped_working",
 }
-
-NB_CONDITIONAL_RULE_KEYS = {
-    # "phrase:does_not_work"
-}
-
-NB_POSITIVE_CONTEXT_FEATURES = {
-    # "FEAT_PHRASE_works_great",
-    # "FEAT_PHRASE_works_perfectly",
-    # "FEAT_PHRASE_works_as_expected",
-    # "FEAT_PHRASE_would_recommend",
-    # "FEAT_PHRASE_highly_recommend",
-    # "FEAT_PHRASE_would_buy_again",
-    # "FEAT_PHRASE_worth_every_penny",
-    # "FEAT_PHRASE_better_than_expected",
-    # "FEAT_PHRASE_exceeded_expectations",
-    # "FEAT_PHRASE_no_issues",
-    # "FEAT_PHRASE_no_problems",
-    # "FEAT_PHRASE_no_complaints",
-    # "FEAT_PHRASE_not_bad",
-    # "FEAT_PHRASE_true_to_size",
-    # "FEAT_PHRASE_comfortable_fit",
-    # "FEAT_PHRASE_great_read",
-    # "FEAT_PHRASE_well_written",
-    # "FEAT_PHRASE_easy_to_follow",
-    # "FEAT_PHRASE_highly_informative",
-}
-NB_BLOCKED_DYNAMIC_SUFFIXES = {
-    # "character",
-    # "story",
-    # "fan",
-    # "purchase",
-    # "software",
-    # "interested",
-    # "instead",
-    # "rest",
-    # "music",
-    # "wonder",
-    # "definitely",
-}
-
-# add this in properly
-def is_blocked_nb_dynamic_feature(feature):
-    dynamic_prefixes = (
-        # "FEAT_NEG_SCOPE_",
-        # "FEAT_NEG_DEP_",
-        # "FEAT_INTENSIFIED_",
-        # "FEAT_INTENSIFIED_DEP_",
-        # "FEAT_DIMINISHED_",
-        # "FEAT_DIMINISHED_DEP_",
-        # "FEAT_AFTER_CONTRAST_",
-        # "FEAT_AFTER_CONCESSION_"
-    )
-
-    if not feature.startswith(dynamic_prefixes):
-        return False
-
-    for blocked_suffix in NB_BLOCKED_DYNAMIC_SUFFIXES:
-        if feature.endswith("_" + blocked_suffix):
-            return True
-
-    return False
-
 
 def filter_nb_polarity_features(polarity_features):
     filtered_features = []
-    polarity_feature_set = set(polarity_features)
-    has_positive_context = len(polarity_feature_set.intersection(NB_POSITIVE_CONTEXT_FEATURES)) > 0
 
     for feature in polarity_features:
         if feature in NB_BLOCKED_EXACT_FEATURES:
@@ -1004,14 +970,8 @@ def filter_nb_polarity_features(polarity_features):
         if feature.startswith("FEAT_CAPS_") and feature != "FEAT_CAPS_EMPHASIS":
             continue
 
-        if is_blocked_nb_dynamic_feature(feature):
-            continue
-
         rule_key = get_rule_key_from_feature(feature)
         if rule_key in NB_CULL_RULE_KEYS:
-            continue
-
-        if (rule_key in NB_CONDITIONAL_RULE_KEYS and has_positive_context):
             continue
 
         filtered_features.append(feature)
@@ -1208,11 +1168,6 @@ def is_useful_scope_token(token, processed_token):
         return False
 
     if token.like_num:
-        return False
-
-    if processed_token in {
-        # Decide based on validation results
-    }:
         return False
 
     if token.pos_ not in {
@@ -2303,14 +2258,14 @@ def decide_rule_action(row):
     correction_precision = row["correction_precision"]
     mean_margin_change = row["mean_margin_change"]
 
-    if net_corrections < 0:
-        return "CULL"
     if exclusive_applications < 30:
         return "REVIEW"
     if decisive_changes < 10:
         return "REVIEW"
     if pd.isna(correction_precision):
         return "REVIEW"
+    if net_corrections < 0 and mean_margin_change < 0.01:
+        return "CULL"
     if (net_corrections >= 0 and correction_precision >= 0.60 and mean_margin_change > 0):
         return "KEEP"
 
@@ -3239,14 +3194,14 @@ enhanced_nb_test_sentiment = predict_with_progress(
 print("\nENHANCED NAIVE BAYES BEST PARAMETERS: " + str(enhanced_nb_study.best_value))
 print(enhanced_nb_study.best_params)
 
-print("\nBASE NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_nb_val_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_nb_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_nb_val_sentiment, digits=4))
-print("ENHANCED NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_nb_val_sentiment) * 100, 4)) + "%")
+print("ENHANCED NAIVE BAYES ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_nb_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, enhanced_nb_val_sentiment, digits=4))
 
-print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_nb_test_sentiment, digits=4))
-print("ENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
 enhanced_nb_val_probabilities = predict_proba_with_progress(
@@ -3500,5 +3455,68 @@ plt.savefig(
 plt.close()
 
 print("Saved Enhanced Naive Bayes Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/NB/Enhanced"
+os.makedirs(output_folder, exist_ok=True)
+
+enhanced_nb_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "vectorizer_type",
+        "search_range": "tfidf, count",
+        "best_value": enhanced_nb_best["vectorizer_type"]
+    },
+    {
+        "hyperparameter": "model_type",
+        "search_range": "multinomial, complement",
+        "best_value": enhanced_nb_best["model_type"]
+    },
+    {
+        "hyperparameter": "max_features",
+        "search_range": "30000, 50000, 100000, 150000",
+        "best_value": enhanced_nb_best["max_features"]
+    },
+    {
+        "hyperparameter": "ngram_range",
+        "search_range": "1_1, 1_2, 1_3",
+        "best_value": enhanced_nb_best["ngram_range"]
+    },
+    {
+        "hyperparameter": "min_df",
+        "search_range": "5, 10, 20, 50",
+        "best_value": enhanced_nb_best["min_df"]
+    },
+    {
+        "hyperparameter": "max_df",
+        "search_range": "0.90, 0.95, 0.98",
+        "best_value": enhanced_nb_best["max_df"]
+    },
+    {
+        "hyperparameter": "sublinear_tf",
+        "search_range": "True, False; TF-IDF only",
+        "best_value": enhanced_nb_best.get("sublinear_tf", "Not applicable")
+    },
+    {
+        "hyperparameter": "binary",
+        "search_range": "True, False; Count only",
+        "best_value": enhanced_nb_best.get("binary", "Not applicable")
+    },
+    {
+        "hyperparameter": "alpha",
+        "search_range": "0.01 to 2.0, logarithmic",
+        "best_value": enhanced_nb_best["alpha"]
+    },
+    {
+        "hyperparameter": "fit_prior",
+        "search_range": "True, False",
+        "best_value": enhanced_nb_best["fit_prior"]
+    }
+])
+
+enhanced_nb_optuna_summary.to_csv(
+    os.path.join(output_folder, "enhanced_nb_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Enhanced NB Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

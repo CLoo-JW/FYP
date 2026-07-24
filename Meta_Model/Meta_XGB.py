@@ -354,7 +354,7 @@ mixed_meta_xgb_study = optuna.create_study(
     )
 mixed_meta_xgb_study.optimize(
     mixed_meta_xgb_optuna,
-    n_trials=5
+    n_trials=30
 )
 
 mixed_meta_xgb_best = mixed_meta_xgb_study.best_params
@@ -418,7 +418,7 @@ enhanced_meta_xgb_study = optuna.create_study(
     )
 enhanced_meta_xgb_study.optimize(
     enhanced_meta_xgb_optuna,
-    n_trials=5
+    n_trials=30
 )
 
 enhanced_meta_xgb_best = enhanced_meta_xgb_study.best_params
@@ -745,55 +745,55 @@ def save_readable_local_xgb_shap_report(
 # ----------------------------------------------------------------------------- 
 print("\nBASE META XGBOOST BEST PARAMETERS: " + str(base_meta_xgb_study.best_value))
 print(base_meta_xgb_best)
-print("BASE META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_xgb_test_sentiment) * 100, 4)) + "%")
+print("BASE META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_xgb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_xgb_test_sentiment, digits=4))
 
-print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
-print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_nb_test_sentiment, digits=4))
 
-print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_svm_test_sentiment, digits=4))
 
-print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_roberta_test_sentiment, digits=4))
 
 
 print("\nMIXED META XGBOOST BEST PARAMETERS: " + str(mixed_meta_xgb_study.best_value))
 print(mixed_meta_xgb_best)
-print("MIXED META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_xgb_test_sentiment) * 100, 4)) + "%")
+print("MIXED META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_xgb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, mixed_meta_xgb_test_sentiment, digits=4))
 
-print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 
 
 print("\nENHANCED META XGBOOST BEST PARAMETERS: " + str(enhanced_meta_xgb_study.best_value))
 print(enhanced_meta_xgb_best)
-print("ENHANCED META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_xgb_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_xgb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_meta_xgb_test_sentiment, digits=4))
 
-print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 # ----------------------------------------------------------------------------- END
 
@@ -1034,5 +1034,81 @@ plt.savefig(
 plt.close()
 
 print("Saved XGBoost Classification Report to:", output_folder)
+
+output_folder = "Meta_Model/Results"
+os.makedirs(output_folder, exist_ok=True)
+
+meta_xgb_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "n_estimators",
+        "search_range": "200 to 800",
+        "base best_value": base_meta_xgb_best["n_estimators"],
+        "mixed best_value": mixed_meta_xgb_best["n_estimators"],
+        "enhanced best_value": enhanced_meta_xgb_best["n_estimators"]
+    },
+    {
+        "hyperparameter": "learning_rate",
+        "search_range": "0.01 to 0.2, logarithmic",
+        "base best_value": base_meta_xgb_best["learning_rate"],
+        "mixed best_value": mixed_meta_xgb_best["learning_rate"],
+        "enhanced best_value": enhanced_meta_xgb_best["learning_rate"]
+    },
+    {
+        "hyperparameter": "max_depth",
+        "search_range": "2 to 6",
+        "base best_value": base_meta_xgb_best["max_depth"],
+        "mixed best_value": mixed_meta_xgb_best["max_depth"],
+        "enhanced best_value": enhanced_meta_xgb_best["max_depth"]
+    },
+    {
+        "hyperparameter": "min_child_weight",
+        "search_range": "1 to 30",
+        "base best_value": base_meta_xgb_best["min_child_weight"],
+        "mixed best_value": mixed_meta_xgb_best["min_child_weight"],
+        "enhanced best_value": enhanced_meta_xgb_best["min_child_weight"]
+    },
+    {
+        "hyperparameter": "gamma",
+        "search_range": "0.0 to 5.0",
+        "base best_value": base_meta_xgb_best["gamma"],
+        "mixed best_value": mixed_meta_xgb_best["gamma"],
+        "enhanced best_value": enhanced_meta_xgb_best["gamma"]
+    },
+    {
+        "hyperparameter": "subsample",
+        "search_range": "0.7 to 1.0",
+        "base best_value": base_meta_xgb_best["subsample"],
+        "mixed best_value": mixed_meta_xgb_best["subsample"],
+        "enhanced best_value": enhanced_meta_xgb_best["subsample"]
+    },
+    {
+        "hyperparameter": "colsample_bytree",
+        "search_range": "0.7 to 1.0",
+        "base best_value": base_meta_xgb_best["colsample_bytree"],
+        "mixed best_value": mixed_meta_xgb_best["colsample_bytree"],
+        "enhanced best_value": enhanced_meta_xgb_best["colsample_bytree"]
+    },
+    {
+        "hyperparameter": "reg_alpha",
+        "search_range": "0.0 to 5.0",
+        "base best_value": base_meta_xgb_best["reg_alpha"],
+        "mixed best_value": mixed_meta_xgb_best["reg_alpha"],
+        "enhanced best_value": enhanced_meta_xgb_best["reg_alpha"]
+    },
+    {
+        "hyperparameter": "reg_lambda",
+        "search_range": "0.1 to 10.0, logarithmic",
+        "base best_value": base_meta_xgb_best["reg_lambda"],
+        "mixed best_value": mixed_meta_xgb_best["reg_lambda"],
+        "enhanced best_value": enhanced_meta_xgb_best["reg_lambda"]
+    }
+])
+
+meta_xgb_optuna_summary.to_csv(
+    os.path.join(output_folder, "meta_xgb_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Meta XGBoost Optuna Parameters to:" ,output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

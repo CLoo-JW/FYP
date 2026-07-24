@@ -98,6 +98,25 @@ sentiment_train_num = sentiment_train.map(label_map)
 sentiment_test_num = sentiment_test.map(label_map)
 sentiment_val_num = sentiment_val.map(label_map)
 
+ROBERTA_OPTUNA_TRAIN_SIZE = min(90000, len(text_train))
+
+if ROBERTA_OPTUNA_TRAIN_SIZE < len(text_train):
+    text_train_roberta_optuna, _, sentiment_train_num_roberta_optuna, _ = train_test_split(
+        text_train,
+        sentiment_train_num,
+        train_size=ROBERTA_OPTUNA_TRAIN_SIZE,
+        stratify=sentiment_train_num,
+        random_state=42
+    )
+else:
+    text_train_roberta_optuna = text_train
+    sentiment_train_num_roberta_optuna = sentiment_train_num
+
+print("\n========== BASE RoBERTa OPTUNA SUBSET ==========")
+print("Optuna training rows:", len(text_train_roberta_optuna))
+print(sentiment_train_num_roberta_optuna.value_counts())
+# ----------------------------------------------------------------------------- END
+
 # ----------------------------------------------------------------------------- START
 # DATASET WRAPPER
 # ----------------------------------------------------------------------------- 
@@ -232,17 +251,27 @@ def make_roberta_training_args(output_dir, roberta_params, number_of_training_ro
         roberta_params["warmup_ratio"] * total_steps
     )
 
+    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    use_fp16 = torch.cuda.is_available() and not use_bf16
+
     return TrainingArguments(
         output_dir=output_dir,
         learning_rate=roberta_params["learning_rate"],
         per_device_train_batch_size=roberta_params["per_device_train_batch_size"],
+        per_device_eval_batch_size=roberta_params["per_device_train_batch_size"],
         num_train_epochs=roberta_params["num_train_epochs"],
         weight_decay=roberta_params["weight_decay"],
         warmup_steps=warmup_steps,
         lr_scheduler_type=roberta_params["lr_scheduler_type"],
         logging_strategy="no",
         save_strategy="no",
-        report_to="none"
+        report_to="none",
+
+        bf16=use_bf16,
+        fp16=use_fp16,
+        dataloader_num_workers=4,
+        dataloader_pin_memory=True,
+        optim="adamw_torch_fused" if torch.cuda.is_available() else "adamw_torch"
     )
 
 def train_roberta_model(
@@ -295,13 +324,13 @@ def base_roberta_optuna(trial):
 
     optuna_per_device_train_batch_size = trial.suggest_categorical(
         "per_device_train_batch_size",
-        [4, 8, 16]
+        [8, 16]
     )
 
     optuna_num_train_epochs = trial.suggest_int(
         "num_train_epochs",
-        2,
-        4
+        1,
+        3
     )
 
     optuna_weight_decay = trial.suggest_float(
@@ -323,7 +352,7 @@ def base_roberta_optuna(trial):
     optuna_warmup_ratio = trial.suggest_float(
         "warmup_ratio",
         0.0,
-        0.2
+        0.1
     )
 
     optuna_model_name = "cardiffnlp/twitter-roberta-base-sentiment"
@@ -344,8 +373,8 @@ def base_roberta_optuna(trial):
     )
 
     optuna_trainer = train_roberta_model(
-        train_text=text_train,
-        train_sentiment=sentiment_train_num,
+        train_text=text_train_roberta_optuna,
+        train_sentiment=sentiment_train_num_roberta_optuna,
         tokenizer=optuna_tokenizer,
         model_name=optuna_model_name,
         roberta_params=optuna_params,
@@ -388,7 +417,9 @@ roberta_study = optuna.create_study(
 roberta_study.optimize(
     base_roberta_optuna,
     n_trials=20,
-    n_jobs=1
+    n_jobs=1,
+    gc_after_trial=True,
+    show_progress_bar=True
 )
 
 base_roberta_best = roberta_study.best_params
@@ -509,10 +540,10 @@ base_roberta_test_sentiment = [
     for sentiment_id in base_roberta_test_sentiment_ids
 ]
 
-print("\nBASE RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_roberta_val_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_roberta_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_roberta_val_sentiment, digits=4))
 
-print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_roberta_test_sentiment, digits=4))
 
 cleanup_trainer(base_roberta_trainer)
@@ -717,5 +748,55 @@ plt.savefig(
 plt.close()
 
 print("Saved Base RoBERTa Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/RoBERTa/Base"
+os.makedirs(output_folder, exist_ok=True)
+
+base_roberta_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "learning_rate",
+        "search_range": "1e-6 to 5e-5, logarithmic",
+        "best_value": base_roberta_best["learning_rate"]
+    },
+    {
+        "hyperparameter": "per_device_train_batch_size",
+        "search_range": "8, 16",
+        "best_value": base_roberta_best[
+            "per_device_train_batch_size"
+        ]
+    },
+    {
+        "hyperparameter": "num_train_epochs",
+        "search_range": "1 to 3",
+        "best_value": base_roberta_best["num_train_epochs"]
+    },
+    {
+        "hyperparameter": "weight_decay",
+        "search_range": "0.0 to 0.1",
+        "best_value": base_roberta_best["weight_decay"]
+    },
+    {
+        "hyperparameter": "max_length",
+        "search_range": "64, 128, 256",
+        "best_value": base_roberta_best["max_length"]
+    },
+    {
+        "hyperparameter": "lr_scheduler_type",
+        "search_range": "linear, cosine",
+        "best_value": base_roberta_best["lr_scheduler_type"]
+    },
+    {
+        "hyperparameter": "warmup_ratio",
+        "search_range": "0.0 to 0.1",
+        "best_value": base_roberta_best["warmup_ratio"]
+    }
+])
+
+base_roberta_optuna_summary.to_csv(
+    os.path.join(output_folder, "base_roberta_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Base RoBERTa Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END
