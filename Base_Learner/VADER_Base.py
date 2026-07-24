@@ -106,13 +106,13 @@ base_vader_test_probabilities = np.asarray([[score["neg"], score["neu"], score["
 
 
 
-print("\nBASE VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, base_vader_train_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, base_vader_train_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_train, base_vader_train_sentiment, digits=4))
 
-print("\nBASE VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_vader_val_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_vader_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_vader_val_sentiment, digits=4))
 
-print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 # ----------------------------------------------------------------------------- END
 

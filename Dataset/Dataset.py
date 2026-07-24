@@ -97,14 +97,17 @@ bad_encoding_after = balanced_df['Text'].str.contains(
     na=False
 ).sum()
 print("Fixed " + str(bad_encoding_before - bad_encoding_after) + " Reviews...")
-balanced_df = balanced_df[~balanced_df['Text'].str.contains(bad_encoding_pattern, regex=True, na=False)]
+balanced_df = balanced_df[~balanced_df['Text'].str.contains(bad_encoding_pattern, regex=True, na=False)].copy()
 print("Dropped " + str(bad_encoding_after) + " Reviews...")
+
+balanced_df['Text'] = balanced_df['Text'].apply(html.unescape)  # Decode HTML characters (&eacute;, &amp;)
+print("Decoded HTML Characters...")
 
 balanced_df['Text'] = balanced_df['Text'].str.replace(r'<[^>]+>', '', regex=True)  # Remove HTML tags (<br>, <a>, etc)
 print("Removed HTML Tags...")
 
-balanced_df['Text'] = balanced_df['Text'].apply(html.unescape)  # Decode HTML characters (&eacute;, &amp;)
-print("Decoded HTML Characters...")
+balanced_df["Text"] = balanced_df["Text"].str.replace(r"(?i)\b(?:https?://|www\.)[^\s<>\"]+", " URL_TOKEN ", regex=True)
+print("Replaced URLs with URL_TOKEN...")
 
 balanced_df['Text'] = balanced_df['Text'].str.replace('�', '', regex=False)
 print("Removed Broken Characters...")
@@ -128,10 +131,8 @@ balanced_df["Text"] = (
     .str.replace("`", "'", regex=False)
 )
 
-# Continue with more <==================================================================================================
-
 balanced_df = (balanced_df.groupby(["Domain", "Sentiment"], group_keys=False)
-               .sample(n=50000, random_state=142)
+               .sample(n=30000, random_state=142)
                .sample(frac=1, random_state=142)
                .reset_index(drop=True)
                )
@@ -145,10 +146,10 @@ print("DATASET SIZE: " + str(len(balanced_df)))
 print(balanced_df['Sentiment'].value_counts())
 print(balanced_df["Domain"].value_counts())
 
-balanced_df = balanced_df.sample(frac=1, random_state=42)
-balanced_df = balanced_df.head(1000)
-balanced_df = balanced_df.reset_index(drop=True)
-print("\nSUBSET SIZE: " + str(len(balanced_df)))
+# balanced_df = balanced_df.sample(frac=1, random_state=42)
+# balanced_df = balanced_df.head(1000)
+# balanced_df = balanced_df.reset_index(drop=True)
+# print("\nSUBSET SIZE: " + str(len(balanced_df)))
 
 balanced_df["Stratify"] = (balanced_df["Domain"] + "_" + balanced_df["Sentiment"])
 text = balanced_df['Text']

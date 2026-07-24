@@ -1874,10 +1874,10 @@ def get_registered_rule_keys():
 def decide_rule(row):
     if (row["applications"] < 1):
         return "UNUSED"
-    if row["net_corrections"] < 0:
-        return "CULL"
     if row["applications"] < 30 or row["decisive_changes"] < 10:
         return "REVIEW"
+    if row["net_corrections"] < 0 and row["mean_margin_change"] < 0.01:
+        return "CULL"
     if (row["net_corrections"] > 0
         and row["correction_precision"] >= 0.60
         and row["mean_margin_change"] >= 0
@@ -2460,19 +2460,19 @@ enhanced_vader_audit_df = (
 )
 
 print("\n========== ENHANCED VADER VS BASE VADER ==========")
-print("BASE VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, base_vader_train_sentiment) * 100, 4)) + "%")
+print("BASE VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, base_vader_train_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_train, base_vader_train_sentiment, digits=4))
-print("ENHANCED VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, enhanced_vader_train_sentiment) * 100, 4)) + "%")
+print("ENHANCED VADER ON TRAIN: ACCURACY = " + str(round(accuracy_score(sentiment_train, enhanced_vader_train_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_train, enhanced_vader_train_sentiment, digits=4))  # File
 
-print("\nBASE VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_vader_val_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_vader_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_vader_val_sentiment, digits=4))
-print("ENHANCED VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_vader_val_sentiment) * 100, 4)) + "%")
+print("ENHANCED VADER ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_vader_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, enhanced_vader_val_sentiment, digits=4))  # File
 
-print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
-print("ENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))  # File
 # ----------------------------------------------------------------------------- END
 

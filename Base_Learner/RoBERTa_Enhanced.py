@@ -1,38 +1,20 @@
 import pandas as pd  # For reading CSV files
 import numpy as np  # Used to combine outputs for meta classifier
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import MultinomialNB, ComplementNB
-from sklearn.preprocessing import StandardScaler
-from sklearn.utils import compute_class_weight
 from torch.nn import CrossEntropyLoss
-from tqdm import tqdm  # For progress bars
-from nltk.sentiment import SentimentIntensityAnalyzer  # VADER
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments  # RoBERTa (Tokeniser and Classifier)
 from scipy.special import softmax  # To convert into probability
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer  # Converts text into number for SVM
-from sklearn.svm import SVC  # SVM
 from sklearn.model_selection import train_test_split  # Splits dataset
 from sklearn.metrics import classification_report, f1_score  # Output metrics
-from sklearn.pipeline import Pipeline  # Chains TFIDF (preprocessing) and SVM (model) together
-from sklearn.linear_model import LogisticRegression  # Logistic Regression
 from sklearn.metrics import accuracy_score  # Output metrics
-from imblearn.over_sampling import RandomOverSampler  # Balance classes
-from sklearn.model_selection import cross_val_predict  # Out of fold training
 import optuna # Hyperparameter tuning
-from sklearn.model_selection import cross_val_score  # OOF training
-from imblearn.pipeline import Pipeline as ImbPipeline
 from sklearn.model_selection import StratifiedKFold
 import torch
-from huggingface_hub import login
-from xgboost import XGBClassifier
 import matplotlib.pyplot as plt
-import ftfy
-import html
 import re
 import os
 import io
 import contextlib
+from tqdm.contrib.concurrent import process_map
 
 # ================================================================================================================ START
 # Dataset
@@ -1608,18 +1590,14 @@ def make_exclusive_rule_decision(
 ):
     decisive_cases = corrected + harmed
 
-    if net_correction < 0:
-        return "CULL"
-
     if applications == 0:
         return "UNUSED"
-
     if applications < 30:
         return "REVIEW"
-
     if decisive_cases < 10:
         return "REVIEW"
-
+    if net_correction < 0:
+        return "CULL"
     if net_correction > 0 and correction_precision >= 0.60:
         return "KEEP"
 
@@ -2671,17 +2649,27 @@ def make_roberta_training_args(output_dir, roberta_params, number_of_training_ro
         roberta_params["warmup_ratio"] * total_steps
     )
 
+    use_bf16 = torch.cuda.is_available() and torch.cuda.is_bf16_supported()
+    use_fp16 = torch.cuda.is_available() and not use_bf16
+
     return TrainingArguments(
         output_dir=output_dir,
         learning_rate=roberta_params["learning_rate"],
         per_device_train_batch_size=roberta_params["per_device_train_batch_size"],
+        per_device_eval_batch_size=roberta_params["per_device_train_batch_size"],
         num_train_epochs=roberta_params["num_train_epochs"],
         weight_decay=roberta_params["weight_decay"],
         warmup_steps=warmup_steps,
         lr_scheduler_type=roberta_params["lr_scheduler_type"],
         logging_strategy="no",
         save_strategy="no",
-        report_to="none"
+        report_to="none",
+
+        bf16=use_bf16,
+        fp16=use_fp16,
+        dataloader_num_workers=4,
+        dataloader_pin_memory=torch.cuda.is_available(),
+        optim="adamw_torch_fused" if torch.cuda.is_available() else "adamw_torch"
     )
 
 def train_roberta_model(
@@ -2724,9 +2712,65 @@ def train_roberta_model(
 # ----------------------------------------------------------------------------- START
 # ENHANCED ROBERTA HYPERPARAMETER TUNING WITH OPTUNA
 # ----------------------------------------------------------------------------- 
-enhanced_text_train = text_train.apply(add_affirmative_interpretation)
-enhanced_text_val = text_val.apply(add_affirmative_interpretation)
-enhanced_text_test = text_test.apply(add_affirmative_interpretation)
+N_WORKERS = min(16, os.cpu_count())
+
+print("Creating Enhanced RoBERTa Train Text...")
+enhanced_text_train = pd.Series(
+    process_map(
+        add_affirmative_interpretation,
+        text_train.tolist(),
+        max_workers=N_WORKERS,
+        chunksize=1000,
+        desc="Enhanced RoBERTa Train Text"
+    ),
+    index=text_train.index
+)
+
+print("Creating Enhanced RoBERTa Validation Text...")
+enhanced_text_val = pd.Series(
+    process_map(
+        add_affirmative_interpretation,
+        text_val.tolist(),
+        max_workers=N_WORKERS,
+        chunksize=1000,
+        desc="Enhanced RoBERTa Validation Text"
+    ),
+    index=text_val.index
+)
+
+print("Creating Enhanced RoBERTa Test Text...")
+enhanced_text_test = pd.Series(
+    process_map(
+        add_affirmative_interpretation,
+        text_test.tolist(),
+        max_workers=N_WORKERS,
+        chunksize=1000,
+        desc="Enhanced RoBERTa Test Text"
+    ),
+    index=text_test.index
+)
+
+ROBERTA_OPTUNA_TRAIN_SIZE = min(90000, len(enhanced_text_train))
+
+if ROBERTA_OPTUNA_TRAIN_SIZE < len(enhanced_text_train):
+    enhanced_text_train_optuna, _, sentiment_train_num_optuna, _ = train_test_split(
+        enhanced_text_train,
+        sentiment_train_num,
+        train_size=ROBERTA_OPTUNA_TRAIN_SIZE,
+        stratify=sentiment_train_num,
+        random_state=42
+    )
+else:
+    enhanced_text_train_optuna = enhanced_text_train
+    sentiment_train_num_optuna = sentiment_train_num
+
+print("\n========== ENHANCED RoBERTa OPTUNA SUBSET ==========")
+print("Optuna training rows:", len(enhanced_text_train_optuna))
+print(sentiment_train_num_optuna.value_counts())
+
+MODEL = "cardiffnlp/twitter-roberta-base-sentiment"
+
+tokenizer = AutoTokenizer.from_pretrained(MODEL)
 
 def enhanced_roberta_optuna(trial):
     optuna_learning_rate = trial.suggest_float(
@@ -2738,13 +2782,13 @@ def enhanced_roberta_optuna(trial):
 
     optuna_per_device_train_batch_size = trial.suggest_categorical(
         "per_device_train_batch_size",
-        [4, 8, 16]
+        [8, 16]
     )
 
     optuna_num_train_epochs = trial.suggest_int(
         "num_train_epochs",
-        2,
-        4
+        1,
+        3
     )
 
     optuna_weight_decay = trial.suggest_float(
@@ -2766,7 +2810,7 @@ def enhanced_roberta_optuna(trial):
     optuna_warmup_ratio = trial.suggest_float(
         "warmup_ratio",
         0.0,
-        0.2
+        0.1
     )
 
     optuna_model_name = "cardiffnlp/twitter-roberta-base-sentiment"
@@ -2787,8 +2831,8 @@ def enhanced_roberta_optuna(trial):
     )
 
     optuna_trainer = train_roberta_model(
-        train_text=enhanced_text_train,
-        train_sentiment=sentiment_train_num,
+        train_text=enhanced_text_train_optuna,
+        train_sentiment=sentiment_train_num_optuna,
         tokenizer=optuna_tokenizer,
         model_name=optuna_model_name,
         roberta_params=optuna_params,
@@ -2830,7 +2874,10 @@ roberta_study = optuna.create_study(
 
 roberta_study.optimize(
     enhanced_roberta_optuna,
-    n_trials=20
+    n_trials=20,
+    n_jobs=1,
+    gc_after_trial=True,
+    show_progress_bar=True
 )
 
 enhanced_roberta_best = roberta_study.best_params
@@ -2952,14 +2999,14 @@ enhanced_roberta_test_sentiment = [
     for prediction_id in enhanced_roberta_test_prediction_ids
 ]
 
-print("\nBASE RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_roberta_val_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_roberta_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_roberta_val_sentiment, digits=4))
-print("ENHANCED RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_roberta_val_sentiment) * 100, 4)) + "%")
+print("ENHANCED RoBERTa ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_roberta_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, enhanced_roberta_val_sentiment, digits=4))
 
-print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_roberta_test_sentiment, digits=4))
-print("ENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 
 cleanup_trainer(enhanced_roberta_trainer)
@@ -3276,5 +3323,55 @@ plt.savefig(
 plt.close()
 
 print("Saved Enhanced RoBERTa Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/RoBERTa/Enhanced"
+os.makedirs(output_folder, exist_ok=True)
+
+enhanced_roberta_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "learning_rate",
+        "search_range": "1e-6 to 5e-5, logarithmic",
+        "best_value": enhanced_roberta_best["learning_rate"]
+    },
+    {
+        "hyperparameter": "per_device_train_batch_size",
+        "search_range": "8, 16",
+        "best_value": enhanced_roberta_best[
+            "per_device_train_batch_size"
+        ]
+    },
+    {
+        "hyperparameter": "num_train_epochs",
+        "search_range": "1 to 3",
+        "best_value": enhanced_roberta_best["num_train_epochs"]
+    },
+    {
+        "hyperparameter": "weight_decay",
+        "search_range": "0.0 to 0.1",
+        "best_value": enhanced_roberta_best["weight_decay"]
+    },
+    {
+        "hyperparameter": "max_length",
+        "search_range": "64, 128, 256",
+        "best_value": enhanced_roberta_best["max_length"]
+    },
+    {
+        "hyperparameter": "lr_scheduler_type",
+        "search_range": "linear, cosine",
+        "best_value": enhanced_roberta_best["lr_scheduler_type"]
+    },
+    {
+        "hyperparameter": "warmup_ratio",
+        "search_range": "0.0 to 0.1",
+        "best_value": enhanced_roberta_best["warmup_ratio"]
+    }
+])
+
+enhanced_roberta_optuna_summary.to_csv(
+    os.path.join(output_folder, "enhanced_roberta_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Enhanced RoBERTa Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================ END

@@ -16,6 +16,7 @@ import os
 from sklearn.base import clone
 import io
 import contextlib
+from sklearn.model_selection import train_test_split
 
 # ================================================================================================================ START
 # Dataset
@@ -185,7 +186,7 @@ NEGATION_WORDS = {
 
 INTENSIFIERS = {
     "very", "really", "extremely", "incredibly", "highly",
-    "super", "ultra", "absolutely", "completely", "totally",
+    "ultra", "completely", "totally", # "super", "absolutely",
     "surprisingly", "ridiculously", "seriously", "terribly"
 }
 
@@ -204,7 +205,7 @@ POST_CONTRAST_MARKERS = {
 
 CONCESSIVE_STARTERS = {
     "although",
-    "though"
+    # "though"
 }
 # ----------------------------------------------------------------------------- END
 
@@ -925,75 +926,53 @@ UNIVERSAL_PHRASE_RULES = [
 # RULE / FEATURE PRUNING
 # -----------------------------------------------------------------------------
 SVM_CULL_RULE_KEYS = {
-    # Add based on validation set results
+    "phrase:runs_small",
+    "phrase:see_through",
+    "phrase:not_lasting",
+    "phrase:cheaply_made",
+    "phrase:not_satisfied",
+    "phrase:not_bad"
+
 }
 SVM_BLOCKED_EXACT_FEATURES = {
-    # Add based on validation set results
+    "FEAT_AFTER_CONTRAST_but_feel",
+    "FEAT_INTENSIFIER_totally",
+    "FEAT_AFTER_CONTRAST_but_show",
+    "FEAT_AFTER_CONTRAST_but_light",
+    "FEAT_NEG_SCOPE_tell",
+    "FEAT_AFTER_CONTRAST_but_stuff",
+    "FEAT_AFTER_CONTRAST_but_base",
+    "FEAT_NEG_SCOPE_provide",
+    "FEAT_AFTER_CONTRAST_however_good",
+    "FEAT_AFTER_CONTRAST_but_black",
+    "FEAT_NEG_SCOPE_understand",
+    "FEAT_AFTER_CONTRAST_but_mark",
+    "FEAT_NEG_SCOPE_price",
+    "FEAT_AFTER_CONTRAST_but_important",
+    "FEAT_AFTER_CONTRAST_but_truth",
+    "FEAT_AFTER_CONTRAST_but_provide",
+    "FEAT_AFTER_CONTRAST_but_difference",
+    "FEAT_NEG_SCOPE_close",
+    "FEAT_AFTER_CONTRAST_however_read",
+    "FEAT_PHRASE_runs_small",
+    "FEAT_NEG_SCOPE_specific",
+    "FEAT_AFTER_CONTRAST_but_program",
+    "FEAT_NEG_SCOPE_computer",
+    "FEAT_AFTER_CONTRAST_but_historical",
+    "FEAT_AFTER_CONTRAST_but_chapter",
+    "FEAT_AFTER_CONTRAST_however_need",
+    "FEAT_AFTER_CONTRAST_but_single",
+    "FEAT_NEG_SCOPE_novel",
+    "FEAT_AFTER_CONTRAST_but_cut",
+    "FEAT_NEG_SCOPE_battery",
+    "FEAT_AFTER_CONTRAST_but_movie",
+    "FEAT_AFTER_CONTRAST_but_fact",
+    "FEAT_AFTER_CONTRAST_but_world",
+    "FEAT_DIMINISHER_hardly",
 }
-SVM_CONDITIONAL_RULE_KEYS = {
-    # "phrase:does_not_work"
-}
-
-SVM_POSITIVE_CONTEXT_FEATURES = {
-    # "FEAT_PHRASE_works_great",
-    # "FEAT_PHRASE_works_perfectly",
-    # "FEAT_PHRASE_works_as_expected",
-    # "FEAT_PHRASE_would_recommend",
-    # "FEAT_PHRASE_highly_recommend",
-    # "FEAT_PHRASE_would_buy_again",
-    # "FEAT_PHRASE_worth_every_penny",
-    # "FEAT_PHRASE_better_than_expected",
-    # "FEAT_PHRASE_exceeded_expectations",
-    # "FEAT_PHRASE_no_issues",
-    # "FEAT_PHRASE_no_problems",
-    # "FEAT_PHRASE_no_complaints",
-    # "FEAT_PHRASE_not_bad",
-    # "FEAT_PHRASE_true_to_size",
-    # "FEAT_PHRASE_comfortable_fit",
-    # "FEAT_PHRASE_great_read",
-    # "FEAT_PHRASE_well_written",
-    # "FEAT_PHRASE_easy_to_follow",
-    # "FEAT_PHRASE_highly_informative",
-}
-SVM_BLOCKED_DYNAMIC_SUFFIXES = {
-    # "character",
-    # "story",
-    # "fan",
-    # "purchase",
-    # "software",
-    # "interested",
-    # "instead",
-    # "rest",
-    # "music",
-    # "wonder",
-    # "definitely",
-}
-
-def is_blocked_svm_dynamic_feature(feature):
-    dynamic_prefixes = (
-        # "FEAT_NEG_SCOPE_",
-        # "FEAT_NEG_DEP_",
-        # "FEAT_INTENSIFIED_",
-        # "FEAT_INTENSIFIED_DEP_",
-        # "FEAT_DIMINISHED_",
-        # "FEAT_DIMINISHED_DEP_",
-        # "FEAT_AFTER_CONTRAST_",
-        # "FEAT_AFTER_CONCESSION_"
-    )
-
-    if not feature.startswith(dynamic_prefixes):
-        return False
-
-    for blocked_suffix in SVM_BLOCKED_DYNAMIC_SUFFIXES:
-        if feature.endswith("_" + blocked_suffix):
-            return True
-
-    return False
 
 def filter_svm_polarity_features(polarity_features):
     filtered_features = []
-    polarity_feature_set = set(polarity_features)
-    has_positive_context = len(polarity_feature_set.intersection(SVM_POSITIVE_CONTEXT_FEATURES)) > 0
 
     for feature in polarity_features:
         if feature in SVM_BLOCKED_EXACT_FEATURES:
@@ -1002,14 +981,8 @@ def filter_svm_polarity_features(polarity_features):
         if feature.startswith("FEAT_CAPS_") and feature != "FEAT_CAPS_EMPHASIS":
             continue
 
-        if is_blocked_svm_dynamic_feature(feature):
-            continue
-
         rule_key = get_rule_key_from_feature(feature)
         if rule_key in SVM_CULL_RULE_KEYS:
-            continue
-
-        if (rule_key in SVM_CONDITIONAL_RULE_KEYS and has_positive_context):
             continue
 
         filtered_features.append(feature)
@@ -1193,11 +1166,6 @@ def is_useful_scope_token(token, processed_token):
         return False
 
     if token.like_num:
-        return False
-    
-    if processed_token in {
-        # Decide based on validation results
-    }:
         return False
 
     if token.pos_ not in {
@@ -2255,14 +2223,14 @@ def decide_rule_action(row):
     correction_precision = row["correction_precision"]
     mean_margin_change = row["mean_margin_change"]
 
-    if net_corrections < 0:
-        return "CULL"
     if exclusive_applications < 30:
         return "REVIEW"
     if decisive_changes < 10:
         return "REVIEW"
     if pd.isna(correction_precision):
         return "REVIEW"
+    if net_corrections < 0 and mean_margin_change < 0.01:
+        return "CULL"
     if (net_corrections >= 0 and correction_precision >= 0.60 and mean_margin_change > 0):
         return "KEEP"
 
@@ -2941,14 +2909,14 @@ def print_all_short_svm_review_examples(audit_df, number=0):
 # ----------------------------------------------------------------------------- Start
 # ENHANCED SVM HYPERPARAMETER TUNING WITH OPTUNA
 # ----------------------------------------------------------------------------- 
-N_WORKERS = min(8, os.cpu_count())
+N_WORKERS = min(16, os.cpu_count())
 print("Precomputing Enhanced Validation Text...")
 enhanced_text_val = pd.Series(
     process_map(
         svm_append_polarity_features,
         text_val.tolist(),
         max_workers=N_WORKERS,
-        chunksize=100,
+        chunksize=1000,
         desc="Validation Set"
     ),
     index=text_val.index
@@ -2959,7 +2927,7 @@ enhanced_text_train = pd.Series(
         svm_append_polarity_features,
         text_train.tolist(),
         max_workers=N_WORKERS,
-        chunksize=100,
+        chunksize=1000,
         desc="Train Set"
     ),
     index=text_train.index
@@ -2970,65 +2938,83 @@ enhanced_text_test = pd.Series(
         svm_append_polarity_features,
         text_test.tolist(),
         max_workers=N_WORKERS,
-        chunksize=100,
+        chunksize=1000,
         desc="Test Set"
     ),
     index=text_test.index
 )
 
-def enhanced_svm_optuna(trial):
-    vectorizer_type = trial.suggest_categorical("vectorizer_type", ["tfidf", "count"])
+OPTUNA_TRAIN_SIZE = min(90000, len(enhanced_text_train))
 
-    if vectorizer_type == 'tfidf':
-        optuna_vectorizer = TfidfVectorizer(
-            lowercase=False,
-            token_pattern=r"(?u)\b\w+\b",
-            max_features=trial.suggest_categorical(
-                'max_features',
-                [30000, 50000, 100000, 150000]
-            ),
-            ngram_range=ngram_map[trial.suggest_categorical(
-                'ngram_range',
-                ["1_1", "1_2", "1_3"]
-            )],
-            min_df=trial.suggest_categorical(
-                'min_df',
-                [5, 10, 20, 50]
-            ),
-            max_df=trial.suggest_categorical(
-                "max_df",
-                [0.90, 0.95, 0.98]
-            ),
-            sublinear_tf=trial.suggest_categorical(
-                'sublinear_tf',
-                [True, False]
-            )
+if OPTUNA_TRAIN_SIZE < len(enhanced_text_train):
+    enhanced_text_train_optuna, _, enhanced_sentiment_train_optuna, _ = train_test_split(
+        enhanced_text_train,
+        sentiment_train,
+        train_size=OPTUNA_TRAIN_SIZE,
+        stratify=sentiment_train,
+        random_state=42
+    )
+else:
+    enhanced_text_train_optuna = enhanced_text_train
+    enhanced_sentiment_train_optuna = sentiment_train
+
+print("\n========== ENHANCED SVM OPTUNA SUBSET ==========")
+print("Optuna training rows:", len(enhanced_text_train_optuna))
+print(enhanced_sentiment_train_optuna.value_counts())
+
+def enhanced_svm_optuna(trial):
+    # vectorizer_type = trial.suggest_categorical("vectorizer_type", ["tfidf", "count"])
+
+    # if vectorizer_type == 'tfidf':
+    optuna_vectorizer = TfidfVectorizer(
+        lowercase=False,
+        token_pattern=r"(?u)\b\w+\b",
+        max_features=trial.suggest_categorical(
+            'max_features',
+            [30000, 50000, 100000]
+        ),
+        ngram_range=ngram_map[trial.suggest_categorical(
+            'ngram_range',
+            ["1_1", "1_2", "1_3"]
+        )],
+        min_df=trial.suggest_categorical(
+            'min_df',
+            [10, 20, 50]
+        ),
+        max_df=trial.suggest_categorical(
+            "max_df",
+            [0.90, 0.95, 0.98]
+        ),
+        sublinear_tf=trial.suggest_categorical(
+            'sublinear_tf',
+            [True, False]
         )
-    else:
-        optuna_vectorizer = CountVectorizer(
-            lowercase=False,
-            token_pattern=r"(?u)\b\w+\b",
-            max_features=trial.suggest_categorical(
-                "max_features",
-                [30000, 50000, 100000, 150000]
-            ),
-            ngram_range=ngram_map[trial.suggest_categorical(
-                "ngram_range",
-                ["1_1", "1_2", "1_3"]
-            )],
-            min_df=trial.suggest_categorical(
-                "min_df",
-                [5, 10, 20, 50]
-            ),
-            max_df=trial.suggest_categorical(
-                "max_df",
-                [0.90, 0.95, 0.98]
-            ),
-            binary=trial.suggest_categorical(
-                "binary",
-                [True, False]
-            )
-        )
+    )
+    # else:
+    #     optuna_vectorizer = CountVectorizer(
+    #         lowercase=False,
+    #         token_pattern=r"(?u)\b\w+\b",
+    #         max_features=trial.suggest_categorical(
+    #             "max_features",
+    #             [30000, 50000, 100000, 150000]
+    #         ),
+    #         ngram_range=ngram_map[trial.suggest_categorical(
+    #             "ngram_range",
+    #             ["1_1", "1_2", "1_3"]
+    #         )],
+    #         min_df=trial.suggest_categorical(
+    #             "min_df",
+    #             [10, 20, 50]
+    #         ),
+    #         max_df=trial.suggest_categorical(
+    #             "max_df",
+    #             [0.90, 0.95]
+    #         ),
+    #         binary=trial.suggest_categorical(
+    #             "binary",
+    #             [True, False]
+    #         )
+    #     )
 
     optuna_svc = LinearSVC(
         C=trial.suggest_float(
@@ -3038,7 +3024,9 @@ def enhanced_svm_optuna(trial):
             log=True
         ),
         random_state=42,
-        max_iter=30000
+        tol=0.001,
+        dual='auto',
+        max_iter=5000
     )
 
     optuna_svm_pipeline = ImbPipeline([
@@ -3047,8 +3035,8 @@ def enhanced_svm_optuna(trial):
     ])
 
     optuna_svm_pipeline.fit(
-        enhanced_text_train,
-        sentiment_train
+        enhanced_text_train_optuna,
+        enhanced_sentiment_train_optuna
     )
 
     validation_predictions = optuna_svm_pipeline.predict(
@@ -3075,35 +3063,39 @@ enhanced_svm_study = optuna.create_study(
 enhanced_svm_study.optimize(
     enhanced_svm_optuna,
     n_trials=20,
-    n_jobs=1
+    n_jobs=1,
+    gc_after_trial=True,
+    show_progress_bar=True
 )
 enhanced_svm_best = enhanced_svm_study.best_params
 
-if enhanced_svm_best['vectorizer_type'] == 'tfidf':
-    enhanced_svm_vectorizer = TfidfVectorizer(
-            lowercase=False,
-            token_pattern=r"(?u)\b\w+\b",
-            max_features=enhanced_svm_best['max_features'],
-            ngram_range=ngram_map[enhanced_svm_best['ngram_range']],
-            min_df=enhanced_svm_best['min_df'],
-            max_df=enhanced_svm_best['max_df'],
-            sublinear_tf=enhanced_svm_best['sublinear_tf']
-    )
-else:
-    enhanced_svm_vectorizer = CountVectorizer(
-        lowercase=False,
-        token_pattern=r"(?u)\b\w+\b",
-        max_features=enhanced_svm_best['max_features'],
-        ngram_range=ngram_map[enhanced_svm_best['ngram_range']],
-        min_df=enhanced_svm_best['min_df'],
-        max_df=enhanced_svm_best['max_df'],
-        binary=enhanced_svm_best['binary']
-    )
+# if enhanced_svm_best['vectorizer_type'] == 'tfidf':
+enhanced_svm_vectorizer = TfidfVectorizer(
+    lowercase=False,
+    token_pattern=r"(?u)\b\w+\b",
+    max_features=enhanced_svm_best['max_features'],
+    ngram_range=ngram_map[enhanced_svm_best['ngram_range']],
+    min_df=enhanced_svm_best['min_df'],
+    max_df=enhanced_svm_best['max_df'],
+    sublinear_tf=enhanced_svm_best['sublinear_tf']
+)
+# else:
+#     enhanced_svm_vectorizer = CountVectorizer(
+#         lowercase=False,
+#         token_pattern=r"(?u)\b\w+\b",
+#         max_features=enhanced_svm_best['max_features'],
+#         ngram_range=ngram_map[enhanced_svm_best['ngram_range']],
+#         min_df=enhanced_svm_best['min_df'],
+#         max_df=enhanced_svm_best['max_df'],
+#         binary=enhanced_svm_best['binary']
+#     )
 
 enhanced_svc = LinearSVC(
     C=enhanced_svm_best['C'],
     random_state=42,
-    max_iter=30000
+    tol=0.0001,
+    dual='auto',
+    max_iter=10000
 )
 
 enhanced_svm_uncalibrated_pipeline = ImbPipeline([
@@ -3144,14 +3136,14 @@ enhanced_svm_test_sentiment = predict_with_progress(
 print("\nENHANCED SVM BEST PARAMETERS: " + str(enhanced_svm_study.best_value))
 print(enhanced_svm_study.best_params)
 
-print("\nBASE SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_svm_val_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, base_svm_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, base_svm_val_sentiment, digits=4))
-print("ENHANCED SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_svm_val_sentiment) * 100, 4)) + "%")
+print("ENHANCED SVM ON VALIDATION: ACCURACY = " + str(round(accuracy_score(sentiment_val, enhanced_svm_val_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_val, enhanced_svm_val_sentiment, digits=4))
 
-print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_svm_test_sentiment, digits=4))
-print("ENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
 enhanced_svm_val_probabilities = predict_proba_with_progress(
@@ -3405,5 +3397,48 @@ plt.savefig(
 plt.close()
 
 print("Saved Enhanced SVM Classification Report to:", output_folder)
+
+output_folder = "Base_Learner/Results/SVM/Enhanced"
+os.makedirs(output_folder, exist_ok=True)
+
+enhanced_svm_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "max_features",
+        "search_range": "30000, 50000, 100000",
+        "best_value": enhanced_svm_best["max_features"]
+    },
+    {
+        "hyperparameter": "ngram_range",
+        "search_range": "1_1, 1_2, 1_3",
+        "best_value": enhanced_svm_best["ngram_range"]
+    },
+    {
+        "hyperparameter": "min_df",
+        "search_range": "10, 20, 50",
+        "best_value": enhanced_svm_best["min_df"]
+    },
+    {
+        "hyperparameter": "max_df",
+        "search_range": "0.90, 0.95, 0.98",
+        "best_value": enhanced_svm_best["max_df"]
+    },
+    {
+        "hyperparameter": "sublinear_tf",
+        "search_range": "True, False",
+        "best_value": enhanced_svm_best["sublinear_tf"]
+    },
+    {
+        "hyperparameter": "C",
+        "search_range": "0.1 to 10.0, logarithmic",
+        "best_value": enhanced_svm_best["C"]
+    }
+])
+
+enhanced_svm_optuna_summary.to_csv(
+    os.path.join(output_folder, "enhanced_svm_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Enhanced SVM Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

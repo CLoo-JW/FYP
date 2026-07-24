@@ -648,55 +648,55 @@ def save_readable_local_rf_shap_report(
 # ----------------------------------------------------------------------------- 
 print("\nBASE META RANDOM FOREST BEST PARAMETERS: " + str(base_meta_rf_study.best_value))
 print(base_meta_rf_best)
-print("BASE META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_rf_test_sentiment) * 100, 4)) + "%")
+print("BASE META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_rf_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_rf_test_sentiment, digits=4))
 
-print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
-print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_nb_test_sentiment, digits=4))
 
-print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_svm_test_sentiment, digits=4))
 
-print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_roberta_test_sentiment, digits=4))
 
 
 print("\nMIXED META RANDOM FOREST BEST PARAMETERS: " + str(mixed_meta_rf_study.best_value))
 print(mixed_meta_rf_best)
-print("MIXED META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_rf_test_sentiment) * 100, 4)) + "%")
+print("MIXED META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_rf_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, mixed_meta_rf_test_sentiment, digits=4))
 
-print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 
 
 print("\nENHANCED META RANDOM FOREST BEST PARAMETERS: " + str(enhanced_meta_rf_study.best_value))
 print(enhanced_meta_rf_best)
-print("ENHANCED META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_rf_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_rf_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_meta_rf_test_sentiment, digits=4))
 
-print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 # ----------------------------------------------------------------------------- END
 
@@ -934,5 +934,53 @@ plt.savefig(
 plt.close()
 
 print("Saved Random Forest Classification Report to:", output_folder)
+
+output_folder = "Meta_Model/Results"
+os.makedirs(output_folder, exist_ok=True)
+
+meta_rf_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "n_estimators",
+        "search_range": "100 to 800",
+        "base best_value": base_meta_rf_best["n_estimators"],
+        "mixed best_value": mixed_meta_rf_best["n_estimators"],
+        "enhanced best_value": enhanced_meta_rf_best["n_estimators"]
+    },
+    {
+        "hyperparameter": "max_depth",
+        "search_range": "3 to 15",
+        "base best_value": base_meta_rf_best["max_depth"],
+        "mixed best_value": mixed_meta_rf_best["max_depth"],
+        "enhanced best_value": enhanced_meta_rf_best["max_depth"]
+    },
+    {
+        "hyperparameter": "min_samples_split",
+        "search_range": "2 to 20",
+        "base best_value": base_meta_rf_best["min_samples_split"],
+        "mixed best_value": mixed_meta_rf_best["min_samples_split"],
+        "enhanced best_value": enhanced_meta_rf_best["min_samples_split"]
+    },
+    {
+        "hyperparameter": "min_samples_leaf",
+        "search_range": "1 to 10",
+        "base best_value": base_meta_rf_best["min_samples_leaf"],
+        "mixed best_value": mixed_meta_rf_best["min_samples_leaf"],
+        "enhanced best_value": enhanced_meta_rf_best["min_samples_leaf"]
+    },
+    {
+        "hyperparameter": "max_features",
+        "search_range": "sqrt, log2, None",
+        "base best_value": base_meta_rf_best["max_features"],
+        "mixed best_value": mixed_meta_rf_best["max_features"],
+        "enhanced best_value": enhanced_meta_rf_best["max_features"]
+    }
+])
+
+meta_rf_optuna_summary.to_csv(
+    os.path.join(output_folder, "meta_rf_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Meta Logistic Regression Optuna Parameters to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

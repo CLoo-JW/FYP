@@ -631,55 +631,55 @@ def save_readable_local_svm_xai_report(
 # ----------------------------------------------------------------------------- 
 print("\nBASE META SVM BEST PARAMETERS: " + str(base_meta_svm_study.best_value))
 print(base_meta_svm_best)
-print("BASE META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_svm_test_sentiment) * 100, 4)) + "%")
+print("BASE META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_svm_test_sentiment, digits=4))
 
-print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 4)) + "%")
+print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
-print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 4)) + "%")
+print("\nBASE NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_nb_test_sentiment, digits=4))
 
-print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 4)) + "%")
+print("\nBASE SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_svm_test_sentiment, digits=4))
 
-print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nBASE RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_roberta_test_sentiment, digits=4))
 
 
 print("\nMIXED META SVM BEST PARAMETERS: " + str(mixed_meta_svm_study.best_value))
 print(mixed_meta_svm_best)
-print("MIXED META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_svm_test_sentiment) * 100, 4)) + "%")
+print("MIXED META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, mixed_meta_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, mixed_meta_svm_test_sentiment, digits=4))
 
-print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nMIXED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 
 
 print("\nENHANCED META SVM BEST PARAMETERS: " + str(enhanced_meta_svm_study.best_value))
 print(enhanced_meta_svm_best)
-print("ENHANCED META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_svm_test_sentiment) * 100, 4)) + "%")
+print("ENHANCED META SVM MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_meta_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_meta_svm_test_sentiment, digits=4))
 
-print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_vader_test_sentiment, digits=4))
 
-print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED NAIVE BAYES ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_nb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_nb_test_sentiment, digits=4))
 
-print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED SVM ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_svm_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_svm_test_sentiment, digits=4))
 
-print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 4)) + "%")
+print("\nENHANCED RoBERTa ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, enhanced_roberta_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, digits=4))
 # ----------------------------------------------------------------------------- END
 
@@ -917,5 +917,25 @@ plt.savefig(
 plt.close()
 
 print("Saved SVM Classification Report to:", output_folder)
+
+output_folder = "Meta_Model/Results"
+os.makedirs(output_folder, exist_ok=True)
+
+meta_svm_optuna_summary = pd.DataFrame([
+    {
+        "hyperparameter": "C",
+        "search_range": "0.001 to 10.0, logarithmic",
+        "base best_value": base_meta_svm_best["C"],
+        "mixed best_value": mixed_meta_svm_best["C"],
+        "enhanced best_value": enhanced_meta_svm_best["C"]
+    }
+])
+
+meta_svm_optuna_summary.to_csv(
+    os.path.join(output_folder, "meta_svm_optuna_parameters.csv"),
+    index=False
+)
+
+print("Saved Meta SVM Optuna Parameters to:" ,output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END
