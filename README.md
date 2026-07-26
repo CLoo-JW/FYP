@@ -2,6 +2,10 @@ Datasets are not included in this repository due to file size limits.
 
 Place the CSV files inside Dataset/Reviews/ before running the project.
 
+lid.176.bin was also excluded due to file size limits.
+
+Place it in Dataset folder before running the project.
+
 Datasets used in this project: 
 
 https://www.kaggle.com/datasets/fawadhossaini1415/amazon-fashion-800k-user-reviews-dataset  
