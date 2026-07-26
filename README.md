@@ -1,3 +1,5 @@
+Any results or outputs found in folders are not consistent with the dataset size due to file size limit
+
 Datasets are not included in this repository due to file size limits.
 
 Place the CSV files inside Dataset/Reviews/ before running the project.
