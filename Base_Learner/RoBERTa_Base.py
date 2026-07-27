@@ -1,35 +1,15 @@
-import pandas as pd  # For reading CSV files
-import numpy as np  # Used to combine outputs for meta classifier
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import MultinomialNB, ComplementNB
-from sklearn.preprocessing import StandardScaler
-from sklearn.utils import compute_class_weight
+import pandas as pd
+import numpy as np
 from torch.nn import CrossEntropyLoss
-from tqdm import tqdm  # For progress bars
-from nltk.sentiment import SentimentIntensityAnalyzer  # VADER
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments  # RoBERTa (Tokeniser and Classifier)
-from scipy.special import softmax  # To convert into probability
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer  # Converts text into number for SVM
-from sklearn.svm import SVC  # SVM
-from sklearn.model_selection import train_test_split  # Splits dataset
-from sklearn.metrics import classification_report, f1_score  # Output metrics
-from sklearn.pipeline import Pipeline  # Chains TFIDF (preprocessing) and SVM (model) together
-from sklearn.linear_model import LogisticRegression  # Logistic Regression
-from sklearn.metrics import accuracy_score  # Output metrics
-from imblearn.over_sampling import RandomOverSampler  # Balance classes
-from sklearn.model_selection import cross_val_predict  # Out of fold training
-import optuna # Hyperparameter tuning
-from sklearn.model_selection import cross_val_score  # OOF training
-from imblearn.pipeline import Pipeline as ImbPipeline
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
+from scipy.special import softmax
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, f1_score
+from sklearn.metrics import accuracy_score
+import optuna
 from sklearn.model_selection import StratifiedKFold
 import torch
-from huggingface_hub import login
-from xgboost import XGBClassifier
 import matplotlib.pyplot as plt
-import ftfy
-import html
-import re
 import os
 
 # ================================================================================================================ START
@@ -98,16 +78,21 @@ sentiment_train_num = sentiment_train.map(label_map)
 sentiment_test_num = sentiment_test.map(label_map)
 sentiment_val_num = sentiment_val.map(label_map)
 
-ROBERTA_OPTUNA_TRAIN_SIZE = min(90000, len(text_train))
+ROBERTA_OPTUNA_TRAIN_SIZE = min(60000, len(text_train))
+
+roberta_train_df = train_split_df[["Text", "Sentiment", "Stratify"]].copy()
+roberta_train_df["sentiment_num"] = (roberta_train_df["Sentiment"].map(label_map))
 
 if ROBERTA_OPTUNA_TRAIN_SIZE < len(text_train):
-    text_train_roberta_optuna, _, sentiment_train_num_roberta_optuna, _ = train_test_split(
-        text_train,
-        sentiment_train_num,
+    train_roberta_optuna, _ = train_test_split(
+        roberta_train_df,
         train_size=ROBERTA_OPTUNA_TRAIN_SIZE,
-        stratify=sentiment_train_num,
+        stratify=roberta_train_df["Stratify"],
         random_state=42
     )
+    train_roberta_optuna = (train_roberta_optuna.reset_index(drop=True))
+    text_train_roberta_optuna = (train_roberta_optuna["Text"])
+    sentiment_train_num_roberta_optuna = (train_roberta_optuna["sentiment_num"].astype(int))
 else:
     text_train_roberta_optuna = text_train
     sentiment_train_num_roberta_optuna = sentiment_train_num

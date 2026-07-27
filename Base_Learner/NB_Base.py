@@ -142,10 +142,10 @@ def cross_val_predict_proba_with_progress(model, text, sentiment, cv, desc="Gene
 # BASE NB HYPERPARAMETER TUNING WITH OPTUNA
 # ----------------------------------------------------------------------------- 
 def base_nb_optuna(trial):
-    vectorizer_type = trial.suggest_categorical(
-        "vectorizer_type",
-        ["tfidf", "count"]
-    )
+    # vectorizer_type = trial.suggest_categorical(
+    #     "vectorizer_type",
+    #     ["tfidf", "count"]
+    # )
 
     model_type = trial.suggest_categorical(
         "model_type",
@@ -154,61 +154,61 @@ def base_nb_optuna(trial):
 
     optuna_nb_pipeline_steps = []
 
-    if vectorizer_type == "tfidf":
-        optuna_nb_pipeline_steps.append(
-            ("vec", TfidfVectorizer(
-                max_features=trial.suggest_categorical(
-                    "max_features",
-                    [30000, 50000, 100000, 150000]
-                ),
-                ngram_range=ngram_map[
-                    trial.suggest_categorical(
-                        "ngram_range",
-                        ["1_1", "1_2", "1_3"]
-                    )
-                ],
-                min_df=trial.suggest_categorical(
-                    "min_df",
-                    [5, 10, 20, 50]
-                ),
-                max_df=trial.suggest_categorical(
-                    "max_df",
-                    [0.90, 0.95, 0.98]
-                ),
-                sublinear_tf=trial.suggest_categorical(
-                    "sublinear_tf",
-                    [True, False]
+    # if vectorizer_type == "tfidf":
+    optuna_nb_pipeline_steps.append(
+        ("vec", TfidfVectorizer(
+            max_features=trial.suggest_categorical(
+                "max_features",
+                [30000, 50000, 100000, 150000]
+            ),
+            ngram_range=ngram_map[
+                trial.suggest_categorical(
+                    "ngram_range",
+                    ["1_1", "1_2", "1_3"]
                 )
-            ))
-        )
+            ],
+            min_df=trial.suggest_categorical(
+                "min_df",
+                [5, 10, 20, 50]
+            ),
+            max_df=trial.suggest_categorical(
+                "max_df",
+                [0.90, 0.95, 0.98]
+            ),
+            sublinear_tf=trial.suggest_categorical(
+                "sublinear_tf",
+                [True, False]
+            )
+        ))
+    )
 
-    else:
-        optuna_nb_pipeline_steps.append(
-            ("vec", CountVectorizer(
-                max_features=trial.suggest_categorical(
-                    "max_features",
-                    [30000, 50000, 100000, 150000]
-                ),
-                ngram_range=ngram_map[
-                    trial.suggest_categorical(
-                        "ngram_range",
-                        ["1_1", "1_2", "1_3"]
-                    )
-                ],
-                min_df=trial.suggest_categorical(
-                    "min_df",
-                    [5, 10, 20, 50]
-                ),
-                max_df=trial.suggest_categorical(
-                    "max_df",
-                    [0.90, 0.95, 0.98]
-                ),
-                binary=trial.suggest_categorical(
-                    "binary",
-                    [True, False]
-                )
-            ))
-        )
+    # else:
+    #     optuna_nb_pipeline_steps.append(
+    #         ("vec", CountVectorizer(
+    #             max_features=trial.suggest_categorical(
+    #                 "max_features",
+    #                 [30000, 50000, 100000, 150000]
+    #             ),
+    #             ngram_range=ngram_map[
+    #                 trial.suggest_categorical(
+    #                     "ngram_range",
+    #                     ["1_1", "1_2", "1_3"]
+    #                 )
+    #             ],
+    #             min_df=trial.suggest_categorical(
+    #                 "min_df",
+    #                 [5, 10, 20, 50]
+    #             ),
+    #             max_df=trial.suggest_categorical(
+    #                 "max_df",
+    #                 [0.90, 0.95, 0.98]
+    #             ),
+    #             binary=trial.suggest_categorical(
+    #                 "binary",
+    #                 [True, False]
+    #             )
+    #         ))
+    #     )
 
     if model_type == "multinomial":
         optuna_nb_pipeline_steps.append(
@@ -278,26 +278,26 @@ base_nb_study.optimize(
 base_nb_best = base_nb_study.best_params
 
 base_nb_pipeline_steps = []
-if base_nb_best['vectorizer_type'] == 'tfidf':
-    base_nb_pipeline_steps.append(
-        ("vec", TfidfVectorizer(
-            max_features=base_nb_best['max_features'],
-            ngram_range=ngram_map[base_nb_best['ngram_range']],
-            min_df=base_nb_best['min_df'],
-            max_df=base_nb_best['max_df'],
-            sublinear_tf=base_nb_best['sublinear_tf'],
-        ))
-    )
-else:
-    base_nb_pipeline_steps.append(
-        ("vec", CountVectorizer(
-            max_features=base_nb_best['max_features'],
-            ngram_range=ngram_map[base_nb_best['ngram_range']],
-            min_df=base_nb_best['min_df'],
-            max_df=base_nb_best['max_df'],
-            binary=base_nb_best['binary']
-        ))
-    )
+# if base_nb_best['vectorizer_type'] == 'tfidf':
+base_nb_pipeline_steps.append(
+    ("vec", TfidfVectorizer(
+        max_features=base_nb_best['max_features'],
+        ngram_range=ngram_map[base_nb_best['ngram_range']],
+        min_df=base_nb_best['min_df'],
+        max_df=base_nb_best['max_df'],
+        sublinear_tf=base_nb_best['sublinear_tf'],
+    ))
+)
+# else:
+#     base_nb_pipeline_steps.append(
+#         ("vec", CountVectorizer(
+#             max_features=base_nb_best['max_features'],
+#             ngram_range=ngram_map[base_nb_best['ngram_range']],
+#             min_df=base_nb_best['min_df'],
+#             max_df=base_nb_best['max_df'],
+#             binary=base_nb_best['binary']
+#         ))
+#     )
 
 if base_nb_best['model_type'] == "multinomial":
     base_nb_pipeline_steps.append(
@@ -540,11 +540,6 @@ output_folder = "Base_Learner/Results/NB/Base"
 os.makedirs(output_folder, exist_ok=True)
 
 base_nb_optuna_summary = pd.DataFrame([
-    {
-        "hyperparameter": "vectorizer_type",
-        "search_range": "tfidf, count",
-        "best_value": base_nb_best["vectorizer_type"]
-    },
     {
         "hyperparameter": "model_type",
         "search_range": "multinomial, complement",

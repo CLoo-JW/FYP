@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.calibration import CalibratedClassifierCV
 from tqdm import tqdm
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, f1_score, accuracy_score
 import optuna
 from imblearn.pipeline import Pipeline as ImbPipeline
@@ -33,16 +33,17 @@ text_train = train_split_df["Text"]
 sentiment_train = train_split_df["Sentiment"]
 
 
-OPTUNA_TRAIN_SIZE = min(90000, len(text_train))
+OPTUNA_TRAIN_SIZE = min(60000, len(text_train))
 
 if OPTUNA_TRAIN_SIZE < len(text_train):
-    text_train_optuna, _, sentiment_train_optuna, _ = train_test_split(
-        text_train,
-        sentiment_train,
+    train_optuna, _ = train_test_split(
+        train_split_df,
         train_size=OPTUNA_TRAIN_SIZE,
-        stratify=sentiment_train,
+        stratify=train_split_df["Stratify"],
         random_state=42
     )
+    text_train_optuna = train_optuna["Text"].reset_index(drop=True)
+    sentiment_train_optuna = train_optuna["Sentiment"].reset_index(drop=True)
 else:
     text_train_optuna = text_train
     sentiment_train_optuna = sentiment_train
@@ -50,6 +51,9 @@ else:
 print("\n========== BASE SVM OPTUNA SUBSET ==========")
 print("Optuna training rows:", len(text_train_optuna))
 print(sentiment_train_optuna.value_counts())
+if OPTUNA_TRAIN_SIZE < len(text_train):
+    print("\nDomain-sentiment counts:")
+    print(train_optuna["Stratify"].value_counts().sort_index())
 
 text_val = val_split_df["Text"]
 sentiment_val = val_split_df["Sentiment"]

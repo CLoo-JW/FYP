@@ -1,12 +1,12 @@
-import pandas as pd  # For reading CSV files
-import numpy as np  # Used to combine outputs for meta classifier
+import pandas as pd
+import numpy as np
 from torch.nn import CrossEntropyLoss
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments  # RoBERTa (Tokeniser and Classifier)
-from scipy.special import softmax  # To convert into probability
-from sklearn.model_selection import train_test_split  # Splits dataset
-from sklearn.metrics import classification_report, f1_score  # Output metrics
-from sklearn.metrics import accuracy_score  # Output metrics
-import optuna # Hyperparameter tuning
+from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
+from scipy.special import softmax
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, f1_score
+from sklearn.metrics import accuracy_score
+import optuna
 from sklearn.model_selection import StratifiedKFold
 import torch
 import matplotlib.pyplot as plt
@@ -15,6 +15,7 @@ import os
 import io
 import contextlib
 from tqdm.contrib.concurrent import process_map
+from transformers import DataCollatorWithPadding
 
 # ================================================================================================================ START
 # Dataset
@@ -26,8 +27,10 @@ base_roberta_test_sentiment = base_roberta_test_sentiment_df["base_roberta_senti
 base_roberta_val_sentiment = base_roberta_val_sentiment_df["base_roberta_sentiment"].to_numpy()
 
 base_roberta_val_probabilities_df = pd.read_csv("Base_Learner/Results/RoBERTa/Base/base_roberta_val_probabilities.csv")
+base_roberta_test_probabilities_df = pd.read_csv("Base_Learner/Results/RoBERTa/Base/base_roberta_test_probabilities.csv")
 
 base_roberta_val_probabilities = base_roberta_val_probabilities_df[["base_roberta_neg", "base_roberta_neu", "base_roberta_pos"]].to_numpy()
+base_roberta_test_probabilities = base_roberta_test_probabilities_df[["base_roberta_neg", "base_roberta_neu", "base_roberta_pos"]].to_numpy()
 
 train_split_df = pd.read_csv("Dataset/Preprocessed/train_split.csv")
 val_split_df = pd.read_csv("Dataset/Preprocessed/val_split.csv")
@@ -118,33 +121,6 @@ NEGATION_WORDS = {
     "without"
 }
 
-INTENSIFIER_WORDS = {
-    "very", "really", "extremely", "incredibly", "highly",
-    "super", "ultra", "absolutely", "completely", "totally",
-    "surprisingly", "ridiculously", "seriously", "terribly"
-}
-
-DIMINISHER_WORDS = {
-    "slightly", "somewhat", "mildly", "partly",
-    "partially", "kinda", "sorta", "barely", "hardly",
-    "almost", "fairly"
-}
-
-POST_CONTRAST_MARKERS = {
-    "but",
-    "however",
-    "yet",
-    "nevertheless",
-    "nonetheless"
-}
-
-CONCESSIVE_STARTERS = {
-    "although",
-    "though"
-}
-
-CONTRAST_WORDS = POST_CONTRAST_MARKERS.union(CONCESSIVE_STARTERS)
-
 NEG_AUX = (
     r"(?:"
     r"not|"
@@ -166,840 +142,418 @@ NEG_AUX = (
     r")"
 )
 
+NEGATIVE_STATE_AUX = (
+    r"(?:"
+    r"does\s+not|"
+    r"did\s+not|"
+    r"will\s+not|"
+    r"would\s+not|"
+    r"has\s+not|"
+    r"had\s+not|"
+    r"can\s+not"
+    r")"
+)
+
 OPTIONAL_DEGREE = r"(?:really\s+|very\s+|so\s+|too\s+|quite\s+|at\s+all\s+)?"
 
-UNIVERSAL_PHRASE_RULES = [
-    {
-        "rule_key": "phrase:neutral_good_but_not_great",
-        "polarity": "neu",
+NEGATION_CUE_PATTERN = re.compile(
+    r"\b(?:"
+    r"not|no|never|without|nothing|"
+    r"can\s+not|do\s+not|does\s+not|did\s+not|"
+    r"is\s+not|are\s+not|was\s+not|were\s+not|"
+    r"will\s+not|would\s+not|should\s+not|could\s+not|"
+    r"has\s+not|have\s+not|had\s+not"
+    r")\b",
+    flags=re.IGNORECASE
+)
+
+def affirmative_rule(rule_key, pattern, interpretation):
+    return {
+        "rule_key": rule_key,
+        "rule_group": "negation_phrase",
         "pattern": re.compile(
-            r"\b(?:good|decent|okay|ok|fine)\s+but\s+not\s+"
-            r"(?:great|amazing|excellent|perfect|the\s+best)\b",
+            pattern,
             flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_not_bad_not_great",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\bnot\s+(?:bad|terrible|awful)\s+but\s+not\s+"
-            r"(?:great|amazing|excellent|perfect)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_okay_but_issues",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:okay|ok|fine|decent|good)\s+but\s+"
-            r"(?:has|have|had|with)\s+(?:some\s+)?"
-            r"(?:issues|problems|flaws|drawbacks|downsides)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_works_but",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:works|worked|work)\s+but\s+"
-            r"(?:not\s+perfect|not\s+great|has\s+issues|could\s+be\s+better|"
-            r"there\s+are\s+issues|with\s+some\s+problems)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_decent_for_price",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:decent|okay|ok|fine|acceptable|reasonable)\s+"
-            r"(?:for|given)\s+(?:the\s+)?(?:price|money|cost)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_average_nothing_special",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:average|mediocre|ordinary)\s+"
-            r"(?:product|item|quality|book|read|purchase)\b|"
-            r"\bnothing\s+(?:special|amazing|great|exceptional)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_pros_and_cons",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:pros\s+and\s+cons|good\s+and\s+bad|"
-            r"some\s+good\s+and\s+some\s+bad|mixed\s+feelings|mixed\s+review)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_somewhat_disappointed",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:somewhat|slightly|a\s+little|kind\s+of|kinda)\s+"
-            r"(?:disappointed|underwhelmed)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:neutral_expected_more",
-        "polarity": "neu",
-        "pattern": re.compile(
-            r"\b(?:expected|was\s+expecting)\s+"
-            r"(?:a\s+)?(?:little\s+)?more\b|"
-            r"\bnot\s+(?:quite|really)\s+what\s+i\s+expected\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_worth_it",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bnot\s+" + OPTIONAL_DEGREE +
-            r"worth\s+(?:it|the\s+money|the\s+price|buying|getting|keeping)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:waste_of_money",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:a\s+)?(?:complete\s+|total\s+|real\s+|absolute\s+)?"
-            r"waste\s+of\s+(?:money|time)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:low_quality",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:low|poor|bad|terrible|awful|horrible)\s+quality\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:cheaply_made",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:cheaply\s+made|"
-            r"(?:feel|feels|felt|feeling)\s+cheap|"
-            r"(?:material|fabric|plastic|product|item)\s+"
-            r"(?:feel|feels|felt|feeling)\s+cheap)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:fell_apart",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:fell|came|comes|coming)\s+apart\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_lasting",
-        "polarity": "neg",
-        "pattern": re.compile(
+        ),
+        "interpretation": interpretation
+    }
+
+
+AFFIRMATIVE_NEGATION_RULES = [
+    affirmative_rule(
+        "negation:not_bad_not_great",
+        (
+            r"\bnot\s+(?:bad|terrible|awful)\s+"
+            r"but\s+not\s+"
+            r"(?:great|amazing|excellent|perfect)\b"
+        ),
+        "the reviewed item is average"
+    ),
+
+    affirmative_rule(
+        "negation:good_but_not_great",
+        (
+            r"\b(?:good|decent|okay|ok|fine)\s+"
+            r"but\s+not\s+"
+            r"(?:great|amazing|excellent|perfect|the\s+best)\b"
+        ),
+        "the reviewed item is good yet ordinary"
+    ),
+
+    affirmative_rule(
+        "negation:works_but_not_great",
+        (
+            r"\b(?:works|worked|work)\s+but\s+not\s+"
+            r"(?:perfect|great|excellent|amazing)\b"
+        ),
+        "the reviewed item works with limitations"
+    ),
+
+    affirmative_rule(
+        "negation:nothing_special",
+        (
+            r"\bnothing\s+"
+            r"(?:special|amazing|great|exceptional)\b"
+        ),
+        "the reviewed item is ordinary"
+    ),
+
+    affirmative_rule(
+        "negation:not_what_expected",
+        (
+            r"\bnot\s+(?:quite\s+|really\s+)?"
+            r"what\s+i\s+expected\b"
+        ),
+        "the reviewed item fell short of expectations"
+    ),
+
+    affirmative_rule(
+        "negation:not_worth_it",
+        (
+            r"\bnot\s+"
+            + OPTIONAL_DEGREE
+            + r"worth\s+(?:it|the\s+money|the\s+price|"
+              r"buying|getting|keeping)\b"
+        ),
+        "the reviewed item offers poor value"
+    ),
+
+    affirmative_rule(
+        "negation:not_lasting",
+        (
             r"\b(?:"
-            r"(?:did\s+not|didn't|didnt)\s+last|"
-            r"not\s+lasting|"
-            r"only\s+lasted|"
-            r"lasted\s+(?:only\s+)?(?:a\s+)?(?:day|week|month|few\s+days|few\s+weeks)|"
-            r"broke\s+(?:after|within)"
-            r")\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_as_described",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:not|isn't|isnt|wasn't|wasnt|is\s+not|was\s+not)\s+"
-            r"(?:as\s+)?described\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:wrong_item",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bwrong\s+(?:item|product|model|version|book|charger|case)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:missing_parts",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bmissing\s+(?:parts?|pieces?|accessories|components|items?)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:never_received",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:never\s+received|"
-            r"did\s+not\s+receive|didn't\s+receive|didnt\s+receive|"
-            r"have\s+not\s+received|haven't\s+received|havent\s+received)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_delivered",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:not|never|was\s+not|wasn't|wasnt|"
-            r"has\s+not\s+been|hasn't\s+been|hasnt\s+been)"
-            r"\s+delivered\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:had_to_return",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:had\s+to\s+return|"
-            r"returned\s+(?:it|this|the\s+item|the\s+product|the\s+book))\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:want_refund",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:want|wanted|need|needed|request(?:ed)?|asking\s+for)"
-            r"\s+(?:a\s+)?refund\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_satisfied",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bnot\s+(?:very\s+|really\s+|fully\s+|completely\s+)?"
-            r"(?:satisfied|happy)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:would_not_recommend",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:would\s+not|wouldn't|wouldnt)\s+recommend\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_bad",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bnot\s+(?:too\s+|that\s+|so\s+|very\s+)?bad\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:no_complaints",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bno\s+(?:real\s+|major\s+|serious\s+)?complaints?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:no_issues",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bno\s+(?:real\s+|major\s+|serious\s+)?issues?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:no_problems",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bno\s+(?:real\s+|major\s+|serious\s+)?problems?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:no_regrets",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bno\s+regrets?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:works_great",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bworks?\s+(?:really\s+|very\s+|so\s+)?great\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:works_perfectly",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bworks?\s+(?:perfectly|flawlessly)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:works_as_expected",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bwork(?:s|ed)?\s+(?:exactly\s+)?as\s+expected\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:highly_recommend",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:highly|strongly|definitely)\s+recommend\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:would_recommend",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:would|will)\s+(?:definitely\s+|highly\s+)?recommend\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:would_buy_again",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:would|will)\s+(?:definitely\s+)?buy\s+(?:it\s+|this\s+)?again\b|"
-            r"\bbuy\s+(?:it\s+|this\s+)?again\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:worth_every_penny",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bworth\s+every\s+(?:penny|cent)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:better_than_expected",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bbetter\s+than\s+(?:i\s+)?expected\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:exceeded_expectations",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bexceeded\s+(?:my\s+)?expectations\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:could_not_be_happier",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:could\s+not|couldn't|couldnt)\s+be\s+happier\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:cannot_recommend_enough",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:cannot|can\s+not|can't|cant)\s+recommend"
-            r"(?:\s+(?:it|this|these|them))?\s+enough\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:does_not_work",
-        "polarity": "neg",
-        "pattern": re.compile(
-            rf"\b(?:{NEG_AUX})\s+work(?:s|ed|ing)?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:stopped_working",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:stopped|stop|stops|quit|quits)\s+working\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:no_longer_works",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bno\s+longer\s+work(?:s|ed|ing)?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:dead_on_arrival",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:dead\s+on\s+arrival|doa)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_powering_on",
-        "polarity": "neg",
-        "pattern": re.compile(
-            rf"\b(?:{NEG_AUX})\s+(?:power\s+on|powering\s+on)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_turning_on",
-        "polarity": "neg",
-        "pattern": re.compile(
-            rf"\b(?:{NEG_AUX})\s+(?:turn\s+on|turning\s+on)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_charging",
-        "polarity": "neg",
-        "pattern": re.compile(
-            rf"\b(?:{NEG_AUX})\s+charg(?:e|es|ed|ing)\b|"
-            r"\b(?:stopped|stop|stops|quit|quits)\s+charging\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:battery_drains_fast",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:battery|batteries)\s+"
-            r"(?:drain|drains|drained|die|dies|died)\s+"
-            r"(?:too\s+)?(?:fast|quickly|rapidly)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:does_not_hold_charge",
-        "polarity": "neg",
-        "pattern": re.compile(
+            r"did\s+not\s+last|"
+            r"does\s+not\s+last|"
+            r"has\s+not\s+lasted|"
+            r"not\s+lasting"
+            r")\b"
+        ),
+        "the reviewed item has a short lifespan"
+    ),
+
+    affirmative_rule(
+        "negation:not_as_described",
+        (
+            r"\b(?:"
+            r"is\s+not\s+as\s+described|"
+            r"was\s+not\s+as\s+described|"
+            r"not\s+as\s+described"
+            r")\b"
+        ),
+        "the reviewed item differs from its description"
+    ),
+
+    # affirmative_rule(
+    #     "negation:never_received",
+    #     (
+    #         r"\b(?:"
+    #         r"never\s+received|"
+    #         r"did\s+not\s+receive|"
+    #         r"have\s+not\s+received|"
+    #         r"has\s+not\s+arrived"
+    #         r")\b"
+    #     ),
+    #     "the customer is still waiting for the order"
+    # ),
+
+    # affirmative_rule(
+    #     "negation:not_delivered",
+    #     (
+    #         r"\b(?:"
+    #         r"was\s+not|is\s+not|never|"
+    #         r"has\s+not\s+been"
+    #         r")\s+delivered\b"
+    #     ),
+    #     "the delivery remains pending"
+    # ),
+
+    affirmative_rule(
+        "negation:not_satisfied",
+        (
+            r"\bnot\s+"
+            r"(?:very\s+|really\s+|fully\s+|completely\s+)?"
+            r"(?:satisfied|happy)\b"
+        ),
+        "the customer feels let down"
+    ),
+
+    affirmative_rule(
+        "negation:would_not_recommend",
+        (
+            r"\b(?:would|will|do|does|did|could|should)"
+            r"\s+not\s+recommend\b"
+        ),
+        "the customer gives the reviewed item a poor recommendation"
+    ),
+
+    affirmative_rule(
+        "negation:not_bad",
+        (
+            r"\bnot\s+"
+            r"(?:too\s+|that\s+|so\s+|very\s+)?bad\b"
+        ),
+        "the reviewed item is acceptable"
+    ),
+
+    affirmative_rule(
+        "negation:no_complaints",
+        (
+            r"\bno\s+"
+            r"(?:real\s+|major\s+|serious\s+)?"
+            r"complaints?\b"
+        ),
+        "the customer is satisfied"
+    ),
+
+    affirmative_rule(
+        "negation:no_issues",
+        (
+            r"\bno\s+"
+            r"(?:real\s+|major\s+|serious\s+)?"
+            r"issues?\b"
+        ),
+        "the customer reports a smooth experience"
+    ),
+
+    affirmative_rule(
+        "negation:no_problems",
+        (
+            r"\bno\s+"
+            r"(?:real\s+|major\s+|serious\s+)?"
+            r"problems?\b"
+        ),
+        "the customer reports a smooth experience"
+    ),
+
+    affirmative_rule(
+        "negation:no_regrets",
+        r"\bno\s+regrets?\b",
+        "the customer is pleased with the purchase"
+    ),
+
+    affirmative_rule(
+        "negation:could_not_be_happier",
+        r"\bcould\s+not\s+be\s+happier\b",
+        "the customer is extremely happy"
+    ),
+
+    affirmative_rule(
+        "negation:cannot_recommend_enough",
+        (
+            r"\bcan\s+not\s+recommend"
+            r"(?:\s+(?:it|this|these|them))?"
+            r"\s+enough\b"
+        ),
+        "the customer strongly recommends the reviewed item"
+    ),
+
+    affirmative_rule(
+        "negation:never_worked",
+        r"\bnever\s+work(?:ed|s|ing)?\b",
+        "the reviewed item was defective from the beginning"
+    ),
+
+    affirmative_rule(
+        "negation:does_not_work",
+        (
+            r"\b(?:"
+            r"does\s+not|did\s+not|will\s+not|"
+            r"has\s+not|had\s+not"
+            r")\s+work(?:s|ed|ing)?\b"
+            r"(?!\s+better\b)"
+        ),
+        "the reviewed item is defective"
+    ),
+
+    affirmative_rule(
+        "negation:no_longer_works",
+        r"\bno\s+longer\s+work(?:s|ed|ing)?\b",
+        "the reviewed item became defective"
+    ),
+
+    affirmative_rule(
+        "negation:not_powering_on",
+        (
+            rf"\b(?:{NEG_AUX})\s+"
+            r"(?:power\s+on|powering\s+on)\b"
+        ),
+        "the power function is defective"
+    ),
+
+    affirmative_rule(
+        "negation:not_turning_on",
+        (
+            rf"\b(?:{NEG_AUX})\s+"
+            r"(?:turn\s+on|turning\s+on)\b"
+        ),
+        "the power function is defective"
+    ),
+
+    affirmative_rule(
+         "negation:not_charging",
+        (
+            rf"\b(?:{NEGATIVE_STATE_AUX})\s+"
+            r"charg(?:e|es|ed|ing)\b"
+        ),
+        "the charging function is defective"
+    ),
+
+    affirmative_rule(
+        "negation:does_not_hold_charge",
+        (
             rf"\b(?:battery\s+)?(?:{NEG_AUX})\s+hold\s+"
-            r"(?:a\s+|the\s+)?charge\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:keeps_disconnecting",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:keep|keeps|kept)\s+disconnecting\b|"
-            r"\blosing\s+connection\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:poor_connection",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:poor|bad|weak|unstable)\s+(?:connection|signal)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:overheats_quickly",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:overheat|overheats|overheated|overheating)\s+"
-            r"(?:too\s+)?(?:quickly|fast|easily)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:screen_cracked",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:screen\s+cracked|cracked\s+screen)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:flickering_screen",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:screen|display)\s+(?:is\s+|was\s+|keeps\s+|kept\s+|started\s+)?"
-            r"(?:flickering|flickers|flicker)\b|"
-            r"\b(?:flickering|flickers|flicker)\s+(?:screen|display)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:touchscreen_not_responsive",
-        "polarity": "neg",
-        "pattern": re.compile(
+            r"(?:a\s+|the\s+)?charge\b"
+        ),
+        "the battery has poor charge retention"
+    ),
+
+    affirmative_rule(
+        "negation:touchscreen_not_responsive",
+        (
             r"\b(?:touch\s*screen|touchscreen|screen)\s+"
             r"(?:is\s+|was\s+)?not\s+responsive\b|"
             r"\b(?:touch\s*screen|touchscreen|screen)\s+"
-            r"(?:does\s+not|doesn't|doesnt)\s+respond\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:not_fitting",
-        "polarity": "neg",
-        "pattern": re.compile(
-            rf"\b(?:{NEG_AUX})\s+fit(?:s|ted|ting)?\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:wrong_size",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bwrong\s+size\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:wrong_color",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bwrong\s+(?:color|colour)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:runs_small",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:run|runs|ran)\s+(?:too\s+|a\s+little\s+|a\s+bit\s+|really\s+)?small\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:runs_large",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:run|runs|ran)\s+(?:too\s+|a\s+little\s+|a\s+bit\s+|really\s+)?(?:large|big)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:poor_fit",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:poor|bad|terrible|awkward|weird)\s+fit\b|"
-            r"\bfit(?:s|ted)?\s+(?:poorly|badly|terribly|awkwardly)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:see_through",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:see\s*through|see-through|too\s+sheer|transparent)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:shrunk_after_wash",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:shrank|shrunk|shrinked)\s+"
-            r"(?:after|following)\s+(?:a\s+)?(?:wash|washing)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:color_faded",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:color|colour|colors|colours)\s+(?:faded|fades|fade)\b|"
-            r"\b(?:faded|fades|fade)\s+(?:color|colour|colors|colours)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:fabric_feels_cheap",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:fabric|material)\s+(?:feel|feels|felt|feeling)\s+cheap\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:seam_ripped",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bseam\s+(?:ripped|torn)\b|"
-            r"\bstitching\s+(?:came\s+loose|undone|ripped|torn)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:zipper_broken",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bzipper\s+(?:broken|stuck|jammed|broke)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:true_to_size",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\btrue\s+to\s+size\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:comfortable_fit",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bcomfortable\s+fit\b|"
-            r"\bfit(?:s|ted)?\s+comfortably\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:missing_pages",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\bmissing\s+pages?\b|"
-            r"\bpages?\s+(?:is\s+|are\s+|was\s+|were\s+)?missing\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:poorly_written",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:poorly|badly|terribly)\s+written\b|"
-            r"\bwriting\s+(?:is\s+|was\s+)?(?:poor|bad|terrible|awful)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:hard_to_follow",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:hard|difficult|confusing)\s+to\s+follow\b|"
-            r"\bnot\s+easy\s+to\s+follow\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:bad_translation",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:bad|poor|terrible|awful)\s+translation\b|"
-            r"\btranslation\s+(?:is\s+|was\s+)?(?:bad|poor|terrible|awful)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:printing_error",
-        "polarity": "neg",
-        "pattern": re.compile(
-            r"\b(?:printing|print)\s+errors?\b|"
-            r"\b(?:misprint|misprinted|misprints)\b|"
-            r"\bpages?\s+(?:printed|print)\s+incorrectly\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:great_read",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bgreat\s+read\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:well_written",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\bwell\s+written\b|"
-            r"\bwriting\s+(?:is\s+|was\s+)?(?:excellent|great|clear)\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:easy_to_follow",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:easy|clear)\s+to\s+follow\b|"
-            r"\bclear\s+and\s+easy\s+to\s+follow\b",
-            flags=re.IGNORECASE
-        )
-    },
-    {
-        "rule_key": "phrase:highly_informative",
-        "polarity": "pos",
-        "pattern": re.compile(
-            r"\b(?:highly|very|really)\s+informative\b|"
-            r"\binformative\s+and\s+useful\b",
-            flags=re.IGNORECASE
-        )
-    }
+            r"does\s+not\s+respond\b"
+        ),
+        "the touchscreen responds poorly"
+    ),
+
+    affirmative_rule(
+        "negation:not_fitting",
+        rf"\b(?:{NEG_AUX})\s+fit(?:s|ted|ting)?\b",
+        "the reviewed item fits poorly"
+    ),
+
+    affirmative_rule(
+        "negation:not_easy_to_follow",
+        r"\bnot\s+easy\s+to\s+follow\b",
+        "the content is difficult to follow"
+    ),
+
+    affirmative_rule(
+        "negation:not_good",
+        rf"\b(?:{NEG_AUX})\s+good\b",
+        "the evaluated aspect is poor"
+    ),
+
+    affirmative_rule(
+        "negation:not_great",
+        rf"\b(?:{NEG_AUX})\s+great\b",
+        "the evaluated aspect is mediocre"
+    ),
+
+    affirmative_rule(
+        "negation:not_useful",
+        rf"\b(?:{NEG_AUX})\s+useful\b",
+        "the reviewed item provides little practical value"
+    ),
+
+    affirmative_rule(
+        "negation:not_clear",
+        rf"\b(?:{NEG_AUX})\s+clear\b",
+        "the content is confusing"
+    ),
+
+    affirmative_rule(
+        "negation:not_durable",
+        rf"\b(?:{NEG_AUX})\s+durable\b",
+        "the reviewed item has poor durability"
+    ),
+
+    affirmative_rule(
+        "negation:not_reliable",
+        rf"\b(?:{NEG_AUX})\s+reliable\b",
+        "the reviewed item has poor reliability"
+    ),
+
+    affirmative_rule(
+        "negation:not_accurate",
+        rf"\b(?:{NEG_AUX})\s+accurate\b",
+        "the reviewed item has poor accuracy"
+    ),
+
+    affirmative_rule(
+        "negation:not_impressed",
+        rf"\b(?:{NEG_AUX})\s+impressed\b",
+        "the customer feels let down"
+    )
 ]
 
-CUSTOM_PHRASE_INTERPRETATIONS = {
-    "phrase:neutral_good_but_not_great": "the product is acceptable but not excellent",
-    "phrase:neutral_not_bad_not_great": "the product is average",
-    "phrase:neutral_okay_but_issues": "the product is acceptable but has issues",
-    "phrase:neutral_works_but": "the product works but has limitations",
-    "phrase:neutral_decent_for_price": "the product is acceptable for the price",
-    "phrase:neutral_average_nothing_special": "the product is average",
-    "phrase:neutral_pros_and_cons": "the review expresses mixed feelings",
-    "phrase:neutral_somewhat_disappointed": "the customer is mildly disappointed",
-    "phrase:neutral_expected_more": "the customer expected more",
-    "phrase:not_worth_it": "the product is a waste of money",
-    "phrase:waste_of_money": "the product is a waste of money",
-    "phrase:low_quality": "the product quality is poor",
-    "phrase:cheaply_made": "the product is cheaply made",
-    "phrase:fell_apart": "the product broke apart",
-    "phrase:not_lasting": "the product does not last",
-    "phrase:not_as_described": "the product is not as described",
-    "phrase:wrong_item": "the wrong item was received",
-    "phrase:missing_parts": "the product has missing parts",
-    "phrase:never_received": "the customer did not receive the product",
-    "phrase:not_delivered": "the product was not delivered",
-    "phrase:had_to_return": "the customer returned the product",
-    "phrase:want_refund": "the customer wants a refund",
-    "phrase:not_satisfied": "the customer is dissatisfied",
-    "phrase:would_not_recommend": "the customer recommends avoiding this product",
-    "phrase:not_bad": "the product is acceptable",
-    "phrase:no_complaints": "the customer has no complaints",
-    "phrase:no_issues": "the product works without issues",
-    "phrase:no_problems": "the product works without problems",
-    "phrase:no_regrets": "the customer does not regret the purchase",
-    "phrase:works_great": "the product works very well",
-    "phrase:works_perfectly": "the product works perfectly",
-    "phrase:works_as_expected": "the product works as expected",
-    "phrase:highly_recommend": "the customer strongly recommends this product",
-    "phrase:would_recommend": "the customer recommends this product",
-    "phrase:would_buy_again": "the customer would buy the product again",
-    "phrase:worth_every_penny": "the product is worth the money",
-    "phrase:better_than_expected": "the product exceeded expectations",
-    "phrase:exceeded_expectations": "the product exceeded expectations",
-    "phrase:could_not_be_happier": "the customer is very happy",
-    "phrase:cannot_recommend_enough": "the customer strongly recommends this product",
-    "phrase:does_not_work": "the product is defective",
-    "phrase:stopped_working": "the product stopped working",
-    "phrase:no_longer_works": "the product no longer works",
-    "phrase:dead_on_arrival": "the product arrived defective",
-    "phrase:not_powering_on": "the product does not power on",
-    "phrase:not_turning_on": "the product does not turn on",
-    "phrase:not_charging": "the product does not charge",
-    "phrase:battery_drains_fast": "the battery drains quickly",
-    "phrase:does_not_hold_charge": "the battery does not hold charge",
-    "phrase:keeps_disconnecting": "the product keeps disconnecting",
-    "phrase:poor_connection": "the product has a poor connection",
-    "phrase:overheats_quickly": "the product overheats quickly",
-    "phrase:screen_cracked": "the screen is cracked",
-    "phrase:flickering_screen": "the screen is flickering",
-    "phrase:touchscreen_not_responsive": "the touchscreen is not responsive",
-    "phrase:not_fitting": "the item has a poor fit",
-    "phrase:wrong_size": "the item has the wrong size",
-    "phrase:wrong_color": "the item has the wrong colour",
-    "phrase:runs_small": "the item runs small",
-    "phrase:runs_large": "the item runs large",
-    "phrase:poor_fit": "the item has a poor fit",
-    "phrase:see_through": "the material is see through",
-    "phrase:shrunk_after_wash": "the item shrank after washing",
-    "phrase:color_faded": "the colour faded",
-    "phrase:fabric_feels_cheap": "the fabric feels cheap",
-    "phrase:seam_ripped": "the seam ripped",
-    "phrase:zipper_broken": "the zipper is broken",
-    "phrase:true_to_size": "the item is true to size",
-    "phrase:comfortable_fit": "the item fits comfortably",
-    "phrase:missing_pages": "the book has missing pages",
-    "phrase:poorly_written": "the book is poorly written",
-    "phrase:hard_to_follow": "the book is difficult to follow",
-    "phrase:bad_translation": "the translation is poor",
-    "phrase:printing_error": "the book has printing errors",
-    "phrase:great_read": "the book is a great read",
-    "phrase:well_written": "the book is well written",
-    "phrase:easy_to_follow": "the book is easy to follow",
-    "phrase:highly_informative": "the book is very informative",
-}
+FORBIDDEN_EXPLICIT_NEGATION = re.compile(
+    r"\b(?:"
+    r"not|no|never|without|nothing|nowhere|"
+    r"nobody|none|neither|"
+    r"can\s+not|do\s+not|does\s+not|did\s+not|"
+    r"is\s+not|are\s+not|was\s+not|were\s+not|"
+    r"will\s+not|would\s+not|should\s+not|"
+    r"could\s+not|has\s+not|have\s+not|had\s+not"
+    r")\b",
+    flags=re.IGNORECASE
+)
 
-INTENSIFIER_PATTERN = r"(?:very|really|extremely|incredibly|highly|super|ultra|absolutely|completely|totally|seriously|terribly)"
-DIMINISHER_PATTERN = r"(?:slightly|somewhat|mildly|partly|partially|kinda|sorta|barely|hardly|almost|fairly)"
 
-AFFIRMATIVE_MODIFIER_RULES = [
-    {
-        "rule_key": "negator:not_good",
-        "rule_group": "negator",
-        "pattern": re.compile(rf"\b(?:{NEG_AUX})\s+good\b", flags=re.IGNORECASE),
-        "interpretation": "the product is bad"
-    },
-    {
-        "rule_key": "negator:not_great",
-        "rule_group": "negator",
-        "pattern": re.compile(rf"\b(?:{NEG_AUX})\s+great\b", flags=re.IGNORECASE),
-        "interpretation": "the product is not great"
-    },
-    {
-        "rule_key": "negator:not_useful",
-        "rule_group": "negator",
-        "pattern": re.compile(rf"\b(?:{NEG_AUX})\s+useful\b", flags=re.IGNORECASE),
-        "interpretation": "the product is not useful"
-    },
-    {
-        "rule_key": "negator:not_clear",
-        "rule_group": "negator",
-        "pattern": re.compile(rf"\b(?:{NEG_AUX})\s+clear\b", flags=re.IGNORECASE),
-        "interpretation": "the explanation is unclear"
-    },
-    {
-        "rule_key": "intensifier:strong_positive",
-        "rule_group": "intensifier",
-        "pattern": re.compile(
-            rf"\b{INTENSIFIER_PATTERN}\s+(?:good|great|excellent|amazing|perfect|useful|comfortable|informative)\b",
-            flags=re.IGNORECASE
-        ),
-        "interpretation": "the review expresses strong positive sentiment"
-    },
-    {
-        "rule_key": "intensifier:strong_negative",
-        "rule_group": "intensifier",
-        "pattern": re.compile(
-            rf"\b{INTENSIFIER_PATTERN}\s+(?:bad|terrible|awful|horrible|poor|disappointed|uncomfortable|confusing)\b",
-            flags=re.IGNORECASE
-        ),
-        "interpretation": "the review expresses strong negative sentiment"
-    },
-    {
-        "rule_key": "diminisher:mild_positive",
-        "rule_group": "diminisher",
-        "pattern": re.compile(
-            rf"\b{DIMINISHER_PATTERN}\s+(?:good|useful|comfortable|helpful|informative)\b",
-            flags=re.IGNORECASE
-        ),
-        "interpretation": "the review expresses mild positive sentiment"
-    },
-    {
-        "rule_key": "diminisher:mild_negative",
-        "rule_group": "diminisher",
-        "pattern": re.compile(
-            rf"\b{DIMINISHER_PATTERN}\s+(?:bad|disappointed|underwhelmed|confusing|uncomfortable)\b",
-            flags=re.IGNORECASE
-        ),
-        "interpretation": "the review expresses mild negative sentiment"
-    },
-]
+def validate_affirmative_negation_rules():
+    invalid_rows = []
+    seen_rule_keys = set()
+
+    for rule in AFFIRMATIVE_NEGATION_RULES:
+        rule_key = rule["rule_key"]
+        interpretation = rule["interpretation"].strip()
+
+        problems = []
+
+        if rule_key in seen_rule_keys:
+            problems.append("duplicate rule key")
+
+        seen_rule_keys.add(rule_key)
+
+        if not interpretation:
+            problems.append("empty interpretation")
+
+        if FORBIDDEN_EXPLICIT_NEGATION.search(
+            interpretation
+        ):
+            problems.append(
+                "interpretation contains explicit negation"
+            )
+
+        if problems:
+            invalid_rows.append({
+                "rule_key": rule_key,
+                "interpretation": interpretation,
+                "problems": "; ".join(problems)
+            })
+
+    if invalid_rows:
+        raise ValueError(
+            "Invalid affirmative interpretation rules:\n"
+            + pd.DataFrame(
+                invalid_rows
+            ).to_string(index=False)
+        )
+
+
+validate_affirmative_negation_rules()
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -1062,38 +616,47 @@ def normalise_negation_contractions(text):
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
-# PHRASE AND CONTRAST EXTRACTION
+# NEGATION PHRASE EXTRACTION
 # ----------------------------------------------------------------------------- 
-def find_non_overlapping_phrase_matches(text):
-    original_text = str(text)
-    phrase_matches = []
+def split_into_sentences(text):
+    sentences = re.split(
+        r"(?<=[.!?])\s+",
+        str(text).strip()
+    )
 
-    for rule in UNIVERSAL_PHRASE_RULES:
-        rule_key = rule["rule_key"]
+    return [
+        sentence.strip()
+        for sentence in sentences
+        if sentence.strip()
+    ]
 
-        for match in rule["pattern"].finditer(original_text):
-            interpretation = CUSTOM_PHRASE_INTERPRETATIONS.get(rule_key)
+def contains_negation(text):
+    normalised_text = normalise_negation_contractions(text)
 
-            if interpretation is None:
-                if rule["polarity"] == "neg":
-                    interpretation = "the review expresses a negative product issue"
-                elif rule["polarity"] == "pos":
-                    interpretation = "the review expresses a positive product evaluation"
-                else:
-                    interpretation = "the review expresses a mixed or neutral evaluation"
+    return bool(
+        NEGATION_CUE_PATTERN.search(normalised_text)
+    )
 
-            phrase_matches.append({
-                "rule_key": rule_key,
-                "rule_group": "phrase",
+
+def find_non_overlapping_affirmative_matches(text):
+    candidate_matches = []
+
+    for rule in AFFIRMATIVE_NEGATION_RULES:
+        for match in rule["pattern"].finditer(text):
+            candidate_matches.append({
+                "rule_key": rule["rule_key"],
+                "rule_group": rule["rule_group"],
+                "matched_text": match.group(0),
+                "interpretation": rule["interpretation"],
                 "start": match.start(),
                 "end": match.end(),
-                "matched_text": match.group(0),
-                "interpretation": interpretation,
                 "length": match.end() - match.start()
             })
 
-    phrase_matches = sorted(
-        phrase_matches,
+    # Earlier matches are considered first.
+    # For equal starts, the longest rule wins.
+    candidate_matches = sorted(
+        candidate_matches,
         key=lambda item: (
             item["start"],
             -item["length"]
@@ -1103,225 +666,135 @@ def find_non_overlapping_phrase_matches(text):
     selected_matches = []
     occupied_ranges = []
 
-    for phrase_match in phrase_matches:
-        start = phrase_match["start"]
-        end = phrase_match["end"]
+    for candidate in candidate_matches:
+        overlaps = any(
+            candidate["start"] < occupied_end
+            and candidate["end"] > occupied_start
+            for occupied_start, occupied_end
+            in occupied_ranges
+        )
 
-        overlaps_existing_match = False
-
-        for occupied_start, occupied_end in occupied_ranges:
-            if start < occupied_end and end > occupied_start:
-                overlaps_existing_match = True
-                break
-
-        if overlaps_existing_match:
+        if overlaps:
             continue
 
-        selected_matches.append(phrase_match)
-        occupied_ranges.append((start, end))
+        selected_matches.append(candidate)
+
+        occupied_ranges.append((
+            candidate["start"],
+            candidate["end"]
+        ))
 
     return selected_matches
 
-def split_into_sentences(text):
-    return re.split(
-        r"(?<=[.!?])\s+",
-        str(text).strip()
-    )
 
-def get_contrast_focus_clauses(text):
-    sentences = split_into_sentences(text)
-    focus_clauses = []
+def find_affirmative_interpretations(
+        text,
+        max_interpretations=4
+):
+    interpretations = []
+    applied_rules = []
+    match_details = []
 
-    post_contrast_pattern = re.compile(
-        r"\b(?:but|however|yet|nevertheless|nonetheless)\b",
-        flags=re.IGNORECASE
-    )
+    seen_interpretations = set()
+    seen_rules = set()
 
-    concessive_start_pattern = re.compile(
-        r"^\s*(?:although|though)\s+(.+?),\s+(.+)$",
-        flags=re.IGNORECASE
-    )
+    for sentence in split_into_sentences(text):
+        normalised_sentence = (
+            normalise_negation_contractions(sentence)
+        )
 
-    trailing_concessive_pattern = re.compile(
-        r"^\s*(.+?),\s*(?:although|though)\s+(.+)$",
-        flags=re.IGNORECASE
-    )
-
-    for sentence in sentences:
-        match = concessive_start_pattern.search(sentence)
-
-        if match:
-            focus_clauses.append(match.group(2).strip())
+        if not NEGATION_CUE_PATTERN.search(
+            normalised_sentence
+        ):
             continue
 
-        match = trailing_concessive_pattern.search(sentence)
+        sentence_matches = (
+            find_non_overlapping_affirmative_matches(
+                normalised_sentence
+            )
+        )
 
-        if match:
-            focus_clauses.append(match.group(1).strip())
-            continue
+        for sentence_match in sentence_matches:
+            interpretation = sentence_match[
+                "interpretation"
+            ]
 
-        matches = list(post_contrast_pattern.finditer(sentence))
+            rule_key = sentence_match[
+                "rule_key"
+            ]
 
-        for index, match in enumerate(matches):
-            start = match.end()
+            match_details.append({
+                "source_sentence": sentence,
+                "normalised_sentence": normalised_sentence,
+                "matched_text": sentence_match[
+                    "matched_text"
+                ],
+                "rule_key": rule_key,
+                "interpretation": interpretation
+            })
 
-            if index + 1 < len(matches):
-                end = matches[index + 1].start()
-            else:
-                end = len(sentence)
+            if interpretation not in seen_interpretations:
+                interpretations.append(
+                    interpretation
+                )
+                seen_interpretations.add(
+                    interpretation
+                )
 
-            focus_clause = sentence[start:end].strip(" ,;:")
+            if rule_key not in seen_rules:
+                applied_rules.append(rule_key)
+                seen_rules.add(rule_key)
 
-            if focus_clause:
-                focus_clauses.append(focus_clause)
+            if len(interpretations) >= max_interpretations:
+                break
 
-    return focus_clauses
+        if len(interpretations) >= max_interpretations:
+            break
 
-def extract_universal_word_rules(text):
-    text = normalise_negation_contractions(text)
-
-    tokens = re.findall(
-        r"[A-Za-z]+(?:'[A-Za-z]+)?|\d+|[^\w\s]",
-        text
+    return (
+        interpretations,
+        applied_rules,
+        match_details
     )
 
-    applied_rules = set()
 
-    clean_negation_words = {
-        str(word).lower()
-        for word in NEGATION_WORDS
-    }
+def create_affirmative_interpretation(
+        text,
+        max_interpretations=4
+):
+    interpretations, _, _ = (
+        find_affirmative_interpretations(
+            text,
+            max_interpretations=max_interpretations
+        )
+    )
 
-    clean_intensifier_words = {
-        str(word).lower()
-        for word in INTENSIFIER_WORDS
-    }
+    if not interpretations:
+        return ""
 
-    clean_diminisher_words = {
-        str(word).lower()
-        for word in DIMINISHER_WORDS
-    }
+    return ". ".join(interpretations) + "."
 
-    clean_post_contrast_markers = {
-        str(word).lower()
-        for word in POST_CONTRAST_MARKERS
-    }
 
-    clean_concessive_starters = {
-        str(word).lower()
-        for word in CONCESSIVE_STARTERS
-    }
-
-    for token in tokens:
-        clean_token = str(token).lower()
-
-        if clean_token in clean_negation_words:
-            applied_rules.add("negator:" + clean_token)
-
-        if clean_token in clean_intensifier_words:
-            applied_rules.add("intensifier:" + clean_token)
-
-        if clean_token in clean_diminisher_words:
-            applied_rules.add("diminisher:" + clean_token)
-
-        if clean_token in clean_post_contrast_markers:
-            applied_rules.add("contrast:" + clean_token)
-
-        if clean_token in clean_concessive_starters:
-            applied_rules.add("contrast:" + clean_token)
+def extract_affirmative_interpretation_rules(text):
+    _, applied_rules, _ = (
+        find_affirmative_interpretations(text)
+    )
 
     return applied_rules
+
+
+def extract_affirmative_interpretation_details(text):
+    _, _, match_details = (
+        find_affirmative_interpretations(text)
+    )
+
+    return match_details
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
 # AFFIRMATIVE INTERPRETATION CREATION
 # ----------------------------------------------------------------------------- 
-def find_affirmative_interpretations(text):
-    original_text = str(text)
-    normalised_text = normalise_negation_contractions(original_text)
 
-    interpretations = []
-    applied_rules = set()
-    seen_core_interpretations = set()
-
-    def add_interpretation(interpretation):
-        if interpretation not in seen_core_interpretations:
-            interpretations.append(interpretation)
-            seen_core_interpretations.add(interpretation)
-
-    phrase_matches = find_non_overlapping_phrase_matches(normalised_text)
-
-    for phrase_match in phrase_matches:
-        add_interpretation(phrase_match["interpretation"])
-        applied_rules.add(phrase_match["rule_key"])
-
-    applied_rules.update(
-        extract_universal_word_rules(normalised_text)
-    )
-
-    for rule in AFFIRMATIVE_MODIFIER_RULES:
-        if rule["pattern"].search(normalised_text):
-            add_interpretation(rule["interpretation"])
-            applied_rules.add(rule["rule_key"])
-
-    contrast_focus_clauses = get_contrast_focus_clauses(normalised_text)
-
-    for clause in contrast_focus_clauses:
-        clause_phrase_matches = find_non_overlapping_phrase_matches(clause)
-
-        for phrase_match in clause_phrase_matches:
-            core_interpretation = phrase_match["interpretation"]
-
-            if core_interpretation not in seen_core_interpretations:
-                add_interpretation(
-                    "the main opinion is that " + core_interpretation
-                )
-
-            applied_rules.add(phrase_match["rule_key"])
-
-        for rule in AFFIRMATIVE_MODIFIER_RULES:
-            if rule["pattern"].search(clause):
-                core_interpretation = rule["interpretation"]
-
-                if core_interpretation not in seen_core_interpretations:
-                    add_interpretation(
-                        "the main opinion is that " + core_interpretation
-                    )
-
-                applied_rules.add(rule["rule_key"])
-
-    return interpretations, sorted(applied_rules)
-
-def add_affirmative_interpretation(text, max_interpretations=4):
-    original_text = str(text)
-
-    interpretations, _ = find_affirmative_interpretations(original_text)
-
-    unique_interpretations = []
-    seen = set()
-
-    for interpretation in interpretations:
-        if interpretation not in seen:
-            unique_interpretations.append(interpretation)
-            seen.add(interpretation)
-
-    unique_interpretations = unique_interpretations[:max_interpretations]
-
-    if not unique_interpretations:
-        return original_text
-
-    interpretation_text = ". ".join(unique_interpretations)
-
-    return (
-        "Interpretation: "
-        + interpretation_text
-        + ". Review: "
-        + original_text
-    )
-
-def extract_affirmative_interpretation_rules(text):
-    _, applied_rules = find_affirmative_interpretations(text)
-    return applied_rules
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -1330,81 +803,22 @@ def extract_affirmative_interpretation_rules(text):
 def build_affirmative_roberta_rule_catalog():
     catalog_rows = []
 
-    for word in sorted(NEGATION_WORDS):
-        catalog_rows.append({
-            "rule_key": "negator:" + str(word).lower(),
-            "rule_group": "negator",
-            "marker": "CONTEXT_SIGNAL",
-            "description": "Negator word detected: " + str(word),
-            "polarity": None
-        })
-
-    for word in sorted(INTENSIFIER_WORDS):
-        catalog_rows.append({
-            "rule_key": "intensifier:" + str(word).lower(),
-            "rule_group": "intensifier",
-            "marker": "CONTEXT_SIGNAL",
-            "description": "Intensifier word detected: " + str(word),
-            "polarity": None
-        })
-
-    for word in sorted(DIMINISHER_WORDS):
-        catalog_rows.append({
-            "rule_key": "diminisher:" + str(word).lower(),
-            "rule_group": "diminisher",
-            "marker": "CONTEXT_SIGNAL",
-            "description": "Diminisher word detected: " + str(word),
-            "polarity": None
-        })
-
-    for word in sorted(POST_CONTRAST_MARKERS):
-        catalog_rows.append({
-            "rule_key": "contrast:" + str(word).lower(),
-            "rule_group": "contrast",
-            "marker": "CONTEXT_SIGNAL",
-            "description": "Post-contrast marker detected: " + str(word),
-            "polarity": None
-        })
-
-    for word in sorted(CONCESSIVE_STARTERS):
-        catalog_rows.append({
-            "rule_key": "contrast:" + str(word).lower(),
-            "rule_group": "contrast",
-            "marker": "CONTEXT_SIGNAL",
-            "description": "Concessive marker detected: " + str(word),
-            "polarity": None
-        })
-
-    # Phrase rules directly create affirmative interpretation text.
-    for rule in UNIVERSAL_PHRASE_RULES:
+    for rule in AFFIRMATIVE_NEGATION_RULES:
         catalog_rows.append({
             "rule_key": rule["rule_key"],
-            "rule_group": "phrase",
+            "rule_group": "negation_phrase",
             "marker": "AFFIRMATIVE_INTERPRETATION",
             "description": rule["pattern"].pattern,
-            "polarity": rule["polarity"]
-        })
-
-    # Modifier interpretation rules also directly create affirmative interpretation text.
-    for rule in AFFIRMATIVE_MODIFIER_RULES:
-        catalog_rows.append({
-            "rule_key": rule["rule_key"],
-            "rule_group": rule["rule_group"],
-            "marker": "AFFIRMATIVE_INTERPRETATION",
-            "description": rule["pattern"].pattern,
+            "interpretation": rule["interpretation"],
             "polarity": None
         })
 
-    catalog_df = pd.DataFrame(catalog_rows)
-
-    catalog_df = (
-        catalog_df
+    return (
+        pd.DataFrame(catalog_rows)
         .drop_duplicates(subset=["rule_key"])
-        .sort_values(["rule_group", "rule_key"])
+        .sort_values("rule_key")
         .reset_index(drop=True)
     )
-
-    return catalog_df
 
 def count_rule_usage(rule_sets):
     rule_counts = {}
@@ -1623,13 +1037,7 @@ def build_roberta_exclusive_rule_table(
         rule_key = rule_row["rule_key"]
         rule_group = rule_row["rule_group"]
 
-        if rule_group not in {
-            "phrase",
-            "contrast",
-            "negator",
-            "intensifier",
-            "diminisher"
-        }:
+        if rule_group != "negation_phrase":
             continue
 
         exclusive_mask = np.array([
@@ -1859,223 +1267,6 @@ def print_roberta_non_exclusive_all_rule_table(
     print(non_exclusive_all_rule_df.to_string(index=False))
 
     return non_exclusive_all_rule_df
-
-def get_roberta_rule_scope(rule_key):
-    rule_key = str(rule_key).lower()
-
-    if rule_key.startswith("phrase:"):
-        return "phrase"
-
-    if rule_key.startswith("negator:"):
-        return "negator"
-
-    if rule_key.startswith("intensifier:"):
-        return "intensifier"
-
-    if rule_key.startswith("diminisher:"):
-        return "diminisher"
-
-    if rule_key.startswith("contrast:"):
-        return "contrast"
-
-    return "other"
-
-def get_roberta_rules_in_scope(rule_set, target_scope):
-    return [
-        rule_key
-        for rule_key in rule_set
-        if get_roberta_rule_scope(rule_key) == target_scope
-    ]
-
-def build_roberta_scoped_exclusive_rule_table(
-        rule_catalog_df,
-        val_rule_sets,
-        sentiment_true,
-        base_sentiment,
-        enhanced_sentiment,
-        target_scope
-):
-    sentiment_true = np.asarray(sentiment_true)
-    base_sentiment = np.asarray(base_sentiment)
-    enhanced_sentiment = np.asarray(enhanced_sentiment)
-
-    baseline_correct = base_sentiment == sentiment_true
-    enhanced_correct = enhanced_sentiment == sentiment_true
-
-    scoped_catalog_df = rule_catalog_df.copy()
-
-    scoped_catalog_df["scope"] = scoped_catalog_df["rule_key"].apply(
-        get_roberta_rule_scope
-    )
-
-    scoped_catalog_df = scoped_catalog_df[
-        scoped_catalog_df["scope"] == target_scope
-    ].copy()
-
-    scoped_rows = []
-
-    for _, rule_row in scoped_catalog_df.iterrows():
-        rule_key = rule_row["rule_key"]
-
-        scoped_exclusive_mask_values = []
-
-        for rule_set in val_rule_sets:
-            scoped_rules = get_roberta_rules_in_scope(
-                rule_set,
-                target_scope
-            )
-
-            is_scoped_exclusive = (
-                len(scoped_rules) == 1
-                and scoped_rules[0] == rule_key
-            )
-
-            scoped_exclusive_mask_values.append(is_scoped_exclusive)
-
-        scoped_exclusive_mask = np.array(scoped_exclusive_mask_values)
-
-        applications = int(scoped_exclusive_mask.sum())
-
-        corrected = int(np.sum(
-            scoped_exclusive_mask
-            & (~baseline_correct)
-            & enhanced_correct
-        ))
-
-        harmed = int(np.sum(
-            scoped_exclusive_mask
-            & baseline_correct
-            & (~enhanced_correct)
-        ))
-
-        decisive_cases = corrected + harmed
-        net_correction = corrected - harmed
-
-        if decisive_cases > 0:
-            correction_precision = corrected / decisive_cases
-        else:
-            correction_precision = np.nan
-
-        decision = make_exclusive_rule_decision(
-            applications=applications,
-            corrected=corrected,
-            harmed=harmed,
-            net_correction=net_correction,
-            correction_precision=correction_precision
-        )
-
-        scoped_rows.append({
-            "scope": target_scope,
-            "rule_key": rule_key,
-            "rule_group": rule_row["rule_group"],
-            "scoped_exclusive_applications": applications,
-            "corrected": corrected,
-            "harmed": harmed,
-            "net_correction": net_correction,
-            "decisive_cases": decisive_cases,
-            "correction_precision": correction_precision,
-            "decision": decision
-        })
-
-    scoped_df = pd.DataFrame(scoped_rows)
-
-    if scoped_df.empty:
-        return scoped_df
-
-    decision_order = {
-        "KEEP": 0,
-        "REVIEW": 1,
-        "CULL": 2,
-        "UNUSED": 3
-    }
-
-    scoped_df["decision_order"] = scoped_df["decision"].map(decision_order)
-
-    scoped_df = (
-        scoped_df
-        .sort_values(
-            [
-                "decision_order",
-                "scoped_exclusive_applications",
-                "net_correction"
-            ],
-            ascending=[
-                True,
-                False,
-                False
-            ]
-        )
-        .drop(columns=["decision_order"])
-        .reset_index(drop=True)
-    )
-
-    return scoped_df
-
-
-def print_all_scoped_exclusive_roberta_rule_tables(
-        rule_catalog_df,
-        val_rule_sets,
-        sentiment_true,
-        base_sentiment,
-        enhanced_sentiment
-):
-    scoped_tables = {}
-
-    for scope_name in [
-        "negator",
-        "intensifier",
-        "diminisher",
-        "contrast",
-        "phrase"
-    ]:
-        scoped_df = build_roberta_scoped_exclusive_rule_table(
-            rule_catalog_df=rule_catalog_df,
-            val_rule_sets=val_rule_sets,
-            sentiment_true=sentiment_true,
-            base_sentiment=base_sentiment,
-            enhanced_sentiment=enhanced_sentiment,
-            target_scope=scope_name
-        )
-
-        scoped_tables[scope_name] = scoped_df
-
-        print("\n========== RoBERTa SCOPED-EXCLUSIVE "
-              + scope_name.upper()
-              + " RULE TABLE ==========")
-
-        if scoped_df.empty:
-            print("No scoped-exclusive rules found for scope:", scope_name)
-        else:
-            print(scoped_df.to_string(index=False))
-
-            print("\n========== RoBERTa SCOPED-EXCLUSIVE "
-                  + scope_name.upper()
-                  + " KEEP RULES ==========")
-            print(
-                scoped_df[
-                    scoped_df["decision"] == "KEEP"
-                ].to_string(index=False)
-            )
-
-            print("\n========== RoBERTa SCOPED-EXCLUSIVE "
-                  + scope_name.upper()
-                  + " REVIEW RULES ==========")
-            print(
-                scoped_df[
-                    scoped_df["decision"] == "REVIEW"
-                ].to_string(index=False)
-            )
-
-            print("\n========== RoBERTa SCOPED-EXCLUSIVE "
-                  + scope_name.upper()
-                  + " CULL RULES ==========")
-            print(
-                scoped_df[
-                    scoped_df["decision"] == "CULL"
-                ].to_string(index=False)
-            )
-
-    return scoped_tables
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -2115,7 +1306,8 @@ def classify_roberta_effect(true_label, base_prediction, enhanced_prediction):
 
 def create_roberta_rule_review_audit_df(
         original_text,
-        enhanced_text,
+        affirmative_interpretations,
+        match_details,
         true_labels,
         base_sentiment,
         enhanced_sentiment,
@@ -2124,91 +1316,415 @@ def create_roberta_rule_review_audit_df(
         enhanced_probabilities,
         reverse_label_map
 ):
+    original_text = (
+        pd.Series(original_text)
+        .reset_index(drop=True)
+        .fillna("")
+        .astype(str)
+    )
+
+    affirmative_interpretations = (
+        pd.Series(affirmative_interpretations)
+        .reset_index(drop=True)
+        .fillna("")
+        .astype(str)
+    )
+
+    match_details = (
+        pd.Series(match_details)
+        .reset_index(drop=True)
+    )
+
+    true_labels = (
+        pd.Series(true_labels)
+        .reset_index(drop=True)
+    )
+
+    base_sentiment = (
+        pd.Series(base_sentiment)
+        .reset_index(drop=True)
+    )
+
+    enhanced_sentiment = (
+        pd.Series(enhanced_sentiment)
+        .reset_index(drop=True)
+    )
+
+    rule_sets = (
+        pd.Series(rule_sets)
+        .reset_index(drop=True)
+    )
+
+    base_probabilities = np.asarray(
+        base_probabilities
+    )
+
+    enhanced_probabilities = np.asarray(
+        enhanced_probabilities
+    )
+
+    number_of_reviews = len(original_text)
+
+    lengths = {
+        "affirmative_interpretations":
+            len(affirmative_interpretations),
+
+        "match_details":
+            len(match_details),
+
+        "true_labels":
+            len(true_labels),
+
+        "base_sentiment":
+            len(base_sentiment),
+
+        "enhanced_sentiment":
+            len(enhanced_sentiment),
+
+        "rule_sets":
+            len(rule_sets),
+
+        "base_probabilities":
+            len(base_probabilities),
+
+        "enhanced_probabilities":
+            len(enhanced_probabilities)
+    }
+
+    incorrect_lengths = {
+        name: length
+        for name, length in lengths.items()
+        if length != number_of_reviews
+    }
+
+    if incorrect_lengths:
+        raise ValueError(
+            "Audit input lengths do not match: "
+            + str(incorrect_lengths)
+        )
+
+    if base_probabilities.shape[1] != 3:
+        raise ValueError(
+            "Base probabilities must have 3 columns."
+        )
+
+    if enhanced_probabilities.shape[1] != 3:
+        raise ValueError(
+            "Enhanced probabilities must have 3 columns."
+        )
+
+    class_to_index = {
+        class_label: class_id
+        for class_id, class_label
+        in reverse_label_map.items()
+    }
+
     audit_rows = []
 
-    original_text = original_text.reset_index(drop=True)
-    enhanced_text = enhanced_text.reset_index(drop=True)
-    true_labels = true_labels.reset_index(drop=True)
-    base_sentiment = pd.Series(base_sentiment).reset_index(drop=True)
-    enhanced_sentiment = pd.Series(enhanced_sentiment).reset_index(drop=True)
-    rule_sets = rule_sets.reset_index(drop=True)
-
-    base_probabilities = np.asarray(base_probabilities)
-    enhanced_probabilities = np.asarray(enhanced_probabilities)
-
-    for review_index, text in enumerate(original_text):
-        true_label = true_labels.iloc[review_index]
-        base_prediction = base_sentiment.iloc[review_index]
-        enhanced_prediction = enhanced_sentiment.iloc[review_index]
-        rules_applied = list(rule_sets.iloc[review_index])
-
-        base_margin = get_roberta_true_class_margin(
-            probabilities=base_probabilities[review_index],
-            reverse_label_map=reverse_label_map,
-            true_label=true_label
+    for review_index, text in enumerate(
+        original_text
+    ):
+        interpretation = (
+            affirmative_interpretations
+            .iloc[review_index]
+            .strip()
         )
 
-        enhanced_margin = get_roberta_true_class_margin(
-            probabilities=enhanced_probabilities[review_index],
-            reverse_label_map=reverse_label_map,
-            true_label=true_label
+        details = match_details.iloc[
+            review_index
+        ]
+
+        if not isinstance(details, list):
+            details = []
+
+        rules_applied = list(
+            rule_sets.iloc[review_index]
         )
 
-        margin_change = enhanced_margin - base_margin
+        matched_phrases = [
+            detail["matched_text"]
+            for detail in details
+        ]
+
+        source_sentences = list(dict.fromkeys(
+            detail["source_sentence"]
+            for detail in details
+        ))
+
+        detail_interpretations = []
+
+        for detail in details:
+            detail_interpretation = detail[
+                "interpretation"
+            ]
+
+            if (
+                detail_interpretation
+                not in detail_interpretations
+            ):
+                detail_interpretations.append(
+                    detail_interpretation
+                )
+
+        expected_interpretation = ""
+
+        if detail_interpretations:
+            expected_interpretation = (
+                ". ".join(
+                    detail_interpretations
+                )
+                + "."
+            )
+
+        interpretation_added = bool(
+            interpretation
+        )
+
+        negation_detected = contains_negation(
+            text
+        )
+
+        unsupported_negation = (
+            negation_detected
+            and not interpretation_added
+        )
+
+        true_label = true_labels.iloc[
+            review_index
+        ]
+
+        base_prediction = base_sentiment.iloc[
+            review_index
+        ]
+
+        enhanced_prediction = (
+            enhanced_sentiment.iloc[
+                review_index
+            ]
+        )
+
+        base_margin = (
+            get_roberta_true_class_margin(
+                probabilities=(
+                    base_probabilities[
+                        review_index
+                    ]
+                ),
+                reverse_label_map=(
+                    reverse_label_map
+                ),
+                true_label=true_label
+            )
+        )
+
+        enhanced_margin = (
+            get_roberta_true_class_margin(
+                probabilities=(
+                    enhanced_probabilities[
+                        review_index
+                    ]
+                ),
+                reverse_label_map=(
+                    reverse_label_map
+                ),
+                true_label=true_label
+            )
+        )
+
+        margin_change = (
+            enhanced_margin - base_margin
+        )
 
         effect = classify_roberta_effect(
             true_label=true_label,
             base_prediction=base_prediction,
-            enhanced_prediction=enhanced_prediction
+            enhanced_prediction=(
+                enhanced_prediction
+            )
         )
 
-        true_class_id = None
-        for class_id, class_label in reverse_label_map.items():
-            if class_label == true_label:
-                true_class_id = class_id
-                break
+        true_class_id = class_to_index[
+            true_label
+        ]
 
-        if true_class_id is None:
-            base_true_probability = np.nan
-            enhanced_true_probability = np.nan
-            true_probability_change = np.nan
-        else:
-            base_true_probability = base_probabilities[review_index][true_class_id]
-            enhanced_true_probability = enhanced_probabilities[review_index][true_class_id]
-            true_probability_change = enhanced_true_probability - base_true_probability
+        base_true_probability = (
+            base_probabilities[
+                review_index,
+                true_class_id
+            ]
+        )
+
+        enhanced_true_probability = (
+            enhanced_probabilities[
+                review_index,
+                true_class_id
+            ]
+        )
 
         audit_rows.append({
             "review_index": review_index,
+
             "original_text": text,
-            "enhanced_text": enhanced_text.iloc[review_index],
-            "true_label": true_label,
-            "base_prediction": base_prediction,
-            "enhanced_prediction": enhanced_prediction,
-            "base_correct": base_prediction == true_label,
-            "enhanced_correct": enhanced_prediction == true_label,
-            "prediction_changed": base_prediction != enhanced_prediction,
-            "effect": effect,
-            "rule_keys": rules_applied,
-            "number_of_rules": len(rules_applied),
-            "base_margin": base_margin,
-            "enhanced_margin": enhanced_margin,
-            "margin_change": margin_change,
-            "base_true_class_probability": base_true_probability,
-            "enhanced_true_class_probability": enhanced_true_probability,
-            "true_class_probability_change": true_probability_change,
-            "base_neg_probability": base_probabilities[review_index][0],
-            "base_neu_probability": base_probabilities[review_index][1],
-            "base_pos_probability": base_probabilities[review_index][2],
-            "enhanced_neg_probability": enhanced_probabilities[review_index][0],
-            "enhanced_neu_probability": enhanced_probabilities[review_index][1],
-            "enhanced_pos_probability": enhanced_probabilities[review_index][2],
-            "neg_probability_change": enhanced_probabilities[review_index][0] - base_probabilities[review_index][0],
-            "neu_probability_change": enhanced_probabilities[review_index][1] - base_probabilities[review_index][1],
-            "pos_probability_change": enhanced_probabilities[review_index][2] - base_probabilities[review_index][2],
-            "text_changed": text != enhanced_text.iloc[review_index],
+
+            "affirmative_interpretation":
+                interpretation,
+
+            "input_mode": (
+                "review_and_interpretation"
+                if interpretation_added
+                else "review_only"
+            ),
+
+            # Human-readable representation.
+            # The tokenizer inserts the actual
+            # RoBERTa separator tokens.
+            "paired_input_preview": (
+                text
+                + " [SEP] "
+                + interpretation
+                if interpretation_added
+                else text
+            ),
+
+            "negation_detected":
+                negation_detected,
+
+            "interpretation_added":
+                interpretation_added,
+
+            "unsupported_negation":
+                unsupported_negation,
+
+            "interpretation_matches_details": (
+                interpretation
+                == expected_interpretation
+            ),
+
+            "matched_phrases":
+                matched_phrases,
+
+            "source_sentences":
+                source_sentences,
+
+            "rule_keys":
+                rules_applied,
+
+            "number_of_rules":
+                len(rules_applied),
+
+            "number_of_matches":
+                len(details),
+
+            "true_label":
+                true_label,
+
+            "base_prediction":
+                base_prediction,
+
+            "enhanced_prediction":
+                enhanced_prediction,
+
+            "base_correct": (
+                base_prediction == true_label
+            ),
+
+            "enhanced_correct": (
+                enhanced_prediction
+                == true_label
+            ),
+
+            "prediction_changed": (
+                base_prediction
+                != enhanced_prediction
+            ),
+
+            "effect":
+                effect,
+
+            "base_margin":
+                base_margin,
+
+            "enhanced_margin":
+                enhanced_margin,
+
+            "margin_change":
+                margin_change,
+
+            "base_true_class_probability":
+                base_true_probability,
+
+            "enhanced_true_class_probability":
+                enhanced_true_probability,
+
+            "true_class_probability_change": (
+                enhanced_true_probability
+                - base_true_probability
+            ),
+
+            "base_neg_probability":
+                base_probabilities[
+                    review_index, 0
+                ],
+
+            "base_neu_probability":
+                base_probabilities[
+                    review_index, 1
+                ],
+
+            "base_pos_probability":
+                base_probabilities[
+                    review_index, 2
+                ],
+
+            "enhanced_neg_probability":
+                enhanced_probabilities[
+                    review_index, 0
+                ],
+
+            "enhanced_neu_probability":
+                enhanced_probabilities[
+                    review_index, 1
+                ],
+
+            "enhanced_pos_probability":
+                enhanced_probabilities[
+                    review_index, 2
+                ],
+
+            "neg_probability_change": (
+                enhanced_probabilities[
+                    review_index, 0
+                ]
+                - base_probabilities[
+                    review_index, 0
+                ]
+            ),
+
+            "neu_probability_change": (
+                enhanced_probabilities[
+                    review_index, 1
+                ]
+                - base_probabilities[
+                    review_index, 1
+                ]
+            ),
+
+            "pos_probability_change": (
+                enhanced_probabilities[
+                    review_index, 2
+                ]
+                - base_probabilities[
+                    review_index, 2
+                ]
+            ),
+
             "score_changed": not np.allclose(
-                base_probabilities[review_index],
-                enhanced_probabilities[review_index],
+                base_probabilities[
+                    review_index
+                ],
+                enhanced_probabilities[
+                    review_index
+                ],
                 atol=1e-12,
                 rtol=0.0
             )
@@ -2216,31 +1732,64 @@ def create_roberta_rule_review_audit_df(
 
     return pd.DataFrame(audit_rows)
 
-def print_short_roberta_review_audit_summary(audit_df):
-    with_rules_df = audit_df[audit_df["number_of_rules"] > 0]
-    without_rules_df = audit_df[audit_df["number_of_rules"] == 0]
-
-    corrected_df = audit_df[audit_df["effect"] == "corrected"]
-    harmed_df = audit_df[audit_df["effect"] == "harmed"]
-    wrong_to_wrong_df = audit_df[audit_df["effect"] == "wrong_to_wrong"]
-    stayed_correct_df = audit_df[audit_df["effect"] == "stayed_correct"]
-    stayed_wrong_df = audit_df[audit_df["effect"] == "stayed_wrong"]
-
-    corrected_with_rules = corrected_df[corrected_df["number_of_rules"] > 0]
-    corrected_without_rules = corrected_df[corrected_df["number_of_rules"] == 0]
-
-    harmed_with_rules = harmed_df[harmed_df["number_of_rules"] > 0]
-    harmed_without_rules = harmed_df[harmed_df["number_of_rules"] == 0]
-
-    wrong_to_wrong_with_rules = wrong_to_wrong_df[wrong_to_wrong_df["number_of_rules"] > 0]
-    wrong_to_wrong_without_rules = wrong_to_wrong_df[wrong_to_wrong_df["number_of_rules"] == 0]
-
-    sentiment_changed_df = audit_df[audit_df["prediction_changed"]]
-
+def print_short_roberta_review_audit_summary(
+        audit_df
+):
     total_reviews = len(audit_df)
-    net_corrections = len(corrected_df) - len(harmed_df)
-    net_corrections_with_rules = len(corrected_with_rules) - len(harmed_with_rules)
-    net_corrections_without_rules = len(corrected_without_rules) - len(harmed_without_rules)
+
+    negation_df = audit_df[
+        audit_df["negation_detected"]
+    ]
+
+    interpreted_df = audit_df[
+        audit_df["interpretation_added"]
+    ]
+
+    uninterpreted_df = audit_df[
+        ~audit_df["interpretation_added"]
+    ]
+
+    unsupported_negation_df = audit_df[
+        audit_df["unsupported_negation"]
+    ]
+
+    corrected_df = audit_df[
+        audit_df["effect"] == "corrected"
+    ]
+
+    harmed_df = audit_df[
+        audit_df["effect"] == "harmed"
+    ]
+
+    corrected_interpreted_df = interpreted_df[
+        interpreted_df["effect"]
+        == "corrected"
+    ]
+
+    harmed_interpreted_df = interpreted_df[
+        interpreted_df["effect"]
+        == "harmed"
+    ]
+
+    changed_interpreted_df = interpreted_df[
+        interpreted_df["prediction_changed"]
+    ]
+
+    inconsistent_df = audit_df[
+        ~audit_df[
+            "interpretation_matches_details"
+        ]
+    ]
+
+    net_corrections_total = (
+        len(corrected_df)
+        - len(harmed_df)
+    )
+
+    net_corrections_interpreted = (
+        len(corrected_interpreted_df)
+        - len(harmed_interpreted_df)
+    )
 
     summary_rows = [
         {
@@ -2248,142 +1797,259 @@ def print_short_roberta_review_audit_summary(audit_df):
             "count": total_reviews
         },
         {
-            "metric": "Reviews with at least 1 rule applied",
-            "count": len(with_rules_df)
+            "metric": "Reviews containing negation",
+            "count": len(negation_df)
         },
         {
-            "metric": "Reviews with no rules applied",
-            "count": len(without_rules_df)
+            "metric": "Reviews with an interpretation",
+            "count": len(interpreted_df)
         },
         {
-            "metric": "Reviews whose sentiment changed",
-            "count": len(sentiment_changed_df)
+            "metric": "Reviews without an interpretation",
+            "count": len(uninterpreted_df)
+        },
+        {
+            "metric": (
+                "Negated reviews without "
+                "a supported interpretation"
+            ),
+            "count": len(
+                unsupported_negation_df
+            )
+        },
+        {
+            "metric": (
+                "Interpretation/detail "
+                "consistency failures"
+            ),
+            "count": len(inconsistent_df)
         },
         {
             "metric": "Corrected reviews total",
             "count": len(corrected_df)
         },
         {
-            "metric": "Corrected reviews with rules applied",
-            "count": len(corrected_with_rules)
-        },
-        {
-            "metric": "Corrected reviews with no rules applied",
-            "count": len(corrected_without_rules)
-        },
-        {
             "metric": "Harmed reviews total",
             "count": len(harmed_df)
         },
         {
-            "metric": "Harmed reviews with rules applied",
-            "count": len(harmed_with_rules)
+            "metric": (
+                "Corrected reviews with "
+                "an interpretation"
+            ),
+            "count": len(
+                corrected_interpreted_df
+            )
         },
         {
-            "metric": "Harmed reviews with no rules applied",
-            "count": len(harmed_without_rules)
+            "metric": (
+                "Harmed reviews with "
+                "an interpretation"
+            ),
+            "count": len(
+                harmed_interpreted_df
+            )
         },
         {
-            "metric": "Wrong to wrong reviews total",
-            "count": len(wrong_to_wrong_df)
-        },
-        {
-            "metric": "Wrong to wrong with rules applied",
-            "count": len(wrong_to_wrong_with_rules)
-        },
-        {
-            "metric": "Wrong to wrong with no rules applied",
-            "count": len(wrong_to_wrong_without_rules)
-        },
-        {
-            "metric": "Stayed correct reviews",
-            "count": len(stayed_correct_df)
-        },
-        {
-            "metric": "Stayed wrong reviews",
-            "count": len(stayed_wrong_df)
+            "metric": (
+                "Prediction changes among "
+                "interpreted reviews"
+            ),
+            "count": len(
+                changed_interpreted_df
+            )
         },
         {
             "metric": "Net corrections total",
-            "count": net_corrections
+            "count": net_corrections_total
         },
         {
-            "metric": "Net corrections with rules applied",
-            "count": net_corrections_with_rules
-        },
-        {
-            "metric": "Net corrections with no rules applied",
-            "count": net_corrections_without_rules
+            "metric": (
+                "Net corrections among "
+                "interpreted reviews"
+            ),
+            "count": (
+                net_corrections_interpreted
+            )
         }
     ]
 
-    summary_df = pd.DataFrame(summary_rows)
+    summary_df = pd.DataFrame(
+        summary_rows
+    )
 
     if total_reviews > 0:
-        summary_df["percent"] = (summary_df["count"] / total_reviews * 100).round(2)
+        summary_df["percent_of_total"] = (
+            summary_df["count"]
+            / total_reviews
+            * 100
+        ).round(2)
     else:
-        summary_df["percent"] = np.nan
+        summary_df["percent_of_total"] = (
+            np.nan
+        )
 
-    print("\n========== ENHANCED RoBERTa REVIEW-LEVEL AUDIT SUMMARY ==========")
-    print(summary_df.to_string(index=False))
+    print(
+        "\n========== AFFIRMATIVE "
+        "INTERPRETATION AUDIT SUMMARY =========="
+    )
+
+    print(
+        summary_df.to_string(index=False)
+    )
+
+    if len(interpreted_df) > 0:
+        base_accuracy = (
+            interpreted_df[
+                "base_correct"
+            ].mean()
+        )
+
+        enhanced_accuracy = (
+            interpreted_df[
+                "enhanced_correct"
+            ].mean()
+        )
+
+        print(
+            "\nBaseline accuracy on "
+            "interpreted reviews:",
+            round(base_accuracy, 4)
+        )
+
+        print(
+            "Enhanced accuracy on "
+            "interpreted reviews:",
+            round(enhanced_accuracy, 4)
+        )
+
+        print(
+            "Accuracy change on "
+            "interpreted reviews:",
+            round(
+                enhanced_accuracy
+                - base_accuracy,
+                4
+            )
+        )
 
     return summary_df
 
-def get_roberta_rule_operation_text(rule_key, rule_catalog_df):
+def get_roberta_rule_operation_text(
+        rule_key,
+        rule_catalog_df
+):
     matching_rule_df = rule_catalog_df[
-        rule_catalog_df["rule_key"] == rule_key
+        rule_catalog_df["rule_key"]
+        == rule_key
     ]
 
     if matching_rule_df.empty:
-        return str(rule_key) + " | rule detected"
+        return (
+            str(rule_key)
+            + " | rule detected"
+        )
 
     rule_row = matching_rule_df.iloc[0]
 
-    marker = str(rule_row["marker"])
-    description = str(rule_row["description"])
+    return (
+        str(rule_key)
+        + " | generated: "
+        + str(rule_row["interpretation"])
+    )
 
-    if marker == "AFFIRMATIVE_INTERPRETATION":
-        operation = "added affirmative interpretation"
-    elif marker == "CONTEXT_SIGNAL":
-        operation = "detected context signal"
-    else:
-        operation = "rule applied"
-
-    return str(rule_key) + " | " + operation + " | " + description
-
-
-def roberta_review_example_block(row, rule_catalog_df):
+def roberta_review_example_block(
+        row,
+        rule_catalog_df
+):
     rules_applied = row["rule_keys"]
 
-    print("\nREVIEW INDEX:", row["review_index"])
+    print(
+        "\nREVIEW INDEX:",
+        row["review_index"]
+    )
 
     print("\nORIGINAL REVIEW:")
-    print('"' + str(row["original_text"]) + '"')
+    print(
+        '"'
+        + str(row["original_text"])
+        + '"'
+    )
 
-    print("\nCHANGED REVIEW:")
-    print('"' + str(row["enhanced_text"]) + '"')
+    print("\nINPUT MODE:")
+    print(row["input_mode"])
+
+    print("\nAFFIRMATIVE INTERPRETATION:")
+
+    if row["interpretation_added"]:
+        print(
+            '"'
+            + str(
+                row[
+                    "affirmative_interpretation"
+                ]
+            )
+            + '"'
+        )
+    else:
+        print(
+            "No interpretation generated."
+        )
+
+    print("\nMATCHED NEGATION PHRASES:")
+
+    if row["matched_phrases"]:
+        for phrase in row[
+            "matched_phrases"
+        ]:
+            print("- " + str(phrase))
+    else:
+        print(
+            "- No supported phrase matched"
+        )
+
+    print("\nSOURCE SENTENCES:")
+
+    if row["source_sentences"]:
+        for sentence in row[
+            "source_sentences"
+        ]:
+            print("- " + str(sentence))
+    else:
+        print(
+            "- No interpreted sentence"
+        )
 
     print("\nRULES APPLIED:")
-    print(rules_applied)
 
-    print("\nFULL OPERATIONS:")
-    if len(rules_applied) == 0:
+    if not rules_applied:
         print("- No rules applied")
     else:
         for rule_key in rules_applied:
-            print("- " + get_roberta_rule_operation_text(
-                rule_key=rule_key,
-                rule_catalog_df=rule_catalog_df
-            ))
+            print(
+                "- "
+                + get_roberta_rule_operation_text(
+                    rule_key=rule_key,
+                    rule_catalog_df=(
+                        rule_catalog_df
+                    )
+                )
+            )
 
     print("\nSENTIMENT:")
-    print("True label:", row["true_label"])
+
     print(
-        "Raw prediction:",
+        "True label:",
+        row["true_label"]
+    )
+
+    print(
+        "Base prediction:",
         row["base_prediction"],
         "| Correct:",
         row["base_correct"]
     )
+
     print(
         "Enhanced prediction:",
         row["enhanced_prediction"],
@@ -2391,50 +2057,118 @@ def roberta_review_example_block(row, rule_catalog_df):
         row["enhanced_correct"]
     )
 
-    print("\nSCORE CHANGE (Raw -> Enhanced):")
+    print(
+        "\nSCORE CHANGE "
+        "(Base -> Enhanced):"
+    )
+
     print(
         "Negative:",
-        round(row["base_neg_probability"], 4),
+        round(
+            row[
+                "base_neg_probability"
+            ],
+            4
+        ),
         "->",
-        round(row["enhanced_neg_probability"], 4),
+        round(
+            row[
+                "enhanced_neg_probability"
+            ],
+            4
+        ),
         "| Change:",
-        round(row["neg_probability_change"], 4)
+        round(
+            row[
+                "neg_probability_change"
+            ],
+            4
+        )
     )
+
     print(
         "Neutral:",
-        round(row["base_neu_probability"], 4),
+        round(
+            row[
+                "base_neu_probability"
+            ],
+            4
+        ),
         "->",
-        round(row["enhanced_neu_probability"], 4),
+        round(
+            row[
+                "enhanced_neu_probability"
+            ],
+            4
+        ),
         "| Change:",
-        round(row["neu_probability_change"], 4)
+        round(
+            row[
+                "neu_probability_change"
+            ],
+            4
+        )
     )
+
     print(
         "Positive:",
-        round(row["base_pos_probability"], 4),
+        round(
+            row[
+                "base_pos_probability"
+            ],
+            4
+        ),
         "->",
-        round(row["enhanced_pos_probability"], 4),
+        round(
+            row[
+                "enhanced_pos_probability"
+            ],
+            4
+        ),
         "| Change:",
-        round(row["pos_probability_change"], 4)
+        round(
+            row[
+                "pos_probability_change"
+            ],
+            4
+        )
     )
 
     print("\nTRUE-CLASS MARGIN:")
+
     print(
-        "Raw margin:",
+        "Base margin:",
         round(row["base_margin"], 4),
         "-> Enhanced margin:",
-        round(row["enhanced_margin"], 4),
-        "| Margin change:",
-        round(row["margin_change"], 4)
+        round(
+            row["enhanced_margin"],
+            4
+        ),
+        "| Change:",
+        round(
+            row["margin_change"],
+            4
+        )
     )
 
     print("\nFLAGS:")
+
     print(
-        "Text changed:",
-        row["text_changed"],
-        "| Score changed:",
+        "Negation detected:",
+        row["negation_detected"],
+        "| Interpretation added:",
+        row["interpretation_added"],
+        "| Unsupported negation:",
+        row["unsupported_negation"]
+    )
+
+    print(
+        "Score changed:",
         row["score_changed"],
         "| Prediction changed:",
-        row["prediction_changed"]
+        row["prediction_changed"],
+        "| Effect:",
+        row["effect"]
     )
 
 def roberta_review_examples(title, selected_df, rule_catalog_df, number=0):
@@ -2518,21 +2252,75 @@ def print_all_roberta_affected_review_examples(
 # ----------------------------------------------------------------------------- START
 # DATASET WRAPPER
 # ----------------------------------------------------------------------------- 
-class ReviewDataset(torch.utils.data.Dataset):
-    def __init__(self, encodings, labels):
-        self.encodings = encodings
-        self.labels = labels
+class ReviewPairDataset(torch.utils.data.Dataset):
+    def __init__(
+            self,
+            texts,
+            interpretations,
+            labels,
+            tokenizer,
+            max_length
+    ):
+        self.texts = (
+            pd.Series(texts)
+            .reset_index(drop=True)
+            .fillna("")
+            .astype(str)
+            .tolist()
+        )
 
-    def __getitem__(self, idx):
-        item = {
-            key: torch.tensor(value[idx])
-            for key, value in self.encodings.items()
-        }
-        item["labels"] = torch.tensor(self.labels[idx], dtype=torch.long)
-        return item
+        self.interpretations = (
+            pd.Series(interpretations)
+            .reset_index(drop=True)
+            .fillna("")
+            .astype(str)
+            .tolist()
+        )
+
+        self.labels = (
+            pd.Series(labels)
+            .reset_index(drop=True)
+            .astype(int)
+            .tolist()
+        )
+
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+
+        if not (
+            len(self.texts)
+            == len(self.interpretations)
+            == len(self.labels)
+        ):
+            raise ValueError(
+                "Texts, interpretations and labels "
+                "must have equal lengths."
+            )
 
     def __len__(self):
         return len(self.labels)
+
+    def __getitem__(self, index):
+        review = self.texts[index]
+        interpretation = (
+            self.interpretations[index].strip()
+        )
+
+        encoding = self.tokenizer(
+            text=review,
+            text_pair=(
+                interpretation
+                if interpretation
+                else None
+            ),
+            truncation="longest_first",
+            max_length=self.max_length,
+            padding=False
+        )
+
+        encoding["labels"] = self.labels[index]
+
+        return encoding
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -2603,37 +2391,37 @@ def cleanup_trainer(trainer):
 def predict_roberta_logits(
         trainer,
         predict_text,
+        predict_interpretation,
         predict_sentiment,
         tokenizer,
         max_length
 ):
     predict_dataset = build_roberta_dataset(
         text_series=predict_text,
+        interpretation_series=predict_interpretation,
         sentiment_series=predict_sentiment,
         tokenizer=tokenizer,
         max_length=max_length
     )
 
-    logits = trainer.predict(
+    return trainer.predict(
         predict_dataset
     ).predictions
 
-    return logits
-
-def build_roberta_dataset(text_series, sentiment_series, tokenizer, max_length):
-    encodings = tokenizer(
-        list(text_series),
-        truncation=True,
-        padding=True,
+def build_roberta_dataset(
+        text_series,
+        interpretation_series,
+        sentiment_series,
+        tokenizer,
+        max_length
+):
+    return ReviewPairDataset(
+        texts=text_series,
+        interpretations=interpretation_series,
+        labels=sentiment_series,
+        tokenizer=tokenizer,
         max_length=max_length
     )
-
-    dataset = ReviewDataset(
-        encodings,
-        sentiment_series.tolist()
-    )
-
-    return dataset
 
 def make_roberta_training_args(output_dir, roberta_params, number_of_training_rows):
     batch_size = roberta_params["per_device_train_batch_size"]
@@ -2674,6 +2462,7 @@ def make_roberta_training_args(output_dir, roberta_params, number_of_training_ro
 
 def train_roberta_model(
         train_text,
+        train_interpretation,
         train_sentiment,
         tokenizer,
         model_name,
@@ -2682,14 +2471,18 @@ def train_roberta_model(
 ):
     train_dataset = build_roberta_dataset(
         text_series=train_text,
+        interpretation_series=train_interpretation,
         sentiment_series=train_sentiment,
         tokenizer=tokenizer,
         max_length=roberta_params["max_length"]
     )
 
-    model = AutoModelForSequenceClassification.from_pretrained(
-        model_name,
-        num_labels=3
+    model = (
+        AutoModelForSequenceClassification
+        .from_pretrained(
+            model_name,
+            num_labels=3
+        )
     )
 
     training_args = make_roberta_training_args(
@@ -2698,10 +2491,16 @@ def train_roberta_model(
         number_of_training_rows=len(train_text)
     )
 
+    data_collator = DataCollatorWithPadding(
+        tokenizer=tokenizer,
+        padding=True
+    )
+
     trainer = Trainer(
         model=model,
         args=training_args,
-        train_dataset=train_dataset
+        train_dataset=train_dataset,
+        data_collator=data_collator
     )
 
     trainer.train()
@@ -2712,60 +2511,136 @@ def train_roberta_model(
 # ----------------------------------------------------------------------------- START
 # ENHANCED ROBERTA HYPERPARAMETER TUNING WITH OPTUNA
 # ----------------------------------------------------------------------------- 
-N_WORKERS = min(16, os.cpu_count())
-
-print("Creating Enhanced RoBERTa Train Text...")
-enhanced_text_train = pd.Series(
-    process_map(
-        add_affirmative_interpretation,
-        text_train.tolist(),
-        max_workers=N_WORKERS,
-        chunksize=1000,
-        desc="Enhanced RoBERTa Train Text"
-    ),
-    index=text_train.index
+N_WORKERS = max(
+    1,
+    min(16, os.cpu_count() or 1)
 )
 
-print("Creating Enhanced RoBERTa Validation Text...")
-enhanced_text_val = pd.Series(
-    process_map(
-        add_affirmative_interpretation,
-        text_val.tolist(),
-        max_workers=N_WORKERS,
-        chunksize=1000,
-        desc="Enhanced RoBERTa Validation Text"
-    ),
-    index=text_val.index
+def create_interpretation_series(
+        texts,
+        description
+):
+    return pd.Series(
+        process_map(
+            create_affirmative_interpretation,
+            texts.tolist(),
+            max_workers=N_WORKERS,
+            chunksize=1000,
+            desc=description
+        ),
+        index=texts.index,
+        dtype="object"
+    )
+
+
+print("Creating train affirmative interpretations...")
+affirmative_train = create_interpretation_series(
+    text_train,
+    "Train Affirmative Interpretations"
 )
 
-print("Creating Enhanced RoBERTa Test Text...")
-enhanced_text_test = pd.Series(
-    process_map(
-        add_affirmative_interpretation,
-        text_test.tolist(),
-        max_workers=N_WORKERS,
-        chunksize=1000,
-        desc="Enhanced RoBERTa Test Text"
-    ),
-    index=text_test.index
+print("Creating validation affirmative interpretations...")
+affirmative_val = create_interpretation_series(
+    text_val,
+    "Validation Affirmative Interpretations"
 )
 
-ROBERTA_OPTUNA_TRAIN_SIZE = min(90000, len(enhanced_text_train))
+print("Creating test affirmative interpretations...")
+affirmative_test = create_interpretation_series(
+    text_test,
+    "Test Affirmative Interpretations"
+)
 
-if ROBERTA_OPTUNA_TRAIN_SIZE < len(enhanced_text_train):
-    enhanced_text_train_optuna, _, sentiment_train_num_optuna, _ = train_test_split(
-        enhanced_text_train,
-        sentiment_train_num,
+for split_name, texts, interpretations in [
+    ("Train", text_train, affirmative_train),
+    ("Validation", text_val, affirmative_val),
+    ("Test", text_test, affirmative_test)
+]:
+    has_negation = texts.apply(contains_negation)
+
+    has_interpretation = (
+        interpretations
+        .fillna("")
+        .str.strip()
+        .ne("")
+    )
+
+    print(f"\n{split_name}")
+    print("Reviews containing negation:", int(has_negation.sum()))
+    print("Reviews with interpretations:", int(has_interpretation.sum()))
+    print(
+        "Negated reviews without a supported rule:",
+        int((has_negation & ~has_interpretation).sum())
+    )
+
+ROBERTA_OPTUNA_TRAIN_SIZE = min(60000, len(text_train))
+
+enhanced_roberta_optuna_df = pd.DataFrame({
+    "Text": text_train.reset_index(drop=True),
+
+    "AffirmativeInterpretation": (
+        affirmative_train.reset_index(drop=True)
+    ),
+
+    "Sentiment": (
+        sentiment_train.reset_index(drop=True)
+    ),
+
+    "sentiment_num": (
+        sentiment_train_num
+        .astype(int)
+        .reset_index(drop=True)
+    ),
+
+    "Stratify": (
+        train_split_df["Stratify"]
+        .reset_index(drop=True)
+    )
+})
+
+if ROBERTA_OPTUNA_TRAIN_SIZE < len(text_train):
+    enhanced_train_optuna, _ = train_test_split(
+        enhanced_roberta_optuna_df,
         train_size=ROBERTA_OPTUNA_TRAIN_SIZE,
-        stratify=sentiment_train_num,
+        stratify=enhanced_roberta_optuna_df["Stratify"],
         random_state=42
     )
+    enhanced_train_optuna = (enhanced_train_optuna.reset_index(drop=True))
+
+    optuna_text_train = (
+        enhanced_train_optuna["Text"]
+    )
+
+    optuna_interpretation_train = (
+        enhanced_train_optuna[
+            "AffirmativeInterpretation"
+        ]
+    )
+
+    sentiment_train_num_optuna = (
+        enhanced_train_optuna[
+            "sentiment_num"
+        ]
+    )
 else:
-    enhanced_text_train_optuna = enhanced_text_train
-    sentiment_train_num_optuna = sentiment_train_num
+    optuna_text_train = (
+        enhanced_roberta_optuna_df["Text"]
+    )
+
+    optuna_interpretation_train = (
+        enhanced_roberta_optuna_df[
+            "AffirmativeInterpretation"
+        ]
+    )
+
+    sentiment_train_num_optuna = (
+        enhanced_roberta_optuna_df[
+            "sentiment_num"
+        ]
+    )
 
 print("\n========== ENHANCED RoBERTa OPTUNA SUBSET ==========")
-print("Optuna training rows:", len(enhanced_text_train_optuna))
+print("Optuna training rows:", len(optuna_text_train))
 print(sentiment_train_num_optuna.value_counts())
 
 MODEL = "cardiffnlp/twitter-roberta-base-sentiment"
@@ -2831,7 +2706,8 @@ def enhanced_roberta_optuna(trial):
     )
 
     optuna_trainer = train_roberta_model(
-        train_text=enhanced_text_train_optuna,
+        train_text=optuna_text_train,
+        train_interpretation=optuna_interpretation_train,
         train_sentiment=sentiment_train_num_optuna,
         tokenizer=optuna_tokenizer,
         model_name=optuna_model_name,
@@ -2841,7 +2717,8 @@ def enhanced_roberta_optuna(trial):
 
     optuna_val_logits = predict_roberta_logits(
         trainer=optuna_trainer,
-        predict_text=enhanced_text_val,
+        predict_text=text_val,
+        predict_interpretation=affirmative_val,
         predict_sentiment=sentiment_val_num,
         tokenizer=optuna_tokenizer,
         max_length=optuna_max_length
@@ -2896,22 +2773,25 @@ print(enhanced_roberta_best)
 print("\n===== ENHANCED RoBERTa TEMPERATURE SCALING =====")
 
 roberta_train_calibration_logits = np.zeros(
-    (len(enhanced_text_train), 3)
+    (len(text_train), 3)
 )
 
 for calibration_fold, (calibration_train_idx, calibration_val_idx) in enumerate(
-        calibration_cv.split(enhanced_text_train, sentiment_train_num)
+        calibration_cv.split(text_train, sentiment_train_num)
     ):
     print(f"\n----- TEMPERATURE SCALING FOLD {calibration_fold + 1}/{calibration_cv.n_splits} -----")
 
-    text_calibration_train = enhanced_text_train.iloc[calibration_train_idx]
-    text_calibration_val = enhanced_text_train.iloc[calibration_val_idx]
+    text_calibration_train = (text_train.iloc[calibration_train_idx])
+    interpretation_calibration_train = (affirmative_train.iloc[calibration_train_idx])
+    text_calibration_val = (text_train.iloc[calibration_val_idx])
+    interpretation_calibration_val = (affirmative_train.iloc[calibration_val_idx])
 
-    sentiment_calibration_train = sentiment_train_num.iloc[calibration_train_idx]
-    sentiment_calibration_val = sentiment_train_num.iloc[calibration_val_idx]
+    sentiment_calibration_train = (sentiment_train_num.iloc[calibration_train_idx])
+    sentiment_calibration_val = (sentiment_train_num.iloc[calibration_val_idx])
 
     calibration_trainer = train_roberta_model(
         train_text=text_calibration_train,
+        train_interpretation=(interpretation_calibration_train),
         train_sentiment=sentiment_calibration_train,
         tokenizer=tokenizer,
         model_name=MODEL,
@@ -2922,12 +2802,15 @@ for calibration_fold, (calibration_train_idx, calibration_val_idx) in enumerate(
     calibration_val_logits = predict_roberta_logits(
         trainer=calibration_trainer,
         predict_text=text_calibration_val,
+        predict_interpretation=(interpretation_calibration_val),
         predict_sentiment=sentiment_calibration_val,
         tokenizer=tokenizer,
         max_length=enhanced_roberta_best["max_length"]
     )
 
-    roberta_train_calibration_logits[calibration_val_idx] = calibration_val_logits
+    roberta_train_calibration_logits[
+        calibration_val_idx
+    ] = calibration_val_logits
 
     cleanup_trainer(calibration_trainer)
 
@@ -2945,7 +2828,8 @@ print("\nEnhanced RoBERTa Temperature:", enhanced_roberta_temperature_scaler.get
 print("\n===== ENHANCED RoBERTa =====")
 
 enhanced_roberta_trainer = train_roberta_model(
-    train_text=enhanced_text_train,
+    train_text=text_train,
+    train_interpretation=affirmative_train,
     train_sentiment=sentiment_train_num,
     tokenizer=tokenizer,
     model_name=MODEL,
@@ -2955,7 +2839,8 @@ enhanced_roberta_trainer = train_roberta_model(
 
 enhanced_val_logits = predict_roberta_logits(
     trainer=enhanced_roberta_trainer,
-    predict_text=enhanced_text_val,
+    predict_text=text_val,
+    predict_interpretation=affirmative_val,
     predict_sentiment=sentiment_val_num,
     tokenizer=tokenizer,
     max_length=enhanced_roberta_best["max_length"]
@@ -2963,7 +2848,8 @@ enhanced_val_logits = predict_roberta_logits(
 
 enhanced_roberta_test_logits = predict_roberta_logits(
     trainer=enhanced_roberta_trainer,
-    predict_text=enhanced_text_test,
+    predict_text=text_test,
+    predict_interpretation=affirmative_test,
     predict_sentiment=sentiment_test_num,
     tokenizer=tokenizer,
     max_length=enhanced_roberta_best["max_length"]
@@ -3014,24 +2900,28 @@ cleanup_trainer(enhanced_roberta_trainer)
 print("\n===== ENHANCED RoBERTa OOF META FEATURES =====")
 
 roberta_oof_probabilities = np.zeros(
-    (len(enhanced_text_train), 3)
+    (len(text_train), 3)
 )
 
 for fold, (train_idx, fold_val_idx) in enumerate(
-        base_cv.split(enhanced_text_train, sentiment_train_num)
+        base_cv.split(text_train, sentiment_train_num)
     ):
     print(
         f"\n----- OOF META FEATURES FOLD {fold + 1}/{base_cv.n_splits} -----"
     )
 
-    text_fold_train = enhanced_text_train.iloc[train_idx]
-    text_fold_val = enhanced_text_train.iloc[fold_val_idx]
+    text_fold_train = text_train.iloc[train_idx]
+    text_fold_val = text_train.iloc[fold_val_idx]
+
+    interpretation_fold_train = (affirmative_train.iloc[train_idx])
+    interpretation_fold_val = (affirmative_train.iloc[fold_val_idx])
 
     sentiment_fold_train = sentiment_train_num.iloc[train_idx]
     sentiment_fold_val = sentiment_train_num.iloc[fold_val_idx]
 
     fold_trainer = train_roberta_model(
         train_text=text_fold_train,
+        train_interpretation=interpretation_fold_train,
         train_sentiment=sentiment_fold_train,
         tokenizer=tokenizer,
         model_name=MODEL,
@@ -3042,6 +2932,7 @@ for fold, (train_idx, fold_val_idx) in enumerate(
     fold_val_logits = predict_roberta_logits(
         trainer=fold_trainer,
         predict_text=text_fold_val,
+        predict_interpretation=interpretation_fold_val,
         predict_sentiment=sentiment_fold_val,
         tokenizer=tokenizer,
         max_length=enhanced_roberta_best["max_length"]
@@ -3068,6 +2959,24 @@ roberta_train_rule_sets = text_train.apply(extract_affirmative_interpretation_ru
 roberta_val_rule_sets = text_val.apply(extract_affirmative_interpretation_rules)
 roberta_test_rule_sets = text_test.apply(extract_affirmative_interpretation_rules)
 
+roberta_train_match_details = (
+    text_train.apply(
+        extract_affirmative_interpretation_details
+    )
+)
+
+roberta_val_match_details = (
+    text_val.apply(
+        extract_affirmative_interpretation_details
+    )
+)
+
+roberta_test_match_details = (
+    text_test.apply(
+        extract_affirmative_interpretation_details
+    )
+)
+
 roberta_rule_usage_df = build_roberta_rule_usage_table(
     rule_catalog_df=roberta_rule_catalog_df,
     train_rule_sets=roberta_train_rule_sets,
@@ -3075,16 +2984,63 @@ roberta_rule_usage_df = build_roberta_rule_usage_table(
     test_rule_sets=roberta_test_rule_sets
 )
 
-roberta_rule_review_audit_df = create_roberta_rule_review_audit_df(
-    original_text=text_val,
-    enhanced_text=enhanced_text_val,
-    true_labels=sentiment_val,
-    base_sentiment=base_roberta_val_sentiment,
-    enhanced_sentiment=enhanced_roberta_val_sentiment,
-    rule_sets=roberta_val_rule_sets,
-    base_probabilities=base_roberta_val_probabilities,
-    enhanced_probabilities=enhanced_roberta_val_probabilities,
-    reverse_label_map=reverse_label_map
+roberta_rule_review_audit_df = (
+    create_roberta_rule_review_audit_df(
+        original_text=text_val,
+        affirmative_interpretations=(
+            affirmative_val
+        ),
+        match_details=(
+            roberta_val_match_details
+        ),
+        true_labels=sentiment_val,
+        base_sentiment=(
+            base_roberta_val_sentiment
+        ),
+        enhanced_sentiment=(
+            enhanced_roberta_val_sentiment
+        ),
+        rule_sets=roberta_val_rule_sets,
+        base_probabilities=(
+            base_roberta_val_probabilities
+        ),
+        enhanced_probabilities=(
+            enhanced_roberta_val_probabilities
+        ),
+        reverse_label_map=(
+            reverse_label_map
+        )
+    )
+)
+
+
+roberta_test_rule_review_audit_df = (
+    create_roberta_rule_review_audit_df(
+        original_text=text_test,
+        affirmative_interpretations=(
+            affirmative_test
+        ),
+        match_details=(
+            roberta_test_match_details
+        ),
+        true_labels=sentiment_test,
+        base_sentiment=(
+            base_roberta_test_sentiment
+        ),
+        enhanced_sentiment=(
+            enhanced_roberta_test_sentiment
+        ),
+        rule_sets=roberta_test_rule_sets,
+        base_probabilities=(
+            base_roberta_test_probabilities
+        ),
+        enhanced_probabilities=(
+            enhanced_roberta_test_probabilities
+        ),
+        reverse_label_map=(
+            reverse_label_map
+        )
+    )
 )
 
 print_roberta_rule_usage_table(roberta_rule_usage_df)
@@ -3109,14 +3065,6 @@ print_roberta_non_exclusive_all_rule_table(
 )
 
 print_roberta_exclusive_rule_table(
-    rule_catalog_df=roberta_rule_catalog_df,
-    val_rule_sets=roberta_val_rule_sets,
-    sentiment_true=sentiment_val,
-    base_sentiment=base_roberta_val_sentiment,
-    enhanced_sentiment=enhanced_roberta_val_sentiment
-)
-
-print_all_scoped_exclusive_roberta_rule_tables(
     rule_catalog_df=roberta_rule_catalog_df,
     val_rule_sets=roberta_val_rule_sets,
     sentiment_true=sentiment_val,
@@ -3228,22 +3176,27 @@ with open(os.path.join(output_folder, "exclusive_rule_results.txt"), "w", encodi
 
 output = io.StringIO()
 with contextlib.redirect_stdout(output):
-    print_all_scoped_exclusive_roberta_rule_tables(
-        rule_catalog_df=roberta_rule_catalog_df,
-        val_rule_sets=roberta_val_rule_sets,
-        sentiment_true=sentiment_val,
-        base_sentiment=base_roberta_val_sentiment,
-        enhanced_sentiment=enhanced_roberta_val_sentiment
-    )
+    print_short_roberta_review_audit_summary(roberta_rule_review_audit_df)
 text_output = output.getvalue()
-with open(os.path.join(output_folder, "scoped_exclusive_rule_results.txt"), "w", encoding="utf-8") as file:
+with open(os.path.join(output_folder, "enhanced_roberta_audit_summary.txt"), "w", encoding="utf-8") as file:
     file.write(text_output)
 
 output = io.StringIO()
 with contextlib.redirect_stdout(output):
-    print_short_roberta_review_audit_summary(roberta_rule_review_audit_df)
+    print_short_roberta_review_audit_summary(roberta_test_rule_review_audit_df)
 text_output = output.getvalue()
-with open(os.path.join(output_folder, "enhanced_roberta_audit_summary.txt"), "w", encoding="utf-8") as file:
+with open(os.path.join(output_folder, "enhanced_roberta_test_audit_summary.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_all_roberta_affected_review_examples(
+        audit_df=roberta_test_rule_review_audit_df,
+        rule_catalog_df=roberta_rule_catalog_df,
+        number=0
+    )
+    text_output = output.getvalue()
+with open(os.path.join(output_folder, "rule_affected_test_reviews.txt"), "w", encoding="utf-8") as file:
     file.write(text_output)
 
 print("Saved RoBERTa Audit Text Files to:", output_folder)

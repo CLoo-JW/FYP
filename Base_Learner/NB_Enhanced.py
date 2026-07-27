@@ -27,8 +27,10 @@ base_nb_test_sentiment = base_nb_test_sentiment_df["base_nb_sentiment"].to_numpy
 base_nb_val_sentiment = base_nb_val_sentiment_df["base_nb_sentiment"].to_numpy()
 
 base_nb_val_probabilities_df = pd.read_csv("Base_Learner/Results/NB/Base/base_nb_val_probabilities.csv")
+base_nb_test_probabilities_df = pd.read_csv("Base_Learner/Results/NB/Base/base_nb_test_probabilities.csv")
 
 base_nb_val_probabilities = base_nb_val_probabilities_df[["base_nb_neg", "base_nb_neu", "base_nb_pos"]].to_numpy()
+base_nb_test_probabilities = base_nb_test_probabilities_df[["base_nb_neg", "base_nb_neu", "base_nb_pos"]].to_numpy()
 
 train_split_df = pd.read_csv("Dataset/Preprocessed/train_split.csv")
 val_split_df = pd.read_csv("Dataset/Preprocessed/val_split.csv")
@@ -924,6 +926,7 @@ UNIVERSAL_PHRASE_RULES = [
 # -----------------------------------------------------------------------------
 NB_CULL_RULE_KEYS = {
     "phrase:not_lasting",
+    # "phrase:not_fitting"
 }
 
 NB_BLOCKED_EXACT_FEATURES = {
@@ -958,6 +961,32 @@ NB_BLOCKED_EXACT_FEATURES = {
     "FEAT_AFTER_CONCESSION_though_character",
     "FEAT_PHRASE_wrong_size",
     "FEAT_PHRASE_stopped_working",
+    # "FEAT_AFTER_CONTRAST_but_far",
+    # "FEAT_AFTER_CONTRAST_but_button",
+    # "FEAT_AFTER_CONTRAST_but_happen",
+    # "FEAT_NEG_SCOPE_idea",
+    # "FEAT_AFTER_CONTRAST_but_thin",
+    # "FEAT_AFTER_CONTRAST_but_thin",
+    # "FEAT_AFTER_CONTRAST_but_allow",
+    # "FEAT_AFTER_CONTRAST_however_need",
+    # "FEAT_NEG_SCOPE_run",
+    # "FEAT_AFTER_CONTRAST_but_hold",
+    # "FEAT_NEG_SCOPE_love",
+    # "FEAT_NEG_SCOPE_well",
+    # "FEAT_INTENSIFIED_pretty",
+    # "FEAT_AFTER_CONTRAST_but_person",
+    # "FEAT_AFTER_CONTRAST_but_room",
+    # "FEAT_NEG_SCOPE_word",
+    # "FEAT_NEG_SCOPE_damage",
+    # "FEAT_AFTER_CONTRAST_but_crack",
+    # "FEAT_AFTER_CONTRAST_but_beautiful",
+    # "FEAT_AFTER_CONTRAST_but_form",
+    # "FEAT_AFTER_CONTRAST_but_particular",
+    # "FEAT_AFTER_CONTRAST_but_soon",
+    # "FEAT_AFTER_CONTRAST_but_care",
+    # "FEAT_AFTER_CONTRAST_but_matter",
+    # "FEAT_AFTER_CONTRAST_but_low",
+    # "FEAT_INTENSIFIED_long",
 }
 
 def filter_nb_polarity_features(polarity_features):
@@ -1693,20 +1722,20 @@ def get_nb_feature_operation_text(feature):
     if feature.startswith("FEAT_INTENSIFIER_"):
         return feature + " | detected intensifier word | " + str(rule_key)
 
-    if feature.startswith("FEAT_INTENSIFIED_"):
-        return feature + " | added intensified-scope feature"
-
     if feature.startswith("FEAT_INTENSIFIED_DEP_"):
         return feature + " | added dependency intensifier feature"
+
+    if feature.startswith("FEAT_INTENSIFIED_"):
+        return feature + " | added intensified-scope feature"
 
     if feature.startswith("FEAT_DIMINISHER_"):
         return feature + " | detected diminisher word | " + str(rule_key)
 
-    if feature.startswith("FEAT_DIMINISHED_"):
-        return feature + " | added diminished-scope feature"
-
     if feature.startswith("FEAT_DIMINISHED_DEP_"):
         return feature + " | added dependency diminisher feature"
+
+    if feature.startswith("FEAT_DIMINISHED_"):
+        return feature + " | added diminished-scope feature"
 
     if feature.startswith("FEAT_CONTRAST_"):
         return feature + " | detected contrast marker | " + str(rule_key)
@@ -2459,36 +2488,6 @@ def get_nb_rule_scope(rule_key):
 
     return "other"
 
-
-# def decide_scoped_exclusive_nb_rule_action(row):
-#     exclusive_applications = row["exclusive_applications"]
-#     decisive_changes = row["decisive_changes"]
-#     net_corrections = row["net_corrections"]
-#     correction_precision = row["correction_precision"]
-#     mean_margin_change = row["mean_margin_change"]
-
-#     if net_corrections < 0:
-#         return "CULL"
-
-#     if exclusive_applications < 30:
-#         return "REVIEW"
-
-#     if decisive_changes < 10:
-#         return "REVIEW"
-
-#     if pd.isna(correction_precision):
-#         return "REVIEW"
-
-#     if (
-#         net_corrections >= 0
-#         and correction_precision >= 0.60
-#         and mean_margin_change > 0
-#     ):
-#         return "KEEP"
-
-#     return "REVIEW"
-
-
 def create_scoped_exclusive_nb_rule_summary_df(
         rule_review_audit_df,
         target_scope="phrase"
@@ -2981,10 +2980,10 @@ enhanced_text_test = pd.Series(
 )
 
 def enhanced_nb_optuna(trial):
-    vectorizer_type = trial.suggest_categorical(
-        "vectorizer_type",
-        ["tfidf", "count"]
-    )
+    # vectorizer_type = trial.suggest_categorical(
+    #     "vectorizer_type",
+    #     ["tfidf", "count"]
+    # )
 
     model_type = trial.suggest_categorical(
         "model_type",
@@ -2993,65 +2992,65 @@ def enhanced_nb_optuna(trial):
 
     optuna_nb_pipeline_steps = []
 
-    if vectorizer_type == "tfidf":
-        optuna_nb_pipeline_steps.append(
-            ("vec", TfidfVectorizer(
-                lowercase=False,
-                token_pattern=r"(?u)\b\w+\b",
-                max_features=trial.suggest_categorical(
-                    "max_features",
-                    [30000, 50000, 100000, 150000]
-                ),
-                ngram_range=ngram_map[
-                    trial.suggest_categorical(
-                        "ngram_range",
-                        ["1_1", "1_2", "1_3"]
-                    )
-                ],
-                min_df=trial.suggest_categorical(
-                    "min_df",
-                    [5, 10, 20, 50]
-                ),
-                max_df=trial.suggest_categorical(
-                    "max_df",
-                    [0.90, 0.95, 0.98]
-                ),
-                sublinear_tf=trial.suggest_categorical(
-                    "sublinear_tf",
-                    [True, False]
+    # if vectorizer_type == "tfidf":
+    optuna_nb_pipeline_steps.append(
+        ("vec", TfidfVectorizer(
+            lowercase=False,
+            token_pattern=r"(?u)\b\w+\b",
+            max_features=trial.suggest_categorical(
+                "max_features",
+                [30000, 50000, 100000, 150000]
+            ),
+            ngram_range=ngram_map[
+                trial.suggest_categorical(
+                    "ngram_range",
+                    ["1_1", "1_2", "1_3"]
                 )
-            ))
-        )
+            ],
+            min_df=trial.suggest_categorical(
+                "min_df",
+                [5, 10, 20, 50]
+            ),
+            max_df=trial.suggest_categorical(
+                "max_df",
+                [0.90, 0.95, 0.98]
+            ),
+            sublinear_tf=trial.suggest_categorical(
+                "sublinear_tf",
+                [True, False]
+            )
+        ))
+    )
 
-    else:
-        optuna_nb_pipeline_steps.append(
-            ("vec", CountVectorizer(
-                lowercase=False,
-                token_pattern=r"(?u)\b\w+\b",
-                max_features=trial.suggest_categorical(
-                    "max_features",
-                    [30000, 50000, 100000, 150000]
-                ),
-                ngram_range=ngram_map[
-                    trial.suggest_categorical(
-                        "ngram_range",
-                        ["1_1", "1_2", "1_3"]
-                    )
-                ],
-                min_df=trial.suggest_categorical(
-                    "min_df",
-                    [5, 10, 20, 50]
-                ),
-                max_df=trial.suggest_categorical(
-                    "max_df",
-                    [0.90, 0.95, 0.98]
-                ),
-                binary=trial.suggest_categorical(
-                    "binary",
-                    [True, False]
-                )
-            ))
-        )
+    # else:
+    #     optuna_nb_pipeline_steps.append(
+    #         ("vec", CountVectorizer(
+    #             lowercase=False,
+    #             token_pattern=r"(?u)\b\w+\b",
+    #             max_features=trial.suggest_categorical(
+    #                 "max_features",
+    #                 [30000, 50000, 100000, 150000]
+    #             ),
+    #             ngram_range=ngram_map[
+    #                 trial.suggest_categorical(
+    #                     "ngram_range",
+    #                     ["1_1", "1_2", "1_3"]
+    #                 )
+    #             ],
+    #             min_df=trial.suggest_categorical(
+    #                 "min_df",
+    #                 [5, 10, 20, 50]
+    #             ),
+    #             max_df=trial.suggest_categorical(
+    #                 "max_df",
+    #                 [0.90, 0.95, 0.98]
+    #             ),
+    #             binary=trial.suggest_categorical(
+    #                 "binary",
+    #                 [True, False]
+    #             )
+    #         ))
+    #     )
 
     if model_type == "multinomial":
         optuna_nb_pipeline_steps.append(
@@ -3121,30 +3120,30 @@ enhanced_nb_study.optimize(
 enhanced_nb_best = enhanced_nb_study.best_params
 
 enhanced_nb_pipeline_steps = []
-if enhanced_nb_best['vectorizer_type'] == 'tfidf':
-    enhanced_nb_pipeline_steps.append(
-        ("vec", TfidfVectorizer(
-            lowercase=False,
-            token_pattern=r"(?u)\b\w+\b",
-            max_features=enhanced_nb_best['max_features'],
-            ngram_range=ngram_map[enhanced_nb_best['ngram_range']],
-            min_df=enhanced_nb_best['min_df'],
-            max_df=enhanced_nb_best['max_df'],
-            sublinear_tf=enhanced_nb_best['sublinear_tf'],
-        ))
-    )
-else:
-    enhanced_nb_pipeline_steps.append(
-        ("vec", CountVectorizer(
-            lowercase=False,
-            token_pattern=r"(?u)\b\w+\b",
-            max_features=enhanced_nb_best['max_features'],
-            ngram_range=ngram_map[enhanced_nb_best['ngram_range']],
-            min_df=enhanced_nb_best['min_df'],
-            max_df=enhanced_nb_best['max_df'],
-            binary=enhanced_nb_best['binary']
-        ))
-    )
+# if enhanced_nb_best['vectorizer_type'] == 'tfidf':
+enhanced_nb_pipeline_steps.append(
+    ("vec", TfidfVectorizer(
+        lowercase=False,
+        token_pattern=r"(?u)\b\w+\b",
+        max_features=enhanced_nb_best['max_features'],
+        ngram_range=ngram_map[enhanced_nb_best['ngram_range']],
+        min_df=enhanced_nb_best['min_df'],
+        max_df=enhanced_nb_best['max_df'],
+        sublinear_tf=enhanced_nb_best['sublinear_tf'],
+    ))
+)
+# else:
+#     enhanced_nb_pipeline_steps.append(
+#         ("vec", CountVectorizer(
+#             lowercase=False,
+#             token_pattern=r"(?u)\b\w+\b",
+#             max_features=enhanced_nb_best['max_features'],
+#             ngram_range=ngram_map[enhanced_nb_best['ngram_range']],
+#             min_df=enhanced_nb_best['min_df'],
+#             max_df=enhanced_nb_best['max_df'],
+#             binary=enhanced_nb_best['binary']
+#         ))
+#     )
 
 if enhanced_nb_best['model_type'] == "multinomial":
     enhanced_nb_pipeline_steps.append(
@@ -3249,6 +3248,17 @@ nb_rule_review_audit_df = create_nb_rule_review_audit_df(
     enhanced_predictions=enhanced_nb_val_sentiment,
     base_probabilities=base_nb_val_probabilities,
     enhanced_probabilities=enhanced_nb_val_probabilities,
+    base_classes=nb_classes,
+    enhanced_classes=nb_classes
+)
+
+nb_test_rule_review_audit_df = create_nb_rule_review_audit_df(
+    texts=text_test,
+    true_labels=sentiment_test,
+    base_predictions=base_nb_test_sentiment,
+    enhanced_predictions=enhanced_nb_test_sentiment,
+    base_probabilities=base_nb_test_probabilities,
+    enhanced_probabilities=enhanced_nb_test_probabilities,
     base_classes=nb_classes,
     enhanced_classes=nb_classes
 )
@@ -3378,6 +3388,20 @@ text_output = output.getvalue()
 with open(os.path.join(output_folder, "enhanced_nb_audit_summary.txt"), "w", encoding="utf-8") as file:
     file.write(text_output)
 
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_short_nb_review_audit_summary(nb_test_rule_review_audit_df)
+text_output = output.getvalue()
+with open(os.path.join(output_folder, "enhanced_nb_test_audit_summary.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_all_short_nb_review_examples(nb_test_rule_review_audit_df, number=0)
+text_output = output.getvalue()
+with open(os.path.join(output_folder, "rule_affected_test_reviews.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
 print("Saved Naive Bayes Audit Text Files to:", output_folder)
 
 output_folder = "Base_Learner/Classification_Report/NB/Enhanced"
@@ -3460,11 +3484,6 @@ output_folder = "Base_Learner/Results/NB/Enhanced"
 os.makedirs(output_folder, exist_ok=True)
 
 enhanced_nb_optuna_summary = pd.DataFrame([
-    {
-        "hyperparameter": "vectorizer_type",
-        "search_range": "tfidf, count",
-        "best_value": enhanced_nb_best["vectorizer_type"]
-    },
     {
         "hyperparameter": "model_type",
         "search_range": "multinomial, complement",

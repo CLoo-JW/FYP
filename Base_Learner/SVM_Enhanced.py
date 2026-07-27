@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from sklearn.calibration import CalibratedClassifierCV
 from tqdm import tqdm
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, accuracy_score, f1_score
 import optuna
 from imblearn.pipeline import Pipeline as ImbPipeline
@@ -28,8 +28,10 @@ base_svm_test_sentiment = base_svm_test_sentiment_df["base_svm_sentiment"].to_nu
 base_svm_val_sentiment = base_svm_val_sentiment_df["base_svm_sentiment"].to_numpy()
 
 base_svm_val_probabilities_df = pd.read_csv("Base_Learner/Results/SVM/Base/base_svm_val_probabilities.csv")
+base_svm_test_probabilities_df = pd.read_csv("Base_Learner/Results/SVM/Base/base_svm_test_probabilities.csv")
 
 base_svm_val_probabilities = base_svm_val_probabilities_df[["base_svm_neg", "base_svm_neu", "base_svm_pos"]].to_numpy()
+base_svm_test_probabilities = base_svm_test_probabilities_df[["base_svm_neg", "base_svm_neu", "base_svm_pos"]].to_numpy()
 
 train_split_df = pd.read_csv("Dataset/Preprocessed/train_split.csv")
 val_split_df = pd.read_csv("Dataset/Preprocessed/val_split.csv")
@@ -931,8 +933,11 @@ SVM_CULL_RULE_KEYS = {
     "phrase:not_lasting",
     "phrase:cheaply_made",
     "phrase:not_satisfied",
-    "phrase:not_bad"
 
+    # "phrase:not_bad",
+    # "phrase:would_buy_again",
+    # "post_contrast_marker:however",
+    # "diminisher:kinda",
 }
 SVM_BLOCKED_EXACT_FEATURES = {
     "FEAT_AFTER_CONTRAST_but_feel",
@@ -969,6 +974,34 @@ SVM_BLOCKED_EXACT_FEATURES = {
     "FEAT_AFTER_CONTRAST_but_fact",
     "FEAT_AFTER_CONTRAST_but_world",
     "FEAT_DIMINISHER_hardly",
+
+    # "FEAT_AFTER_CONTRAST_but_bit",
+    # "FEAT_AFTER_CONTRAST_but_try",
+    # "FEAT_AFTER_CONTRAST_but_help",
+    # "FEAT_AFTER_CONTRAST_but_standard",
+    # "FEAT_AFTER_CONTRAST_but_bag",
+    # "FEAT_AFTER_CONTRAST_but_especially",
+    # "FEAT_AFTER_CONTRAST_but_fine",
+    # "FEAT_AFTER_CONTRAST_but_plot",
+    # "FEAT_AFTER_CONTRAST_but_close",
+    # "FEAT_AFTER_CONTRAST_but_young",
+    # "FEAT_AFTER_CONTRAST_but_device",
+    # "FEAT_AFTER_CONTRAST_but_band",
+    # "FEAT_AFTER_CONTRAST_but_true",
+    # "FEAT_AFTER_CONTRAST_but_color",
+    # "FEAT_AFTER_CONTRAST_but_mean",
+    # "FEAT_AFTER_CONTRAST_however_come",
+    # "FEAT_AFTER_CONTRAST_but_force",
+    # "FEAT_AFTER_CONTRAST_but_history",
+    # "FEAT_AFTER_CONTRAST_but_loose",
+    # "FEAT_NEG_SCOPE_update",
+    # "FEAT_NEG_SCOPE_explain",
+    # "FEAT_NEG_SCOPE_away",
+    # "FEAT_NEG_SCOPE_white",
+    # "FEAT_NEG_SCOPE_touch",
+    # "FEAT_NEG_SCOPE_allow",
+    # "FEAT_INTENSIFIED_love",
+    # "FEAT_INTENSIFIED_useful",
 }
 
 def filter_svm_polarity_features(polarity_features):
@@ -1173,7 +1206,7 @@ def is_useful_scope_token(token, processed_token):
         "ADV",
         "VERB",
         "NOUN",
-        "PROPN"
+        # "PROPN"
     }:
         return False
 
@@ -2944,16 +2977,23 @@ enhanced_text_test = pd.Series(
     index=text_test.index
 )
 
-OPTUNA_TRAIN_SIZE = min(90000, len(enhanced_text_train))
+OPTUNA_TRAIN_SIZE = min(60000, len(enhanced_text_train))
+
+enhanced_optuna_df = pd.DataFrame({
+    "EnhancedText": enhanced_text_train.reset_index(drop=True),
+    "Sentiment": sentiment_train.reset_index(drop=True),
+    "Stratify": train_split_df["Stratify"].reset_index(drop=True)
+})
 
 if OPTUNA_TRAIN_SIZE < len(enhanced_text_train):
-    enhanced_text_train_optuna, _, enhanced_sentiment_train_optuna, _ = train_test_split(
-        enhanced_text_train,
-        sentiment_train,
+    enhanced_train_optuna, _= train_test_split(
+        enhanced_optuna_df,
         train_size=OPTUNA_TRAIN_SIZE,
-        stratify=sentiment_train,
+        stratify=enhanced_optuna_df["Stratify"],
         random_state=42
     )
+    enhanced_text_train_optuna = enhanced_train_optuna["EnhancedText"].reset_index(drop=True)
+    enhanced_sentiment_train_optuna = enhanced_train_optuna["Sentiment"].reset_index(drop=True)
 else:
     enhanced_text_train_optuna = enhanced_text_train
     enhanced_sentiment_train_optuna = sentiment_train
@@ -2961,6 +3001,9 @@ else:
 print("\n========== ENHANCED SVM OPTUNA SUBSET ==========")
 print("Optuna training rows:", len(enhanced_text_train_optuna))
 print(enhanced_sentiment_train_optuna.value_counts())
+if OPTUNA_TRAIN_SIZE < len(enhanced_text_train):
+    print("\nDomain-sentiment counts:")
+    print(enhanced_train_optuna["Stratify"].value_counts().sort_index())
 
 def enhanced_svm_optuna(trial):
     # vectorizer_type = trial.suggest_categorical("vectorizer_type", ["tfidf", "count"])
@@ -3195,6 +3238,17 @@ svm_rule_review_audit_df = create_svm_rule_review_audit_df(
     enhanced_classes=svm_classes
 )
 
+svm_test_rule_review_audit_df = create_svm_rule_review_audit_df(
+    texts=text_test,
+    true_labels=sentiment_test,
+    base_predictions=base_svm_test_sentiment,
+    enhanced_predictions=enhanced_svm_test_sentiment,
+    base_probabilities=base_svm_test_probabilities,
+    enhanced_probabilities=enhanced_svm_test_probabilities,
+    base_classes=svm_classes,
+    enhanced_classes=svm_classes
+)
+
 short_svm_review_summary_df = print_short_svm_review_audit_summary(svm_rule_review_audit_df)
 
 svm_rule_summary_df = create_svm_rule_summary_df(svm_rule_review_audit_df)
@@ -3318,6 +3372,20 @@ with contextlib.redirect_stdout(output):
     print_short_svm_review_audit_summary(svm_rule_review_audit_df)
 text_output = output.getvalue()
 with open(os.path.join(output_folder, "enhanced_svm_audit_summary.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_short_svm_review_audit_summary(svm_test_rule_review_audit_df)
+text_output = output.getvalue()
+with open(os.path.join(output_folder, "enhanced_svm_test_audit_summary.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_all_short_svm_review_examples(svm_test_rule_review_audit_df, number=0)
+text_output = output.getvalue()
+with open(os.path.join(output_folder, "rule_affected_test_reviews.txt"), "w", encoding="utf-8") as file:
     file.write(text_output)
 
 print("Saved SVM Audit Text Files to:", output_folder)
