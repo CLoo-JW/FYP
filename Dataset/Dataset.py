@@ -5,6 +5,7 @@ import html
 import re
 import matplotlib.pyplot as plt
 import os
+import fasttext
 
 # ================================================================================================================ START
 # Dataset
@@ -12,6 +13,11 @@ import os
 # ----------------------------------------------------------------------------- START
 # DATASET SETUP
 # -----------------------------------------------------------------------------
+LANGUAGE_MODEL_PATH = r"Dataset/lid.176.bin"
+LANGUAGE_CONFIDENCE_THRESHOLD = 0.70
+
+language_model = fasttext.load_model(LANGUAGE_MODEL_PATH)
+
 def label_sentiment(score):
     score_text = str(score)
     match = re.search(r"\d", score_text)
@@ -27,6 +33,44 @@ def label_sentiment(score):
         return "neu"
     else:
         return "pos"
+
+def detect_languages(dataframe, text_column="Text", batch_size=10000):
+    result_df = dataframe.copy()
+
+    detection_texts = (
+        result_df[text_column]
+        .fillna("")
+        .astype(str)
+        .str.replace(r"\s+", " ", regex=True)
+        .str.strip()
+        .tolist()
+    )
+
+    detected_languages = []
+    language_confidences = []
+
+    for start in range(0, len(detection_texts), batch_size):
+        batch = detection_texts[start:start + batch_size]
+
+        labels, probabilities = language_model.predict(
+            batch,
+            k=1
+        )
+
+        detected_languages.extend(
+            label[0].replace("__label__", "")
+            for label in labels
+        )
+
+        language_confidences.extend(
+            float(probability[0])
+            for probability in probabilities
+        )
+
+    result_df["DetectedLanguage"] = detected_languages
+    result_df["LanguageConfidence"] = language_confidences
+
+    return result_df
 
 # Fashion
 df_fashion1 = pd.read_csv(r'Dataset/Reviews/amazon-fashion-800k+-user-reviews-dataset.csv', engine='python', on_bad_lines='warn')
@@ -72,10 +116,10 @@ df['Text_clean_tmp'] = df['Text'].str.lower().str.strip()
 df = df.drop_duplicates(subset=['Text_clean_tmp'])
 df = df.drop(columns=['Text_clean_tmp'])
 balanced_df = (df.groupby(["Domain", "Sentiment"], group_keys=False)
-               .sample(n=100000, random_state=142)
-               .sample(frac=1, random_state=142)
+               .sample(n=100000, random_state=42)
+               .sample(frac=1, random_state=42)
                .reset_index(drop=True)
-               )
+               )  # Sampled to reduce computation time
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -106,9 +150,6 @@ print("Decoded HTML Characters...")
 balanced_df['Text'] = balanced_df['Text'].str.replace(r'<[^>]+>', '', regex=True)  # Remove HTML tags (<br>, <a>, etc)
 print("Removed HTML Tags...")
 
-balanced_df["Text"] = balanced_df["Text"].str.replace(r"(?i)\b(?:https?://|www\.)[^\s<>\"]+", " URL_TOKEN ", regex=True)
-print("Replaced URLs with URL_TOKEN...")
-
 balanced_df['Text'] = balanced_df['Text'].str.replace('�', '', regex=False)
 print("Removed Broken Characters...")
 
@@ -131,11 +172,46 @@ balanced_df["Text"] = (
     .str.replace("`", "'", regex=False)
 )
 
+balanced_df = detect_languages(
+    dataframe=balanced_df,
+    text_column="Text",
+    batch_size=10000
+)
+
+english_mask = (
+    balanced_df["DetectedLanguage"].eq("en")
+    & balanced_df["LanguageConfidence"].ge(
+        LANGUAGE_CONFIDENCE_THRESHOLD
+    )
+)
+
+removed_non_english_df = (
+    balanced_df.loc[~english_mask]
+    .copy()
+    .reset_index(drop=True)
+)
+
+balanced_df = (
+    balanced_df.loc[english_mask]
+    .drop(
+        columns=[
+            "DetectedLanguage",
+            "LanguageConfidence"
+        ]
+    )
+    .reset_index(drop=True)
+)
+
+print("Non-English Reviews Removed:", len(removed_non_english_df))
+
+balanced_df["Text"] = balanced_df["Text"].str.replace(r"(?i)\b(?:https?://|www\.)[^\s<>\"]+", " URL_TOKEN ", regex=True)
+print("Replaced URLs with URL_TOKEN...")
+
 balanced_df = (balanced_df.groupby(["Domain", "Sentiment"], group_keys=False)
-               .sample(n=30000, random_state=142)
-               .sample(frac=1, random_state=142)
+               .sample(n=30000, random_state=42)
+               .sample(frac=1, random_state=42)
                .reset_index(drop=True)
-               )
+               )  # Actual subset used
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- START
@@ -1297,9 +1373,9 @@ print("\nSaved Dataset Table to:", output_folder)
 output_folder = "Dataset/Preprocessed"
 os.makedirs(output_folder, exist_ok=True)
 
-train_split_df = train_df[["Text", "Sentiment"]].reset_index(drop=True)
-val_split_df = val_df[["Text", "Sentiment"]].reset_index(drop=True)
-test_split_df = test_df[["Text", "Sentiment"]].reset_index(drop=True)
+train_split_df = train_df[["Text", "Sentiment", "Stratify"]].reset_index(drop=True)
+val_split_df = val_df[["Text", "Sentiment", "Stratify"]].reset_index(drop=True)
+test_split_df = test_df[["Text", "Sentiment", "Stratify"]].reset_index(drop=True)
 
 train_split_df.to_csv(
     os.path.join(output_folder, "train_split.csv"),
