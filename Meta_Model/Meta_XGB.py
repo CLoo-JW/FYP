@@ -1,36 +1,11 @@
-import pandas as pd  # For reading CSV files
-import numpy as np  # Used to combine outputs for meta classifier
-from sklearn.calibration import CalibratedClassifierCV
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.naive_bayes import MultinomialNB, ComplementNB
-from sklearn.preprocessing import StandardScaler
-from sklearn.utils import compute_class_weight
-from torch.nn import CrossEntropyLoss
-from tqdm import tqdm  # For progress bars
-from nltk.sentiment import SentimentIntensityAnalyzer  # VADER
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments  # RoBERTa (Tokeniser and Classifier)
-from scipy.special import softmax  # To convert into probability
-from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer  # Converts text into number for SVM
-from sklearn.svm import SVC  # SVM
-from sklearn.model_selection import train_test_split  # Splits dataset
-from sklearn.metrics import classification_report, f1_score  # Output metrics
-from sklearn.pipeline import Pipeline  # Chains TFIDF (preprocessing) and SVM (model) together
-from sklearn.linear_model import LogisticRegression  # Logistic Regression
-from sklearn.metrics import accuracy_score  # Output metrics
-from imblearn.over_sampling import RandomOverSampler  # Balance classes
-from sklearn.model_selection import cross_val_predict  # Out of fold training
-import optuna # Hyperparameter tuning
-from sklearn.model_selection import cross_val_score  # OOF training
-from imblearn.pipeline import Pipeline as ImbPipeline
+import pandas as pd
+import numpy as np
+from sklearn.metrics import classification_report, accuracy_score
+import optuna
+from sklearn.model_selection import cross_val_score
 from sklearn.model_selection import StratifiedKFold
-import torch
-from huggingface_hub import login
 from xgboost import XGBClassifier
 import matplotlib.pyplot as plt
-import ftfy
-import html
-import re
-from sklearn.svm import LinearSVC
 import os
 import shap
 
@@ -509,11 +484,9 @@ def get_row_class_shap_values(shap_values, row_position, class_index, n_rows, n_
     shap_values_array = np.asarray(shap_values)
 
     if shap_values_array.ndim == 3:
-        # Common multiclass format: (n_samples, n_features, n_classes)
         if shap_values_array.shape[0] == n_rows and shap_values_array.shape[1] == n_features:
             return shap_values_array[row_position, :, class_index]
 
-        # Alternative format: (n_classes, n_samples, n_features)
         if shap_values_array.shape[0] == n_classes and shap_values_array.shape[2] == n_features:
             return shap_values_array[class_index, row_position, :]
 
