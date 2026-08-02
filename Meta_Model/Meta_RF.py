@@ -161,6 +161,18 @@ mixed_meta_features_test = np.hstack([enhanced_svm_test_probabilities,
                                      enhanced_roberta_test_probabilities, 
                                      enhanced_vader_test_scores])
 
+base_extra_meta_features_train = np.hstack([base_svm_train_probabilities,
+                                            base_nb_train_probabilities,
+                                            base_roberta_train_probabilities,
+                                            base_vader_train_scores,
+                                            extra_train_meta_features])
+
+base_extra_meta_features_test = np.hstack([base_svm_test_probabilities,
+                                        base_nb_test_probabilities,
+                                        base_roberta_test_probabilities,
+                                        base_vader_test_scores,
+                                        extra_test_meta_features])
+
 enhanced_meta_features_train = np.hstack([enhanced_svm_train_probabilities, 
                                       enhanced_nb_train_probabilities, 
                                       enhanced_roberta_train_probabilities, 
@@ -190,6 +202,8 @@ mixed_feature_names = [
 
 extra_feature_names = extra_train_meta_features_df.columns.tolist()
 
+base_extra_feature_names = (base_feature_names + extra_feature_names)
+
 enhanced_feature_names = mixed_feature_names + extra_feature_names
 
 assert len(base_feature_names) == base_meta_features_train.shape[1]
@@ -207,6 +221,8 @@ assert enhanced_meta_features_test.shape[0] == len(sentiment_test)
 
 print("\n========== RF XAI FEATURE CHECK ==========")
 print("Base RF XAI feature count:", len(base_feature_names))
+
+print("Base Extra RF XAI feature count:", len(base_extra_feature_names))
 print("Mixed RF XAI feature count:", len(mixed_feature_names))
 print("Enhanced RF XAI feature count:", len(enhanced_feature_names))
 # ----------------------------------------------------------------------------- END
@@ -258,6 +274,98 @@ base_meta_rf_model = RandomForestClassifier(
 )
 base_meta_rf_model.fit(base_meta_features_train, sentiment_train)
 base_meta_rf_test_sentiment = base_meta_rf_model.predict(base_meta_features_test)
+# ----------------------------------------------------------------------------- END
+
+# -----------------------------------------------------------------------------
+# BASE EXTRA META RANDOM FOREST
+# -----------------------------------------------------------------------------
+def base_extra_meta_rf_optuna(trial):
+    optuna_rf_model = RandomForestClassifier(
+        n_estimators=trial.suggest_int(
+            "n_estimators",
+            100,
+            800
+        ),
+        max_depth=trial.suggest_int(
+            "max_depth",
+            3,
+            15
+        ),
+        min_samples_split=trial.suggest_int(
+            "min_samples_split",
+            2,
+            20
+        ),
+        min_samples_leaf=trial.suggest_int(
+            "min_samples_leaf",
+            1,
+            10
+        ),
+        max_features=trial.suggest_categorical(
+            "max_features",
+            ["sqrt", "log2", None]
+        ),
+        random_state=42,
+        n_jobs=-1
+    )
+
+    scores = cross_val_score(
+        optuna_rf_model,
+        base_extra_meta_features_train,
+        sentiment_train,
+        cv=optuna_cv,
+        scoring="f1_macro"
+    )
+
+    return scores.mean()
+
+
+print("\n========== BASE EXTRA META RANDOM FOREST MODEL ==========")
+
+base_extra_meta_rf_study = optuna.create_study(
+    direction="maximize",
+    sampler=optuna.samplers.TPESampler(seed=42)
+)
+
+base_extra_meta_rf_study.optimize(
+    base_extra_meta_rf_optuna,
+    n_trials=30
+)
+
+base_extra_meta_rf_best = (
+    base_extra_meta_rf_study.best_params
+)
+
+base_extra_meta_rf_model = RandomForestClassifier(
+    n_estimators=base_extra_meta_rf_best[
+        "n_estimators"
+    ],
+    max_depth=base_extra_meta_rf_best[
+        "max_depth"
+    ],
+    min_samples_split=base_extra_meta_rf_best[
+        "min_samples_split"
+    ],
+    min_samples_leaf=base_extra_meta_rf_best[
+        "min_samples_leaf"
+    ],
+    max_features=base_extra_meta_rf_best[
+        "max_features"
+    ],
+    random_state=42,
+    n_jobs=-1
+)
+
+base_extra_meta_rf_model.fit(
+    base_extra_meta_features_train,
+    sentiment_train
+)
+
+base_extra_meta_rf_test_sentiment = (
+    base_extra_meta_rf_model.predict(
+        base_extra_meta_features_test
+    )
+)
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- Start
@@ -429,6 +537,442 @@ def get_row_class_shap_values(shap_values, row_position, class_index, n_rows, n_
         return shap_values_array[row_position]
 
     raise ValueError("Unexpected SHAP values shape: " + str(shap_values_array.shape))
+
+def generate_rf_shap_charts(
+        model,
+        feature_values,
+        feature_names,
+        true_labels,
+        output_folder,
+        file_prefix,
+        model_title,
+        correct_row_index=None,
+        incorrect_row_index=None,
+        global_top_n=20,
+        local_top_n=10
+):
+    os.makedirs(output_folder, exist_ok=True)
+
+    feature_values = np.asarray(feature_values)
+    true_labels = np.asarray(true_labels)
+
+    predicted_labels = model.predict(feature_values)
+
+    class_names = list(model.classes_)
+
+    n_rows = feature_values.shape[0]
+    n_features = feature_values.shape[1]
+    n_classes = len(class_names)
+
+    explainer = shap.TreeExplainer(model)
+
+    shap_values = explainer.shap_values(
+        feature_values
+    )
+
+    # For each review, select the SHAP values corresponding
+    # to the class predicted for that review.
+    predicted_class_shap_matrix = np.vstack([
+        get_row_class_shap_values(
+            shap_values=shap_values,
+            row_position=row_position,
+            class_index=class_names.index(
+                predicted_labels[row_position]
+            ),
+            n_rows=n_rows,
+            n_features=n_features,
+            n_classes=n_classes
+        )
+        for row_position in range(n_rows)
+    ])
+
+    readable_feature_names = [
+        make_feature_name_readable(feature)
+        for feature in feature_names
+    ]
+
+    feature_groups = np.asarray([
+        get_meta_feature_group(feature)
+        for feature in feature_names
+    ])
+
+    # =========================================================
+    # 1. GLOBAL SHAP VALUE BY INDIVIDUAL FEATURE
+    # =========================================================
+    mean_absolute_shap_values = np.mean(
+        np.abs(predicted_class_shap_matrix),
+        axis=0
+    )
+
+    global_feature_df = pd.DataFrame({
+        "feature": feature_names,
+        "readable_feature":
+            readable_feature_names,
+        "feature_group": feature_groups,
+        "mean_absolute_shap_value":
+            mean_absolute_shap_values
+    }).sort_values(
+        "mean_absolute_shap_value",
+        ascending=False
+    )
+
+    global_feature_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_feature_shap_values.csv"
+        ),
+        index=False
+    )
+
+    plotted_global_feature_df = (
+        global_feature_df
+        .head(global_top_n)
+        .sort_values(
+            "mean_absolute_shap_value"
+        )
+    )
+
+    plt.figure(
+        figsize=(
+            10,
+            max(
+                5,
+                len(plotted_global_feature_df) * 0.4
+            )
+        )
+    )
+
+    plt.barh(
+        plotted_global_feature_df[
+            "readable_feature"
+        ],
+        plotted_global_feature_df[
+            "mean_absolute_shap_value"
+        ]
+    )
+
+    plt.xlabel(
+        "Mean Absolute SHAP Value "
+        "for Predicted Class"
+    )
+
+    plt.ylabel("Meta-Feature")
+
+    plt.title(
+        model_title
+        + ": Global Mean Absolute SHAP Value "
+        "by Feature"
+    )
+
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_feature_shap_values.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+
+    plt.close()
+
+    # =========================================================
+    # 2. GLOBAL SHAP VALUE BY FEATURE GROUP
+    # =========================================================
+    group_rows = []
+
+    for feature_group in pd.unique(feature_groups):
+        group_mask = (
+            feature_groups == feature_group
+        )
+
+        # Sum signed feature SHAP values in each group
+        # before calculating mean absolute group influence.
+        row_group_shap_values = (
+            predicted_class_shap_matrix[
+                :, group_mask
+            ].sum(axis=1)
+        )
+
+        group_rows.append({
+            "feature_group": feature_group,
+            "feature_count":
+                int(group_mask.sum()),
+            "mean_absolute_group_shap_value":
+                np.mean(
+                    np.abs(
+                        row_group_shap_values
+                    )
+                )
+        })
+
+    global_group_df = pd.DataFrame(
+        group_rows
+    ).sort_values(
+        "mean_absolute_group_shap_value",
+        ascending=False
+    )
+
+    global_group_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_group_shap_values.csv"
+        ),
+        index=False
+    )
+
+    plotted_group_df = (
+        global_group_df.sort_values(
+            "mean_absolute_group_shap_value"
+        )
+    )
+
+    plt.figure(
+        figsize=(
+            9,
+            max(
+                4,
+                len(plotted_group_df) * 0.7
+            )
+        )
+    )
+
+    plt.barh(
+        plotted_group_df["feature_group"],
+        plotted_group_df[
+            "mean_absolute_group_shap_value"
+        ]
+    )
+
+    plt.xlabel(
+        "Mean Absolute Group SHAP Value"
+    )
+
+    plt.ylabel("Feature Group")
+
+    plt.title(
+        model_title
+        + ": Global Mean Absolute SHAP Value "
+        "by Feature Group"
+    )
+
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_group_shap_values.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+
+    plt.close()
+
+    # =========================================================
+    # SELECT CORRECT AND INCORRECT EXAMPLES
+    # =========================================================
+    correct_indices = np.flatnonzero(
+        predicted_labels == true_labels
+    )
+
+    incorrect_indices = np.flatnonzero(
+        predicted_labels != true_labels
+    )
+
+    if correct_row_index is None:
+        if len(correct_indices) == 0:
+            raise ValueError(
+                "No correct Random Forest "
+                "prediction was found."
+            )
+
+        correct_row_index = int(
+            correct_indices[0]
+        )
+
+    if incorrect_row_index is None:
+        if len(incorrect_indices) == 0:
+            raise ValueError(
+                "No incorrect Random Forest "
+                "prediction was found."
+            )
+
+        incorrect_row_index = int(
+            incorrect_indices[0]
+        )
+
+    # =========================================================
+    # LOCAL SHAP CHART
+    # =========================================================
+    def save_local_shap_chart(
+            row_index,
+            prediction_result
+    ):
+        local_df = pd.DataFrame({
+            "feature": feature_names,
+            "readable_feature":
+                readable_feature_names,
+            "feature_group": feature_groups,
+            "raw_value":
+                feature_values[row_index],
+            "shap_value_for_predicted_class":
+                predicted_class_shap_matrix[
+                    row_index
+                ],
+            "absolute_shap_value":
+                np.abs(
+                    predicted_class_shap_matrix[
+                        row_index
+                    ]
+                )
+        })
+
+        local_df = (
+            local_df
+            .sort_values(
+                "absolute_shap_value",
+                ascending=False
+            )
+            .head(local_top_n)
+            .sort_values(
+                "shap_value_for_predicted_class"
+            )
+        )
+
+        local_df.to_csv(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".csv"
+            ),
+            index=False
+        )
+
+        bar_colours = [
+            "tab:blue"
+            if shap_value >= 0
+            else "tab:orange"
+            for shap_value in local_df[
+                "shap_value_for_predicted_class"
+            ]
+        ]
+
+        plt.figure(
+            figsize=(
+                10,
+                max(
+                    5,
+                    len(local_df) * 0.5
+                )
+            )
+        )
+
+        plt.barh(
+            local_df["readable_feature"],
+            local_df[
+                "shap_value_for_predicted_class"
+            ],
+            color=bar_colours
+        )
+
+        plt.axvline(
+            x=0,
+            linewidth=0.8,
+            color="black"
+        )
+
+        plt.xlabel(
+            "SHAP Value for Predicted Class"
+        )
+
+        plt.ylabel("Meta-Feature")
+
+        plt.title(
+            model_title
+            + ": "
+            + prediction_result.title()
+            + " Prediction\n"
+            + "True = "
+            + str(true_labels[row_index])
+            + ", Predicted = "
+            + str(predicted_labels[row_index])
+            + ", Row = "
+            + str(row_index)
+        )
+
+        plt.tight_layout()
+
+        plt.savefig(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".png"
+            ),
+            dpi=300,
+            bbox_inches="tight"
+        )
+
+        plt.close()
+
+        return local_df
+
+    correct_local_df = (
+        save_local_shap_chart(
+            row_index=correct_row_index,
+            prediction_result="correct"
+        )
+    )
+
+    incorrect_local_df = (
+        save_local_shap_chart(
+            row_index=incorrect_row_index,
+            prediction_result="incorrect"
+        )
+    )
+
+    print(
+        "\nSaved Random Forest SHAP charts to:",
+        output_folder
+    )
+
+    print(
+        "Correct example row:",
+        correct_row_index
+    )
+
+    print(
+        "Incorrect example row:",
+        incorrect_row_index
+    )
+
+    return {
+        "global_feature_shap_values":
+            global_feature_df,
+        "global_group_shap_values":
+            global_group_df,
+        "correct_local_shap_values":
+            correct_local_df,
+        "incorrect_local_shap_values":
+            incorrect_local_df,
+        "correct_row_index":
+            correct_row_index,
+        "incorrect_row_index":
+            incorrect_row_index
+    }
 
 def save_readable_local_rf_shap_report(
         model,
@@ -651,6 +1195,12 @@ print(base_meta_rf_best)
 print("BASE META RANDOM FOREST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_rf_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_rf_test_sentiment, digits=4))
 
+print("BASE EXTRA META RANDOM FOREST BEST PARAMETERS: " + str(base_extra_meta_rf_study.best_value))
+print(base_extra_meta_rf_best)
+print("BASE EXTRA META RANDOM FOREST MODEL ON TEST: ACCURACY = "
+    + str(round(accuracy_score(sentiment_test, base_extra_meta_rf_test_sentiment) * 100, 2)) + "%")
+print(classification_report(sentiment_test, base_extra_meta_rf_test_sentiment, digits=4))
+
 print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
@@ -745,6 +1295,61 @@ print(base_readable_xai_report_df[
 ]].head(5))
 
 
+base_extra_readable_xai_report_df = (
+    save_readable_local_rf_shap_report(
+        model=base_extra_meta_rf_model,
+        feature_values=
+            base_extra_meta_features_test,
+        feature_names=
+            base_extra_feature_names,
+        test_split_df=test_split_df,
+        true_labels=sentiment_test,
+        output_folder=xai_output_folder,
+        file_prefix="base_extra_meta_rf",
+        row_indices=list(
+            range(len(sentiment_test))
+        ),
+        top_n=5
+    )
+)
+
+print("\n========== BASE EXTRA META RF CORRECT XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "correct"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
+
+print("\n========== BASE EXTRA META RF WRONG XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "wrong"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
+
+
 mixed_readable_xai_report_df = save_readable_local_rf_shap_report(
     model=mixed_meta_rf_model,
     feature_values=mixed_meta_features_test,
@@ -836,6 +1441,15 @@ base_meta_rf_test_report_df = pd.DataFrame(
     )
 ).transpose().round(4)
 
+base_extra_meta_rf_test_report_df = pd.DataFrame(
+    classification_report(
+        sentiment_test,
+        base_extra_meta_rf_test_sentiment,
+        digits=4,
+        output_dict=True
+    )
+).transpose().round(4)
+
 mixed_meta_rf_test_report_df = pd.DataFrame(
     classification_report(
         sentiment_test,
@@ -856,6 +1470,15 @@ enhanced_meta_rf_test_report_df = pd.DataFrame(
 
 base_meta_rf_test_report_df.to_csv(
     os.path.join(output_folder, "base_meta_rf_test_classification_report.csv"),
+    index_label="class"
+)
+
+base_extra_meta_rf_test_report_df.to_csv(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_rf_test_"
+        "classification_report.csv"
+    ),
     index_label="class"
 )
 
@@ -888,6 +1511,35 @@ plt.savefig(
     bbox_inches="tight",
     dpi=300
 )
+plt.close()
+
+
+fig, ax = plt.subplots(figsize=(8, 3))
+ax.axis("off")
+
+table = ax.table(
+    cellText=
+        base_extra_meta_rf_test_report_df.values,
+    rowLabels=
+        base_extra_meta_rf_test_report_df.index,
+    colLabels=
+        base_extra_meta_rf_test_report_df.columns,
+    loc="center"
+)
+
+table.auto_set_font_size(False)
+table.set_fontsize(9)
+table.scale(1.2, 1.4)
+
+plt.savefig(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_rf_test_classification_report.png"
+    ),
+    bbox_inches="tight",
+    dpi=300
+)
+
 plt.close()
 
 
@@ -935,7 +1587,7 @@ plt.close()
 
 print("Saved Random Forest Classification Report to:", output_folder)
 
-output_folder = "Meta_Model/Results"
+output_folder = "Meta_Model/Results/RF"
 os.makedirs(output_folder, exist_ok=True)
 
 meta_rf_optuna_summary = pd.DataFrame([
@@ -943,6 +1595,7 @@ meta_rf_optuna_summary = pd.DataFrame([
         "hyperparameter": "n_estimators",
         "search_range": "100 to 800",
         "base best_value": base_meta_rf_best["n_estimators"],
+        "base_extra best_value": base_extra_meta_rf_best["n_estimators"],
         "mixed best_value": mixed_meta_rf_best["n_estimators"],
         "enhanced best_value": enhanced_meta_rf_best["n_estimators"]
     },
@@ -950,6 +1603,7 @@ meta_rf_optuna_summary = pd.DataFrame([
         "hyperparameter": "max_depth",
         "search_range": "3 to 15",
         "base best_value": base_meta_rf_best["max_depth"],
+        "base_extra best_value": base_extra_meta_rf_best["max_depth"],
         "mixed best_value": mixed_meta_rf_best["max_depth"],
         "enhanced best_value": enhanced_meta_rf_best["max_depth"]
     },
@@ -957,6 +1611,7 @@ meta_rf_optuna_summary = pd.DataFrame([
         "hyperparameter": "min_samples_split",
         "search_range": "2 to 20",
         "base best_value": base_meta_rf_best["min_samples_split"],
+        "base_extra best_value": base_extra_meta_rf_best["min_samples_split"],
         "mixed best_value": mixed_meta_rf_best["min_samples_split"],
         "enhanced best_value": enhanced_meta_rf_best["min_samples_split"]
     },
@@ -964,6 +1619,7 @@ meta_rf_optuna_summary = pd.DataFrame([
         "hyperparameter": "min_samples_leaf",
         "search_range": "1 to 10",
         "base best_value": base_meta_rf_best["min_samples_leaf"],
+        "base_extra best_value": base_extra_meta_rf_best["min_samples_leaf"],
         "mixed best_value": mixed_meta_rf_best["min_samples_leaf"],
         "enhanced best_value": enhanced_meta_rf_best["min_samples_leaf"]
     },
@@ -971,6 +1627,7 @@ meta_rf_optuna_summary = pd.DataFrame([
         "hyperparameter": "max_features",
         "search_range": "sqrt, log2, None",
         "base best_value": base_meta_rf_best["max_features"],
+        "base_extra best_value": base_extra_meta_rf_best["max_features"],
         "mixed best_value": mixed_meta_rf_best["max_features"],
         "enhanced best_value": enhanced_meta_rf_best["max_features"]
     }
@@ -981,6 +1638,113 @@ meta_rf_optuna_summary.to_csv(
     index=False
 )
 
-print("Saved Meta Logistic Regression Optuna Parameters to:", output_folder)
+print("Saved Meta Random Forest Optuna Parameters to:", output_folder)
+
+
+output_folder = "Meta_Model/XAI/RF"
+os.makedirs(output_folder, exist_ok=True)
+
+base_rf_shap_charts = generate_rf_shap_charts(
+    model=base_meta_rf_model,
+    feature_values=base_meta_features_test,
+    feature_names=base_feature_names,
+    true_labels=sentiment_test,
+    output_folder=output_folder,
+    file_prefix="base_meta_rf",
+    model_title="Base Meta Random Forest",
+    global_top_n=20,
+    local_top_n=10
+)
+
+base_extra_rf_shap_charts = (
+    generate_rf_shap_charts(
+        model=base_extra_meta_rf_model,
+        feature_values=
+            base_extra_meta_features_test,
+        feature_names=
+            base_extra_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="base_extra_meta_rf",
+        model_title=
+            "Base Extra Meta Random Forest",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+mixed_rf_shap_charts = generate_rf_shap_charts(
+    model=mixed_meta_rf_model,
+    feature_values=mixed_meta_features_test,
+    feature_names=mixed_feature_names,
+    true_labels=sentiment_test,
+    output_folder=output_folder,
+    file_prefix="mixed_meta_rf",
+    model_title="Mixed Meta Random Forest",
+    global_top_n=20,
+    local_top_n=10
+)
+
+enhanced_rf_shap_charts = (
+    generate_rf_shap_charts(
+        model=enhanced_meta_rf_model,
+        feature_values=
+            enhanced_meta_features_test,
+        feature_names=enhanced_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="enhanced_meta_rf",
+        model_title=
+            "Enhanced Meta Random Forest",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+print(
+    "Saved Meta Random Forest SHAP Charts to:",
+    output_folder
+)
+
+
+output_folder = "Meta_Model/Results/RF"
+os.makedirs(output_folder, exist_ok=True)
+
+base_meta_rf_test_sentiment_df = pd.DataFrame({
+    "base_meta_rf_test_sentiment": base_meta_rf_test_sentiment
+})
+
+base_meta_rf_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_meta_rf_test_sentiment.csv"),
+    index=False
+)
+
+base_extra_meta_rf_test_sentiment_df = pd.DataFrame({
+    "base_extra_meta_rf_test_sentiment": base_extra_meta_rf_test_sentiment
+})
+
+base_extra_meta_rf_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_extra_meta_rf_test_sentiment.csv"),
+    index=False
+)
+
+mixed_meta_rf_test_sentiment_df = pd.DataFrame({
+    "mixed_meta_rf_test_sentiment": mixed_meta_rf_test_sentiment
+})
+
+mixed_meta_rf_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "mixed_meta_rf_test_sentiment.csv"),
+    index=False
+)
+
+enhanced_meta_rf_test_sentiment_df = pd.DataFrame({
+    "enhanced_meta_rf_test_sentiment": enhanced_meta_rf_test_sentiment
+})
+
+enhanced_meta_rf_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "enhanced_meta_rf_test_sentiment.csv"),
+    index=False
+)
+print("Saved Meta Random Forest Sentiments to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

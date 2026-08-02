@@ -162,14 +162,26 @@ mixed_meta_features_test = np.hstack([enhanced_svm_test_probabilities,
                                      enhanced_roberta_test_probabilities, 
                                      enhanced_vader_test_scores])
 
+base_extra_meta_features_train = np.hstack([base_svm_train_probabilities,
+                                          base_nb_train_probabilities,
+                                          base_roberta_train_probabilities,
+                                          base_vader_train_scores,
+                                          extra_train_meta_features])
+
+base_extra_meta_features_test = np.hstack([base_svm_test_probabilities,
+                                          base_nb_test_probabilities,
+                                          base_roberta_test_probabilities,
+                                          base_vader_test_scores,
+                                          extra_test_meta_features])
+
 enhanced_meta_features_train = np.hstack([enhanced_svm_train_probabilities, 
-                                      enhanced_nb_train_probabilities, 
-                                      enhanced_roberta_train_probabilities, 
-                                      enhanced_vader_train_scores, extra_train_meta_features])
+                                         enhanced_nb_train_probabilities, 
+                                         enhanced_roberta_train_probabilities, 
+                                         enhanced_vader_train_scores, extra_train_meta_features])
 enhanced_meta_features_test = np.hstack([enhanced_svm_test_probabilities, 
-                                     enhanced_nb_test_probabilities, 
-                                     enhanced_roberta_test_probabilities, 
-                                     enhanced_vader_test_scores, extra_test_meta_features])
+                                        enhanced_nb_test_probabilities, 
+                                        enhanced_roberta_test_probabilities, 
+                                        enhanced_vader_test_scores, extra_test_meta_features])
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- Start
@@ -191,6 +203,8 @@ mixed_feature_names = [
 
 extra_feature_names = extra_train_meta_features_df.columns.tolist()
 
+base_extra_feature_names = base_feature_names + extra_feature_names
+
 enhanced_feature_names = mixed_feature_names + extra_feature_names
 
 assert len(base_feature_names) == base_meta_features_train.shape[1]
@@ -208,6 +222,7 @@ assert enhanced_meta_features_test.shape[0] == len(sentiment_test)
 
 print("\n========== XAI FEATURE CHECK ==========")
 print("Base XAI feature count:", len(base_feature_names))
+print("Base Extra XAI feature count:",len(base_extra_feature_names))
 print("Mixed XAI feature count:", len(mixed_feature_names))
 print("Enhanced XAI feature count:", len(enhanced_feature_names))
 # ----------------------------------------------------------------------------- END
@@ -259,6 +274,76 @@ base_meta_logistic_model = Pipeline([
 ])
 base_meta_logistic_model.fit(base_meta_features_train, sentiment_train)
 base_meta_logistic_test_sentiment = base_meta_logistic_model.predict(base_meta_features_test)
+# ----------------------------------------------------------------------------- END
+
+# -----------------------------------------------------------------------------
+# BASE EXTRA META LOGISTIC REGRESSION
+# -----------------------------------------------------------------------------
+def base_extra_meta_logistic_optuna(trial):
+    optuna_meta_logistic_model = Pipeline([
+        ("scaler", StandardScaler()),
+        ("lr", LogisticRegression(
+            C=trial.suggest_float(
+                "C",
+                0.001,
+                10.0,
+                log=True
+            ),
+            solver="lbfgs",
+            l1_ratio=0,
+            max_iter=30000
+        ))
+    ])
+
+    logistic_scores = cross_val_score(
+        optuna_meta_logistic_model,
+        base_extra_meta_features_train,
+        sentiment_train,
+        cv=optuna_cv,
+        scoring="f1_macro",
+        n_jobs=-1
+    )
+
+    return logistic_scores.mean()
+
+
+print("\n========== BASE EXTRA META LOGISTIC REGRESSION MODEL =========="
+)
+
+base_extra_meta_logistic_study = optuna.create_study(
+    direction="maximize",
+    sampler=optuna.samplers.TPESampler(seed=42)
+)
+
+base_extra_meta_logistic_study.optimize(
+    base_extra_meta_logistic_optuna,
+    n_trials=30
+)
+
+base_extra_meta_logistic_best = (
+    base_extra_meta_logistic_study.best_params
+)
+
+base_extra_meta_logistic_model = Pipeline([
+    ("scaler", StandardScaler()),
+    ("lr", LogisticRegression(
+        C=base_extra_meta_logistic_best["C"],
+        solver="lbfgs",
+        l1_ratio=0,
+        max_iter=30000
+    ))
+])
+
+base_extra_meta_logistic_model.fit(
+    base_extra_meta_features_train,
+    sentiment_train
+)
+
+base_extra_meta_logistic_test_sentiment = (
+    base_extra_meta_logistic_model.predict(
+        base_extra_meta_features_test
+    )
+)
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- Start
@@ -415,6 +500,356 @@ def format_feature_contributions(feature_df, contribution_column, top_n=5):
 
     return ";\n".join(formatted_features)
 
+def generate_coefficient_xai_charts(
+        model,
+        feature_values,
+        feature_names,
+        true_labels,
+        output_folder,
+        file_prefix,
+        correct_row_index=None,
+        incorrect_row_index=None,
+        global_top_n=20,
+        local_top_n=10
+):
+    os.makedirs(output_folder, exist_ok=True)
+
+    # ---------------------------------------------------------
+    # Retrieve the scaler and linear classifier from the pipeline
+    # ---------------------------------------------------------
+    scaler = model.named_steps["scaler"]
+
+    if "lr" in model.named_steps:
+        linear_model = model.named_steps["lr"]
+        model_name = "Logistic Regression"
+    elif "svm" in model.named_steps:
+        linear_model = model.named_steps["svm"]
+        model_name = "Linear SVM"
+    else:
+        raise ValueError(
+            "The pipeline must contain either an 'lr' or 'svm' step."
+        )
+
+    # Standardise the features using the fitted scaler
+    scaled_features = scaler.transform(feature_values)
+
+    predicted_labels = model.predict(feature_values)
+    true_labels = np.asarray(true_labels)
+
+    class_names = list(linear_model.classes_)
+
+    # Find the coefficient row associated with each predicted class
+    predicted_class_indices = np.array([
+        class_names.index(label)
+        for label in predicted_labels
+    ])
+
+    predicted_class_coefficients = linear_model.coef_[
+        predicted_class_indices
+    ]
+
+    # Contribution of every feature to each row's predicted class
+    contribution_matrix = (
+        scaled_features * predicted_class_coefficients
+    )
+
+    readable_feature_names = [
+        make_feature_name_readable(feature)
+        for feature in feature_names
+    ]
+
+    feature_groups = np.array([
+        get_meta_feature_group(feature)
+        for feature in feature_names
+    ])
+
+    # =========================================================
+    # 1. GLOBAL MEAN ABSOLUTE CONTRIBUTION BY FEATURE
+    # =========================================================
+    mean_absolute_contributions = np.mean(
+        np.abs(contribution_matrix),
+        axis=0
+    )
+
+    global_feature_df = pd.DataFrame({
+        "feature": feature_names,
+        "readable_feature": readable_feature_names,
+        "feature_group": feature_groups,
+        "mean_absolute_contribution": mean_absolute_contributions
+    }).sort_values(
+        "mean_absolute_contribution",
+        ascending=False
+    )
+
+    global_feature_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix + "_global_feature_contributions.csv"
+        ),
+        index=False
+    )
+
+    plotted_global_feature_df = (
+        global_feature_df
+        .head(global_top_n)
+        .sort_values("mean_absolute_contribution")
+    )
+
+    plt.figure(
+        figsize=(
+            10,
+            max(5, len(plotted_global_feature_df) * 0.4)
+        )
+    )
+
+    plt.barh(
+        plotted_global_feature_df["readable_feature"],
+        plotted_global_feature_df["mean_absolute_contribution"]
+    )
+
+    plt.xlabel("Mean Absolute Coefficient Contribution")
+    plt.ylabel("Meta-Feature")
+    plt.title(
+        model_name
+        + ": Global Mean Absolute Contribution by Feature"
+    )
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix + "_global_feature_contributions.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+    plt.close()
+
+    # =========================================================
+    # 2. GLOBAL MEAN ABSOLUTE CONTRIBUTION BY FEATURE GROUP
+    # =========================================================
+    group_rows = []
+
+    for feature_group in pd.unique(feature_groups):
+        group_mask = feature_groups == feature_group
+
+        # Sum signed contributions within the group for each row
+        row_group_contributions = contribution_matrix[
+            :, group_mask
+        ].sum(axis=1)
+
+        group_rows.append({
+            "feature_group": feature_group,
+            "feature_count": int(group_mask.sum()),
+            "mean_absolute_group_contribution": np.mean(
+                np.abs(row_group_contributions)
+            )
+        })
+
+    global_group_df = pd.DataFrame(group_rows).sort_values(
+        "mean_absolute_group_contribution",
+        ascending=False
+    )
+
+    global_group_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix + "_global_group_contributions.csv"
+        ),
+        index=False
+    )
+
+    plotted_group_df = global_group_df.sort_values(
+        "mean_absolute_group_contribution"
+    )
+
+    plt.figure(
+        figsize=(
+            9,
+            max(4, len(plotted_group_df) * 0.7)
+        )
+    )
+
+    plt.barh(
+        plotted_group_df["feature_group"],
+        plotted_group_df["mean_absolute_group_contribution"]
+    )
+
+    plt.xlabel("Mean Absolute Group Contribution")
+    plt.ylabel("Feature Group")
+    plt.title(
+        model_name
+        + ": Global Mean Absolute Contribution by Feature Group"
+    )
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix + "_global_group_contributions.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+    plt.close()
+
+    # =========================================================
+    # SELECT CORRECT AND INCORRECT ROWS
+    # =========================================================
+    correct_indices = np.flatnonzero(
+        predicted_labels == true_labels
+    )
+
+    incorrect_indices = np.flatnonzero(
+        predicted_labels != true_labels
+    )
+
+    if correct_row_index is None:
+        if len(correct_indices) == 0:
+            raise ValueError("No correct prediction was found.")
+        correct_row_index = int(correct_indices[0])
+
+    if incorrect_row_index is None:
+        if len(incorrect_indices) == 0:
+            raise ValueError("No incorrect prediction was found.")
+        incorrect_row_index = int(incorrect_indices[0])
+
+    # =========================================================
+    # LOCAL CHART FUNCTION
+    # =========================================================
+    def save_local_contribution_chart(
+            row_index,
+            prediction_result
+    ):
+        local_df = pd.DataFrame({
+            "feature": feature_names,
+            "readable_feature": readable_feature_names,
+            "feature_group": feature_groups,
+            "raw_value": feature_values[row_index],
+            "scaled_value": scaled_features[row_index],
+            "coefficient": predicted_class_coefficients[row_index],
+            "contribution": contribution_matrix[row_index],
+            "absolute_contribution": np.abs(
+                contribution_matrix[row_index]
+            )
+        })
+
+        local_df = (
+            local_df
+            .sort_values(
+                "absolute_contribution",
+                ascending=False
+            )
+            .head(local_top_n)
+            .sort_values("contribution")
+        )
+
+        local_df.to_csv(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".csv"
+            ),
+            index=False
+        )
+
+        bar_colours = [
+            "tab:blue" if contribution >= 0 else "tab:orange"
+            for contribution in local_df["contribution"]
+        ]
+
+        plt.figure(
+            figsize=(
+                10,
+                max(5, len(local_df) * 0.5)
+            )
+        )
+
+        plt.barh(
+            local_df["readable_feature"],
+            local_df["contribution"],
+            color=bar_colours
+        )
+
+        plt.axvline(
+            x=0,
+            linewidth=0.8,
+            color="black"
+        )
+
+        plt.xlabel(
+            "Contribution to Predicted Class"
+        )
+        plt.ylabel("Meta-Feature")
+
+        plt.title(
+            model_name
+            + ": "
+            + prediction_result.title()
+            + " Prediction\n"
+            + "True = "
+            + str(true_labels[row_index])
+            + ", Predicted = "
+            + str(predicted_labels[row_index])
+            + ", Row = "
+            + str(row_index)
+        )
+
+        plt.tight_layout()
+
+        plt.savefig(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".png"
+            ),
+            dpi=300,
+            bbox_inches="tight"
+        )
+        plt.close()
+
+        return local_df
+
+    # =========================================================
+    # 3. LOCAL CORRECT-PREDICTION CHART
+    # =========================================================
+    correct_local_df = save_local_contribution_chart(
+        row_index=correct_row_index,
+        prediction_result="correct"
+    )
+
+    # =========================================================
+    # 4. LOCAL INCORRECT-PREDICTION CHART
+    # =========================================================
+    incorrect_local_df = save_local_contribution_chart(
+        row_index=incorrect_row_index,
+        prediction_result="incorrect"
+    )
+
+    print(
+        "\nSaved coefficient-based XAI charts to:",
+        output_folder
+    )
+    print("Correct example row:", correct_row_index)
+    print("Incorrect example row:", incorrect_row_index)
+
+    return {
+        "global_feature_contributions": global_feature_df,
+        "global_group_contributions": global_group_df,
+        "correct_local_contributions": correct_local_df,
+        "incorrect_local_contributions": incorrect_local_df,
+        "correct_row_index": correct_row_index,
+        "incorrect_row_index": incorrect_row_index
+    }
+
 def save_readable_local_xai_report(
         model,
         feature_values,
@@ -498,6 +933,11 @@ def save_readable_local_xai_report(
         else:
             strongest_feature_group = positive_group_contribution_df.iloc[0]["feature_group"]
 
+        if supporting_features_df.empty:
+            strongest_individual_feature = "None"
+        else:
+            strongest_individual_feature = supporting_features_df.iloc[0]["readable_feature"]
+
         top_supporting_features = format_feature_contributions(
             supporting_features_df,
             contribution_column="contribution_to_predicted_class",
@@ -524,9 +964,11 @@ def save_readable_local_xai_report(
             opposing_feature_text = "no strong opposing signal"
 
         explanation = (
-            "The meta model predicted '"
+            "The meta Logistic Regression model predicted '"
             + str(predicted_sentiment)
-            + "' mainly because the strongest supporting signals came from "
+            + "' mainly because the strongest individual supporting feature was "
+            + str(strongest_individual_feature)
+            + ", while the strongest overall feature group was "
             + str(strongest_feature_group)
             + ". The top supporting features were "
             + supporting_feature_text
@@ -542,6 +984,7 @@ def save_readable_local_xai_report(
             "true_sentiment": true_sentiment,
             "predicted_sentiment": predicted_sentiment,
             "prediction_confidence": round(prediction_confidence, 4),
+            "strongest_individual_feature": strongest_individual_feature,
             "strongest_feature_group": strongest_feature_group,
             "top_supporting_features": top_supporting_features,
             "top_opposing_features": top_opposing_features,
@@ -561,6 +1004,8 @@ def save_readable_local_xai_report(
             + str(predicted_sentiment)
             + "\n\nprediction_confidence:\n"
             + str(round(prediction_confidence, 4))
+            + "\n\nstrongest_individual_feature:\n"
+            + str(strongest_individual_feature)
             + "\n\nstrongest_feature_group:\n"
             + str(strongest_feature_group)
             + "\n\ntop_supporting_features:\n"
@@ -620,6 +1065,12 @@ print(base_meta_logistic_best)
 print("BASE META LOGISTIC REGRESSION MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_logistic_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_logistic_test_sentiment, digits=4))
 
+print("\nBASE EXTRA META LOGISTIC REGRESSION BEST PARAMETERS: " + str(base_extra_meta_logistic_study.best_value))
+print(base_extra_meta_logistic_best)
+print("BASE EXTRA META LOGISTIC REGRESSION MODEL ON TEST: ACCURACY = " 
+      + str(round(accuracy_score(sentiment_test, base_extra_meta_logistic_test_sentiment) * 100, 2)) + "%")
+print(classification_report(sentiment_test, base_extra_meta_logistic_test_sentiment, digits=4))
+
 print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
@@ -672,8 +1123,8 @@ print(classification_report(sentiment_test, enhanced_roberta_test_sentiment, dig
 # ----------------------------------------------------------------------------- Start
 # SAVE OUTPUT / XAI
 # ----------------------------------------------------------------------------- 
-xai_output_folder = "Meta_Model/XAI/LG"
-os.makedirs(xai_output_folder, exist_ok=True)
+output_folder = "Meta_Model/XAI/LG"
+os.makedirs(output_folder, exist_ok=True)
 
 base_readable_xai_report_df = save_readable_local_xai_report(
     model=base_meta_logistic_model,
@@ -681,7 +1132,7 @@ base_readable_xai_report_df = save_readable_local_xai_report(
     feature_names=base_feature_names,
     test_split_df=test_split_df,
     true_labels=sentiment_test,
-    output_folder=xai_output_folder,
+    output_folder=output_folder,
     file_prefix="base_meta_logistic",
     row_indices=list(range(len(sentiment_test))),
     top_n=5
@@ -695,6 +1146,7 @@ print(base_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
@@ -707,9 +1159,61 @@ print(base_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
+
+
+base_extra_readable_xai_report_df = (
+    save_readable_local_xai_report(
+        model=base_extra_meta_logistic_model,
+        feature_values=base_extra_meta_features_test,
+        feature_names=base_extra_feature_names,
+        test_split_df=test_split_df,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="base_extra_meta_logistic",
+        row_indices=list(range(len(sentiment_test))),
+        top_n=5
+    )
+)
+
+print("\n========== BASE EXTRA META LOGISTIC CORRECT XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "correct"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
+
+print("\n========== BASE EXTRA META LOGISTIC WRONG XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "wrong"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
 
 
 mixed_readable_xai_report_df = save_readable_local_xai_report(
@@ -718,7 +1222,7 @@ mixed_readable_xai_report_df = save_readable_local_xai_report(
     feature_names=mixed_feature_names,
     test_split_df=test_split_df,
     true_labels=sentiment_test,
-    output_folder=xai_output_folder,
+    output_folder=output_folder,
     file_prefix="mixed_meta_logistic",
     row_indices=list(range(len(sentiment_test))),
     top_n=5
@@ -732,6 +1236,7 @@ print(mixed_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
@@ -744,6 +1249,7 @@ print(mixed_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
@@ -755,7 +1261,7 @@ enhanced_readable_xai_report_df = save_readable_local_xai_report(
     feature_names=enhanced_feature_names,
     test_split_df=test_split_df,
     true_labels=sentiment_test,
-    output_folder=xai_output_folder,
+    output_folder=output_folder,
     file_prefix="enhanced_meta_logistic",
     row_indices=list(range(len(sentiment_test))),
     top_n=5
@@ -769,6 +1275,7 @@ print(enhanced_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
@@ -781,11 +1288,12 @@ print(enhanced_readable_xai_report_df[
     "true_sentiment",
     "predicted_sentiment",
     "prediction_confidence",
+    "strongest_individual_feature",
     "strongest_feature_group",
     "explanation"
 ]].head(5))
 
-print("\nSaved Logistic Regression XAI Report to:", xai_output_folder)
+print("\nSaved Logistic Regression XAI Report to:", output_folder)
 
 output_folder = "Meta_Model/Classification_Report/LG"
 os.makedirs(output_folder, exist_ok=True)
@@ -794,6 +1302,15 @@ base_meta_logistic_test_report_df = pd.DataFrame(
     classification_report(
         sentiment_test,
         base_meta_logistic_test_sentiment,
+        digits=4,
+        output_dict=True
+    )
+).transpose().round(4)
+
+base_extra_meta_logistic_test_report_df = pd.DataFrame(
+    classification_report(
+        sentiment_test,
+        base_extra_meta_logistic_test_sentiment,
         digits=4,
         output_dict=True
     )
@@ -819,6 +1336,14 @@ enhanced_meta_logistic_test_report_df = pd.DataFrame(
 
 base_meta_logistic_test_report_df.to_csv(
     os.path.join(output_folder, "base_meta_logistic_test_classification_report.csv"),
+    index_label="class"
+)
+
+base_extra_meta_logistic_test_report_df.to_csv(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_logistic_test_classification_report.csv"
+    ),
     index_label="class"
 )
 
@@ -851,6 +1376,31 @@ plt.savefig(
     bbox_inches="tight",
     dpi=300
 )
+plt.close()
+
+fig, ax = plt.subplots(figsize=(8, 3))
+ax.axis("off")
+
+table = ax.table(
+    cellText=base_extra_meta_logistic_test_report_df.values,
+    rowLabels=base_extra_meta_logistic_test_report_df.index,
+    colLabels=base_extra_meta_logistic_test_report_df.columns,
+    loc="center"
+)
+
+table.auto_set_font_size(False)
+table.set_fontsize(9)
+table.scale(1.2, 1.4)
+
+plt.savefig(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_logistic_test_classification_report.png"
+    ),
+    bbox_inches="tight",
+    dpi=300
+)
+
 plt.close()
 
 
@@ -898,7 +1448,7 @@ plt.close()
 
 print("Saved Logistic Regression Classification Report to:", output_folder)
 
-output_folder = "Meta_Model/Results"
+output_folder = "Meta_Model/Results/LG"
 os.makedirs(output_folder, exist_ok=True)
 
 meta_logistic_optuna_summary = pd.DataFrame([
@@ -906,6 +1456,7 @@ meta_logistic_optuna_summary = pd.DataFrame([
         "hyperparameter": "C",
         "search_range": "0.001 to 10.0, logarithmic",
         "base best_value": base_meta_logistic_best["C"],
+        "base_extra best_value": base_extra_meta_logistic_best["C"],
         "mixed best_value": mixed_meta_logistic_best["C"],
         "enhanced best_value": enhanced_meta_logistic_best["C"]
     }
@@ -917,5 +1468,102 @@ meta_logistic_optuna_summary.to_csv(
 )
 
 print("Saved Meta Logistic Regression Optuna Parameters to:", output_folder)
+
+output_folder = "Meta_Model/XAI/LG"
+os.makedirs(output_folder, exist_ok=True)
+
+base_logistic_coefficient_xai = (
+    generate_coefficient_xai_charts(
+        model=base_meta_logistic_model,
+        feature_values=base_meta_features_test,
+        feature_names=base_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="base_meta_logistic",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+base_extra_logistic_coefficient_xai = (
+    generate_coefficient_xai_charts(
+        model=base_extra_meta_logistic_model,
+        feature_values=base_extra_meta_features_test,
+        feature_names=base_extra_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="base_extra_meta_logistic",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+mixed_logistic_coefficient_xai = (
+    generate_coefficient_xai_charts(
+        model=mixed_meta_logistic_model,
+        feature_values=mixed_meta_features_test,
+        feature_names=mixed_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="mixed_meta_logistic",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+enhanced_logistic_coefficient_xai = (
+    generate_coefficient_xai_charts(
+        model=enhanced_meta_logistic_model,
+        feature_values=enhanced_meta_features_test,
+        feature_names=enhanced_feature_names,
+        true_labels=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="enhanced_meta_logistic",
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+print("Saved All Meta Logistic Regression XAI Charts to:", output_folder)
+
+
+output_folder = "Meta_Model/Results/LG"
+os.makedirs(output_folder, exist_ok=True)
+
+base_meta_logistic_test_sentiment_df = pd.DataFrame({
+    "base_meta_logistic_test_sentiment": base_meta_logistic_test_sentiment
+})
+
+base_meta_logistic_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_meta_logistic_test_sentiment.csv"),
+    index=False
+)
+
+base_extra_meta_logistic_test_sentiment_df = pd.DataFrame({
+    "base_extra_meta_logistic_test_sentiment": base_extra_meta_logistic_test_sentiment
+})
+
+base_extra_meta_logistic_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_extra_meta_logistic_test_sentiment.csv"),
+    index=False
+)
+
+mixed_meta_logistic_test_sentiment_df = pd.DataFrame({
+    "mixed_meta_logistic_test_sentiment": mixed_meta_logistic_test_sentiment
+})
+
+mixed_meta_logistic_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "mixed_meta_logistic_test_sentiment.csv"),
+    index=False
+)
+
+enhanced_meta_logistic_test_sentiment_df = pd.DataFrame({
+    "enhanced_meta_logistic_test_sentiment": enhanced_meta_logistic_test_sentiment
+})
+
+enhanced_meta_logistic_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "enhanced_meta_logistic_test_sentiment.csv"),
+    index=False
+)
+print("Saved Meta Logistic Regression Sentiments to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END

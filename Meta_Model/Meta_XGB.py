@@ -178,6 +178,18 @@ mixed_meta_features_test = np.hstack([enhanced_svm_test_probabilities,
                                      enhanced_roberta_test_probabilities, 
                                      enhanced_vader_test_scores])
 
+base_extra_meta_features_train = np.hstack([base_svm_train_probabilities,
+                                        base_nb_train_probabilities,
+                                        base_roberta_train_probabilities,
+                                        base_vader_train_scores,
+                                        extra_train_meta_features])
+
+base_extra_meta_features_test = np.hstack([base_svm_test_probabilities,
+                                        base_nb_test_probabilities,
+                                        base_roberta_test_probabilities,
+                                        base_vader_test_scores,
+                                        extra_test_meta_features])
+
 enhanced_meta_features_train = np.hstack([enhanced_svm_train_probabilities, 
                                       enhanced_nb_train_probabilities, 
                                       enhanced_roberta_train_probabilities, 
@@ -207,6 +219,8 @@ mixed_feature_names = [
 
 extra_feature_names = extra_train_meta_features_df.columns.tolist()
 
+base_extra_feature_names = (base_feature_names + extra_feature_names)
+
 enhanced_feature_names = mixed_feature_names + extra_feature_names
 
 assert len(base_feature_names) == base_meta_features_train.shape[1]
@@ -224,6 +238,7 @@ assert enhanced_meta_features_test.shape[0] == len(sentiment_test)
 
 print("\n========== XGB XAI FEATURE CHECK ==========")
 print("Base XGB XAI feature count:", len(base_feature_names))
+print("Base Extra XGB XAI feature count:", len(base_extra_feature_names))
 print("Mixed XGB XAI feature count:", len(mixed_feature_names))
 print("Enhanced XGB XAI feature count:", len(enhanced_feature_names))
 # ----------------------------------------------------------------------------- END
@@ -290,6 +305,141 @@ base_meta_xgb_model = XGBClassifier(
 base_meta_xgb_model.fit(base_meta_features_train, sentiment_train_num)
 base_meta_xgb_test_predictions = base_meta_xgb_model.predict(base_meta_features_test)
 base_meta_xgb_test_sentiment = [reverse_label_map[i] for i in base_meta_xgb_test_predictions]
+# ----------------------------------------------------------------------------- END
+
+# -----------------------------------------------------------------------------
+# BASE EXTRA META XGBOOST
+# -----------------------------------------------------------------------------
+def base_extra_meta_xgb_optuna(trial):
+    optuna_xgb_meta_model = XGBClassifier(
+        n_estimators=trial.suggest_int(
+            "n_estimators",
+            200,
+            800
+        ),
+        learning_rate=trial.suggest_float(
+            "learning_rate",
+            0.01,
+            0.2,
+            log=True
+        ),
+        max_depth=trial.suggest_int(
+            "max_depth",
+            2,
+            6
+        ),
+        min_child_weight=trial.suggest_int(
+            "min_child_weight",
+            1,
+            30
+        ),
+        gamma=trial.suggest_float(
+            "gamma",
+            0.0,
+            5.0
+        ),
+        subsample=trial.suggest_float(
+            "subsample",
+            0.7,
+            1.0
+        ),
+        colsample_bytree=trial.suggest_float(
+            "colsample_bytree",
+            0.7,
+            1.0
+        ),
+        reg_alpha=trial.suggest_float(
+            "reg_alpha",
+            0.0,
+            5.0
+        ),
+        reg_lambda=trial.suggest_float(
+            "reg_lambda",
+            0.1,
+            10.0,
+            log=True
+        ),
+        objective="multi:softprob",
+        eval_metric="mlogloss",
+        tree_method="hist",
+        num_class=3,
+        random_state=42,
+        n_jobs=-1
+    )
+
+    scores = cross_val_score(
+        optuna_xgb_meta_model,
+        base_extra_meta_features_train,
+        sentiment_train_num,
+        cv=optuna_cv,
+        scoring="f1_macro"
+    )
+
+    return scores.mean()
+
+print("\n========== BASE EXTRA META XGBOOST MODEL ==========")
+
+base_extra_meta_xgb_study = optuna.create_study(
+    direction="maximize",
+    sampler=optuna.samplers.TPESampler(seed=42)
+)
+
+base_extra_meta_xgb_study.optimize(
+    base_extra_meta_xgb_optuna,
+    n_trials=30
+)
+
+base_extra_meta_xgb_best = (
+    base_extra_meta_xgb_study.best_params
+)
+
+base_extra_meta_xgb_model = XGBClassifier(
+    n_estimators=base_extra_meta_xgb_best[
+        "n_estimators"
+    ],
+    learning_rate=base_extra_meta_xgb_best[
+        "learning_rate"
+    ],
+    max_depth=base_extra_meta_xgb_best[
+        "max_depth"
+    ],
+    min_child_weight=base_extra_meta_xgb_best[
+        "min_child_weight"
+    ],
+    gamma=base_extra_meta_xgb_best["gamma"],
+    subsample=base_extra_meta_xgb_best["subsample"],
+    colsample_bytree=base_extra_meta_xgb_best[
+        "colsample_bytree"
+    ],
+    reg_alpha=base_extra_meta_xgb_best[
+        "reg_alpha"
+    ],
+    reg_lambda=base_extra_meta_xgb_best[
+        "reg_lambda"
+    ],
+    objective="multi:softprob",
+    eval_metric="mlogloss",
+    tree_method="hist",
+    num_class=3,
+    random_state=42,
+    n_jobs=-1
+)
+
+base_extra_meta_xgb_model.fit(
+    base_extra_meta_features_train,
+    sentiment_train_num
+)
+
+base_extra_meta_xgb_test_predictions = (
+    base_extra_meta_xgb_model.predict(
+        base_extra_meta_features_test
+    )
+)
+
+base_extra_meta_xgb_test_sentiment = [
+    reverse_label_map[int(prediction)]
+    for prediction in base_extra_meta_xgb_test_predictions
+]
 # ----------------------------------------------------------------------------- END
 
 # ----------------------------------------------------------------------------- Start
@@ -495,6 +645,410 @@ def get_row_class_shap_values(shap_values, row_position, class_index, n_rows, n_
 
     raise ValueError("Unexpected SHAP values shape: " + str(shap_values_array.shape))
 
+def generate_xgb_shap_charts(
+        model,
+        feature_values,
+        feature_names,
+        true_sentiments,
+        output_folder,
+        file_prefix,
+        model_title,
+        reverse_label_map,
+        correct_row_index=None,
+        incorrect_row_index=None,
+        global_top_n=20,
+        local_top_n=10
+):
+    os.makedirs(output_folder, exist_ok=True)
+
+    feature_values = np.asarray(feature_values)
+    true_sentiments = np.asarray(true_sentiments)
+
+    predicted_class_numbers = (
+        model.predict(feature_values).astype(int)
+    )
+
+    predicted_sentiments = np.asarray([
+        reverse_label_map[int(class_number)]
+        for class_number in predicted_class_numbers
+    ])
+
+    class_numbers = list(model.classes_)
+
+    n_rows = feature_values.shape[0]
+    n_features = feature_values.shape[1]
+    n_classes = len(class_numbers)
+
+    explainer = shap.TreeExplainer(model)
+
+    shap_values = explainer.shap_values(
+        feature_values
+    )
+
+    # Select the SHAP vector for each row's predicted class.
+    predicted_class_shap_matrix = np.vstack([
+        get_row_class_shap_values(
+            shap_values=shap_values,
+            row_position=row_position,
+            class_index=class_numbers.index(
+                int(predicted_class_numbers[row_position])
+            ),
+            n_rows=n_rows,
+            n_features=n_features,
+            n_classes=n_classes
+        )
+        for row_position in range(n_rows)
+    ])
+
+    readable_feature_names = [
+        make_feature_name_readable(feature)
+        for feature in feature_names
+    ]
+
+    feature_groups = np.asarray([
+        get_meta_feature_group(feature)
+        for feature in feature_names
+    ])
+
+    # =========================================================
+    # 1. GLOBAL MEAN ABSOLUTE SHAP VALUE BY FEATURE
+    # =========================================================
+    mean_absolute_shap_values = np.mean(
+        np.abs(predicted_class_shap_matrix),
+        axis=0
+    )
+
+    global_feature_df = pd.DataFrame({
+        "feature": feature_names,
+        "readable_feature": readable_feature_names,
+        "feature_group": feature_groups,
+        "mean_absolute_shap_value":
+            mean_absolute_shap_values
+    }).sort_values(
+        "mean_absolute_shap_value",
+        ascending=False
+    )
+
+    global_feature_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_feature_shap_values.csv"
+        ),
+        index=False
+    )
+
+    plotted_global_feature_df = (
+        global_feature_df
+        .head(global_top_n)
+        .sort_values("mean_absolute_shap_value")
+    )
+
+    plt.figure(
+        figsize=(
+            10,
+            max(
+                5,
+                len(plotted_global_feature_df) * 0.4
+            )
+        )
+    )
+
+    plt.barh(
+        plotted_global_feature_df["readable_feature"],
+        plotted_global_feature_df[
+            "mean_absolute_shap_value"
+        ]
+    )
+
+    plt.xlabel(
+        "Mean Absolute SHAP Value "
+        "for Predicted Class (Raw Margin)"
+    )
+    plt.ylabel("Meta-Feature")
+
+    plt.title(
+        model_title
+        + ": Global Mean Absolute SHAP Value by Feature"
+    )
+
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_feature_shap_values.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+
+    plt.close()
+
+    # =========================================================
+    # 2. GLOBAL MEAN ABSOLUTE SHAP VALUE BY FEATURE GROUP
+    # =========================================================
+    group_rows = []
+
+    for feature_group in pd.unique(feature_groups):
+        group_mask = feature_groups == feature_group
+
+        # Signed SHAP values are summed within each group
+        # before their absolute size is averaged.
+        row_group_shap_values = (
+            predicted_class_shap_matrix[
+                :, group_mask
+            ].sum(axis=1)
+        )
+
+        group_rows.append({
+            "feature_group": feature_group,
+            "feature_count": int(group_mask.sum()),
+            "mean_absolute_group_shap_value":
+                np.mean(
+                    np.abs(row_group_shap_values)
+                )
+        })
+
+    global_group_df = pd.DataFrame(
+        group_rows
+    ).sort_values(
+        "mean_absolute_group_shap_value",
+        ascending=False
+    )
+
+    global_group_df.to_csv(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_group_shap_values.csv"
+        ),
+        index=False
+    )
+
+    plotted_group_df = global_group_df.sort_values(
+        "mean_absolute_group_shap_value"
+    )
+
+    plt.figure(
+        figsize=(
+            9,
+            max(4, len(plotted_group_df) * 0.7)
+        )
+    )
+
+    plt.barh(
+        plotted_group_df["feature_group"],
+        plotted_group_df[
+            "mean_absolute_group_shap_value"
+        ]
+    )
+
+    plt.xlabel(
+        "Mean Absolute Group SHAP Value "
+        "(Raw Margin)"
+    )
+    plt.ylabel("Feature Group")
+
+    plt.title(
+        model_title
+        + ": Global Mean Absolute SHAP Value "
+        "by Feature Group"
+    )
+
+    plt.tight_layout()
+
+    plt.savefig(
+        os.path.join(
+            output_folder,
+            file_prefix
+            + "_global_group_shap_values.png"
+        ),
+        dpi=300,
+        bbox_inches="tight"
+    )
+
+    plt.close()
+
+    # =========================================================
+    # SELECT CORRECT AND INCORRECT EXAMPLES
+    # =========================================================
+    correct_indices = np.flatnonzero(
+        predicted_sentiments == true_sentiments
+    )
+
+    incorrect_indices = np.flatnonzero(
+        predicted_sentiments != true_sentiments
+    )
+
+    if correct_row_index is None:
+        if len(correct_indices) == 0:
+            raise ValueError(
+                "No correct XGBoost prediction was found."
+            )
+
+        correct_row_index = int(correct_indices[0])
+
+    if incorrect_row_index is None:
+        if len(incorrect_indices) == 0:
+            raise ValueError(
+                "No incorrect XGBoost prediction was found."
+            )
+
+        incorrect_row_index = int(
+            incorrect_indices[0]
+        )
+
+    # =========================================================
+    # LOCAL SHAP CHART
+    # =========================================================
+    def save_local_shap_chart(
+            row_index,
+            prediction_result
+    ):
+        local_df = pd.DataFrame({
+            "feature": feature_names,
+            "readable_feature":
+                readable_feature_names,
+            "feature_group": feature_groups,
+            "raw_value": feature_values[row_index],
+            "shap_value_for_predicted_class":
+                predicted_class_shap_matrix[
+                    row_index
+                ],
+            "absolute_shap_value": np.abs(
+                predicted_class_shap_matrix[
+                    row_index
+                ]
+            )
+        })
+
+        local_df = (
+            local_df
+            .sort_values(
+                "absolute_shap_value",
+                ascending=False
+            )
+            .head(local_top_n)
+            .sort_values(
+                "shap_value_for_predicted_class"
+            )
+        )
+
+        local_df.to_csv(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".csv"
+            ),
+            index=False
+        )
+
+        bar_colours = [
+            "tab:blue"
+            if shap_value >= 0
+            else "tab:orange"
+            for shap_value in local_df[
+                "shap_value_for_predicted_class"
+            ]
+        ]
+
+        plt.figure(
+            figsize=(
+                10,
+                max(5, len(local_df) * 0.5)
+            )
+        )
+
+        plt.barh(
+            local_df["readable_feature"],
+            local_df[
+                "shap_value_for_predicted_class"
+            ],
+            color=bar_colours
+        )
+
+        plt.axvline(
+            x=0,
+            linewidth=0.8,
+            color="black"
+        )
+
+        plt.xlabel(
+            "SHAP Value for Predicted Class "
+            "(Raw Margin)"
+        )
+        plt.ylabel("Meta-Feature")
+
+        plt.title(
+            model_title
+            + ": "
+            + prediction_result.title()
+            + " Prediction\n"
+            + "True = "
+            + str(true_sentiments[row_index])
+            + ", Predicted = "
+            + str(predicted_sentiments[row_index])
+            + ", Row = "
+            + str(row_index)
+        )
+
+        plt.tight_layout()
+
+        plt.savefig(
+            os.path.join(
+                output_folder,
+                file_prefix
+                + "_local_"
+                + prediction_result
+                + "_row_"
+                + str(row_index)
+                + ".png"
+            ),
+            dpi=300,
+            bbox_inches="tight"
+        )
+
+        plt.close()
+
+        return local_df
+
+    correct_local_df = save_local_shap_chart(
+        row_index=correct_row_index,
+        prediction_result="correct"
+    )
+
+    incorrect_local_df = save_local_shap_chart(
+        row_index=incorrect_row_index,
+        prediction_result="incorrect"
+    )
+
+    print(
+        "\nSaved XGBoost SHAP charts to:",
+        output_folder
+    )
+    print("Correct example row:", correct_row_index)
+    print("Incorrect example row:", incorrect_row_index)
+
+    return {
+        "global_feature_shap_values":
+            global_feature_df,
+        "global_group_shap_values":
+            global_group_df,
+        "correct_local_shap_values":
+            correct_local_df,
+        "incorrect_local_shap_values":
+            incorrect_local_df,
+        "correct_row_index":
+            correct_row_index,
+        "incorrect_row_index":
+            incorrect_row_index
+    }
 
 def save_readable_local_xgb_shap_report(
         model,
@@ -721,6 +1275,12 @@ print(base_meta_xgb_best)
 print("BASE META XGBOOST MODEL ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_meta_xgb_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_meta_xgb_test_sentiment, digits=4))
 
+print("BASE EXTRA META XGBOOST BEST PARAMETERS: " + str(base_extra_meta_xgb_study.best_value))
+print(base_extra_meta_xgb_best)
+print("BASE EXTRA META XGBOOST MODEL ON TEST: ACCURACY = "
+    + str(round(accuracy_score(sentiment_test, base_extra_meta_xgb_test_sentiment) * 100, 2)) + "%")
+print(classification_report(sentiment_test, base_extra_meta_xgb_test_sentiment, digits=4))
+
 print("\nBASE VADER ON TEST: ACCURACY = " + str(round(accuracy_score(sentiment_test, base_vader_test_sentiment) * 100, 2)) + "%")
 print(classification_report(sentiment_test, base_vader_test_sentiment, digits=4))
 
@@ -816,6 +1376,62 @@ print(base_readable_xai_report_df[
 ]].head(5))
 
 
+base_extra_readable_xai_report_df = (
+    save_readable_local_xgb_shap_report(
+        model=base_extra_meta_xgb_model,
+        feature_values=
+            base_extra_meta_features_test,
+        feature_names=
+            base_extra_feature_names,
+        test_split_df=test_split_df,
+        true_sentiments=sentiment_test,
+        output_folder=xai_output_folder,
+        file_prefix="base_extra_meta_xgb",
+        row_indices=list(
+            range(len(sentiment_test))
+        ),
+        reverse_label_map=reverse_label_map,
+        top_n=5
+    )
+)
+
+print("\n========== BASE EXTRA META XGB CORRECT XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "correct"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
+
+print("\n========== BASE EXTRA META XGB WRONG XAI EXAMPLES ==========")
+
+print(
+    base_extra_readable_xai_report_df[
+        base_extra_readable_xai_report_df[
+            "prediction_result"
+        ] == "wrong"
+    ][[
+        "row_index",
+        "true_sentiment",
+        "predicted_sentiment",
+        "prediction_confidence",
+        "strongest_individual_feature",
+        "strongest_feature_group",
+        "explanation"
+    ]].head(5)
+)
+
+
 mixed_readable_xai_report_df = save_readable_local_xgb_shap_report(
     model=mixed_meta_xgb_model,
     feature_values=mixed_meta_features_test,
@@ -909,6 +1525,15 @@ base_meta_xgb_test_report_df = pd.DataFrame(
     )
 ).transpose().round(4)
 
+base_extra_meta_xgb_test_report_df = pd.DataFrame(
+    classification_report(
+        sentiment_test,
+        base_extra_meta_xgb_test_sentiment,
+        digits=4,
+        output_dict=True
+    )
+).transpose().round(4)
+
 mixed_meta_xgb_test_report_df = pd.DataFrame(
     classification_report(
         sentiment_test,
@@ -929,6 +1554,15 @@ enhanced_meta_xgb_test_report_df = pd.DataFrame(
 
 base_meta_xgb_test_report_df.to_csv(
     os.path.join(output_folder, "base_meta_xgb_test_classification_report.csv"),
+    index_label="class"
+)
+
+base_extra_meta_xgb_test_report_df.to_csv(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_xgb_test_"
+        "classification_report.csv"
+    ),
     index_label="class"
 )
 
@@ -961,6 +1595,35 @@ plt.savefig(
     bbox_inches="tight",
     dpi=300
 )
+plt.close()
+
+
+fig, ax = plt.subplots(figsize=(8, 3))
+ax.axis("off")
+
+table = ax.table(
+    cellText=
+        base_extra_meta_xgb_test_report_df.values,
+    rowLabels=
+        base_extra_meta_xgb_test_report_df.index,
+    colLabels=
+        base_extra_meta_xgb_test_report_df.columns,
+    loc="center"
+)
+
+table.auto_set_font_size(False)
+table.set_fontsize(9)
+table.scale(1.2, 1.4)
+
+plt.savefig(
+    os.path.join(
+        output_folder,
+        "base_extra_meta_xgb_test_classification_report.png"
+    ),
+    bbox_inches="tight",
+    dpi=300
+)
+
 plt.close()
 
 
@@ -1008,7 +1671,7 @@ plt.close()
 
 print("Saved XGBoost Classification Report to:", output_folder)
 
-output_folder = "Meta_Model/Results"
+output_folder = "Meta_Model/Results/XGB"
 os.makedirs(output_folder, exist_ok=True)
 
 meta_xgb_optuna_summary = pd.DataFrame([
@@ -1016,6 +1679,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "n_estimators",
         "search_range": "200 to 800",
         "base best_value": base_meta_xgb_best["n_estimators"],
+        "base_extra best_value": base_extra_meta_xgb_best["n_estimators"],
         "mixed best_value": mixed_meta_xgb_best["n_estimators"],
         "enhanced best_value": enhanced_meta_xgb_best["n_estimators"]
     },
@@ -1023,6 +1687,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "learning_rate",
         "search_range": "0.01 to 0.2, logarithmic",
         "base best_value": base_meta_xgb_best["learning_rate"],
+        "base_extra best_value": base_extra_meta_xgb_best["learning_rate"],
         "mixed best_value": mixed_meta_xgb_best["learning_rate"],
         "enhanced best_value": enhanced_meta_xgb_best["learning_rate"]
     },
@@ -1030,6 +1695,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "max_depth",
         "search_range": "2 to 6",
         "base best_value": base_meta_xgb_best["max_depth"],
+        "base_extra best_value": base_extra_meta_xgb_best["max_depth"],
         "mixed best_value": mixed_meta_xgb_best["max_depth"],
         "enhanced best_value": enhanced_meta_xgb_best["max_depth"]
     },
@@ -1037,6 +1703,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "min_child_weight",
         "search_range": "1 to 30",
         "base best_value": base_meta_xgb_best["min_child_weight"],
+        "base_extra best_value": base_extra_meta_xgb_best["min_child_weight"],
         "mixed best_value": mixed_meta_xgb_best["min_child_weight"],
         "enhanced best_value": enhanced_meta_xgb_best["min_child_weight"]
     },
@@ -1044,6 +1711,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "gamma",
         "search_range": "0.0 to 5.0",
         "base best_value": base_meta_xgb_best["gamma"],
+        "base_extra best_value": base_extra_meta_xgb_best["gamma"],
         "mixed best_value": mixed_meta_xgb_best["gamma"],
         "enhanced best_value": enhanced_meta_xgb_best["gamma"]
     },
@@ -1051,6 +1719,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "subsample",
         "search_range": "0.7 to 1.0",
         "base best_value": base_meta_xgb_best["subsample"],
+        "base_extra best_value": base_extra_meta_xgb_best["subsample"],
         "mixed best_value": mixed_meta_xgb_best["subsample"],
         "enhanced best_value": enhanced_meta_xgb_best["subsample"]
     },
@@ -1058,6 +1727,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "colsample_bytree",
         "search_range": "0.7 to 1.0",
         "base best_value": base_meta_xgb_best["colsample_bytree"],
+        "base_extra best_value": base_extra_meta_xgb_best["colsample_bytree"],
         "mixed best_value": mixed_meta_xgb_best["colsample_bytree"],
         "enhanced best_value": enhanced_meta_xgb_best["colsample_bytree"]
     },
@@ -1065,6 +1735,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "reg_alpha",
         "search_range": "0.0 to 5.0",
         "base best_value": base_meta_xgb_best["reg_alpha"],
+        "base_extra best_value": base_extra_meta_xgb_best["reg_alpha"],
         "mixed best_value": mixed_meta_xgb_best["reg_alpha"],
         "enhanced best_value": enhanced_meta_xgb_best["reg_alpha"]
     },
@@ -1072,6 +1743,7 @@ meta_xgb_optuna_summary = pd.DataFrame([
         "hyperparameter": "reg_lambda",
         "search_range": "0.1 to 10.0, logarithmic",
         "base best_value": base_meta_xgb_best["reg_lambda"],
+        "base_extra best_value": base_extra_meta_xgb_best["reg_lambda"],
         "mixed best_value": mixed_meta_xgb_best["reg_lambda"],
         "enhanced best_value": enhanced_meta_xgb_best["reg_lambda"]
     }
@@ -1083,5 +1755,114 @@ meta_xgb_optuna_summary.to_csv(
 )
 
 print("Saved Meta XGBoost Optuna Parameters to:" ,output_folder)
+
+
+output_folder = "Meta_Model/XAI/XGB"
+os.makedirs(output_folder, exist_ok=True)
+
+base_xgb_shap_charts = generate_xgb_shap_charts(
+    model=base_meta_xgb_model,
+    feature_values=base_meta_features_test,
+    feature_names=base_feature_names,
+    true_sentiments=sentiment_test,
+    output_folder=output_folder,
+    file_prefix="base_meta_xgb",
+    model_title="Base Meta XGBoost",
+    reverse_label_map=reverse_label_map,
+    global_top_n=20,
+    local_top_n=10
+)
+
+base_extra_xgb_shap_charts = (
+    generate_xgb_shap_charts(
+        model=base_extra_meta_xgb_model,
+        feature_values=
+            base_extra_meta_features_test,
+        feature_names=
+            base_extra_feature_names,
+        true_sentiments=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="base_extra_meta_xgb",
+        model_title="Base Extra Meta XGBoost",
+        reverse_label_map=reverse_label_map,
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+mixed_xgb_shap_charts = generate_xgb_shap_charts(
+    model=mixed_meta_xgb_model,
+    feature_values=mixed_meta_features_test,
+    feature_names=mixed_feature_names,
+    true_sentiments=sentiment_test,
+    output_folder=output_folder,
+    file_prefix="mixed_meta_xgb",
+    model_title="Mixed Meta XGBoost",
+    reverse_label_map=reverse_label_map,
+    global_top_n=20,
+    local_top_n=10
+)
+
+enhanced_xgb_shap_charts = (
+    generate_xgb_shap_charts(
+        model=enhanced_meta_xgb_model,
+        feature_values=
+            enhanced_meta_features_test,
+        feature_names=enhanced_feature_names,
+        true_sentiments=sentiment_test,
+        output_folder=output_folder,
+        file_prefix="enhanced_meta_xgb",
+        model_title="Enhanced Meta XGBoost",
+        reverse_label_map=reverse_label_map,
+        global_top_n=20,
+        local_top_n=10
+    )
+)
+
+print(
+    "Saved Meta XGBoost SHAP Charts to:",
+    output_folder
+)
+
+
+output_folder = "Meta_Model/Results/XGB"
+os.makedirs(output_folder, exist_ok=True)
+
+base_meta_xgb_test_sentiment_df = pd.DataFrame({
+    "base_meta_xgb_test_sentiment": base_meta_xgb_test_sentiment
+})
+
+base_meta_xgb_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_meta_xgb_test_sentiment.csv"),
+    index=False
+)
+
+base_extra_meta_xgb_test_sentiment_df = pd.DataFrame({
+    "base_extra_meta_xgb_test_sentiment": base_extra_meta_xgb_test_sentiment
+})
+
+base_extra_meta_xgb_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "base_extra_meta_xgb_test_sentiment.csv"),
+    index=False
+)
+
+mixed_meta_xgb_test_sentiment_df = pd.DataFrame({
+    "mixed_meta_xgb_test_sentiment": mixed_meta_xgb_test_sentiment
+})
+
+mixed_meta_xgb_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "mixed_meta_xgb_test_sentiment.csv"),
+    index=False
+)
+
+enhanced_meta_xgb_test_sentiment_df = pd.DataFrame({
+    "enhanced_meta_xgb_test_sentiment": enhanced_meta_xgb_test_sentiment
+})
+
+enhanced_meta_xgb_test_sentiment_df.to_csv(
+    os.path.join(output_folder, "enhanced_meta_xgb_test_sentiment.csv"),
+    index=False
+)
+print("Saved Meta XGBoost Sentiments to:", output_folder)
 # ----------------------------------------------------------------------------- END
 # ================================================================================================================== END
