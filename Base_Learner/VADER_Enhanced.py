@@ -15,8 +15,10 @@ import contextlib
 # Dataset
 # ======================================================================================================================
 base_vader_val_scores_df = pd.read_csv("Base_Learner/Results/VADER/Base/base_vader_val_scores.csv")
+base_vader_test_scores_df = pd.read_csv("Base_Learner/Results/VADER/Base/base_vader_test_scores.csv")
 
 base_vader_val_scores = base_vader_val_scores_df[["neg", "neu", "pos", "compound"]].to_dict("records")
+base_vader_test_scores = base_vader_test_scores_df[["neg", "neu", "pos", "compound"]].to_dict("records")
 
 base_vader_val_sentiment_df = pd.read_csv("Base_Learner/Results/VADER/Base/base_vader_val_sentiment.csv")
 base_vader_train_sentiment_df = pd.read_csv("Base_Learner/Results/VADER/Base/base_vader_train_sentiment.csv")
@@ -1635,37 +1637,122 @@ def create_enhanced_vader_audit(texts, true_labels, raw_scores, enhanced_scores,
     return pd.DataFrame(rows)
 
 def print_enhanced_vader_audit_summary(audit_df):
-    rule_detected_mask = (audit_df["rule_keys"].apply(bool))
-    rule_affected_df = audit_df[rule_detected_mask]
+    total_reviews = len(audit_df)
 
-    corrected_count = (audit_df["effect"] == "corrected").sum()
-    harmed_count = (audit_df["effect"] == "harmed").sum()
+    rule_applied_mask = audit_df["rule_keys"].apply(bool)
+    no_rule_mask = ~rule_applied_mask
 
-    print("\n========== ENHANCED VADER AUDIT SUMMARY ==========")
-    print("Total reviews:", len(audit_df))
-    print("Reviews where at least one rule was applied:", rule_detected_mask.sum())
-    print("Reviews whose text was changed:", audit_df["text_changed"].sum())
-    print("Reviews whose VADER scores changed:", audit_df["score_changed"].sum())
-    print("Reviews whose predicted sentiment changed:", audit_df["prediction_changed"].sum())
+    corrected_mask = audit_df["effect"].eq("corrected")
+    harmed_mask = audit_df["effect"].eq("harmed")
+    remained_correct_mask = audit_df["effect"].eq("remained_correct")
+    remained_wrong_mask = audit_df["effect"].eq("remained_wrong")
 
-    print("\n========== SENTIMENT CLASSIFICATION EFFECT ==========")
-    print(audit_df["effect"].value_counts().reindex([
-        "corrected", "harmed", "remained_correct", "remained_wrong"],
-        fill_value=0)
+    wrong_to_wrong_changed_mask = (
+        audit_df["prediction_changed"]
+        & ~audit_df["raw_correct"]
+        & ~audit_df["enhanced_correct"]
     )
-    print("\nCorrected:", corrected_count)
-    print("Harmed:", harmed_count)
-    print("Net corrections:", corrected_count - harmed_count)
 
-    positive_correction = (corrected_count + harmed_count)
-    if positive_correction > 0:
-        print("Correction precision:", corrected_count / positive_correction)
+    corrected_total = corrected_mask.sum()
+    harmed_total = harmed_mask.sum()
 
-    print("\nTrue-class margin improved:", audit_df["margin_improved"].sum())
-    print("True-class margin worsened:", audit_df["margin_worsened"].sum())
+    wrong_to_wrong_total = wrong_to_wrong_changed_mask.sum()
 
-    print("\nEffects among rule-detected reviews:")
-    print(rule_affected_df["effect"].value_counts())
+    net_corrections_total = corrected_total - harmed_total
+
+    summary_rows = [
+        {
+            "metric": "Total reviews",
+            "count": total_reviews
+        },
+        {
+            "metric": "Reviews with at least 1 rule applied",
+            "count": rule_applied_mask.sum()
+        },
+        {
+            "metric": "Reviews with no rules applied",
+            "count": no_rule_mask.sum()
+        },
+        {
+            "metric": "Reviews whose text changed",
+            "count": audit_df["text_changed"].sum()
+        },
+        {
+            "metric": "Reviews whose VADER scores changed",
+            "count": audit_df["score_changed"].sum()
+        },
+        {
+            "metric": "Reviews whose sentiment changed",
+            "count": audit_df["prediction_changed"].sum()
+        },
+        {
+            "metric": "Corrected reviews total",
+            "count": corrected_total
+        },
+        {
+            "metric": "Harmed reviews total",
+            "count": harmed_total
+        },
+        {
+            "metric": "Wrong to wrong changed reviews total",
+            "count": wrong_to_wrong_total
+        },
+        {
+            "metric": "Stayed correct reviews",
+            "count": remained_correct_mask.sum()
+        },
+        {
+            "metric": "Stayed wrong reviews",
+            "count": remained_wrong_mask.sum()
+        },
+        {
+            "metric": "Net corrections total",
+            "count": net_corrections_total
+        },
+        {
+            "metric": "True-class margin improved",
+            "count": audit_df["margin_improved"].sum()
+        },
+        {
+            "metric": "True-class margin worsened",
+            "count": audit_df["margin_worsened"].sum()
+        }
+    ]
+
+    summary_df = pd.DataFrame(summary_rows)
+
+    summary_df["count"] = summary_df["count"].astype(int)
+
+    summary_df["percent"] = (
+        summary_df["count"] / total_reviews * 100
+    )
+
+    print(
+        "\n========== ENHANCED VADER REVIEW-LEVEL "
+        "AUDIT SUMMARY =========="
+    )
+
+    print(
+        summary_df.to_string(
+            index=False,
+            formatters={
+                "count": "{:d}".format,
+                "percent": "{:.2f}".format
+            }
+        )
+    )
+
+    decisive_changes = corrected_total + harmed_total
+
+    if decisive_changes > 0:
+        correction_precision = (
+            corrected_total / decisive_changes * 100
+        )
+
+        print(
+            "\nCorrection precision among corrected and harmed "
+            f"reviews: {correction_precision:.2f}%"
+        )
 
 def print_audit_consistency_check(audit_df):
     total_reviews = len(audit_df)
@@ -2427,7 +2514,7 @@ def print_rule_affected_reviews(audit_df, number=0):
 print()
 enhanced_vader_val_scores, enhanced_vader_val_audit = score_enhanced_vader_reviews(text_val, keep_trace=True, split="Predicting Validation Scores With Enhanced VADER")
 enhanced_vader_train_scores, _ = score_enhanced_vader_reviews(text_train, keep_trace=True, split="Predicting Train Scores With Enhanced VADER")
-enhanced_vader_test_scores, _ = score_enhanced_vader_reviews(text_test, keep_trace=True, split="Predicting Test Scores With Enhanced VADER")
+enhanced_vader_test_scores, enhanced_vader_test_audit = score_enhanced_vader_reviews(text_test, keep_trace=True, split="Predicting Test Scores With Enhanced VADER")
 
 enhanced_vader_val_sentiment = [vader_label(score["compound"])
                     for score in enhanced_vader_val_scores
@@ -2456,6 +2543,16 @@ enhanced_vader_audit_df = (
         raw_scores=base_vader_val_scores,
         enhanced_scores=enhanced_vader_val_scores,
         enhanced_audit=enhanced_vader_val_audit
+    )
+)
+
+enhanced_vader_test_audit_df = (
+    create_enhanced_vader_audit(
+        texts=text_test,
+        true_labels=sentiment_test,
+        raw_scores=base_vader_test_scores,
+        enhanced_scores=enhanced_vader_test_scores,
+        enhanced_audit=enhanced_vader_test_audit
     )
 )
 
@@ -2618,6 +2715,13 @@ with contextlib.redirect_stdout(output):
     print_enhanced_vader_audit_summary(enhanced_vader_audit_df)
 text_output = output.getvalue()
 with open(os.path.join(output_folder, "enhanced_vader_audit_summary.txt"), "w", encoding="utf-8") as file:
+    file.write(text_output)
+
+output = io.StringIO()
+with contextlib.redirect_stdout(output):
+    print_enhanced_vader_audit_summary(enhanced_vader_test_audit_df)
+text_output = output.getvalue()
+with open(os.path.join(output_folder, "enhanced_vader_test_audit_summary.txt"), "w", encoding="utf-8") as file:
     file.write(text_output)
 
 print("Saved VADER Audit Text Files to:", output_folder)
